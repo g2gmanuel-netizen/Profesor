@@ -236,6 +236,28 @@ def al_callar() -> None:
     set_estado("escuchando", "Te escucho…")
 
 
+_ultimo_abrir = 0.0
+
+
+def abrir_bola() -> None:
+    """Abre (o trae al frente) la bola en el navegador, sin duplicar ventanas."""
+    global _ultimo_abrir
+    ahora = time.time()
+    if ahora - _ultimo_abrir < 8:   # evita reabrir en cada palabra
+        return
+    _ultimo_abrir = ahora
+    try:
+        webbrowser.open(f"http://127.0.0.1:{PUERTO}")
+    except Exception:  # noqa: BLE001
+        pass
+
+
+def al_invocar(origen: str) -> None:
+    """Invocación (palmas o «lucky»): la bola se ABRE sola."""
+    abrir_bola()
+    set_estado("escuchando", "👏 Te escucho…" if origen == "palmas" else "Te escucho…")
+
+
 def saludo_inicial() -> str:
     try:
         pend = herramientas.ejecutar("leer_estado", {"seccion": "tareas"})
@@ -333,27 +355,29 @@ def main() -> None:
             print("lucky>", responder(t))
         return
 
+    fondo = "--fondo" in args   # segundo plano: no abre navegador ni saluda hasta ser invocado
     servidor = ThreadingHTTPServer(("127.0.0.1", PUERTO), Handler)
     threading.Thread(target=servidor.serve_forever, daemon=True).start()
     url = f"http://127.0.0.1:{PUERTO}"
-    print(f"[bola] {url}")
+    print(f"[bola] {url}" + ("  (segundo plano: esperando palmas o «lucky»)" if fondo else ""))
 
     global _escucha
     if "--sin-voz" not in args:
         from escucha import Escucha
-        _escucha = Escucha(procesar_voz, al_activar, al_callar)
+        _escucha = Escucha(procesar_voz, al_activar, al_callar, al_invocar)
         _escucha.start()
 
-    try:
-        webbrowser.open(url)
-    except Exception:  # noqa: BLE001
-        pass
-
-    # saludo
-    set_estado("hablando", saludo_inicial())
-    threading.Thread(target=lambda: (_marcar(True), tts.hablar(saludo_inicial()),
-                                     _marcar(False), set_estado("reposo")),
-                     daemon=True).start()
+    if not fondo:
+        # modo normal: abre la bola y saluda
+        try:
+            webbrowser.open(url)
+        except Exception:  # noqa: BLE001
+            pass
+        set_estado("hablando", saludo_inicial())
+        threading.Thread(target=lambda: (_marcar(True), tts.hablar(saludo_inicial()),
+                                         _marcar(False), set_estado("reposo")),
+                         daemon=True).start()
+    # en --fondo se queda callado y en reposo hasta que le llames o des palmas
 
     try:
         while True:

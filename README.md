@@ -14,8 +14,10 @@ crear documentos, enviar correos, buscar en internet…).
 ## Novedades respecto al traspaso
 - **Marca LUCKY** (ya no «jarvis») y **display holográfico rojo**, dinámico y
   tecnológico (canvas de partículas, rejilla, halos, estados animados).
-- **Activación** por **dos palmas**, por palabra clave (`lucky`, `oye lucky`,
+- **Activación** por **tres palmas 👏👏👏**, por palabra clave (`lucky`, `oye lucky`,
   `hola lucky`) o **modo abierto** (cualquier voz).
+- **Arranque automático** al iniciar sesión (launchd): queda escuchando en
+  segundo plano y **la bola se abre sola** al invocarlo; no hay que abrirlo a mano.
 - **No te interrumpe:** espera a que termines de hablar (silencio) para responder.
 - **Barge-in:** si hablas mientras responde, **se calla al instante** y te atiende
   con el mínimo retardo (voz troceada por frases + corte inmediato del audio).
@@ -30,9 +32,19 @@ crear documentos, enviar correos, buscar en internet…).
 2. Edita **`.env`** (copia de `.env.example`) y pon tu `ANTHROPIC_API_KEY`.
 3. Doble clic en **`jarvis.command`**. Se abre la bola en `http://127.0.0.1:8765`.
 
+### Arranque automático (recomendado): que se abra SOLO
+Doble clic en **`instalar_arranque.command`**. A partir de ahí **no tienes que
+abrir nada desde Documentos**: LUCKY arranca al iniciar sesión y queda escuchando
+en segundo plano. La bola **se abre sola** cuando:
+- dices **«oye lucky»**, o
+- das **tres palmas 👏👏👏** (configurable con `JARVIS_PALMAS`).
+
+Para quitarlo: doble clic en **`desinstalar_arranque.command`**.
+
 ### Modos de ejecución
 ```bash
 python jarvis.py            # bola + voz + navegador
+python jarvis.py --fondo    # segundo plano: sin abrir nada hasta que le llames
 python jarvis.py --sin-voz  # bola sin micrófono
 python jarvis.py --texto    # solo teclado (depurar cerebro/herramientas)
 ```

@@ -46,16 +46,20 @@ class Escucha(threading.Thread):
     UMBRAL_BARGE = 0.045     # RMS para interrumpir a LUCKY mientras habla (alto: evita eco)
     BARGE_FRAMES = 4         # nº de bloques (~200 ms) seguidos para confirmar interrupción
     UMBRAL_PALMA = 0.28      # pico para considerar una palmada
-    PALMAS_MIN = 0.12        # separación mínima entre dos palmas
-    PALMAS_MAX = 0.9         # separación máxima entre dos palmas
+    PALMAS_MIN = 0.12        # refractario entre palmadas (no contar una dos veces)
+    PALMAS_VENTANA = 2.0     # ventana (s) en la que contar la secuencia de palmas
 
     def __init__(self, procesar: Callable[[str], None],
                  al_activar: Callable[[str], None] | None = None,
-                 al_callar: Callable[[], None] | None = None):
+                 al_callar: Callable[[], None] | None = None,
+                 al_invocar: Callable[[str], None] | None = None):
         super().__init__(daemon=True)
         self._procesar = procesar
         self.al_activar = al_activar or (lambda origen: None)
         self.al_callar = al_callar or (lambda: None)
+        # Invocación = "ábrete" (palabra clave o N palmas). Abre la bola.
+        self.al_invocar = al_invocar or (lambda origen: None)
+        self.palmas_n = max(2, int(os.environ.get("JARVIS_PALMAS", "3") or 3))
         self.activo = True
         self.asistente_hablando = threading.Event()  # True mientras LUCKY habla
         self.modo = os.environ.get("JARVIS_MODO_ESCUCHA", "wake").strip().lower()
@@ -114,8 +118,9 @@ class Escucha(threading.Thread):
         ult_voz = 0.0
         inicio_frase = 0.0
         ult_palma = 0.0
+        palmas_ts: list = []       # marcas de tiempo de palmadas recientes
         barge = 0                  # bloques seguidos de voz mientras LUCKY habla
-        print(f"[escucha] En línea (modo={self.modo}). Palmas 👏👏, «lucky» o habla.")
+        print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas, «lucky» o habla.")
 
         with sd.InputStream(samplerate=self.FS, channels=1, blocksize=bloque_n,
                             dtype="float32") as stream:
@@ -126,14 +131,18 @@ class Escucha(threading.Thread):
                 pico = float(np.max(np.abs(muestras)))
                 ahora = time.time()
 
-                # --- detección de dos palmas ---
+                # --- detección de N palmadas (por defecto 3) ---
                 if pico > self.UMBRAL_PALMA and rms < self.UMBRAL_PALMA:  # transitorio breve
-                    if self.PALMAS_MIN < (ahora - ult_palma) < self.PALMAS_MAX:
-                        ult_palma = 0.0
-                        self.al_activar("palmas")
-                        self._despertar_ventana(stream, bloque_n)
-                        continue
-                    ult_palma = ahora
+                    if ahora - ult_palma > self.PALMAS_MIN:   # refractario: una palmada = un evento
+                        ult_palma = ahora
+                        palmas_ts.append(ahora)
+                        palmas_ts = [t for t in palmas_ts if ahora - t <= self.PALMAS_VENTANA]
+                        if len(palmas_ts) >= self.palmas_n:
+                            palmas_ts = []
+                            self.al_invocar("palmas")          # abre la bola
+                            self.al_activar("palmas")
+                            self._despertar_ventana(stream, bloque_n)
+                            continue
 
                 # Barge-in: si el usuario habla mientras LUCKY responde, se calla
                 # AL INSTANTE y empieza a atenderle (mínimo lag).
@@ -196,10 +205,13 @@ class Escucha(threading.Thread):
             return
         activado, resto = self._quitar_activacion(texto)
         if self.modo == "abierto":
+            if activado:
+                self.al_invocar("voz")   # dijo "lucky": abre la bola
             self.al_activar("voz")
             self.procesar(resto if activado else texto)
         else:  # modo "wake": requiere palabra de activación
             if activado:
+                self.al_invocar("voz")   # dijo "lucky": abre la bola
                 self.al_activar("voz")
                 if resto:
                     self.procesar(resto)

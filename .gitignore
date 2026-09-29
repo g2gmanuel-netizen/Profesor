@@ -11,6 +11,9 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Registros
+lucky.log
+
 # Modelos y cachés de voz
 *.onnx
 .cache/
