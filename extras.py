@@ -98,13 +98,22 @@ def cancelar() -> str:
 # ==============================================================================
 # Utilidades HTTP
 # ==============================================================================
+class LimiteError(Exception):
+    """La web limita las peticiones (HTTP 429)."""
+
+
 def _get(url: str, timeout: int = 20) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": _UA,
                                                "Accept-Language": "es-ES,es;q=0.9,en;q=0.6"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        datos = r.read()
-        enc = r.headers.get_content_charset() or "utf-8"
-    return datos.decode(enc, errors="replace")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            datos = r.read()
+            enc = r.headers.get_content_charset() or "utf-8"
+        return datos.decode(enc, errors="replace")
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            raise LimiteError("429")
+        raise
 
 
 def _texto_plano(htmltxt: str, limite: int = 4000) -> str:
@@ -266,24 +275,36 @@ def _h_tiempo(args: dict) -> str:
             f"viento {c['wind_speed_10m']} km/h.")
 
 
+_cache_cotiz: dict[str, tuple[float, str]] = {}
+
+
 def _h_cotizacion(args: dict) -> str:
     simbolo = (args.get("simbolo") or "").strip().upper()
     if not simbolo:
         return "Falta el símbolo (p. ej. AAPL, ^IBEX, EURUSD=X)."
+    # cache de 60 s: evita machacar Yahoo si se pide lo mismo repetidamente
+    ahora = time.time()
+    if simbolo in _cache_cotiz and ahora - _cache_cotiz[simbolo][0] < 60:
+        return _cache_cotiz[simbolo][1]
     with actividad.accion("Consultando cotización", simbolo, icono="📈"):
         try:
             d = json.loads(_get(
                 f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(simbolo)}"))
             r = d["chart"]["result"][0]["meta"]
+        except LimiteError:
+            return ("Yahoo Finance está limitando las peticiones (429). "
+                    "Espera un par de minutos; no voy a reintentar ahora.")
         except Exception as e:  # noqa: BLE001
-            return f"No pude obtener la cotización: {e}"
+            return f"No pude obtener la cotización de {simbolo}: {e}"
     precio = r.get("regularMarketPrice")
     prev = r.get("chartPreviousClose") or r.get("previousClose")
     var = ""
     if precio and prev:
         pct = (precio - prev) / prev * 100
         var = f" ({pct:+.2f}%)"
-    return f"{simbolo}: {precio} {r.get('currency', '')}{var}"
+    salida = f"{simbolo}: {precio} {r.get('currency', '')}{var}"
+    _cache_cotiz[simbolo] = (time.time(), salida)
+    return salida
 
 
 def _h_resumen_mercado(args: dict) -> str:
@@ -513,6 +534,37 @@ def _h_enviar_correo(args: dict) -> str:
 
 
 # ==============================================================================
+# NAVEGADOR controlable — abrir webs y HACER CLIC (aceptar cookies, botones)
+# ==============================================================================
+def _h_navegador_web(args: dict) -> str:
+    url = (args.get("url") or "").strip()
+    clic = (args.get("clic") or "").strip()
+    leer = bool(args.get("leer"))
+    if not url and not clic and not leer:
+        return "Dime una url que abrir y/o un botón que pulsar (clic)."
+    import navegador
+    partes = []
+    with actividad.accion("Navegando", url or clic, icono="🖱️") as a:
+        if url:
+            partes.append(navegador.NAV.enviar("abrir", url))
+        if clic:
+            a.detalle(f"pulsando «{clic}»")
+            partes.append(navegador.NAV.enviar("clic", clic))
+        if leer:
+            partes.append(navegador.NAV.enviar("leer"))
+    return " ".join(partes) if partes else "Hecho."
+
+
+def _h_web_clic(args: dict) -> str:
+    texto = (args.get("texto") or "").strip()
+    if not texto:
+        return "Dime qué botón o enlace pulsar."
+    import navegador
+    with actividad.accion("Clic en la web", texto, icono="🖱️"):
+        return navegador.NAV.enviar("clic", texto)
+
+
+# ==============================================================================
 # Registro
 # ==============================================================================
 ESQUEMAS: list[dict] = [
@@ -572,6 +624,13 @@ ESQUEMAS: list[dict] = [
      "input_schema": {"type": "object", "properties": {
          "para": {"type": "string"}, "asunto": {"type": "string"}, "cuerpo": {"type": "string"}},
          "required": ["para"]}},
+    {"name": "navegador_web", "description": "Abre una web en un navegador controlado y puede HACER CLIC (p. ej. aceptar cookies) y leerla. Úsalo cuando haya que pulsar botones en una página.",
+     "input_schema": {"type": "object", "properties": {
+         "url": {"type": "string", "description": "página a abrir"},
+         "clic": {"type": "string", "description": "texto del botón/enlace a pulsar, p. ej. 'Acepto y continúo gratis'"},
+         "leer": {"type": "boolean", "description": "si true, devuelve el texto de la página"}}}},
+    {"name": "web_clic", "description": "Hace clic en un botón o enlace por su texto en la página ya abierta en el navegador controlado.",
+     "input_schema": {"type": "object", "properties": {"texto": {"type": "string"}}, "required": ["texto"]}},
 ]
 
 EJECUTORES: dict[str, Callable[[dict], str]] = {
@@ -594,4 +653,6 @@ EJECUTORES: dict[str, Callable[[dict], str]] = {
     "ejecutar_atajo": _h_ejecutar_atajo,
     "ejecutar_comando": _h_ejecutar_comando,
     "enviar_correo": _h_enviar_correo,
+    "navegador_web": _h_navegador_web,
+    "web_clic": _h_web_clic,
 }
