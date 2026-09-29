@@ -42,6 +42,7 @@ class Escucha(threading.Thread):
     BLOQUE = 0.05            # 50 ms por bloque
     SILENCIO_FIN = 0.7       # silencio (s) que marca fin de frase (bajo = menos lag)
     MAX_FRASE = 15.0         # tope de una intervención
+    VENTANA_CONV = 15.0      # tras hablarle, sigue atendiendo sin repetir "lucky" (s)
     UMBRAL_VOZ = 0.012       # RMS mínimo para considerar "habla"
     UMBRAL_BARGE = 0.045     # RMS para interrumpir a LUCKY mientras habla (alto: evita eco)
     BARGE_FRAMES = 4         # nº de bloques (~200 ms) seguidos para confirmar interrupción
@@ -66,6 +67,7 @@ class Escucha(threading.Thread):
         palabras = os.environ.get("JARVIS_ACTIVACION", "lucky,oye lucky,hola lucky")
         extra = os.environ.get("JARVIS_ACTIVACION_EXTRA", "")
         self.activaciones = [_normalizar(p) for p in (palabras + "," + extra).split(",") if p.strip()]
+        self.conversacion_hasta = 0.0   # mientras > ahora, atiende sin exigir "lucky"
         self._modelo = None
 
     # --- API pública ----------------------------------------------------------
@@ -120,6 +122,7 @@ class Escucha(threading.Thread):
         ult_palma = 0.0
         palmas_ts: list = []       # marcas de tiempo de palmadas recientes
         barge = 0                  # bloques seguidos de voz mientras LUCKY habla
+        forzar_prox = False        # la próxima frase se procesa sí o sí (fue interrupción)
         print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas, «lucky» o habla.")
 
         with sd.InputStream(samplerate=self.FS, channels=1, blocksize=bloque_n,
@@ -154,6 +157,7 @@ class Escucha(threading.Thread):
                             self.marcar_hablando(False)
                             barge = 0
                             capturando = True                # captura desde ya
+                            forzar_prox = True               # y se responde aunque no diga "lucky"
                             inicio_frase = ahora
                             ult_voz = ahora
                             buffer = [muestras.copy()]
@@ -179,7 +183,8 @@ class Escucha(threading.Thread):
                         audio = np.concatenate(buffer) if buffer else None
                         buffer = []
                         if audio is not None and len(audio) > self.FS * 0.3:
-                            self._procesar_frase(audio)
+                            self._procesar_frase(audio, forzar=forzar_prox)
+                        forzar_prox = False
 
     def _despertar_ventana(self, stream, bloque_n: float) -> None:
         """Tras palmas: abre una ventana breve para capturar la orden."""
@@ -199,21 +204,22 @@ class Escucha(threading.Thread):
             if texto:
                 self.procesar(texto)
 
-    def _procesar_frase(self, audio) -> None:
+    def _procesar_frase(self, audio, forzar: bool = False) -> None:
         texto = self._transcribir(audio)
         if not texto or len(texto) < 2:
             return
         activado, resto = self._quitar_activacion(texto)
-        if self.modo == "abierto":
+        ahora = time.time()
+        en_conversacion = ahora < self.conversacion_hasta
+        # Se atiende si: modo abierto, dijo "lucky", fue una interrupción (forzar),
+        # o seguimos dentro de la ventana de conversación reciente.
+        if self.modo == "abierto" or activado or forzar or en_conversacion:
             if activado:
                 self.al_invocar("voz")   # dijo "lucky": abre la bola
             self.al_activar("voz")
-            self.procesar(resto if activado else texto)
-        else:  # modo "wake": requiere palabra de activación
-            if activado:
-                self.al_invocar("voz")   # dijo "lucky": abre la bola
-                self.al_activar("voz")
-                if resto:
-                    self.procesar(resto)
-                # si solo dijo "lucky", queda a la espera; el bucle capturará lo siguiente
-            # si no hay activación en modo wake, se ignora (no interrumpe)
+            self.conversacion_hasta = ahora + self.VENTANA_CONV  # sigue atendiendo un rato
+            mensaje = resto if (activado and resto) else texto
+            if activado and not resto and not (forzar or en_conversacion):
+                return  # solo dijo "lucky": queda a la espera
+            self.procesar(mensaje)
+        # en modo wake, sin activación y fuera de conversación: se ignora (no molesta)

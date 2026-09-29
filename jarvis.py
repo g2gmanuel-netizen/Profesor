@@ -356,9 +356,22 @@ def main() -> None:
         return
 
     fondo = "--fondo" in args   # segundo plano: no abre navegador ni saluda hasta ser invocado
-    servidor = ThreadingHTTPServer(("127.0.0.1", PUERTO), Handler)
-    threading.Thread(target=servidor.serve_forever, daemon=True).start()
     url = f"http://127.0.0.1:{PUERTO}"
+    try:
+        servidor = ThreadingHTTPServer(("127.0.0.1", PUERTO), Handler)
+    except OSError as e:
+        # Puerto ocupado: ya hay una copia de LUCKY. En vez de fallar, abrimos
+        # la bola de la copia existente y salimos sin montar un segundo micrófono.
+        if getattr(e, "errno", None) in (48, 98):  # 48 macOS, 98 linux
+            print("[bola] LUCKY ya estaba abierto; muestro la bola existente.")
+            if not fondo:
+                try:
+                    webbrowser.open(url)
+                except Exception:  # noqa: BLE001
+                    pass
+            return
+        raise
+    threading.Thread(target=servidor.serve_forever, daemon=True).start()
     print(f"[bola] {url}" + ("  (segundo plano: esperando palmas o «lucky»)" if fondo else ""))
 
     global _escucha
