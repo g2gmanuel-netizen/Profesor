@@ -1,0 +1,16 @@
+# Secretos y entorno
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Modelos y cachés de voz
+*.onnx
+.cache/

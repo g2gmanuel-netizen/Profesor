@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUCKY</title>
+<style>
+  :root{
+    --rojo:#ff2a2a; --rojo-claro:#ff6b6b; --rojo-hondo:#8a0f14;
+    --fondo:#050608; --panel:rgba(255,42,42,.06); --linea:rgba(255,42,42,.28);
+    --texto:#ffd9d9; --tenue:#c98a8a;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    background:radial-gradient(1200px 800px at 50% 40%,#160607 0%,var(--fondo) 60%);
+    color:var(--texto);font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+    overflow:hidden;
+  }
+  #cielo{position:fixed;inset:0;z-index:0}
+  .rejilla{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.14;
+    background:
+      linear-gradient(transparent 95%,rgba(255,42,42,.5) 96%) 0 0/100% 34px,
+      linear-gradient(90deg,transparent 95%,rgba(255,42,42,.5) 96%) 0 0/34px 100%;
+    mask-image:radial-gradient(circle at 50% 45%,#000 0%,transparent 70%);}
+  .marca{position:fixed;top:22px;left:0;right:0;text-align:center;z-index:3}
+  .marca h1{margin:0;font-size:clamp(28px,7vw,64px);letter-spacing:.5em;
+    font-weight:800;color:#fff;text-shadow:0 0 18px var(--rojo),0 0 42px var(--rojo-hondo);
+    padding-left:.5em}
+  .marca .sub{font-size:11px;letter-spacing:.4em;color:var(--tenue);margin-top:6px}
+  .estado-pill{display:inline-block;margin-top:10px;padding:3px 14px;border:1px solid var(--linea);
+    border-radius:20px;font-size:11px;letter-spacing:.2em;color:var(--rojo-claro);
+    background:rgba(255,42,42,.05);text-transform:uppercase}
+  .estado-pill .dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--rojo);margin-right:7px;box-shadow:0 0 8px var(--rojo);animation:latido 1.6s infinite}
+  @keyframes latido{50%{opacity:.35}}
+  #sub{position:fixed;left:50%;bottom:150px;transform:translateX(-50%);z-index:3;
+    max-width:min(760px,88vw);text-align:center;font-size:clamp(14px,2.4vw,20px);
+    line-height:1.5;color:#fff;text-shadow:0 0 12px rgba(255,42,42,.6);
+    min-height:1.5em;transition:opacity .3s}
+  /* Paneles laterales */
+  .panel{position:fixed;z-index:3;width:min(310px,30vw);background:var(--panel);
+    border:1px solid var(--linea);border-radius:12px;backdrop-filter:blur(4px);
+    box-shadow:0 0 30px rgba(255,42,42,.08) inset,0 0 20px rgba(0,0,0,.5)}
+  .panel h2{margin:0;padding:10px 14px;font-size:11px;letter-spacing:.25em;
+    color:var(--rojo-claro);border-bottom:1px solid var(--linea);text-transform:uppercase}
+  .panel .cuerpo{padding:10px 14px;max-height:46vh;overflow:auto;font-size:12.5px;line-height:1.6}
+  #panelTareas{left:24px;top:120px}
+  #panelActividad{right:24px;top:120px;transition:opacity .4s, transform .4s;opacity:.0;transform:translateX(20px)}
+  #panelActividad.visible{opacity:1;transform:none}
+  .item{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed rgba(255,42,42,.14);animation:entra .35s}
+  .item:last-child{border-bottom:0}
+  .item .ic{font-size:15px;line-height:1.2}
+  .item .tx{flex:1}
+  .item .tt{color:#fff}
+  .item .dt{color:var(--tenue);font-size:11px;margin-top:2px;word-break:break-word}
+  .badge{font-size:9.5px;letter-spacing:.1em;padding:1px 7px;border-radius:10px;border:1px solid var(--linea);white-space:nowrap}
+  .b-ejecutando{color:#ffd36b;border-color:#ffd36b66}
+  .b-preparado{color:#ff9d3b;border-color:#ff9d3b66;animation:latido 1s infinite}
+  .b-hecho{color:#6bff9d;border-color:#6bff9d66}
+  .b-error{color:#ff5b5b;border-color:#ff5b5b66}
+  @keyframes entra{from{opacity:0;transform:translateY(-6px)}}
+  .tarea{padding:5px 0;border-bottom:1px dashed rgba(255,42,42,.14)}
+  .tarea.hecha{color:var(--tenue);text-decoration:line-through}
+  /* Caja de entrada */
+  #barra{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;
+    display:flex;gap:8px;width:min(680px,90vw)}
+  #txt{flex:1;background:rgba(10,3,4,.8);border:1px solid var(--linea);border-radius:26px;
+    padding:14px 20px;color:#fff;font-size:15px;outline:none;font-family:inherit}
+  #txt:focus{border-color:var(--rojo);box-shadow:0 0 18px rgba(255,42,42,.35)}
+  #enviar{background:var(--rojo);border:0;color:#fff;border-radius:50%;width:52px;height:52px;
+    font-size:20px;cursor:pointer;box-shadow:0 0 18px rgba(255,42,42,.5)}
+  #enviar:active{transform:scale(.94)}
+  .pista{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:10px;
+    color:var(--tenue);letter-spacing:.15em;z-index:3}
+  ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:rgba(255,42,42,.3);border-radius:3px}
+</style>
+</head>
+<body>
+<canvas id="cielo"></canvas>
+<div class="rejilla"></div>
+
+<div class="marca">
+  <h1>LUCKY</h1>
+  <div class="sub">ASISTENTE · NÚCLEO LOCAL</div>
+  <div class="estado-pill"><span class="dot"></span><span id="estadoTxt">EN REPOSO</span></div>
+</div>
+
+<div class="panel" id="panelTareas">
+  <h2>Pendientes</h2>
+  <div class="cuerpo" id="tareas"><span style="color:var(--tenue)">cargando…</span></div>
+</div>
+
+<div class="panel" id="panelActividad">
+  <h2>Actividad</h2>
+  <div class="cuerpo" id="actividad"></div>
+</div>
+
+<div id="sub"></div>
+
+<div id="barra">
+  <input id="txt" placeholder="Escribe a Lucky… (o di «lucky», da dos palmas 👏👏, o habla)" autocomplete="off">
+  <button id="enviar" title="Enviar">➤</button>
+</div>
+<div class="pista">👏👏 · «OYE LUCKY» · O SIMPLEMENTE HABLA — SI HABLAS, SE CALLA Y TE ATIENDE</div>
+
+<script>
+// ---------- Hologram de partículas (rojo) ----------
+const cv=document.getElementById('cielo'),ctx=cv.getContext('2d');
+let W,H,cx,cy;
+function medir(){W=cv.width=innerWidth;H=cv.height=innerHeight;cx=W/2;cy=H*0.45;}
+addEventListener('resize',medir);medir();
+
+const N=520, puntos=[];
+for(let i=0;i<N;i++){
+  const t=Math.acos(1-2*(i+0.5)/N), f=Math.PI*(1+Math.sqrt(5))*i;
+  puntos.push({x:Math.sin(t)*Math.cos(f),y:Math.sin(t)*Math.sin(f),z:Math.cos(t)});
+}
+let ang=0, energia=0, energiaObj=0.15;
+const MODO={reposo:0.15,escuchando:0.55,pensando:0.9,hablando:0.7};
+
+function dibujar(){
+  ctx.clearRect(0,0,W,H);
+  energia+=(energiaObj-energia)*0.06;
+  ang+=0.0022+energia*0.01;
+  const R=Math.min(W,H)*0.19*(1+energia*0.12);
+  const pulso=1+Math.sin(Date.now()/380)*0.03*energia;
+  // halo
+  const g=ctx.createRadialGradient(cx,cy,R*0.2,cx,cy,R*2.4);
+  g.addColorStop(0,'rgba(255,42,42,'+(0.18+energia*0.22)+')');
+  g.addColorStop(1,'rgba(255,42,42,0)');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R*2.4,0,7);ctx.fill();
+  const ca=Math.cos(ang),sa=Math.sin(ang);
+  for(const p of puntos){
+    const x=p.x*ca-p.z*sa, z=p.x*sa+p.z*ca, y=p.y;
+    const jit=1+ (Math.sin((x+Date.now()/500))*energia*0.06);
+    const px=cx+x*R*pulso*jit, py=cy+y*R*pulso*jit;
+    const prof=(z+1)/2;
+    const rad=0.6+prof*2.1;
+    ctx.beginPath();
+    ctx.fillStyle='rgba(255,'+Math.floor(60+prof*90)+','+Math.floor(60+prof*70)+','+(0.15+prof*0.85)+')';
+    ctx.arc(px,py,rad,0,7);ctx.fill();
+  }
+  // anillo
+  ctx.strokeStyle='rgba(255,42,42,'+(0.25+energia*0.3)+')';ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.ellipse(cx,cy,R*1.5,R*0.42,ang*0.6,0,7);ctx.stroke();
+  requestAnimationFrame(dibujar);
+}
+dibujar();
+
+// ---------- Estado ----------
+const etiquetas={reposo:'EN REPOSO',escuchando:'ESCUCHANDO',pensando:'PENSANDO',hablando:'HABLANDO'};
+async function sondearEstado(){
+  try{
+    const r=await fetch('/api/estado');const s=await r.json();
+    energiaObj=MODO[s.modo]??0.15;
+    document.getElementById('estadoTxt').textContent=etiquetas[s.modo]||s.modo.toUpperCase();
+    const sub=document.getElementById('sub');
+    if(s.modo==='hablando'||s.modo==='escuchando'||s.modo==='pensando'){
+      sub.textContent=s.subtitulo||''; sub.style.opacity=1;
+    }else{ sub.style.opacity=.0; }
+  }catch(e){}
+}
+setInterval(sondearEstado,400);
+
+// ---------- Tareas ----------
+async function sondearTareas(){
+  try{
+    const r=await fetch('/api/tareas');const d=await r.json();
+    const cont=document.getElementById('tareas');
+    const lineas=(d.tareas||'').split('\n').filter(l=>l.trim().startsWith('- ['));
+    if(!lineas.length){cont.innerHTML='<span style="color:var(--tenue)">sin pendientes</span>';return;}
+    cont.innerHTML=lineas.map(l=>{
+      const hecha=l.includes('[x]');
+      const t=l.replace(/- \[[ x]\]\s*/,'');
+      return `<div class="tarea ${hecha?'hecha':''}">${hecha?'✔ ':'○ '}${escapar(t)}</div>`;
+    }).join('');
+  }catch(e){}
+}
+setInterval(sondearTareas,4000);
+
+// ---------- Actividad (qué está haciendo) ----------
+let ultAct=0;
+const vistos=new Map();
+async function sondearActividad(){
+  try{
+    const r=await fetch('/api/actividad?desde='+ultAct);const d=await r.json();
+    const panel=document.getElementById('panelActividad');
+    const cont=document.getElementById('actividad');
+    for(const a of (d.actividades||[])){ vistos.set(a.id,a); ultAct=Math.max(ultAct,a.id); }
+    // refrescar estados de los ya vistos también
+    for(const a of (d.actividades||[])) vistos.set(a.id,a);
+    const lista=[...vistos.values()].slice(-8).reverse();
+    if(lista.length){panel.classList.add('visible');}
+    cont.innerHTML=lista.map(a=>`
+      <div class="item">
+        <div class="ic">${a.icono||'•'}</div>
+        <div class="tx"><div class="tt">${escapar(a.titulo)}</div>
+          ${a.detalle?`<div class="dt">${escapar(a.detalle)}</div>`:''}</div>
+        <div class="badge b-${a.estado}">${a.estado}</div>
+      </div>`).join('');
+  }catch(e){}
+}
+// refresco frecuente para ver progreso en vivo
+setInterval(async()=>{ // re-consulta los últimos para actualizar badges
+  try{
+    const r=await fetch('/api/actividad?desde=0');const d=await r.json();
+    for(const a of (d.actividades||[])) vistos.set(a.id,a);
+    if(vistos.size){
+      const cont=document.getElementById('actividad');
+      const lista=[...vistos.values()].slice(-8).reverse();
+      document.getElementById('panelActividad').classList.add('visible');
+      cont.innerHTML=lista.map(a=>`
+        <div class="item"><div class="ic">${a.icono||'•'}</div>
+        <div class="tx"><div class="tt">${escapar(a.titulo)}</div>
+        ${a.detalle?`<div class="dt">${escapar(a.detalle)}</div>`:''}</div>
+        <div class="badge b-${a.estado}">${a.estado}</div></div>`).join('');
+    }
+  }catch(e){}
+},1200);
+
+// ---------- Enviar texto ----------
+const txt=document.getElementById('txt');
+async function enviar(){
+  const t=txt.value.trim();if(!t)return;txt.value='';
+  document.getElementById('sub').textContent='…';
+  try{
+    await fetch('/api/preguntar',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({texto:t,voz:true})});
+  }catch(e){}
+}
+document.getElementById('enviar').onclick=enviar;
+txt.addEventListener('keydown',e=>{if(e.key==='Enter')enviar();});
+
+function escapar(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+sondearEstado();sondearTareas();
+</script>
+</body>
+</html>
