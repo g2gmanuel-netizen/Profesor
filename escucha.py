@@ -46,9 +46,12 @@ class Escucha(threading.Thread):
     UMBRAL_VOZ = 0.012       # RMS mínimo para considerar "habla"
     UMBRAL_BARGE = 0.045     # RMS para interrumpir a LUCKY mientras habla (alto: evita eco)
     BARGE_FRAMES = 4         # nº de bloques (~200 ms) seguidos para confirmar interrupción
-    UMBRAL_PALMA = 0.28      # pico para considerar una palmada
-    PALMAS_MIN = 0.12        # refractario entre palmadas (no contar una dos veces)
-    PALMAS_VENTANA = 2.0     # ventana (s) en la que contar la secuencia de palmas
+    UMBRAL_PALMA = 0.28      # pico que ya es sin duda una palmada fuerte
+    SNAP_FLOOR = 0.06        # pico mínimo para un chasquido de dedos (más flojo)
+    SNAP_FACTOR = 4.0        # el pico debe superar N veces el ruido de fondo
+    SNAP_SHARP = 3.5         # y ser un transitorio agudo (pico >> rms del bloque)
+    PALMAS_MIN = 0.12        # refractario entre golpes (no contar uno dos veces)
+    PALMAS_VENTANA = 2.0     # ventana (s) para contar la secuencia de golpes
 
     def __init__(self, procesar: Callable[[str], None],
                  al_activar: Callable[[str], None] | None = None,
@@ -158,12 +161,13 @@ class Escucha(threading.Thread):
         ult_voz = 0.0
         inicio_frase = 0.0
         ult_palma = 0.0
-        palmas_ts: list = []       # marcas de tiempo de palmadas recientes
+        palmas_ts: list = []       # marcas de tiempo de golpes recientes (palmas/chasquidos)
+        fondo = 0.02               # nivel de ruido de fondo (para detectar chasquidos)
         barge = 0                  # bloques seguidos de voz mientras LUCKY habla
         forzar_prox = False        # la próxima frase se procesa sí o sí (fue interrupción)
         # precargar el modelo de voz en segundo plano (evita el lag de la 1ª frase)
         threading.Thread(target=self._cargar_modelo, daemon=True).start()
-        print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas, «lucky» o habla.")
+        print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas o chasquidos, «lucky» o habla.")
 
         fallos = 0
         while self.activo:
@@ -179,8 +183,14 @@ class Escucha(threading.Thread):
                             pico = float(np.max(np.abs(muestras)))
                             ahora = time.time()
 
-                            # --- detección de N palmadas (por defecto 3) ---
-                            if pico > self.UMBRAL_PALMA and rms < self.UMBRAL_PALMA:
+                            # --- detección de N golpes: palmas O chasquidos de dedos ---
+                            # Un transitorio agudo = pico muy por encima del fondo y del
+                            # rms del bloque. Así capta tanto palmas (fuertes) como
+                            # chasquidos (más flojos) sin depender de un umbral fijo.
+                            palma_fuerte = pico > self.UMBRAL_PALMA
+                            chasquido = (pico > self.SNAP_FLOOR and pico > self.SNAP_FACTOR * fondo
+                                         and pico > self.SNAP_SHARP * rms)
+                            if palma_fuerte or chasquido:
                                 if ahora - ult_palma > self.PALMAS_MIN:
                                     ult_palma = ahora
                                     palmas_ts.append(ahora)
@@ -191,6 +201,10 @@ class Escucha(threading.Thread):
                                         self.al_activar("palmas")
                                         self._despertar_ventana(stream, bloque_n)
                                         continue
+                            else:
+                                # actualiza el nivel de fondo solo en bloques tranquilos
+                                if rms < self.UMBRAL_VOZ:
+                                    fondo = 0.92 * fondo + 0.08 * rms
 
                             # Barge-in: si el usuario habla mientras LUCKY responde,
                             # se calla AL INSTANTE y empieza a atenderle.
