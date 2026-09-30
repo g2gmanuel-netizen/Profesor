@@ -455,6 +455,101 @@ def _md_a_html(titulo: str, md: str) -> str:
 
 
 # ==============================================================================
+# OFIMÁTICA — Word (.docx) y Excel (.xlsx)
+# ==============================================================================
+def _nombre_archivo(nombre: str, ext: str) -> str:
+    base = re.sub(r"[^\w\- ]", "", nombre or "documento").strip().replace(" ", "_") or "documento"
+    marca = datetime.now().strftime("%Y%m%d-%H%M")
+    os.makedirs(DOCUMENTOS, exist_ok=True)
+    return os.path.join(DOCUMENTOS, f"{base}_{marca}.{ext}")
+
+
+def _h_crear_word(args: dict) -> str:
+    titulo = (args.get("titulo") or "Documento").strip()
+    contenido = args.get("contenido") or ""
+    abrir = args.get("abrir", True)
+    with actividad.accion("Creando Word", titulo, icono="📝") as a:
+        try:
+            from docx import Document
+            from docx.shared import Pt
+        except Exception:  # noqa: BLE001
+            return ("No tengo python-docx instalado. Instálalo con: "
+                    "pip install python-docx")
+        doc = Document()
+        doc.add_heading(titulo, level=0)
+        for linea in str(contenido).split("\n"):
+            t = linea.rstrip()
+            if not t.strip():
+                continue
+            if t.startswith("### "):
+                doc.add_heading(t[4:], level=3)
+            elif t.startswith("## "):
+                doc.add_heading(t[3:], level=2)
+            elif t.startswith("# "):
+                doc.add_heading(t[2:], level=1)
+            elif t.lstrip().startswith(("- ", "* ", "• ")):
+                doc.add_paragraph(t.lstrip()[2:], style="List Bullet")
+            elif re.match(r"^\s*\d+[.)]\s", t):
+                doc.add_paragraph(re.sub(r"^\s*\d+[.)]\s", "", t), style="List Number")
+            else:
+                p = doc.add_paragraph()
+                # negritas **texto**
+                partes = re.split(r"(\*\*.+?\*\*)", t)
+                for tr in partes:
+                    if tr.startswith("**") and tr.endswith("**"):
+                        run = p.add_run(tr[2:-2]); run.bold = True
+                    else:
+                        p.add_run(tr)
+        ruta = _nombre_archivo(titulo, "docx")
+        doc.save(ruta)
+        a.detalle(f"guardado en {ruta}")
+        if abrir:
+            subprocess.run(["open", ruta], check=False)
+    return f"Word creado: {ruta}"
+
+
+def _h_crear_excel(args: dict) -> str:
+    nombre = (args.get("nombre") or args.get("titulo") or "hoja").strip()
+    encabezados = args.get("encabezados") or []
+    filas = args.get("filas") or []
+    titulo_hoja = (args.get("hoja") or "Hoja1")[:31]
+    abrir = args.get("abrir", True)
+    with actividad.accion("Creando Excel", nombre, icono="📊") as a:
+        try:
+            from openpyxl import Workbook
+            from openpyxl.styles import Font, Alignment
+        except Exception:  # noqa: BLE001
+            return "No tengo openpyxl instalado. Instálalo con: pip install openpyxl"
+        wb = Workbook()
+        ws = wb.active
+        ws.title = titulo_hoja
+        fila_ini = 1
+        if encabezados:
+            ws.append([str(x) for x in encabezados])
+            for c in ws[1]:
+                c.font = Font(bold=True)
+                c.alignment = Alignment(horizontal="center")
+            fila_ini = 2
+        for fila in filas:
+            if isinstance(fila, (list, tuple)):
+                ws.append(list(fila))
+            elif isinstance(fila, dict) and encabezados:
+                ws.append([fila.get(h, "") for h in encabezados])
+            else:
+                ws.append([fila])
+        # ancho de columnas automático (aprox.)
+        for col in ws.columns:
+            ancho = max((len(str(c.value)) for c in col if c.value is not None), default=8)
+            ws.column_dimensions[col[0].column_letter].width = min(max(ancho + 2, 10), 50)
+        ruta = _nombre_archivo(nombre, "xlsx")
+        wb.save(ruta)
+        a.detalle(f"guardado en {ruta} ({len(filas)} filas)")
+        if abrir:
+            subprocess.run(["open", ruta], check=False)
+    return f"Excel creado: {ruta}"
+
+
+# ==============================================================================
 # macOS — agenda, recordatorios, portapapeles, archivos, acciones
 # ==============================================================================
 def _osascript(script: str) -> str:
@@ -708,6 +803,17 @@ ESQUEMAS: list[dict] = [
          "leer": {"type": "boolean", "description": "si true, devuelve el texto de la página"}}}},
     {"name": "web_clic", "description": "Hace clic en un botón o enlace por su texto en la página ya abierta en el navegador controlado.",
      "input_schema": {"type": "object", "properties": {"texto": {"type": "string"}}, "required": ["texto"]}},
+    {"name": "crear_word", "description": "Crea un documento Word (.docx) con título y contenido (admite # encabezados, - listas, **negrita**) y lo abre.",
+     "input_schema": {"type": "object", "properties": {
+         "titulo": {"type": "string"}, "contenido": {"type": "string"},
+         "abrir": {"type": "boolean"}}, "required": ["titulo", "contenido"]}},
+    {"name": "crear_excel", "description": "Crea una hoja de cálculo Excel (.xlsx) con encabezados y filas, y la abre.",
+     "input_schema": {"type": "object", "properties": {
+         "nombre": {"type": "string"},
+         "encabezados": {"type": "array", "items": {"type": "string"}},
+         "filas": {"type": "array", "items": {"type": "array"}},
+         "hoja": {"type": "string"}, "abrir": {"type": "boolean"}},
+         "required": ["nombre", "filas"]}},
     {"name": "control_media", "description": "Controla la música (Music o Spotify): reproducir, pausar, siguiente, anterior.",
      "input_schema": {"type": "object", "properties": {
          "accion": {"type": "string", "enum": ["play", "pausa", "siguiente", "anterior", "playpause"]},
@@ -738,6 +844,8 @@ EJECUTORES: dict[str, Callable[[dict], str]] = {
     "enviar_correo": _h_enviar_correo,
     "navegador_web": _h_navegador_web,
     "web_clic": _h_web_clic,
+    "crear_word": _h_crear_word,
+    "crear_excel": _h_crear_excel,
     "control_media": _h_control_media,
     "volumen": _h_volumen,
 }

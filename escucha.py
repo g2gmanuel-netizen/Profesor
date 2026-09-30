@@ -68,6 +68,8 @@ class Escucha(threading.Thread):
         extra = os.environ.get("JARVIS_ACTIVACION_EXTRA", "")
         self.activaciones = [_normalizar(p) for p in (palabras + "," + extra).split(",") if p.strip()]
         self.conversacion_hasta = 0.0   # mientras > ahora, atiende sin exigir "lucky"
+        # idioma: "auto" detecta español/inglés (u otro) por frase; o fíjalo con es/en.
+        self.idioma = os.environ.get("JARVIS_IDIOMA", "auto").strip().lower()
         self._modelo = None
         self._modelo_lock = threading.Lock()
 
@@ -89,17 +91,19 @@ class Escucha(threading.Thread):
     def _cargar_modelo(self):
         with self._modelo_lock:
             if self._modelo is None:
-                tam = os.environ.get("JARVIS_WHISPER", "base").strip() or "base"
+                # "small" entiende mucho mejor el habla informal y el inglés que "base".
+                tam = os.environ.get("JARVIS_WHISPER", "small").strip() or "small"
                 print(f"[escucha] cargando modelo de voz «{tam}»…")
                 self._modelo = WhisperModel(tam, device="cpu", compute_type="int8")
                 print("[escucha] modelo de voz listo.")
         return self._modelo
 
-    # Frases que Whisper "inventa" sobre silencio/ruido (no son del usuario).
+    # Frases que Whisper "inventa" sobre silencio/ruido (no son del usuario), es/en.
     _ALUCINACIONES = (
         "subtítulos realizados por", "subtitulos realizados por", "amara.org",
         "gracias por ver", "gracias por su atención", "suscríbete", "suscribete",
-        "www.", ".com", "♪",
+        "thanks for watching", "subscribe", "please subscribe", "thank you for watching",
+        "www.", ".com", "♪", "[música]", "[music]", "[aplausos]", "[applause]",
     )
 
     def _es_ruido(self, texto: str) -> bool:
@@ -115,10 +119,14 @@ class Escucha(threading.Thread):
 
     def _transcribir(self, audio) -> str:
         modelo = self._cargar_modelo()
+        idioma = None if self.idioma in ("auto", "") else self.idioma
         try:
             segmentos, _ = modelo.transcribe(
-                audio, language="es", vad_filter=True, beam_size=1,
-                no_speech_threshold=0.6, condition_on_previous_text=False)
+                audio, language=idioma, vad_filter=True, beam_size=5,
+                temperature=[0.0, 0.2, 0.4],        # reintenta si duda: más robusto
+                no_speech_threshold=0.6, log_prob_threshold=-1.0,
+                condition_on_previous_text=False,
+                initial_prompt="Conversación natural con LUCKY, asistente personal.")
             partes = [s.text for s in segmentos
                       if getattr(s, "no_speech_prob", 0.0) < 0.7]
         except Exception as e:  # noqa: BLE001
