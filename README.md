@@ -26,6 +26,13 @@ crear documentos, enviar correos, buscar en internet…).
 - **Generación de documentos** (`generar_documento`: md/txt/html).
 - **Mejor búsqueda en internet** (varios motores, con extracción de contenido).
 - **Panel de actividad** en tiempo real (`/api/actividad`).
+- **Navegador con clic real** (`navegador_web`): abre webs y pulsa botones (p. ej.
+  aceptar cookies), también dentro de iframes, vía Playwright.
+- **Control de música y volumen** (Music/Spotify), **documentos en PDF**, y voz
+  española elegida automáticamente.
+- **Robustez**: turnos serializados (sin solapes), reintentos ante errores
+  transitorios, escucha auto-recuperable, filtrado de ruido/alucinaciones y manejo
+  de límites 429 sin bucles.
 
 ## Arranque (macOS)
 1. Doble clic en **`Instalar JARVIS.command`** (una sola vez).

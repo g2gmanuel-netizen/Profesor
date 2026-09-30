@@ -82,7 +82,8 @@ def get_estado() -> dict:
 SISTEMA = (
     "Eres LUCKY, el asistente personal de voz del Profesor, en su Mac; al estilo de "
     "JARVIS: eficaz, sereno, con un punto de ingenio, siempre al servicio. "
-    "Le llamas «Profesor». Hablas en español de España, natural y directo. "
+    "Le llamas «Profesor» y le tratas SIEMPRE de usted. Hablas en español de "
+    "España, natural y directo. "
     "REGLA DE ORO: sé CONCISO. Responde en 1-3 frases salvo que te pidan detalle; "
     "nada de rodeos ni relleno. Vas a hablar en voz alta, así que evita listas "
     "largas, markdown y URLs largas: resume. "
@@ -153,8 +154,11 @@ def resolver_modelo() -> str:
     return _modelo
 
 
-_CONFIRMAR = {"confirmo", "confirma", "confirmado", "adelante", "hazlo", "vale hazlo", "si hazlo"}
-_CANCELAR = {"cancela", "cancelar", "cancelado", "para", "no hagas", "dejalo", "olvidalo"}
+_CONFIRMAR = {"confirmo", "confirma", "confirmado", "adelante", "hazlo", "vale hazlo",
+              "si hazlo", "sí hazlo", "vale", "venga", "dale", "de acuerdo", "correcto",
+              "procede", "adelante con ello"}
+_CANCELAR = {"cancela", "cancelar", "cancelado", "para", "no hagas", "déjalo", "dejalo",
+             "olvidalo", "olvídalo", "mejor no", "anula", "anular"}
 
 
 def responder(texto: str) -> str:
@@ -196,15 +200,22 @@ def _turno_con_herramientas(modelo: str, reintentos: int = 2) -> str:
             )
         except Exception as e:  # noqa: BLE001
             msg = str(e)
-            if reintentos > 0 and ("model" in msg.lower() or "not_found" in msg.lower()):
+            low = msg.lower()
+            if reintentos > 0 and ("model" in low or "not_found" in low):
                 global _modelo
                 _modelo = None
                 return _turno_con_herramientas(resolver_modelo(), reintentos - 1)
-            if "workspace" in msg.lower():
+            # errores transitorios (sobrecarga, timeout, conexión): reintenta con espera
+            if reintentos > 0 and any(t in low for t in
+                    ("overloaded", "529", "503", "500", "timeout", "timed out",
+                     "connection", "temporarily", "rate limit")):
+                time.sleep(1.5)
+                return _turno_con_herramientas(modelo, reintentos - 1)
+            if "workspace" in low:
                 return ("Bloqueo de configuración: la clave necesita un workspace. "
                         "Pon ANTHROPIC_WORKSPACE_ID en .env o crea una clave de "
                         "espacio de trabajo. (Detalle: " + msg[:160] + ")")
-            return f"No pude responder: {msg[:200]}"
+            return f"Ahora mismo no puedo responder, Profesor ({msg[:120]}). Inténtalo otra vez."
 
         if resp.stop_reason != "tool_use":
             return "".join(b.text for b in resp.content if getattr(b, "type", "") == "text").strip()
@@ -300,9 +311,11 @@ def saludo_inicial() -> str:
     except Exception:  # noqa: BLE001
         pend = ""
     n = pend.count("[ ]") if pend else 0
-    base = "Hola Profesor, soy Lucky. Estoy en línea."
+    h = time.localtime().tm_hour
+    saludo = "Buenos días" if h < 13 else ("Buenas tardes" if h < 21 else "Buenas noches")
+    base = f"{saludo}, Profesor. Soy Lucky, a su servicio."
     if n:
-        base += f" Tienes {n} tarea{'s' if n != 1 else ''} pendiente{'s' if n != 1 else ''}."
+        base += f" Tiene {n} tarea{'s' if n != 1 else ''} pendiente{'s' if n != 1 else ''}."
     return base
 
 

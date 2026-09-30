@@ -157,66 +157,84 @@ class Escucha(threading.Thread):
         threading.Thread(target=self._cargar_modelo, daemon=True).start()
         print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas, «lucky» o habla.")
 
-        with sd.InputStream(samplerate=self.FS, channels=1, blocksize=bloque_n,
-                            dtype="float32") as stream:
-            while self.activo:
-                datos, _ = stream.read(bloque_n)
-                muestras = datos[:, 0]
-                rms = float(np.sqrt(np.mean(muestras ** 2)) + 1e-9)
-                pico = float(np.max(np.abs(muestras)))
-                ahora = time.time()
+        fallos = 0
+        while self.activo:
+            try:
+                with sd.InputStream(samplerate=self.FS, channels=1, blocksize=bloque_n,
+                                    dtype="float32") as stream:
+                    fallos = 0
+                    while self.activo:
+                        datos, _ = stream.read(bloque_n)   # si falla, recrea el stream
+                        try:
+                            muestras = datos[:, 0]
+                            rms = float(np.sqrt(np.mean(muestras ** 2)) + 1e-9)
+                            pico = float(np.max(np.abs(muestras)))
+                            ahora = time.time()
 
-                # --- detección de N palmadas (por defecto 3) ---
-                if pico > self.UMBRAL_PALMA and rms < self.UMBRAL_PALMA:  # transitorio breve
-                    if ahora - ult_palma > self.PALMAS_MIN:   # refractario: una palmada = un evento
-                        ult_palma = ahora
-                        palmas_ts.append(ahora)
-                        palmas_ts = [t for t in palmas_ts if ahora - t <= self.PALMAS_VENTANA]
-                        if len(palmas_ts) >= self.palmas_n:
-                            palmas_ts = []
-                            self.al_invocar("palmas")          # abre la bola
-                            self.al_activar("palmas")
-                            self._despertar_ventana(stream, bloque_n)
-                            continue
+                            # --- detección de N palmadas (por defecto 3) ---
+                            if pico > self.UMBRAL_PALMA and rms < self.UMBRAL_PALMA:
+                                if ahora - ult_palma > self.PALMAS_MIN:
+                                    ult_palma = ahora
+                                    palmas_ts.append(ahora)
+                                    palmas_ts = [t for t in palmas_ts if ahora - t <= self.PALMAS_VENTANA]
+                                    if len(palmas_ts) >= self.palmas_n:
+                                        palmas_ts = []
+                                        self.al_invocar("palmas")
+                                        self.al_activar("palmas")
+                                        self._despertar_ventana(stream, bloque_n)
+                                        continue
 
-                # Barge-in: si el usuario habla mientras LUCKY responde, se calla
-                # AL INSTANTE y empieza a atenderle (mínimo lag).
-                if self.asistente_hablando.is_set():
-                    if rms > self.UMBRAL_BARGE:
-                        barge += 1
-                        if barge >= self.BARGE_FRAMES:
-                            self.al_callar()                 # corta la voz de LUCKY
-                            self.marcar_hablando(False)
+                            # Barge-in: si el usuario habla mientras LUCKY responde,
+                            # se calla AL INSTANTE y empieza a atenderle.
+                            if self.asistente_hablando.is_set():
+                                if rms > self.UMBRAL_BARGE:
+                                    barge += 1
+                                    if barge >= self.BARGE_FRAMES:
+                                        self.al_callar()
+                                        self.marcar_hablando(False)
+                                        barge = 0
+                                        capturando = True
+                                        forzar_prox = True
+                                        inicio_frase = ahora
+                                        ult_voz = ahora
+                                        buffer = [muestras.copy()]
+                                else:
+                                    barge = 0
+                                continue
                             barge = 0
-                            capturando = True                # captura desde ya
-                            forzar_prox = True               # y se responde aunque no diga "lucky"
-                            inicio_frase = ahora
-                            ult_voz = ahora
-                            buffer = [muestras.copy()]
-                    else:
-                        barge = 0
-                    continue
-                barge = 0
 
-                # --- endpointing por energía ---
-                if rms > self.UMBRAL_VOZ:
-                    if not capturando:
-                        capturando = True
-                        inicio_frase = ahora
-                        buffer = []
-                    buffer.append(muestras.copy())
-                    ult_voz = ahora
-                elif capturando:
-                    buffer.append(muestras.copy())
-                    fin = (ahora - ult_voz) > self.SILENCIO_FIN
-                    largo = (ahora - inicio_frase) > self.MAX_FRASE
-                    if fin or largo:
-                        capturando = False
-                        audio = np.concatenate(buffer) if buffer else None
-                        buffer = []
-                        if audio is not None and len(audio) > self.FS * 0.3:
-                            self._procesar_frase(audio, forzar=forzar_prox)
-                        forzar_prox = False
+                            # --- endpointing por energía ---
+                            if rms > self.UMBRAL_VOZ:
+                                if not capturando:
+                                    capturando = True
+                                    inicio_frase = ahora
+                                    buffer = []
+                                buffer.append(muestras.copy())
+                                ult_voz = ahora
+                            elif capturando:
+                                buffer.append(muestras.copy())
+                                fin = (ahora - ult_voz) > self.SILENCIO_FIN
+                                largo = (ahora - inicio_frase) > self.MAX_FRASE
+                                if fin or largo:
+                                    capturando = False
+                                    audio = np.concatenate(buffer) if buffer else None
+                                    buffer = []
+                                    if audio is not None and len(audio) > self.FS * 0.3:
+                                        self._procesar_frase(audio, forzar=forzar_prox)
+                                    forzar_prox = False
+                        except Exception as e:  # noqa: BLE001
+                            # un fallo puntual no debe tumbar la escucha
+                            print(f"[escucha] aviso: {e}")
+                            buffer, capturando = [], False
+            except Exception as e:  # noqa: BLE001
+                fallos += 1
+                if not self.activo:
+                    break
+                print(f"[escucha] el micrófono falló ({e}); reintento en 2 s… ({fallos})")
+                time.sleep(2)
+                if fallos >= 6:
+                    print("[escucha] demasiados fallos de micrófono; me quedo en modo texto.")
+                    return
 
     def _despertar_ventana(self, stream, bloque_n: float) -> None:
         """Tras palmas: abre una ventana breve para capturar la orden."""
