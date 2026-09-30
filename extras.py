@@ -135,9 +135,11 @@ def _h_buscar_web(args: dict) -> str:
     if not consulta:
         return "Falta la consulta."
     with actividad.accion("Buscando en internet", consulta, icono="🔎"):
-        resultados = _buscar_ddg(consulta, n) or _buscar_bing(consulta, n)
+        resultados = (_buscar_ddg(consulta, n) or _buscar_ddg_lite(consulta, n)
+                      or _buscar_bing(consulta, n))
     if not resultados:
-        return f"Sin resultados para «{consulta}»."
+        return (f"No pude buscar «{consulta}» ahora mismo (los buscadores no "
+                f"respondieron). Puedo intentar leer una web concreta si me pasas la URL.")
     lineas = [f"Resultados para «{consulta}»:"]
     for i, r in enumerate(resultados, 1):
         lineas.append(f"{i}. {r['titulo']}\n   {r['url']}\n   {r['fragmento']}")
@@ -160,6 +162,22 @@ def _buscar_ddg(consulta: str, n: int) -> list[dict]:
                 "url": html.unescape(enlace),
                 "fragmento": _texto_plano(m.group(3), 300),
             })
+            if len(res) >= n:
+                break
+        return res
+    except Exception:
+        return []
+
+
+def _buscar_ddg_lite(consulta: str, n: int) -> list[dict]:
+    try:
+        url = "https://lite.duckduckgo.com/lite/?q=" + urllib.parse.quote(consulta)
+        pagina = _get(url)
+        res = []
+        for m in re.finditer(r'<a[^>]*class="result-link"[^>]*href="([^"]+)"[^>]*>(.*?)</a>',
+                             pagina, re.S):
+            res.append({"titulo": _texto_plano(m.group(2), 200),
+                        "url": html.unescape(m.group(1)), "fragmento": ""})
             if len(res) >= n:
                 break
         return res
@@ -381,24 +399,42 @@ def _h_generar_documento(args: dict) -> str:
     titulo = (args.get("titulo") or "documento").strip()
     contenido = args.get("contenido") or ""
     formato = (args.get("formato") or "md").strip().lower()
-    if formato not in ("md", "txt", "html"):
+    if formato not in ("md", "txt", "html", "pdf"):
         formato = "md"
     os.makedirs(DOCUMENTOS, exist_ok=True)
     base = re.sub(r"[^\w\- ]", "", titulo).strip().replace(" ", "_") or "documento"
     marca = datetime.now().strftime("%Y%m%d-%H%M")
-    ruta = os.path.join(DOCUMENTOS, f"{base}_{marca}.{formato}")
-    with actividad.accion("Creando documento", os.path.basename(ruta), icono="📄") as a:
-        if formato == "html":
-            cuerpo = _md_a_html(titulo, contenido)
-        elif formato == "md":
-            cuerpo = f"# {titulo}\n\n{contenido}\n"
+    abrir = args.get("abrir", True)   # por defecto, ábrelo para que el Profesor lo vea
+    with actividad.accion("Creando documento", f"{base}.{formato}", icono="📄") as a:
+        if formato == "pdf":
+            # generamos HTML y lo convertimos a PDF con las herramientas de macOS
+            ruta_html = os.path.join(DOCUMENTOS, f"{base}_{marca}.html")
+            with open(ruta_html, "w", encoding="utf-8") as f:
+                f.write(_md_a_html(titulo, contenido))
+            ruta = os.path.join(DOCUMENTOS, f"{base}_{marca}.pdf")
+            ok = False
+            try:
+                r = subprocess.run(["cupsfilter", ruta_html], capture_output=True, timeout=30)
+                if r.returncode == 0 and r.stdout:
+                    with open(ruta, "wb") as f:
+                        f.write(r.stdout)
+                    ok = True
+            except Exception:  # noqa: BLE001
+                ok = False
+            if not ok:
+                ruta = ruta_html   # si no hay cupsfilter, deja el HTML (imprimible a PDF)
         else:
-            cuerpo = f"{titulo}\n{'=' * len(titulo)}\n\n{contenido}\n"
-        with open(ruta, "w", encoding="utf-8") as f:
-            f.write(cuerpo)
+            if formato == "html":
+                cuerpo = _md_a_html(titulo, contenido)
+            elif formato == "md":
+                cuerpo = f"# {titulo}\n\n{contenido}\n"
+            else:
+                cuerpo = f"{titulo}\n{'=' * len(titulo)}\n\n{contenido}\n"
+            ruta = os.path.join(DOCUMENTOS, f"{base}_{marca}.{formato}")
+            with open(ruta, "w", encoding="utf-8") as f:
+                f.write(cuerpo)
         a.detalle(f"guardado en {ruta}")
-        # Intento de convertir a PDF/DOCX si hay herramientas (opcional).
-        if args.get("abrir"):
+        if abrir:
             subprocess.run(["open", ruta], check=False)
     return f"Documento creado: {ruta}"
 
@@ -428,6 +464,11 @@ def _osascript(script: str) -> str:
         return (r.stdout or r.stderr).strip()
     except Exception as e:  # noqa: BLE001
         return f"(osascript no disponible: {e})"
+
+
+def _esc(texto: str) -> str:
+    """Escapa comillas y barras para meter texto en un literal AppleScript."""
+    return (texto or "").replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
 
 
 def _h_agenda_hoy(args: dict) -> str:
@@ -486,7 +527,7 @@ def _h_crear_evento(args: dict) -> str:
 
     def _ejec() -> str:
         s = (f'tell application "Calendar"\ntell calendar 1\n'
-             f'make new event with properties {{summary:"{titulo}", '
+             f'make new event with properties {{summary:"{_esc(titulo)}", '
              f'start date:(current date), end date:(current date + 3600)}}\n'
              f'end tell\nend tell\nreturn "creado"')
         return "Evento creado." if "creado" in _osascript(s) else "No pude crear el evento."
@@ -526,11 +567,47 @@ def _h_enviar_correo(args: dict) -> str:
 
     def _ejec() -> str:
         s = (f'tell application "Mail"\nset m to make new outgoing message with properties '
-             f'{{subject:"{asunto}", content:"{cuerpo}", visible:true}}\n'
-             f'tell m to make new to recipient with properties {{address:"{para}"}}\n'
+             f'{{subject:"{_esc(asunto)}", content:"{_esc(cuerpo)}", visible:true}}\n'
+             f'tell m to make new to recipient with properties {{address:"{_esc(para)}"}}\n'
              f'send m\nend tell\nreturn "enviado"')
         return "Correo enviado." if "enviado" in _osascript(s) else "No pude enviar el correo."
     return preparar(f"Enviar correo a {para} — «{asunto}»", _ejec, icono="✉️")
+
+
+# ==============================================================================
+# Sistema — música y volumen (para un asistente "de película")
+# ==============================================================================
+def _h_control_media(args: dict) -> str:
+    accion = (args.get("accion") or "play").strip().lower()
+    app = (args.get("app") or "Music").strip()
+    if app.lower() in ("spotify",):
+        app = "Spotify"
+    else:
+        app = "Music"
+    mapa = {"play": "play", "reproducir": "play", "pausa": "pause", "pause": "pause",
+            "pausar": "pause", "siguiente": "next track", "next": "next track",
+            "anterior": "previous track", "previous": "previous track",
+            "playpause": "playpause", "alterna": "playpause"}
+    orden = mapa.get(accion, "playpause")
+    with actividad.accion("Control de música", f"{app}: {accion}", icono="🎵"):
+        r = _osascript(f'tell application "{app}" to {orden}')
+    return f"{app}: {accion}." if "no disponible" not in r else r
+
+
+def _h_volumen(args: dict) -> str:
+    nivel = args.get("nivel")
+    with actividad.accion("Ajustando volumen", str(nivel), icono="🔊"):
+        if nivel is None:
+            r = _osascript("output volume of (get volume settings)")
+            return f"Volumen actual: {r}."
+        try:
+            n = max(0, min(100, int(nivel)))
+        except (TypeError, ValueError):
+            return "Dime un nivel de 0 a 100."
+        r = _osascript(f"set volume output volume {n}")
+        if "no disponible" in r:
+            return r
+    return f"Volumen al {n}%."
 
 
 # ==============================================================================
@@ -596,10 +673,10 @@ ESQUEMAS: list[dict] = [
     {"name": "calcular", "description": "Evalúa una expresión matemática de forma segura.",
      "input_schema": {"type": "object", "properties": {"expresion": {"type": "string"}},
                       "required": ["expresion"]}},
-    {"name": "generar_documento", "description": "Crea un documento (md/txt/html) en la carpeta de documentos.",
+    {"name": "generar_documento", "description": "Crea un documento (md/txt/html/pdf) en la carpeta de documentos y lo abre.",
      "input_schema": {"type": "object", "properties": {
          "titulo": {"type": "string"}, "contenido": {"type": "string"},
-         "formato": {"type": "string", "enum": ["md", "txt", "html"]},
+         "formato": {"type": "string", "enum": ["md", "txt", "html", "pdf"]},
          "abrir": {"type": "boolean"}}, "required": ["titulo", "contenido"]}},
     {"name": "agenda_hoy", "description": "Eventos de hoy en Calendario (solo lectura).",
      "input_schema": {"type": "object", "properties": {}}},
@@ -631,6 +708,12 @@ ESQUEMAS: list[dict] = [
          "leer": {"type": "boolean", "description": "si true, devuelve el texto de la página"}}}},
     {"name": "web_clic", "description": "Hace clic en un botón o enlace por su texto en la página ya abierta en el navegador controlado.",
      "input_schema": {"type": "object", "properties": {"texto": {"type": "string"}}, "required": ["texto"]}},
+    {"name": "control_media", "description": "Controla la música (Music o Spotify): reproducir, pausar, siguiente, anterior.",
+     "input_schema": {"type": "object", "properties": {
+         "accion": {"type": "string", "enum": ["play", "pausa", "siguiente", "anterior", "playpause"]},
+         "app": {"type": "string", "enum": ["Music", "Spotify"]}}}},
+    {"name": "volumen", "description": "Consulta o ajusta el volumen del sistema (0-100).",
+     "input_schema": {"type": "object", "properties": {"nivel": {"type": "integer"}}}},
 ]
 
 EJECUTORES: dict[str, Callable[[dict], str]] = {
@@ -655,4 +738,6 @@ EJECUTORES: dict[str, Callable[[dict], str]] = {
     "enviar_correo": _h_enviar_correo,
     "navegador_web": _h_navegador_web,
     "web_clic": _h_web_clic,
+    "control_media": _h_control_media,
+    "volumen": _h_volumen,
 }

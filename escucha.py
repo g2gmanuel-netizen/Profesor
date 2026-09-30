@@ -69,6 +69,7 @@ class Escucha(threading.Thread):
         self.activaciones = [_normalizar(p) for p in (palabras + "," + extra).split(",") if p.strip()]
         self.conversacion_hasta = 0.0   # mientras > ahora, atiende sin exigir "lucky"
         self._modelo = None
+        self._modelo_lock = threading.Lock()
 
     # --- API pública ----------------------------------------------------------
     def procesar(self, texto: str) -> None:
@@ -86,16 +87,45 @@ class Escucha(threading.Thread):
 
     # --- interno --------------------------------------------------------------
     def _cargar_modelo(self):
-        if self._modelo is None:
-            tam = os.environ.get("JARVIS_WHISPER", "small").strip() or "small"
-            self._modelo = WhisperModel(tam, device="cpu", compute_type="int8")
+        with self._modelo_lock:
+            if self._modelo is None:
+                tam = os.environ.get("JARVIS_WHISPER", "base").strip() or "base"
+                print(f"[escucha] cargando modelo de voz «{tam}»…")
+                self._modelo = WhisperModel(tam, device="cpu", compute_type="int8")
+                print("[escucha] modelo de voz listo.")
         return self._modelo
+
+    # Frases que Whisper "inventa" sobre silencio/ruido (no son del usuario).
+    _ALUCINACIONES = (
+        "subtítulos realizados por", "subtitulos realizados por", "amara.org",
+        "gracias por ver", "gracias por su atención", "suscríbete", "suscribete",
+        "www.", ".com", "♪",
+    )
+
+    def _es_ruido(self, texto: str) -> bool:
+        t = texto.lower().strip()
+        if len(t) < 2:
+            return True
+        if any(a in t for a in self._ALUCINACIONES):
+            return True
+        # solo signos/puntuación o una sílaba suelta
+        if not any(c.isalpha() for c in t):
+            return True
+        return False
 
     def _transcribir(self, audio) -> str:
         modelo = self._cargar_modelo()
-        segmentos, _ = modelo.transcribe(audio, language="es", vad_filter=True,
-                                         beam_size=1)
-        return " ".join(s.text for s in segmentos).strip()
+        try:
+            segmentos, _ = modelo.transcribe(
+                audio, language="es", vad_filter=True, beam_size=1,
+                no_speech_threshold=0.6, condition_on_previous_text=False)
+            partes = [s.text for s in segmentos
+                      if getattr(s, "no_speech_prob", 0.0) < 0.7]
+        except Exception as e:  # noqa: BLE001
+            print(f"[escucha] error al transcribir: {e}")
+            return ""
+        texto = " ".join(partes).strip()
+        return "" if self._es_ruido(texto) else texto
 
     def _quitar_activacion(self, texto: str) -> tuple[bool, str]:
         norm = _normalizar(texto)
@@ -123,6 +153,8 @@ class Escucha(threading.Thread):
         palmas_ts: list = []       # marcas de tiempo de palmadas recientes
         barge = 0                  # bloques seguidos de voz mientras LUCKY habla
         forzar_prox = False        # la próxima frase se procesa sí o sí (fue interrupción)
+        # precargar el modelo de voz en segundo plano (evita el lag de la 1ª frase)
+        threading.Thread(target=self._cargar_modelo, daemon=True).start()
         print(f"[escucha] En línea (modo={self.modo}). {self.palmas_n} palmas, «lucky» o habla.")
 
         with sd.InputStream(samplerate=self.FS, channels=1, blocksize=bloque_n,

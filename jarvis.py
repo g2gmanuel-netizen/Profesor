@@ -80,13 +80,18 @@ def get_estado() -> dict:
 # Cerebro
 # ------------------------------------------------------------------------------
 SISTEMA = (
-    "Eres LUCKY, el asistente personal de voz del Profesor, en su Mac. "
-    "Hablas en español de España, con cercanía y sobriedad. "
+    "Eres LUCKY, el asistente personal de voz del Profesor, en su Mac; al estilo de "
+    "JARVIS: eficaz, sereno, con un punto de ingenio, siempre al servicio. "
+    "Le llamas «Profesor». Hablas en español de España, natural y directo. "
     "REGLA DE ORO: sé CONCISO. Responde en 1-3 frases salvo que te pidan detalle; "
     "nada de rodeos ni relleno. Vas a hablar en voz alta, así que evita listas "
     "largas, markdown y URLs largas: resume. "
-    "Tienes herramientas para internet, sistema, agenda, documentos y estado local; "
-    "úsalas cuando aporten, sin anunciarlo. "
+    "Actúa: si te piden algo que puedes hacer con una herramienta (abrir apps o "
+    "webs, hacer clic, poner música, subir el volumen, buscar, crear documentos, "
+    "anotar tareas), hazlo en vez de explicar cómo se hace. Usa las herramientas sin "
+    "anunciarlas y confirma el resultado en una frase. "
+    "Tienes herramientas para internet, sistema, agenda, música, volumen, navegador "
+    "con clic, documentos y estado local; úsalas cuando aporten. "
     "Las acciones con consecuencias (enviar correo, crear evento, ejecutar comando "
     "o atajo) quedan PREPARADAS y solo se ejecutan cuando el Profesor dice «confirmo»; "
     "no las des por hechas. "
@@ -158,18 +163,22 @@ def responder(texto: str) -> str:
     if not texto:
         return ""
 
+    _historial.append({"role": "user", "content": texto})
+    del _historial[: max(0, len(_historial) - _MAX_HIST)]
+
     # Confirmación de acciones pendientes (lo resuelve el programa, no el modelo).
     limpio = texto.lower().strip(" .!?¡¿")
     if extras.hay_pendiente():
         if limpio in _CONFIRMAR or limpio.startswith("confirmo"):
-            return extras.confirmar()
+            respuesta_final = extras.confirmar()
+            _historial.append({"role": "assistant", "content": respuesta_final})
+            return respuesta_final
         if limpio in _CANCELAR or limpio.startswith("cancela"):
-            return extras.cancelar()
+            respuesta_final = extras.cancelar()
+            _historial.append({"role": "assistant", "content": respuesta_final})
+            return respuesta_final
 
     modelo = resolver_modelo()
-    _historial.append({"role": "user", "content": texto})
-    del _historial[: max(0, len(_historial) - _MAX_HIST)]
-
     respuesta_final = _turno_con_herramientas(modelo)
     _historial.append({"role": "assistant", "content": respuesta_final})
     return respuesta_final

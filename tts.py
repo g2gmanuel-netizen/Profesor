@@ -32,6 +32,34 @@ _OA_VOICE = os.environ.get("OPENAI_VOICE", "onyx").strip()
 
 _lock = threading.Lock()  # una sola voz a la vez (que no se pisen las frases)
 _proc_lock = threading.Lock()
+_voz_es_cache: str | None = None
+
+
+def _mejor_voz_es() -> str:
+    """Elige la mejor voz española instalada en macOS (evita que hable en inglés)."""
+    global _voz_es_cache
+    if _voz_es_cache is not None:
+        return _voz_es_cache
+    preferidas = ["Mónica", "Monica", "Marisol", "Jorge", "Diego", "Paulina", "Juan"]
+    disponibles: list[str] = []
+    try:
+        salida = subprocess.run(["say", "-v", "?"], capture_output=True, text=True, timeout=8).stdout
+        for linea in salida.splitlines():
+            # formato: "Nombre            es_ES    # ejemplo"
+            m = re.match(r"(.+?)\s{2,}([a-z]{2}_[A-Z]{2})", linea)
+            if m and m.group(2).startswith("es"):
+                disponibles.append(m.group(1).strip())
+    except Exception:  # noqa: BLE001
+        disponibles = []
+    elegida = ""
+    for p in preferidas:
+        if p in disponibles:
+            elegida = p
+            break
+    if not elegida and disponibles:
+        elegida = disponibles[0]
+    _voz_es_cache = elegida
+    return elegida
 _proc: subprocess.Popen | None = None  # proceso de audio en curso (para poder callar)
 _interrumpido = threading.Event()
 
@@ -90,8 +118,9 @@ def _reproducir_mp3(datos: bytes) -> bool:
 
 def _voz_sistema(texto: str) -> None:
     cmd = ["say"]
-    if _VOZ:
-        cmd += ["-v", _VOZ]
+    voz = _VOZ or _mejor_voz_es()   # si no se fija voz, usar la mejor española
+    if voz:
+        cmd += ["-v", voz]
     if _VELOCIDAD:
         cmd += ["-r", str(_VELOCIDAD)]
     cmd.append(texto)

@@ -74,11 +74,19 @@
   .pista{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:10px;
     color:var(--tenue);letter-spacing:.15em;z-index:3}
   ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:rgba(255,42,42,.3);border-radius:3px}
+  /* Esquinas HUD */
+  .hud{position:fixed;width:38px;height:38px;z-index:2;pointer-events:none;opacity:.55}
+  .hud.tl{top:14px;left:14px;border-top:2px solid var(--rojo);border-left:2px solid var(--rojo)}
+  .hud.tr{top:14px;right:14px;border-top:2px solid var(--rojo);border-right:2px solid var(--rojo)}
+  .hud.bl{bottom:14px;left:14px;border-bottom:2px solid var(--rojo);border-left:2px solid var(--rojo)}
+  .hud.br{bottom:14px;right:14px;border-bottom:2px solid var(--rojo);border-right:2px solid var(--rojo)}
+  @media(max-width:640px){.panel{display:none}}
 </style>
 </head>
 <body>
 <canvas id="cielo"></canvas>
 <div class="rejilla"></div>
+<div class="hud tl"></div><div class="hud tr"></div><div class="hud bl"></div><div class="hud br"></div>
 
 <div class="marca">
   <h1>LUCKY</h1>
@@ -180,19 +188,16 @@ async function sondearTareas(){
 setInterval(sondearTareas,4000);
 
 // ---------- Actividad (qué está haciendo) ----------
-let ultAct=0;
 const vistos=new Map();
 async function sondearActividad(){
   try{
-    const r=await fetch('/api/actividad?desde='+ultAct);const d=await r.json();
-    const panel=document.getElementById('panelActividad');
-    const cont=document.getElementById('actividad');
-    for(const a of (d.actividades||[])){ vistos.set(a.id,a); ultAct=Math.max(ultAct,a.id); }
-    // refrescar estados de los ya vistos también
+    // pedimos siempre desde 0: así actualizamos también los badges (ejecutando->hecho)
+    const r=await fetch('/api/actividad?desde=0');const d=await r.json();
     for(const a of (d.actividades||[])) vistos.set(a.id,a);
+    if(!vistos.size) return;
+    document.getElementById('panelActividad').classList.add('visible');
     const lista=[...vistos.values()].slice(-8).reverse();
-    if(lista.length){panel.classList.add('visible');}
-    cont.innerHTML=lista.map(a=>`
+    document.getElementById('actividad').innerHTML=lista.map(a=>`
       <div class="item">
         <div class="ic">${a.icono||'•'}</div>
         <div class="tx"><div class="tt">${escapar(a.titulo)}</div>
@@ -201,23 +206,7 @@ async function sondearActividad(){
       </div>`).join('');
   }catch(e){}
 }
-// refresco frecuente para ver progreso en vivo
-setInterval(async()=>{ // re-consulta los últimos para actualizar badges
-  try{
-    const r=await fetch('/api/actividad?desde=0');const d=await r.json();
-    for(const a of (d.actividades||[])) vistos.set(a.id,a);
-    if(vistos.size){
-      const cont=document.getElementById('actividad');
-      const lista=[...vistos.values()].slice(-8).reverse();
-      document.getElementById('panelActividad').classList.add('visible');
-      cont.innerHTML=lista.map(a=>`
-        <div class="item"><div class="ic">${a.icono||'•'}</div>
-        <div class="tx"><div class="tt">${escapar(a.titulo)}</div>
-        ${a.detalle?`<div class="dt">${escapar(a.detalle)}</div>`:''}</div>
-        <div class="badge b-${a.estado}">${a.estado}</div></div>`).join('');
-    }
-  }catch(e){}
-},1200);
+setInterval(sondearActividad,1000);
 
 // ---------- Enviar texto ----------
 const txt=document.getElementById('txt');
@@ -233,7 +222,7 @@ document.getElementById('enviar').onclick=enviar;
 txt.addEventListener('keydown',e=>{if(e.key==='Enter')enviar();});
 
 function escapar(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
-sondearEstado();sondearTareas();
+sondearEstado();sondearTareas();sondearActividad();
 </script>
 </body>
 </html>
