@@ -1,0 +1,16 @@
+# Costes fijos del medio. Edita importes y periodicidad.
+# periodicidad: mensual | anual. Se prorratean por día en el panel.
+conceptos:
+  - concepto: Dominio (.es)
+    importe: 12
+    periodicidad: anual
+  - concepto: Hosting (Cloudflare Pages / Vercel)
+    importe: 0
+    periodicidad: mensual
+  - concepto: Proveedor de newsletter
+    importe: 0
+    periodicidad: mensual
+  - concepto: Herramientas varias
+    importe: 0
+    periodicidad: mensual
+moneda: EUR

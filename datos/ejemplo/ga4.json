@@ -1,0 +1,312 @@
+{
+  "estado": "ok",
+  "dias": [
+    {
+      "fecha": "2026-09-02",
+      "usuarios": 319,
+      "sesiones": 383,
+      "paginasVistas": 740,
+      "duracionMediaS": 102,
+      "nuevos": 223,
+      "recurrentes": 96
+    },
+    {
+      "fecha": "2026-09-03",
+      "usuarios": 394,
+      "sesiones": 473,
+      "paginasVistas": 847,
+      "duracionMediaS": 149,
+      "nuevos": 276,
+      "recurrentes": 118
+    },
+    {
+      "fecha": "2026-09-04",
+      "usuarios": 355,
+      "sesiones": 426,
+      "paginasVistas": 678,
+      "duracionMediaS": 135,
+      "nuevos": 248,
+      "recurrentes": 107
+    },
+    {
+      "fecha": "2026-09-05",
+      "usuarios": 497,
+      "sesiones": 596,
+      "paginasVistas": 1130,
+      "duracionMediaS": 141,
+      "nuevos": 348,
+      "recurrentes": 149
+    },
+    {
+      "fecha": "2026-09-06",
+      "usuarios": 517,
+      "sesiones": 620,
+      "paginasVistas": 961,
+      "duracionMediaS": 142,
+      "nuevos": 362,
+      "recurrentes": 155
+    },
+    {
+      "fecha": "2026-09-07",
+      "usuarios": 579,
+      "sesiones": 695,
+      "paginasVistas": 1136,
+      "duracionMediaS": 125,
+      "nuevos": 405,
+      "recurrentes": 174
+    },
+    {
+      "fecha": "2026-09-08",
+      "usuarios": 633,
+      "sesiones": 760,
+      "paginasVistas": 1394,
+      "duracionMediaS": 101,
+      "nuevos": 443,
+      "recurrentes": 190
+    },
+    {
+      "fecha": "2026-09-09",
+      "usuarios": 630,
+      "sesiones": 756,
+      "paginasVistas": 1162,
+      "duracionMediaS": 137,
+      "nuevos": 441,
+      "recurrentes": 189
+    },
+    {
+      "fecha": "2026-09-10",
+      "usuarios": 598,
+      "sesiones": 718,
+      "paginasVistas": 1392,
+      "duracionMediaS": 96,
+      "nuevos": 419,
+      "recurrentes": 179
+    },
+    {
+      "fecha": "2026-09-11",
+      "usuarios": 766,
+      "sesiones": 919,
+      "paginasVistas": 1823,
+      "duracionMediaS": 106,
+      "nuevos": 536,
+      "recurrentes": 230
+    },
+    {
+      "fecha": "2026-09-12",
+      "usuarios": 660,
+      "sesiones": 792,
+      "paginasVistas": 1198,
+      "duracionMediaS": 130,
+      "nuevos": 462,
+      "recurrentes": 198
+    },
+    {
+      "fecha": "2026-09-13",
+      "usuarios": 740,
+      "sesiones": 888,
+      "paginasVistas": 1389,
+      "duracionMediaS": 94,
+      "nuevos": 518,
+      "recurrentes": 222
+    },
+    {
+      "fecha": "2026-09-14",
+      "usuarios": 883,
+      "sesiones": 1060,
+      "paginasVistas": 1998,
+      "duracionMediaS": 143,
+      "nuevos": 618,
+      "recurrentes": 265
+    },
+    {
+      "fecha": "2026-09-15",
+      "usuarios": 772,
+      "sesiones": 926,
+      "paginasVistas": 1599,
+      "duracionMediaS": 148,
+      "nuevos": 540,
+      "recurrentes": 232
+    },
+    {
+      "fecha": "2026-09-16",
+      "usuarios": 1036,
+      "sesiones": 1243,
+      "paginasVistas": 2211,
+      "duracionMediaS": 92,
+      "nuevos": 725,
+      "recurrentes": 311
+    },
+    {
+      "fecha": "2026-09-17",
+      "usuarios": 1112,
+      "sesiones": 1334,
+      "paginasVistas": 2326,
+      "duracionMediaS": 98,
+      "nuevos": 778,
+      "recurrentes": 334
+    },
+    {
+      "fecha": "2026-09-18",
+      "usuarios": 875,
+      "sesiones": 1050,
+      "paginasVistas": 1993,
+      "duracionMediaS": 136,
+      "nuevos": 613,
+      "recurrentes": 263
+    },
+    {
+      "fecha": "2026-09-19",
+      "usuarios": 946,
+      "sesiones": 1135,
+      "paginasVistas": 1826,
+      "duracionMediaS": 117,
+      "nuevos": 662,
+      "recurrentes": 284
+    },
+    {
+      "fecha": "2026-09-20",
+      "usuarios": 1201,
+      "sesiones": 1441,
+      "paginasVistas": 2509,
+      "duracionMediaS": 123,
+      "nuevos": 841,
+      "recurrentes": 360
+    },
+    {
+      "fecha": "2026-09-21",
+      "usuarios": 1139,
+      "sesiones": 1367,
+      "paginasVistas": 2450,
+      "duracionMediaS": 119,
+      "nuevos": 797,
+      "recurrentes": 342
+    },
+    {
+      "fecha": "2026-09-22",
+      "usuarios": 1220,
+      "sesiones": 1464,
+      "paginasVistas": 2752,
+      "duracionMediaS": 138,
+      "nuevos": 854,
+      "recurrentes": 366
+    },
+    {
+      "fecha": "2026-09-23",
+      "usuarios": 1240,
+      "sesiones": 1488,
+      "paginasVistas": 2275,
+      "duracionMediaS": 103,
+      "nuevos": 868,
+      "recurrentes": 372
+    },
+    {
+      "fecha": "2026-09-24",
+      "usuarios": 1405,
+      "sesiones": 1686,
+      "paginasVistas": 3086,
+      "duracionMediaS": 119,
+      "nuevos": 983,
+      "recurrentes": 422
+    },
+    {
+      "fecha": "2026-09-25",
+      "usuarios": 1221,
+      "sesiones": 1465,
+      "paginasVistas": 2699,
+      "duracionMediaS": 125,
+      "nuevos": 855,
+      "recurrentes": 366
+    },
+    {
+      "fecha": "2026-09-26",
+      "usuarios": 1373,
+      "sesiones": 1648,
+      "paginasVistas": 2985,
+      "duracionMediaS": 136,
+      "nuevos": 961,
+      "recurrentes": 412
+    },
+    {
+      "fecha": "2026-09-27",
+      "usuarios": 1461,
+      "sesiones": 1753,
+      "paginasVistas": 2864,
+      "duracionMediaS": 93,
+      "nuevos": 1023,
+      "recurrentes": 438
+    },
+    {
+      "fecha": "2026-09-28",
+      "usuarios": 1584,
+      "sesiones": 1901,
+      "paginasVistas": 2964,
+      "duracionMediaS": 130,
+      "nuevos": 1109,
+      "recurrentes": 475
+    },
+    {
+      "fecha": "2026-09-29",
+      "usuarios": 1314,
+      "sesiones": 1577,
+      "paginasVistas": 3017,
+      "duracionMediaS": 131,
+      "nuevos": 920,
+      "recurrentes": 394
+    },
+    {
+      "fecha": "2026-09-30",
+      "usuarios": 1635,
+      "sesiones": 1962,
+      "paginasVistas": 3113,
+      "duracionMediaS": 127,
+      "nuevos": 1145,
+      "recurrentes": 491
+    },
+    {
+      "fecha": "2026-10-01",
+      "usuarios": 1693,
+      "sesiones": 2032,
+      "paginasVistas": 3262,
+      "duracionMediaS": 106,
+      "nuevos": 1185,
+      "recurrentes": 508
+    }
+  ],
+  "fuentesTrafico": {
+    "discover": 0.42,
+    "busqueda": 0.38,
+    "directo": 0.12,
+    "redes": 0.08
+  },
+  "dispositivos": {
+    "movil": 0.83,
+    "escritorio": 0.17
+  },
+  "topArticulos": [
+    {
+      "slug": "euribor-que-es-y-como-afecta-a-tu-hipoteca",
+      "titulo": "Qué es el Euríbor y cómo afecta a tu hipoteca",
+      "paginasVistas": 13151
+    },
+    {
+      "slug": "ipc-septiembre",
+      "titulo": "IPC de septiembre: qué sube más",
+      "paginasVistas": 10162
+    },
+    {
+      "slug": "ayuda-alquiler-requisitos",
+      "titulo": "Cómo pedir la ayuda al alquiler",
+      "paginasVistas": 8967
+    },
+    {
+      "slug": "irpf-cambios-2027",
+      "titulo": "5 cambios del IRPF que te afectan",
+      "paginasVistas": 7173
+    },
+    {
+      "slug": "pensiones-2027",
+      "titulo": "Pensiones 2027: cuánto cobrarás",
+      "paginasVistas": 5978
+    }
+  ]
+}

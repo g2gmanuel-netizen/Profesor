@@ -1,0 +1,5 @@
+# Supuestos para las proyecciones del panel mientras AdSense no esté aprobado.
+# Las cifras calculadas con esto se etiquetan SIEMPRE como "Estimación, no ingresos reales".
+rpm_hipotetico_eur: 4.0        # ingresos estimados por cada 1.000 páginas vistas
+tipo_cambio_usd_eur: 0.92      # para convertir costes de IA (USD) a EUR
+crecimiento_mensual_pct: 15    # supuesto de crecimiento de tráfico mes a mes

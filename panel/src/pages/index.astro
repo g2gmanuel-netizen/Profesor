@@ -1,0 +1,70 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, eur, numero } from '../lib/datos';
+import { resumenPeriodo, semaforo } from '../lib/finanzas';
+
+const datos = cargarDatos();
+const hoy = resumenPeriodo(datos, 1);
+const semana = resumenPeriodo(datos, 7);
+const mes = resumenPeriodo(datos, 30);
+const sem = semaforo(datos);
+const etiquetaSem = { verde: 'Saludable', ambar: 'Atención', rojo: 'En pérdidas' }[sem];
+
+const dias = datos.ga4?.dias ?? [];
+const serieIngresos = dias.map((d) => Math.round(((d.paginasVistas * (datos.adsense?.rpm ?? datos.supuestos.rpm_hipotetico_eur)) / 1000) * 100) / 100);
+const serieCostes = dias.map((d) => {
+  const ia = (datos.costesIa?.dias?.[d.fecha]?.costeUsd ?? 0) * datos.supuestos.tipo_cambio_usd_eur;
+  return Math.round((ia + 0.3) * 100) / 100; // + prorrateo fijo aprox diario
+});
+const etiquetas = dias.map((d) => d.fecha.slice(5));
+const noAprobado = mes.ingresosEstimados;
+---
+
+<Panel titulo="Resumen">
+  <p>
+    Estado del negocio: <span class={`pill ${sem}`}>{etiquetaSem}</span>
+    {noAprobado && <span class="nota"> · Ingresos estimados (AdSense aún no aprobado)</span>}
+  </p>
+
+  <h2>Últimos 30 días</h2>
+  <div class="tarjetas">
+    <div class="tarjeta"><div class="k">Usuarios</div><div class="v">{numero(mes.usuarios)}</div></div>
+    <div class="tarjeta"><div class="k">Páginas vistas</div><div class="v">{numero(mes.paginasVistas)}</div></div>
+    <div class="tarjeta"><div class="k">Ingresos</div><div class="v">{eur(mes.ingresos)}</div><div class="sub">{noAprobado ? 'estimado' : 'real'}</div></div>
+    <div class="tarjeta"><div class="k">Costes</div><div class="v">{eur(mes.costeIa + mes.costesFijos)}</div><div class="sub">IA + fijos</div></div>
+    <div class="tarjeta"><div class="k">Beneficio</div><div class="v" style={`color:${mes.beneficio >= 0 ? 'var(--marca)' : 'var(--rojo)'}`}>{eur(mes.beneficio)}</div></div>
+    <div class="tarjeta"><div class="k">Margen</div><div class="v">{mes.margenPct.toFixed(0)}%</div></div>
+  </div>
+
+  <h2>Hoy y semana</h2>
+  <div class="tarjetas">
+    <div class="tarjeta"><div class="k">Usuarios hoy</div><div class="v">{numero(hoy.usuarios)}</div></div>
+    <div class="tarjeta"><div class="k">Usuarios 7 días</div><div class="v">{numero(semana.usuarios)}</div></div>
+    <div class="tarjeta"><div class="k">Ingresos 7 días</div><div class="v">{eur(semana.ingresos)}</div></div>
+    <div class="tarjeta"><div class="k">Beneficio 7 días</div><div class="v" style={`color:${semana.beneficio >= 0 ? 'var(--marca)' : 'var(--rojo)'}`}>{eur(semana.beneficio)}</div></div>
+  </div>
+
+  <div class="caja">
+    <h2 style="margin-top:0;">Ingresos frente a costes (día a día)</h2>
+    <canvas id="g-ingresos-costes" height="110"></canvas>
+  </div>
+</Panel>
+
+<script is:inline define:vars={{ etiquetas, serieIngresos, serieCostes }}>
+  window.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('g-ingresos-costes');
+    if (!ctx || !window.Chart) return;
+    new window.Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: etiquetas,
+        datasets: [
+          { label: 'Ingresos (€)', data: serieIngresos, borderColor: '#3fbd84', backgroundColor: 'rgba(63,189,132,.15)', fill: true, tension: .3 },
+          { label: 'Costes (€)', data: serieCostes, borderColor: '#e5534b', backgroundColor: 'rgba(229,83,75,.1)', fill: true, tension: .3 },
+        ],
+      },
+      options: { responsive: true, plugins: { legend: { labels: { color: '#9aa5b1' } } },
+        scales: { x: { ticks: { color: '#9aa5b1' } }, y: { ticks: { color: '#9aa5b1' } } } },
+    });
+  });
+</script>

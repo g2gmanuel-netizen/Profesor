@@ -1,0 +1,45 @@
+{
+  "estado": "ok",
+  "site": "https://ejemplo.local/",
+  "discover": {
+    "clics": 5400,
+    "impresiones": 182000
+  },
+  "consultas": [
+    {
+      "consulta": "euríbor hoy",
+      "clics": 820,
+      "impresiones": 21000,
+      "ctr": 0.039,
+      "posicion": 4.2
+    },
+    {
+      "consulta": "ayuda alquiler requisitos",
+      "clics": 610,
+      "impresiones": 12400,
+      "ctr": 0.049,
+      "posicion": 3.1
+    },
+    {
+      "consulta": "ipc septiembre",
+      "clics": 540,
+      "impresiones": 18800,
+      "ctr": 0.028,
+      "posicion": 5.6
+    },
+    {
+      "consulta": "cambios irpf 2027",
+      "clics": 430,
+      "impresiones": 9900,
+      "ctr": 0.043,
+      "posicion": 3.8
+    },
+    {
+      "consulta": "cuánto sube la pensión",
+      "clics": 390,
+      "impresiones": 15200,
+      "ctr": 0.025,
+      "posicion": 6.9
+    }
+  ]
+}

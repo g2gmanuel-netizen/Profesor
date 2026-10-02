@@ -1,0 +1,74 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, numero, pct } from '../lib/datos';
+
+const datos = cargarDatos();
+const ga = datos.ga4;
+const sc = datos.searchConsole;
+const dias = ga?.dias ?? [];
+const etiquetas = dias.map((d) => d.fecha.slice(5));
+const serieUsuarios = dias.map((d) => d.usuarios);
+const seriePv = dias.map((d) => d.paginasVistas);
+const fuentes = ga?.fuentesTrafico ?? {};
+const dispositivos = ga?.dispositivos ?? {};
+const fuentesLabels = Object.keys(fuentes);
+const fuentesData = Object.values(fuentes).map((v) => Math.round(v * 100));
+---
+
+<Panel titulo="Audiencia">
+  {!ga && <p class="nota">Sin datos de GA4. Conecta Google Analytics (ver guía).</p>}
+
+  <div class="caja">
+    <h2 style="margin-top:0;">Usuarios y páginas vistas por día</h2>
+    <canvas id="g-audiencia" height="100"></canvas>
+  </div>
+
+  <div class="grid2">
+    <div class="caja">
+      <h2 style="margin-top:0;">Fuentes de tráfico</h2>
+      <canvas id="g-fuentes" height="160"></canvas>
+    </div>
+    <div class="caja">
+      <h2 style="margin-top:0;">Dispositivo y Discover</h2>
+      <p>Móvil: <strong>{pct(dispositivos.movil ?? 0)}</strong> · Escritorio: <strong>{pct(dispositivos.escritorio ?? 0)}</strong></p>
+      {sc?.discover && (
+        <p>Discover: <strong>{numero(sc.discover.clics)}</strong> clics · {numero(sc.discover.impresiones)} impresiones</p>
+      )}
+    </div>
+  </div>
+
+  <h2>Consultas de Google que traen tráfico</h2>
+  <div class="caja" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Consulta</th><th>Clics</th><th>Impresiones</th><th>CTR</th><th>Posición</th></tr></thead>
+      <tbody>
+        {(sc?.consultas ?? []).map((c) => (
+          <tr><td>{c.consulta}</td><td>{numero(c.clics)}</td><td>{numero(c.impresiones)}</td><td>{pct(c.ctr)}</td><td>{c.posicion.toFixed(1)}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Panel>
+
+<script is:inline define:vars={{ etiquetas, serieUsuarios, seriePv, fuentesLabels, fuentesData }}>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.Chart) return;
+    const a = document.getElementById('g-audiencia');
+    if (a) new window.Chart(a, {
+      type: 'line',
+      data: { labels: etiquetas, datasets: [
+        { label: 'Usuarios', data: serieUsuarios, borderColor: '#3fbd84', tension: .3 },
+        { label: 'Páginas vistas', data: seriePv, borderColor: '#4f9cf0', tension: .3 },
+      ] },
+      options: { plugins: { legend: { labels: { color: '#9aa5b1' } } },
+        scales: { x: { ticks: { color: '#9aa5b1' } }, y: { ticks: { color: '#9aa5b1' } } } },
+    });
+    const f = document.getElementById('g-fuentes');
+    if (f) new window.Chart(f, {
+      type: 'doughnut',
+      data: { labels: fuentesLabels, datasets: [{ data: fuentesData,
+        backgroundColor: ['#3fbd84', '#4f9cf0', '#e0a63a', '#e5534b'] }] },
+      options: { plugins: { legend: { labels: { color: '#9aa5b1' } } } },
+    });
+  });
+</script>

@@ -1,0 +1,68 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, eur, numero } from '../lib/datos';
+import { repartoIngresosPorArticulo } from '../lib/calculos';
+
+const datos = cargarDatos();
+const top = datos.ga4?.topArticulos ?? [];
+const rpmSitio = datos.adsense?.rpm ?? datos.supuestos.rpm_hipotetico_eur;
+const estimado = datos.adsense?.estado !== 'ok' || !(datos.adsense?.ingresos30d);
+
+const pvPorArt = Object.fromEntries(top.map((a) => [a.slug, a.paginasVistas]));
+const ingresosPorArt = repartoIngresosPorArticulo(rpmSitio, pvPorArt);
+
+// Coste de producción medio por artículo (reparto simple del coste de IA del periodo).
+const costeIaTotalUsd = Object.values(datos.costesIa?.dias ?? {}).reduce((a, v) => a + (v?.costeUsd ?? 0), 0);
+const costeMedioEur = top.length
+  ? (costeIaTotalUsd * datos.supuestos.tipo_cambio_usd_eur) / top.length
+  : 0;
+
+const labels = top.map((a) => a.titulo.slice(0, 28));
+const serie = top.map((a) => a.paginasVistas);
+---
+
+<Panel titulo="Contenido">
+  {top.length === 0 && <p class="nota">Sin datos de artículos todavía.</p>}
+
+  <div class="caja">
+    <h2 style="margin-top:0;">Artículos más vistos</h2>
+    <canvas id="g-contenido" height="110"></canvas>
+  </div>
+
+  <h2>Ranking por visitas, ingresos y rentabilidad</h2>
+  {estimado && <p class="nota">Ingresos estimados (RPM del sitio × páginas vistas ÷ 1.000).</p>}
+  <div class="caja" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Artículo</th><th>Páginas vistas</th><th>Ingreso estimado</th><th>Coste producción</th><th>Rentabilidad</th></tr></thead>
+      <tbody>
+        {top.map((a) => {
+          const ingreso = ingresosPorArt[a.slug] ?? 0;
+          const rent = ingreso - costeMedioEur;
+          return (
+            <tr>
+              <td>{a.titulo}</td>
+              <td>{numero(a.paginasVistas)}</td>
+              <td>{eur(ingreso)}</td>
+              <td>{eur(costeMedioEur)}</td>
+              <td style={`color:${rent >= 0 ? 'var(--marca)' : 'var(--rojo)'}`}>{eur(rent)}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">Coste de producción: reparto medio del coste de IA del periodo entre los artículos. Ingresos y rentabilidad son estimaciones.</p>
+</Panel>
+
+<script is:inline define:vars={{ labels, serie }}>
+  window.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('g-contenido');
+    if (!ctx || !window.Chart) return;
+    new window.Chart(ctx, {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Páginas vistas', data: serie, backgroundColor: '#3fbd84' }] },
+      options: { indexAxis: 'y', plugins: { legend: { display: false } },
+        scales: { x: { ticks: { color: '#9aa5b1' } }, y: { ticks: { color: '#9aa5b1' } } } },
+    });
+  });
+</script>

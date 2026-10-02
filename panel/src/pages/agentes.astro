@@ -1,0 +1,80 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, eur } from '../lib/datos';
+
+const datos = cargarDatos();
+const ag = datos.agentes;
+const timeline = ag?.ultimaEjecucion?.timeline ?? [];
+const fases = ['detectado', 'aprobado', 'investigado', 'redactado', 'titulado', 'verificado', 'publicado', 'rechazado'];
+const kanban = ag?.kanban ?? [];
+
+const tlEtiquetas = timeline.map((t) => t.agente);
+const tlDur = timeline.map((t) => Math.round(t.duracionMs / 100) / 10);
+---
+
+<Panel titulo="Redacción en directo (agentes)">
+  {!ag && <p class="nota">Sin datos de agentes todavía. Ejecuta el pipeline o conecta el registro.</p>}
+
+  <div class="caja">
+    <h2 style="margin-top:0;">Última ejecución — duración por agente (segundos)</h2>
+    <canvas id="g-timeline" height="90"></canvas>
+  </div>
+
+  <h2>Tablero de artículos</h2>
+  <div class="kanban">
+    {fases.map((f) => (
+      <div class="col">
+        <h4>{f}</h4>
+        {kanban.filter((k) => k.fase === f).map((k) => <div class="item">{k.articulo}</div>)}
+      </div>
+    ))}
+  </div>
+
+  <h2>Rendimiento por agente</h2>
+  <div class="caja" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Agente</th><th>Ejecuciones</th><th>% éxito</th><th>% rechazo</th><th>Coste</th><th>Motivos frecuentes</th></tr></thead>
+      <tbody>
+        {(ag?.porAgente ?? []).map((a) => (
+          <tr>
+            <td>{a.agente}</td>
+            <td>{a.ejecuciones}</td>
+            <td>{a.exitoPct}%</td>
+            <td>{a.rechazoPct}%</td>
+            <td>{eur(a.costeUsd)}</td>
+            <td class="nota">{a.motivosFrecuentes.join(', ') || '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Historial de errores</h2>
+  <div class="caja">
+    {(ag?.errores ?? []).length === 0 ? (
+      <p class="nota">Sin errores recientes.</p>
+    ) : (
+      <table>
+        <thead><tr><th>Fecha</th><th>Agente</th><th>Mensaje</th><th>Log</th></tr></thead>
+        <tbody>
+          {(ag?.errores ?? []).map((e) => (
+            <tr><td>{e.fecha.slice(0, 16).replace('T', ' ')}</td><td>{e.agente}</td><td>{e.mensaje}</td><td><a href={e.log}>ver</a></td></tr>
+          ))}
+        </tbody>
+      </table>
+    )}
+  </div>
+</Panel>
+
+<script is:inline define:vars={{ tlEtiquetas, tlDur }}>
+  window.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('g-timeline');
+    if (!ctx || !window.Chart) return;
+    new window.Chart(ctx, {
+      type: 'bar',
+      data: { labels: tlEtiquetas, datasets: [{ label: 'segundos', data: tlDur, backgroundColor: '#4f9cf0' }] },
+      options: { indexAxis: 'y', plugins: { legend: { display: false } },
+        scales: { x: { ticks: { color: '#9aa5b1' } }, y: { ticks: { color: '#9aa5b1' } } } },
+    });
+  });
+</script>

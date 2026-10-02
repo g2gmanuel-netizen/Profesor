@@ -1,0 +1,103 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, eur, numero } from '../lib/datos';
+import { resumenPeriodo, kpisFinancieros } from '../lib/finanzas';
+
+const datos = cargarDatos();
+const mes = resumenPeriodo(datos, 30);
+const kpis = kpisFinancieros(datos);
+const estimado = mes.ingresosEstimados;
+
+const kpiDefs = [
+  { k: 'RPM', v: eur(kpis.rpm), ayuda: 'Ingresos por cada 1.000 páginas vistas.' },
+  { k: 'ARPU', v: eur(kpis.arpu), ayuda: 'Ingreso medio por usuario único del periodo.' },
+  { k: 'Punto de equilibrio', v: `${numero(kpis.puntoEquilibrioPv)} pv/mes`, ayuda: 'Páginas vistas mensuales necesarias para cubrir costes con el RPM actual.' },
+  { k: 'ROI acumulado', v: `${kpis.roiPct.toFixed(0)}%`, ayuda: 'Rentabilidad sobre la inversión: (ingresos − costes) ÷ costes.' },
+  { k: 'Proyección ingresos mes', v: eur(kpis.proyeccionIngresosMes), ayuda: 'Estimación de cierre de mes según la media diaria reciente.' },
+  { k: 'Proyección beneficio mes', v: eur(kpis.proyeccionBeneficioMes), ayuda: 'Beneficio proyectado a cierre de mes.' },
+];
+// Valores iniciales del simulador.
+const simInit = {
+  rpm: Math.round((datos.adsense?.rpm ?? datos.supuestos.rpm_hipotetico_eur) * 100) / 100,
+  pvMes: Math.round(mes.paginasVistas),
+  costeFijoMes: Math.round((mes.costesFijos) * 100) / 100,
+  costeIaMes: Math.round(mes.costeIa * 100) / 100,
+};
+---
+
+<Panel titulo="Finanzas">
+  {estimado && <p class="nota">AdSense aún no aprobado: los ingresos son una <strong>estimación, no ingresos reales</strong>.</p>}
+
+  <h2>Cuenta de resultados (últimos 30 días)</h2>
+  <div class="caja">
+    <table>
+      <tbody>
+        <tr><td>Ingresos AdSense {estimado ? '(estimados)' : ''}</td><td style="text-align:right;">{eur(mes.ingresos)}</td></tr>
+        <tr><td>− Coste de IA</td><td style="text-align:right;">−{eur(mes.costeIa)}</td></tr>
+        <tr><td>− Costes fijos (prorrateados)</td><td style="text-align:right;">−{eur(mes.costesFijos)}</td></tr>
+        <tr style="font-weight:800;"><td>= Beneficio</td><td style={`text-align:right;color:${mes.beneficio >= 0 ? 'var(--marca)' : 'var(--rojo)'}`}>{eur(mes.beneficio)}</td></tr>
+        <tr><td>Margen</td><td style="text-align:right;">{mes.margenPct.toFixed(0)}%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>KPIs</h2>
+  <div class="tarjetas">
+    {kpiDefs.map((d) => (
+      <div class="tarjeta" title={d.ayuda}>
+        <div class="k">{d.k}</div>
+        <div class="v" style="font-size:1.3rem;">{d.v}</div>
+        <div class="sub">{d.ayuda}</div>
+      </div>
+    ))}
+  </div>
+
+  <h2>Simulador</h2>
+  <div class="caja">
+    <p class="nota">Cambia los supuestos y mira cómo afectan a ingresos, costes y beneficio mensuales.</p>
+    <div class="grid2">
+      <div>
+        <label class="campo">RPM (€): <output id="o-rpm"></output></label>
+        <input type="range" id="s-rpm" min="0" max="20" step="0.1" />
+        <label class="campo">Páginas vistas / mes: <output id="o-pv"></output></label>
+        <input type="range" id="s-pv" min="0" max="500000" step="1000" />
+        <label class="campo">Artículos / día: <output id="o-art"></output></label>
+        <input type="range" id="s-art" min="0" max="12" step="1" value="4" />
+      </div>
+      <div class="tarjetas" style="align-content:start;">
+        <div class="tarjeta"><div class="k">Ingresos/mes</div><div class="v" id="r-ing">—</div></div>
+        <div class="tarjeta"><div class="k">Costes/mes</div><div class="v" id="r-cost">—</div></div>
+        <div class="tarjeta"><div class="k">Beneficio/mes</div><div class="v" id="r-ben">—</div></div>
+      </div>
+    </div>
+  </div>
+</Panel>
+
+<script is:inline define:vars={{ simInit }}>
+  window.addEventListener('DOMContentLoaded', () => {
+    const $ = (id) => document.getElementById(id);
+    const fmt = (n) => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(n);
+    const costeIaPorArticulo = simInit.costeIaMes / Math.max(1, 4 * 30); // coste IA por artículo aprox
+    const sRpm = $('s-rpm'), sPv = $('s-pv'), sArt = $('s-art');
+    sRpm.value = simInit.rpm; sPv.value = simInit.pvMes;
+    function recalcular() {
+      const rpm = parseFloat(sRpm.value);
+      const pv = parseFloat(sPv.value);
+      const art = parseFloat(sArt.value);
+      $('o-rpm').textContent = rpm.toFixed(1);
+      $('o-pv').textContent = new Intl.NumberFormat('es-ES').format(pv);
+      $('o-art').textContent = art;
+      const ingresos = (rpm * pv) / 1000;
+      const costeIa = costeIaPorArticulo * art * 30;
+      const costes = costeIa + simInit.costeFijoMes;
+      const beneficio = ingresos - costes;
+      $('r-ing').textContent = fmt(ingresos);
+      $('r-cost').textContent = fmt(costes);
+      const b = $('r-ben');
+      b.textContent = fmt(beneficio);
+      b.style.color = beneficio >= 0 ? 'var(--marca)' : 'var(--rojo)';
+    }
+    [sRpm, sPv, sArt].forEach((el) => el.addEventListener('input', recalcular));
+    recalcular();
+  });
+</script>

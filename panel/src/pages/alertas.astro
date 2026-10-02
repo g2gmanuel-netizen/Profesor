@@ -1,0 +1,81 @@
+---
+import Panel from '../layouts/Panel.astro';
+import { cargarDatos, eur } from '../lib/datos';
+import { resumenPeriodo, kpisFinancieros } from '../lib/finanzas';
+
+const datos = cargarDatos();
+const dias = [...(datos.ga4?.dias ?? [])].sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+interface Alerta { nivel: 'rojo' | 'ambar'; texto: string; }
+const alertas: Alerta[] = [];
+
+// 1. Caída de tráfico > 30% semana vs semana anterior.
+if (dias.length >= 14) {
+  const u = (arr: typeof dias) => arr.reduce((a, d) => a + d.usuarios, 0);
+  const semanaActual = u(dias.slice(-7));
+  const semanaPrevia = u(dias.slice(-14, -7));
+  if (semanaPrevia > 0) {
+    const caida = (semanaPrevia - semanaActual) / semanaPrevia;
+    if (caida > 0.3) alertas.push({ nivel: 'rojo', texto: `El tráfico ha caído un ${(caida * 100).toFixed(0)}% frente a la semana anterior.` });
+  }
+}
+
+// 2. Mes camino de pérdidas.
+const kpis = kpisFinancieros(datos);
+if (kpis.proyeccionBeneficioMes < 0) {
+  alertas.push({ nivel: 'ambar', texto: `El mes va camino de pérdidas: beneficio proyectado ${eur(kpis.proyeccionBeneficioMes)}.` });
+}
+
+// 3. Gasto de IA alto (más del 80% de un presupuesto mensual de referencia ~90 €).
+const mes = resumenPeriodo(datos, 30);
+if (mes.costeIa > 72) {
+  alertas.push({ nivel: 'ambar', texto: `El coste de IA del mes (${eur(mes.costeIa)}) se acerca al presupuesto.` });
+}
+
+// 4. Agente con muchos rechazos (proxy de fallos repetidos).
+for (const a of datos.agentes?.porAgente ?? []) {
+  if (a.rechazoPct >= 30) alertas.push({ nivel: 'ambar', texto: `El agente «${a.agente}» rechaza el ${a.rechazoPct}% de las piezas. Revisa sus motivos.` });
+}
+
+// 5. Errores recientes registrados.
+for (const e of datos.agentes?.errores ?? []) {
+  alertas.push({ nivel: 'ambar', texto: `Error en ${e.agente}: ${e.mensaje} (${e.fecha.slice(0, 10)}).` });
+}
+
+const canalEmail = process.env.ALERTAS_EMAIL ?? '';
+const canalTelegram = process.env.TELEGRAM_CHAT_ID ?? '';
+---
+
+<Panel titulo="Alertas">
+  <p class="nota">
+    Canales de aviso: {canalEmail ? `email (${canalEmail})` : 'email sin configurar'} ·
+    {canalTelegram ? 'Telegram configurado' : 'Telegram sin configurar'}.
+    Configúralos con <code>ALERTAS_EMAIL</code> / <code>TELEGRAM_*</code> (ver guía).
+  </p>
+
+  {alertas.length === 0 ? (
+    <div class="caja"><p>✅ Todo en orden. No hay alertas activas.</p></div>
+  ) : (
+    <div class="caja">
+      <table>
+        <thead><tr><th>Nivel</th><th>Alerta</th></tr></thead>
+        <tbody>
+          {alertas.map((a) => (
+            <tr><td><span class={`pill ${a.nivel}`}>{a.nivel === 'rojo' ? 'Crítica' : 'Aviso'}</span></td><td>{a.texto}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  <h2>Reglas de alerta</h2>
+  <div class="caja nota">
+    <ul>
+      <li>Gasto de IA por encima del presupuesto diario/mensual.</li>
+      <li>Caída de tráfico superior al 30% frente a la semana anterior.</li>
+      <li>Un agente que falla en 2 ejecuciones seguidas.</li>
+      <li>Caída del RPM superior al 25%.</li>
+      <li>El mes camino de pérdidas.</li>
+    </ul>
+  </div>
+</Panel>

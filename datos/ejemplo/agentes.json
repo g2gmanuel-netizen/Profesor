@@ -1,0 +1,205 @@
+{
+  "estado": "ok",
+  "ultimaEjecucion": {
+    "inicio": "2026-10-01T07:00:00Z",
+    "timeline": [
+      {
+        "agente": "rastreador",
+        "inicio": "2026-10-01T07:00:00.000Z",
+        "duracionMs": 7346,
+        "estado": "ok",
+        "costeUsd": 0.061
+      },
+      {
+        "agente": "editor-jefe",
+        "inicio": "2026-10-01T07:00:07.346Z",
+        "duracionMs": 2700,
+        "estado": "ok",
+        "costeUsd": 0.068
+      },
+      {
+        "agente": "investigador",
+        "inicio": "2026-10-01T07:00:10.046Z",
+        "duracionMs": 7350,
+        "estado": "ok",
+        "costeUsd": 0.069
+      },
+      {
+        "agente": "analista-audiencia",
+        "inicio": "2026-10-01T07:00:17.396Z",
+        "duracionMs": 6044,
+        "estado": "ok",
+        "costeUsd": 0.047
+      },
+      {
+        "agente": "redactor",
+        "inicio": "2026-10-01T07:00:23.440Z",
+        "duracionMs": 6570,
+        "estado": "ok",
+        "costeUsd": 0.015
+      },
+      {
+        "agente": "titulador",
+        "inicio": "2026-10-01T07:00:30.010Z",
+        "duracionMs": 6696,
+        "estado": "ok",
+        "costeUsd": 0.063
+      },
+      {
+        "agente": "verificador",
+        "inicio": "2026-10-01T07:00:36.706Z",
+        "duracionMs": 4995,
+        "estado": "ok",
+        "costeUsd": 0.008
+      },
+      {
+        "agente": "cumplimiento",
+        "inicio": "2026-10-01T07:00:41.701Z",
+        "duracionMs": 2609,
+        "estado": "ok",
+        "costeUsd": 0.022
+      },
+      {
+        "agente": "seo-discover",
+        "inicio": "2026-10-01T07:00:44.310Z",
+        "duracionMs": 6233,
+        "estado": "ok",
+        "costeUsd": 0.054
+      },
+      {
+        "agente": "ilustrador",
+        "inicio": "2026-10-01T07:00:50.543Z",
+        "duracionMs": 2088,
+        "estado": "ok",
+        "costeUsd": 0.006
+      },
+      {
+        "agente": "publicador",
+        "inicio": "2026-10-01T07:00:52.631Z",
+        "duracionMs": 3125,
+        "estado": "ok",
+        "costeUsd": 0.07
+      }
+    ]
+  },
+  "kanban": [
+    {
+      "articulo": "Euríbor de octubre",
+      "fase": "publicado"
+    },
+    {
+      "articulo": "Nueva deducción autonómica",
+      "fase": "verificado"
+    },
+    {
+      "articulo": "Precio de la luz esta semana",
+      "fase": "redactado"
+    },
+    {
+      "articulo": "Rumor sin fuente oficial",
+      "fase": "rechazado"
+    }
+  ],
+  "porAgente": [
+    {
+      "agente": "rastreador",
+      "ejecuciones": 40,
+      "exitoPct": 93,
+      "rechazoPct": 12,
+      "costeUsd": 0.4,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "editor-jefe",
+      "ejecuciones": 54,
+      "exitoPct": 98,
+      "rechazoPct": 2,
+      "costeUsd": 1.95,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "investigador",
+      "ejecuciones": 59,
+      "exitoPct": 84,
+      "rechazoPct": 12,
+      "costeUsd": 1.51,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "analista-audiencia",
+      "ejecuciones": 44,
+      "exitoPct": 98,
+      "rechazoPct": 9,
+      "costeUsd": 1.69,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "redactor",
+      "ejecuciones": 60,
+      "exitoPct": 94,
+      "rechazoPct": 10,
+      "costeUsd": 1.73,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "titulador",
+      "ejecuciones": 55,
+      "exitoPct": 95,
+      "rechazoPct": 10,
+      "costeUsd": 1.16,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "verificador",
+      "ejecuciones": 57,
+      "exitoPct": 96,
+      "rechazoPct": 7,
+      "costeUsd": 0.37,
+      "motivosFrecuentes": [
+        "cifra sin respaldo"
+      ]
+    },
+    {
+      "agente": "cumplimiento",
+      "ejecuciones": 57,
+      "exitoPct": 90,
+      "rechazoPct": 2,
+      "costeUsd": 1.58,
+      "motivosFrecuentes": [
+        "titular poco fiel"
+      ]
+    },
+    {
+      "agente": "seo-discover",
+      "ejecuciones": 52,
+      "exitoPct": 83,
+      "rechazoPct": 9,
+      "costeUsd": 0.2,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "ilustrador",
+      "ejecuciones": 44,
+      "exitoPct": 94,
+      "rechazoPct": 1,
+      "costeUsd": 0.54,
+      "motivosFrecuentes": []
+    },
+    {
+      "agente": "publicador",
+      "ejecuciones": 56,
+      "exitoPct": 82,
+      "rechazoPct": 3,
+      "costeUsd": 1.34,
+      "motivosFrecuentes": []
+    }
+  ],
+  "errores": [
+    {
+      "fecha": "2026-09-29T13:02:00Z",
+      "agente": "investigador",
+      "mensaje": "Fuente caída (timeout INE)",
+      "log": "#"
+    }
+  ]
+}

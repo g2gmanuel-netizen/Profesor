@@ -1,0 +1,94 @@
+---
+import { DEMO } from '../lib/datos';
+
+interface Props {
+  titulo: string;
+}
+const { titulo } = Astro.props;
+const nav = [
+  { href: '/', nombre: 'Resumen' },
+  { href: '/agentes/', nombre: 'Redacción (agentes)' },
+  { href: '/audiencia/', nombre: 'Audiencia' },
+  { href: '/contenido/', nombre: 'Contenido' },
+  { href: '/finanzas/', nombre: 'Finanzas' },
+  { href: '/alertas/', nombre: 'Alertas' },
+];
+const actual = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{titulo} · Panel Bolsillo Diario</title>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js"
+      integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6syand+NsuxlcMpEUPkFqw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <style>
+      :root {
+        --bg: #0f1419; --panel: #171d25; --txt: #e8eaed; --suave: #9aa5b1;
+        --borde: #27303a; --marca: #3fbd84; --rojo: #e5534b; --ambar: #e0a63a; --azul:#4f9cf0;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--txt);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      a { color: var(--marca); text-decoration: none; }
+      header { background: var(--panel); border-bottom: 1px solid var(--borde); padding: .75rem 1rem;
+        display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; }
+      header .logo { font-weight: 800; color: var(--marca); }
+      nav { display: flex; gap: .25rem 1rem; flex-wrap: wrap; font-size: .9rem; }
+      nav a { color: var(--suave); padding: .25rem 0; }
+      nav a.activo { color: var(--txt); border-bottom: 2px solid var(--marca); }
+      .demo { margin-left: auto; background: var(--ambar); color: #000; font-size: .72rem;
+        font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+      main { max-width: 1200px; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+      h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; margin-top: 2rem; }
+      .tarjetas { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .tarjeta { background: var(--panel); border: 1px solid var(--borde); border-radius: 12px; padding: 1rem; }
+      .tarjeta .k { font-size: .78rem; color: var(--suave); text-transform: uppercase; letter-spacing: .04em; }
+      .tarjeta .v { font-size: 1.7rem; font-weight: 800; margin-top: .25rem; }
+      .tarjeta .sub { font-size: .78rem; color: var(--suave); margin-top: .25rem; }
+      .grid2 { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+      @media (min-width: 820px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+      .caja { background: var(--panel); border: 1px solid var(--borde); border-radius: 12px; padding: 1rem; margin-top:1rem; }
+      table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+      th, td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--borde); }
+      th { color: var(--suave); font-weight: 600; }
+      .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.75rem; font-weight:700; }
+      .verde { background: rgba(63,189,132,.2); color: var(--marca); }
+      .ambar { background: rgba(224,166,58,.2); color: var(--ambar); }
+      .rojo { background: rgba(229,83,75,.2); color: var(--rojo); }
+      .nota { color: var(--suave); font-size: .8rem; }
+      canvas { max-width: 100%; }
+      .kanban { display:grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap:.5rem; }
+      .kanban .col { background: var(--bg); border:1px solid var(--borde); border-radius:8px; padding:.5rem; }
+      .kanban .col h4 { margin:.2rem 0 .5rem; font-size:.75rem; color:var(--suave); text-transform:uppercase; }
+      .kanban .item { background: var(--panel); border-radius:6px; padding:.4rem; font-size:.82rem; margin-bottom:.3rem; }
+      label.campo { display:block; font-size:.8rem; color:var(--suave); margin-top:.5rem; }
+      input[type=range], input[type=number] { width:100%; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="logo">€ Panel · Bolsillo Diario</span>
+      <nav>
+        {nav.map((n) => <a href={n.href} class={actual === n.href ? 'activo' : ''}>{n.nombre}</a>)}
+      </nav>
+      {DEMO && <span class="demo">MODO DEMOSTRACIÓN</span>}
+    </header>
+    <main>
+      <h1>{titulo}</h1>
+      <slot />
+      <p class="nota" style="margin-top:2rem;">
+        Panel privado · no indexable · protegido con Cloudflare Access en producción.
+        Datos de {DEMO ? 'ejemplo (demo)' : 'tu cuenta'}.
+      </p>
+    </main>
+  </body>
+</html>

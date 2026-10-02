@@ -1,0 +1,132 @@
+{
+  "estado": "ok",
+  "accountId": "pub-DEMO",
+  "ingresos30d": 275.01,
+  "rpm": 4.6,
+  "paginasVistasMonetizadas": 59779,
+  "impresiones": 83691,
+  "clics": 717,
+  "ctr": 0.012,
+  "dias": [
+    {
+      "fecha": "2026-09-02",
+      "ingresos": 3.4
+    },
+    {
+      "fecha": "2026-09-03",
+      "ingresos": 3.9
+    },
+    {
+      "fecha": "2026-09-04",
+      "ingresos": 3.12
+    },
+    {
+      "fecha": "2026-09-05",
+      "ingresos": 5.2
+    },
+    {
+      "fecha": "2026-09-06",
+      "ingresos": 4.42
+    },
+    {
+      "fecha": "2026-09-07",
+      "ingresos": 5.23
+    },
+    {
+      "fecha": "2026-09-08",
+      "ingresos": 6.41
+    },
+    {
+      "fecha": "2026-09-09",
+      "ingresos": 5.35
+    },
+    {
+      "fecha": "2026-09-10",
+      "ingresos": 6.4
+    },
+    {
+      "fecha": "2026-09-11",
+      "ingresos": 8.39
+    },
+    {
+      "fecha": "2026-09-12",
+      "ingresos": 5.51
+    },
+    {
+      "fecha": "2026-09-13",
+      "ingresos": 6.39
+    },
+    {
+      "fecha": "2026-09-14",
+      "ingresos": 9.19
+    },
+    {
+      "fecha": "2026-09-15",
+      "ingresos": 7.36
+    },
+    {
+      "fecha": "2026-09-16",
+      "ingresos": 10.17
+    },
+    {
+      "fecha": "2026-09-17",
+      "ingresos": 10.7
+    },
+    {
+      "fecha": "2026-09-18",
+      "ingresos": 9.17
+    },
+    {
+      "fecha": "2026-09-19",
+      "ingresos": 8.4
+    },
+    {
+      "fecha": "2026-09-20",
+      "ingresos": 11.54
+    },
+    {
+      "fecha": "2026-09-21",
+      "ingresos": 11.27
+    },
+    {
+      "fecha": "2026-09-22",
+      "ingresos": 12.66
+    },
+    {
+      "fecha": "2026-09-23",
+      "ingresos": 10.47
+    },
+    {
+      "fecha": "2026-09-24",
+      "ingresos": 14.2
+    },
+    {
+      "fecha": "2026-09-25",
+      "ingresos": 12.42
+    },
+    {
+      "fecha": "2026-09-26",
+      "ingresos": 13.73
+    },
+    {
+      "fecha": "2026-09-27",
+      "ingresos": 13.17
+    },
+    {
+      "fecha": "2026-09-28",
+      "ingresos": 13.63
+    },
+    {
+      "fecha": "2026-09-29",
+      "ingresos": 13.88
+    },
+    {
+      "fecha": "2026-09-30",
+      "ingresos": 14.32
+    },
+    {
+      "fecha": "2026-10-01",
+      "ingresos": 15.01
+    }
+  ]
+}

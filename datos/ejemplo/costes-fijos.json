@@ -1,0 +1,21 @@
+{
+  "estado": "ok",
+  "moneda": "EUR",
+  "conceptos": [
+    {
+      "concepto": "Dominio (.es)",
+      "importe": 12,
+      "periodicidad": "anual"
+    },
+    {
+      "concepto": "Hosting",
+      "importe": 0,
+      "periodicidad": "mensual"
+    },
+    {
+      "concepto": "Newsletter",
+      "importe": 9,
+      "periodicidad": "mensual"
+    }
+  ]
+}
