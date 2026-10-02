@@ -6,6 +6,48 @@
       "slug": "euribor-que-es-y-como-afecta-a-tu-hipoteca",
       "categoria": "hipotecas",
       "fecha": "2026-09-20"
+    },
+    {
+      "id": "como-se-actualiza-la-renta-del-alquiler",
+      "titulo": "Cómo se actualiza la renta del alquiler cada año y qué puedes exigir",
+      "slug": "como-se-actualiza-la-renta-del-alquiler",
+      "categoria": "alquiler",
+      "fecha": "2026-09-18"
+    },
+    {
+      "id": "quien-esta-obligado-a-declarar-irpf",
+      "titulo": "Quién está obligado a hacer la declaración de la renta (y quién no)",
+      "slug": "quien-esta-obligado-a-declarar-irpf",
+      "categoria": "impuestos",
+      "fecha": "2026-09-15"
+    },
+    {
+      "id": "cuenta-remunerada-o-deposito-a-plazo",
+      "titulo": "Cuenta remunerada o depósito a plazo: en qué se diferencian y cuál te conviene",
+      "slug": "cuenta-remunerada-o-deposito-a-plazo",
+      "categoria": "ahorro",
+      "fecha": "2026-09-12"
+    },
+    {
+      "id": "que-es-el-pvpc-factura-de-la-luz",
+      "titulo": "Qué es el PVPC y cómo entender tu factura de la luz",
+      "slug": "que-es-el-pvpc-factura-de-la-luz",
+      "categoria": "precios",
+      "fecha": "2026-09-10"
+    },
+    {
+      "id": "requisitos-para-jubilarse-en-espana",
+      "titulo": "Requisitos para jubilarte en España: edad y años cotizados",
+      "slug": "requisitos-para-jubilarse-en-espana",
+      "categoria": "pensiones",
+      "fecha": "2026-09-08"
+    },
+    {
+      "id": "gastos-de-comprar-una-vivienda",
+      "titulo": "Cuánto cuesta comprar una casa más allá del precio: todos los gastos",
+      "slug": "gastos-de-comprar-una-vivienda",
+      "categoria": "vivienda",
+      "fecha": "2026-09-05"
     }
   ]
 }
