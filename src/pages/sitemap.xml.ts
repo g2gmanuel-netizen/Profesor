@@ -1,12 +1,13 @@
 import type { APIRoute } from 'astro';
 import { SITIO, CATEGORIAS, slugAutor } from '../lib/sitio';
 import { todosLosArticulos, urlArticulo } from '../lib/articulos';
+import { construirSitemap, type UrlSitemap } from '../lib/sitemap';
 
 export const GET: APIRoute = async () => {
   const arts = await todosLosArticulos();
   const base = SITIO.url;
 
-  const urls: { loc: string; lastmod?: string }[] = [
+  const urls: UrlSitemap[] = [
     { loc: `${base}/` },
     { loc: `${base}/buscar/` },
     { loc: `${base}/sobre-nosotros/` },
@@ -30,15 +31,7 @@ export const GET: APIRoute = async () => {
     });
   }
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
-  .map(
-    (u) =>
-      `  <url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`,
-  )
-  .join('\n')}
-</urlset>`;
-
-  return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
+  return new Response(construirSitemap(urls), {
+    headers: { 'Content-Type': 'application/xml; charset=utf-8' },
+  });
 };

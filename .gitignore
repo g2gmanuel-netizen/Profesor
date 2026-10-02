@@ -31,3 +31,7 @@ coverage/
 
 # Lighthouse
 .lighthouseci/
+
+# Salida de simulación (no se publica)
+datos/simulacion/
+datos/resumen-edicion.md

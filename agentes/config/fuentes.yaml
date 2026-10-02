@@ -1,0 +1,83 @@
+# Fuentes de información para el nicho: economía doméstica en España.
+# Prioridad: 1 = máxima (oficial primaria). El rastreador prioriza las de menor número.
+# tipo: oficial | datos_abiertos | tendencia
+# Edita libremente este archivo; el validador descarta las que no respondan.
+
+fuentes:
+  # ---------- Primarias oficiales ----------
+  - nombre: BOE — Boletín Oficial del Estado
+    organismo: BOE
+    tipo: oficial
+    prioridad: 1
+    rss: https://www.boe.es/rss/canal.php?c=economia
+    web: https://www.boe.es/
+
+  - nombre: INE — Instituto Nacional de Estadística (notas de prensa)
+    organismo: INE
+    tipo: oficial
+    prioridad: 1
+    rss: https://www.ine.es/dyngs/INEbase/es/rss.htm
+    web: https://www.ine.es/
+
+  - nombre: Banco de España — Notas informativas
+    organismo: Banco de España
+    tipo: oficial
+    prioridad: 1
+    rss: https://www.bde.es/f/webbe/GAP/Secciones/SalaPrensa/rss/notas.xml
+    web: https://www.bde.es/
+
+  - nombre: Seguridad Social — Prensa
+    organismo: Seguridad Social
+    tipo: oficial
+    prioridad: 1
+    web: https://prensa.seg-social.es/
+
+  - nombre: Agencia Tributaria — Novedades
+    organismo: AEAT
+    tipo: oficial
+    prioridad: 1
+    web: https://sede.agenciatributaria.gob.es/
+
+  - nombre: Eurostat — Novedades
+    organismo: Eurostat
+    tipo: oficial
+    prioridad: 2
+    web: https://ec.europa.eu/eurostat/web/main/news/euro-indicators
+
+  - nombre: CNMC — Sala de prensa
+    organismo: CNMC
+    tipo: oficial
+    prioridad: 2
+    web: https://www.cnmc.es/prensa
+
+  # ---------- Datos abiertos ----------
+  - nombre: datos.gob.es
+    organismo: Gobierno de España
+    tipo: datos_abiertos
+    prioridad: 2
+    web: https://datos.gob.es/
+
+  - nombre: INE — API de datos (Tempus3)
+    organismo: INE
+    tipo: datos_abiertos
+    prioridad: 2
+    web: https://www.ine.es/dyngs/DAB/index.htm?cid=1099
+
+  # ---------- Detección de tendencias (solo para descubrir temas) ----------
+  - nombre: Google News — economía doméstica España
+    organismo: Google News
+    tipo: tendencia
+    prioridad: 3
+    rss: https://news.google.com/rss/search?q=hipoteca+OR+alquiler+OR+IRPF+OR+pensiones+economia+Espa%C3%B1a&hl=es&gl=ES&ceid=ES:es
+
+palabras_clave:
+  - euríbor
+  - hipoteca
+  - alquiler
+  - IRPF
+  - IVA
+  - pensiones
+  - IPC
+  - vivienda
+  - ahorro
+  - Seguridad Social
