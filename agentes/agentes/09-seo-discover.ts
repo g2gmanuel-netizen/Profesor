@@ -7,8 +7,7 @@ import {
   type TemaAprobado,
   type Titulares,
 } from '../lib/esquemas';
-import { slugify } from '../lib/util';
-import { similitud } from '../lib/util';
+import { slugify, similitud, tokens } from '../lib/util';
 
 export interface EntradaSeo {
   tema: TemaAprobado;
@@ -31,13 +30,22 @@ export function seoDiscover(e: EntradaSeo, ctx: ContextoEjecucion): ArticuloFina
   const slug = slugify(e.titulares.elegido || e.ficha.titulo);
   const descripcion = normalizarDescripcion(e.titulares.subtitulo || e.borrador.entradilla);
 
+  // Etiquetas: usa las aportadas y, si son pocas, completa con palabras clave del titular.
+  const etiquetas = Array.from(
+    new Set([
+      ...e.etiquetas,
+      e.tema.categoria,
+      ...(e.etiquetas.length < 3 ? tokens(e.titulares.elegido).slice(0, 4) : []),
+    ]),
+  ).slice(0, 6);
+
   // Enlaces internos: misma categoría o etiquetas compartidas, hasta 4.
   const enlacesInternos = e.existentes
     .map((a) => ({
       slug: a.slug,
       p:
         (a.categoria === e.tema.categoria ? 2 : 0) +
-        a.etiquetas.filter((t) => e.etiquetas.includes(t)).length +
+        a.etiquetas.filter((t) => etiquetas.includes(t)).length +
         similitud(a.titulo, e.titulares.elegido),
     }))
     .filter((x) => x.p > 0 && x.slug !== slug)
@@ -57,7 +65,7 @@ export function seoDiscover(e: EntradaSeo, ctx: ContextoEjecucion): ArticuloFina
       fechaPublicacion: new Date().toISOString().slice(0, 10),
       imagen: e.imagen,
       imagenAlt: e.imagenAlt,
-      etiquetas: e.etiquetas.slice(0, 6),
+      etiquetas,
       fuentes: e.ficha.fuentes,
       clavesRapidas: e.borrador.clavesRapidas,
       titularesAlternativos: e.titulares.alternativos,

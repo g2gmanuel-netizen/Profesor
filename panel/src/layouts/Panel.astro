@@ -23,12 +23,12 @@ const actual = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <title>{titulo} · Panel Bolsillo Diario</title>
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js"
-      integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6syand+NsuxlcMpEUPkFqw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"></script>
+    {/* Chart.js se empaqueta localmente (sin CDN): funciona offline y sin riesgo de SRI. */}
+    <script>
+      import Chart from 'chart.js/auto';
+      // @ts-expect-error — exponemos Chart para los scripts de cada pantalla.
+      window.Chart = Chart;
+    </script>
     <style>
       :root {
         --bg: #0f1419; --panel: #171d25; --txt: #e8eaed; --suave: #9aa5b1;

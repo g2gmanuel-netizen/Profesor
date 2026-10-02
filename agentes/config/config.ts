@@ -33,7 +33,7 @@ function num(nombre: string, porDefecto: number): number {
 export const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY ?? '',
   modeloRedaccion: process.env.MODELO_REDACCION ?? 'claude-opus-4-8',
-  modeloRapido: process.env.MODELO_RAPIDO ?? 'claude-haiku-4-5-20251001',
+  modeloRapido: process.env.MODELO_RAPIDO ?? 'claude-haiku-4-5',
   presupuestoDiarioUsd: num('PRESUPUESTO_DIARIO_USD', 3),
   revisionHumana: (process.env.REVISION_HUMANA ?? 'true') !== 'false',
   articulosMinDia: num('ARTICULOS_MIN_DIA', 3),
@@ -45,10 +45,13 @@ export const CONFIG = {
  * Precio aproximado por millón de tokens (USD), para el contador de costes.
  * Ajusta estos valores si cambias de modelo; sirven de estimación, no de factura.
  */
+// Precios por millón de tokens (USD). Referencia: tarifas API de Anthropic (2026).
+// Son estimación para el contador de costes, no una factura; ajústalos si cambian.
 export const PRECIOS: Record<string, { entrada: number; salida: number }> = {
+  'claude-opus-5-5': { entrada: 4, salida: 20 },
   'claude-opus-4-8': { entrada: 5, salida: 25 },
-  'claude-sonnet-5-5': { entrada: 3, salida: 15 },
-  'claude-haiku-4-5-20251001': { entrada: 0.8, salida: 4 },
+  'claude-sonnet-5-5': { entrada: 2, salida: 10 },
+  'claude-haiku-4-5': { entrada: 1, salida: 5 },
 };
 
 export function precioModelo(modelo: string): { entrada: number; salida: number } {

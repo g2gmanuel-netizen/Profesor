@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="IPC de septiembre: qué productos suben más y cómo te afecta">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#0b5d3b"/><stop offset="1" stop-color="#0e7a4e"/>
-  </linearGradient></defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <text x="80" y="250" font-family="Helvetica, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff"><tspan x="80" dy="0">IPC de septiembre: qué</tspan><tspan x="80" dy="70">productos suben más y</tspan><tspan x="80" dy="70">cómo te afecta</tspan></text>
-  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff" opacity="0.9">Bolsillo Diario</text>
-</svg>

@@ -8,12 +8,11 @@ export interface ResultadoIlustracion {
   imagenAlt: string;
 }
 
-const DIR = resolve(process.cwd(), 'public/imagenes');
-
 /**
  * Agente 10 — Ilustrador de datos. Genera una imagen propia (SVG, 1200×675):
  * un gráfico de barras si hay datos numéricos, o una portada tipográfica si no.
- * Nunca usa imágenes de terceros.
+ * Nunca usa imágenes de terceros. En simulación escribe en datos/simulacion/imagenes
+ * para no ensuciar public/.
  */
 export function ilustrador(
   ficha: FichaHechos,
@@ -22,8 +21,11 @@ export function ilustrador(
   ctx: ContextoEjecucion,
 ): ResultadoIlustracion {
   ctx.logger.paso('ilustrador', `Imagen para «${titulo}»`);
-  mkdirSync(DIR, { recursive: true });
-  const ruta = resolve(DIR, `${slug}.svg`);
+  const dir = ctx.simulacion
+    ? resolve(process.cwd(), 'datos/simulacion/imagenes')
+    : resolve(process.cwd(), 'public/imagenes');
+  mkdirSync(dir, { recursive: true });
+  const ruta = resolve(dir, `${slug}.svg`);
 
   let svg: string;
   let alt: string;

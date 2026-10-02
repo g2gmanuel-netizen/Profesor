@@ -204,6 +204,10 @@ async function main(): Promise<void> {
     } else if (finales.length > 0) {
       const res = publicador(finales, ctx);
       escribirResumen(res.resumen);
+    } else {
+      escribirResumen(
+        `## Edición de ${new Date().toISOString().slice(0, 10)}\n\nSin artículos nuevos que publicar hoy.\n`,
+      );
     }
 
     resumenFinal(finales, rechazados, ctx.costes.gastoDeSesion(), opts);
