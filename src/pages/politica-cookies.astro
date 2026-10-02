@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITIO } from '../lib/sitio';
+---
+
+<BaseLayout titulo="Política de cookies" descripcion="Qué cookies usamos y cómo gestionarlas.">
+  <article class="lectura cuerpo-articulo" style="margin-inline:auto;">
+    <h1>Política de cookies</h1>
+    <p class="entradilla">
+      Usamos cookies solo si las aceptas. Puedes cambiar tu decisión cuando quieras.
+    </p>
+
+    <h2>Qué es una cookie</h2>
+    <p>
+      Una cookie es un pequeño archivo que un sitio guarda en tu dispositivo para recordar
+      información (por ejemplo, tus preferencias o datos de uso).
+    </p>
+
+    <h2>Cookies que usamos</h2>
+    <ul>
+      <li>
+        <strong>Técnicas / de preferencia (propias):</strong> recuerdan tu elección de tema
+        (claro/oscuro) y tu decisión sobre cookies. No requieren consentimiento.
+      </li>
+      <li>
+        <strong>Analíticas (Google Analytics 4):</strong> solo si las aceptas. Miden el uso del sitio
+        de forma agregada.
+      </li>
+      <li>
+        <strong>Publicitarias (Google AdSense):</strong> solo si las aceptas. Permiten mostrar y, en
+        su caso, personalizar anuncios.
+      </li>
+    </ul>
+
+    <h2>Cómo gestionarlas</h2>
+    <p>
+      Al entrar por primera vez verás un aviso donde puedes aceptar o rechazar. Mientras no aceptes,
+      no se cargan cookies de analítica ni de publicidad (usamos el Consent Mode v2 de Google, que
+      arranca denegado). También puedes borrar las cookies desde la configuración de tu navegador.
+    </p>
+
+    <p class="aviso-ia">
+      Cuando actives AdSense en la UE deberás usar un gestor de consentimiento (CMP) certificado
+      compatible con TCF v2.2. Ver GUIA_PASOS_MANUALES.md, paso de AdSense.
+    </p>
+
+    <p class="meta">Última actualización: configurable. Sitio: {SITIO.url}</p>
+  </article>
+</BaseLayout>

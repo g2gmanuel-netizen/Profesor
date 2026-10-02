@@ -1,1 +1,0 @@
-# Memoria a largo plazo

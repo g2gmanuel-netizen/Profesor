@@ -1,0 +1,34 @@
+---
+import { SITIO, CATEGORIAS } from '../lib/sitio';
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor pie-rejilla">
+    <div>
+      <h4>{SITIO.nombre}</h4>
+      <p>{SITIO.descripcion}</p>
+      <p>
+        Contenido elaborado con asistencia de inteligencia artificial y revisión editorial humana.
+        <a href="/politica-editorial/">Cómo trabajamos</a>.
+      </p>
+    </div>
+    <div>
+      <h4>Secciones</h4>
+      {CATEGORIAS.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+    </div>
+    <div>
+      <h4>El medio</h4>
+      <a href="/sobre-nosotros/">Sobre nosotros</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/politica-editorial/">Política editorial y uso de IA</a>
+      <a href="/aviso-legal/">Aviso legal</a>
+      <a href="/politica-privacidad/">Política de privacidad</a>
+      <a href="/politica-cookies/">Política de cookies</a>
+      <a href="/rss.xml">RSS</a>
+    </div>
+  </div>
+  <div class="contenedor" style="padding-block:1rem;border-top:1px solid var(--color-borde);">
+    <small>© {anio} {SITIO.nombre}. Todos los derechos reservados.</small>
+  </div>
+</footer>

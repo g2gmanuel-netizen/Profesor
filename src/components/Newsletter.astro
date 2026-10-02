@@ -1,0 +1,22 @@
+---
+import { SITIO } from '../lib/sitio';
+const url = SITIO.newsletterUrl;
+---
+
+<section class="newsletter" aria-label="Boletín">
+  <h3 style="margin-top:0;">Recibe lo que afecta a tu bolsillo</h3>
+  <p style="margin:0;">Un correo breve con lo esencial de la economía doméstica en España.</p>
+  {
+    url ? (
+      <form action={url} method="post" target="_blank" rel="noopener">
+        <label class="sr-only" for="nl-email">Tu correo electrónico</label>
+        <input id="nl-email" type="email" name="email" placeholder="tu@correo.com" required />
+        <button type="submit">Suscribirme</button>
+      </form>
+    ) : (
+      <p style="margin-top:.75rem;opacity:.85;font-size:.85rem;">
+        Boletín pendiente de configurar. Añade la URL de tu proveedor en <code>NEWSLETTER_ACTION_URL</code>.
+      </p>
+    )
+  }
+</section>

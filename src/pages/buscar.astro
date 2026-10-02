@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout titulo="Buscar" descripcion="Busca noticias y guías sobre economía doméstica.">
+  <h1>Buscar</h1>
+  <form id="form-busqueda" role="search" style="display:flex;gap:.5rem;flex-wrap:wrap;">
+    <label class="sr-only" for="q">Buscar</label>
+    <input
+      id="q"
+      type="search"
+      name="q"
+      placeholder="Hipoteca, alquiler, IRPF…"
+      autocomplete="off"
+      style="flex:1;min-width:0;padding:10px;border:1px solid var(--color-borde);border-radius:var(--radio);"
+    />
+    <button type="submit" class="boton-icono">Buscar</button>
+  </form>
+
+  <p id="estado-busqueda" class="meta" style="margin-top:1rem;"></p>
+  <div id="resultados" class="rejilla" style="margin-top:1rem;"></div>
+</BaseLayout>
+
+<script>
+  type Item = {
+    titulo: string;
+    descripcion: string;
+    categoria: string;
+    etiquetas: string[];
+    autor: string;
+    url: string;
+    fecha: string;
+  };
+
+  const normalizar = (s: string) =>
+    s
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '');
+
+  let indice: Item[] = [];
+  const estado = document.getElementById('estado-busqueda')!;
+  const contenedor = document.getElementById('resultados')!;
+  const input = document.getElementById('q') as HTMLInputElement;
+
+  async function cargar() {
+    try {
+      const r = await fetch('/indice-busqueda.json');
+      indice = await r.json();
+    } catch {
+      estado.textContent = 'No se pudo cargar el índice de búsqueda.';
+    }
+  }
+
+  function buscar(q: string) {
+    const nq = normalizar(q).trim();
+    if (!nq) {
+      contenedor.innerHTML = '';
+      estado.textContent = '';
+      return;
+    }
+    const terminos = nq.split(/\s+/);
+    const res = indice.filter((it) => {
+      const texto = normalizar(
+        [it.titulo, it.descripcion, it.categoria, it.autor, it.etiquetas.join(' ')].join(' '),
+      );
+      return terminos.every((t) => texto.includes(t));
+    });
+    estado.textContent = `${res.length} resultado(s) para «${q}».`;
+    contenedor.innerHTML = res
+      .map(
+        (it) => `
+        <article class="tarjeta"><div class="tarjeta-cuerpo">
+          <span class="etiqueta-cat">${it.categoria}</span>
+          <h3><a href="${it.url}">${it.titulo}</a></h3>
+          <p class="meta">${it.descripcion}</p>
+        </div></article>`,
+      )
+      .join('');
+  }
+
+  const params = new URLSearchParams(location.search);
+  const inicial = params.get('q') ?? '';
+  input.value = inicial;
+
+  document.getElementById('form-busqueda')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    buscar(input.value);
+  });
+  input.addEventListener('input', () => buscar(input.value));
+
+  cargar().then(() => {
+    if (inicial) buscar(inicial);
+  });
+</script>

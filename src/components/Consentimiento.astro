@@ -1,0 +1,108 @@
+---
+/**
+ * Gestor de consentimiento (CMP) + Google Consent Mode v2.
+ * - Por defecto todo DENEGADO hasta que la persona acepte.
+ * - Si CMP_ACTIVO=false, no se carga nada (desarrollo / pre-AdSense).
+ * - En producción con AdSense, Google exige un CMP certificado TCF v2.2.
+ *   Aquí dejamos un banner propio mínimo que fija el Consent Mode; para la UE
+ *   debe sustituirse/activarse el CMP de Google "Privacidad y mensajes"
+ *   (ver GUIA_PASOS_MANUALES.md, paso de AdSense).
+ */
+import { SITIO } from '../lib/sitio';
+const cmpActivo = SITIO.cmp.activo;
+---
+
+{/* Consent Mode v2: denegado por defecto, SIEMPRE que haya analítica o anuncios */}
+{
+  (cmpActivo || SITIO.ga4Id || SITIO.adsense.activo) && (
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = window.gtag || gtag;
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+      // Si ya aceptó en una visita anterior, restaurar.
+      try {
+        if (localStorage.getItem('bd-consent') === 'granted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+          });
+        }
+      } catch (e) {}
+    </script>
+  )
+}
+
+{
+  cmpActivo && (
+    <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+      <p>
+        Usamos cookies propias y de terceros para analítica y publicidad. Puedes aceptarlas,
+        rechazarlas o leer nuestra{' '}
+        <a href="/politica-cookies/">política de cookies</a>.
+      </p>
+      <div class="cmp-botones">
+        <button type="button" data-consent="denied">Rechazar</button>
+        <button type="button" data-consent="granted" class="primario">Aceptar</button>
+      </div>
+    </div>
+  )
+}
+
+{
+  cmpActivo && (
+    <>
+      <style>
+        {`
+        .cmp-banner{position:fixed;inset-inline:0;bottom:0;z-index:100;background:var(--color-fondo);
+          border-top:2px solid var(--color-marca);padding:1rem;font-family:var(--fuente-ui);
+          font-size:.9rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+        .cmp-banner p{margin:0;max-width:70ch}
+        .cmp-botones{display:flex;gap:.5rem}
+        .cmp-botones button{padding:8px 16px;border-radius:var(--radio);border:1px solid var(--color-borde);
+          cursor:pointer;font-weight:600;background:var(--color-fondo);color:var(--color-texto)}
+        .cmp-botones .primario{background:var(--color-marca);color:#fff;border-color:var(--color-marca)}
+      `}
+      </style>
+      <script is:inline>
+        (function () {
+          var banner = document.getElementById('bd-cmp');
+          if (!banner) return;
+          var guardado = null;
+          try {
+            guardado = localStorage.getItem('bd-consent');
+          } catch (e) {}
+          if (!guardado) banner.hidden = false;
+          banner.querySelectorAll('button[data-consent]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var estado = b.getAttribute('data-consent');
+              try {
+                localStorage.setItem('bd-consent', estado);
+              } catch (e) {}
+              if (window.gtag) {
+                window.gtag('consent', 'update', {
+                  ad_storage: estado,
+                  ad_user_data: estado,
+                  ad_personalization: estado,
+                  analytics_storage: estado,
+                });
+              }
+              banner.hidden = true;
+              if (estado === 'granted') document.dispatchEvent(new Event('bd-consent-granted'));
+            });
+          });
+        })();
+      </script>
+    </>
+  )
+}

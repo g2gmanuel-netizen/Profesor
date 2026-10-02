@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout titulo="Página no encontrada" descripcion="La página que buscas no existe." noindex={true}>
+  <div style="text-align:center;padding-block:3rem;">
+    <h1 style="font-size:3rem;margin:0;">404</h1>
+    <p class="entradilla">No encontramos la página que buscas.</p>
+    <p><a href="/">Volver a la portada</a> o <a href="/buscar/">buscar una noticia</a>.</p>
+  </div>
+</BaseLayout>

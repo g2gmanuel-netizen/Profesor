@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITIO } from '../lib/sitio';
+---
+
+<BaseLayout titulo="Sobre nosotros" descripcion={`Qué es ${SITIO.nombre} y cómo trabajamos.`}>
+  <article class="lectura cuerpo-articulo" style="margin-inline:auto;">
+    <h1>Sobre nosotros</h1>
+    <p class="entradilla">
+      {SITIO.nombre} es un medio digital independiente centrado en la economía doméstica en España.
+    </p>
+
+    <p>
+      Explicamos, con datos y sin jerga, lo que de verdad afecta a tu bolsillo: vivienda, alquiler,
+      hipotecas, ahorro, impuestos, pensiones y precios. Nuestro objetivo es que, después de leernos,
+      sepas exactamente qué significa cada noticia para ti y qué puedes hacer.
+    </p>
+
+    <h2>Nuestro método</h2>
+    <p>
+      Trabajamos con un equipo de redacción asistido por inteligencia artificial y supervisado por
+      personas. Cada pieza parte de <strong>fuentes oficiales</strong> (BOE, INE, Banco de España,
+      Eurostat, Seguridad Social, Agencia Tributaria, entre otras), se verifica frente a esas fuentes
+      y pasa un control de calidad y cumplimiento antes de publicarse. Puedes leer el detalle en
+      nuestra <a href="/politica-editorial/">política editorial y de uso de IA</a>.
+    </p>
+
+    <h2>Quién responde</h2>
+    <p>
+      El responsable editorial de {SITIO.nombre} es <strong>{SITIO.legal.titular}</strong>. Si
+      detectas un error, queremos corregirlo rápido: escríbenos a través de la
+      <a href="/contacto/">página de contacto</a>.
+    </p>
+
+    <h2>Independencia</h2>
+    <p>
+      Nos financiamos con publicidad. La publicidad nunca condiciona qué contamos ni cómo lo
+      contamos. Separamos de forma clara el contenido editorial de cualquier mensaje comercial.
+    </p>
+  </article>
+</BaseLayout>

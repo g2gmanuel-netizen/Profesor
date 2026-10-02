@@ -1,19 +1,33 @@
-# Secretos y entorno
+# Dependencias
+node_modules/
+panel/node_modules/
+
+# Build
+dist/
+panel/dist/
+.astro/
+panel/.astro/
+
+# Secretos — NUNCA subir
 .env
-.venv/
-venv/
+.env.*
+!.env.example
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
+# Logs y datos sensibles de ejecución
+logs/
+*.log
 
-# macOS
+# Sistema
 .DS_Store
+Thumbs.db
 
-# Registros
-lucky.log
+# Métricas crudas descargadas (se regeneran). Se conservan los JSON de ejemplo.
+datos/metricas/*.json
+!datos/metricas/.gitkeep
 
-# Modelos y cachés de voz
-*.onnx
-.cache/
+# Resultados de pruebas y cobertura
+coverage/
+.vitest/
+
+# Lighthouse
+.lighthouseci/

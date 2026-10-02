@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TarjetaArticulo from '../components/TarjetaArticulo.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Anuncio from '../components/Anuncio.astro';
+import { SITIO, CATEGORIAS } from '../lib/sitio';
+import { todosLosArticulos, destacados } from '../lib/articulos';
+
+const arts = await todosLosArticulos();
+const dest = await destacados(3);
+const recientes = arts.slice(0, 9);
+const masLeidos = arts.slice(0, 5); // Placeholder: se reordenará con datos de GA4 (ver panel).
+---
+
+<BaseLayout titulo={SITIO.nombre} descripcion={SITIO.descripcion}>
+  {
+    arts.length === 0 && (
+      <p>
+        Todavía no hay artículos publicados. Ejecuta el pipeline de agentes con{' '}
+        <code>npm run redaccion -- --simulacion --sin-api</code> o espera a la primera edición.
+      </p>
+    )
+  }
+
+  {
+    dest.length > 0 && (
+      <section aria-label="Destacadas">
+        <h2 class="sr-only">Destacadas</h2>
+        <div class="rejilla cols-3">
+          {dest.map((a) => (
+            <TarjetaArticulo articulo={a} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <Anuncio formato="horizontal" />
+
+  <div style="display:grid;gap:2rem;grid-template-columns:1fr;">
+    <section aria-label="Últimas noticias">
+      <h2>Últimas noticias</h2>
+      <div class="rejilla cols-3">
+        {recientes.map((a) => <TarjetaArticulo articulo={a} />)}
+      </div>
+    </section>
+
+    {
+      masLeidos.length > 0 && (
+        <section aria-label="Lo más leído">
+          <h2>Lo más leído</h2>
+          <ol>
+            {masLeidos.map((a) => (
+              <li style="margin-block:.4rem;">
+                <a href={`/articulo/${a.id}/`}>{a.data.titulo}</a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    }
+  </div>
+
+  <section style="margin-top:2.5rem;" aria-label="Secciones">
+    <h2>Secciones</h2>
+    <div class="rejilla cols-3">
+      {
+        CATEGORIAS.map((c) => (
+          <a
+            href={`/categoria/${c.slug}/`}
+            class="tarjeta"
+            style="padding:1rem;text-decoration:none;"
+          >
+            <span class="etiqueta-cat">{c.nombre}</span>
+            <p style="margin:.4rem 0 0;color:var(--color-texto-suave);">{c.descripcion}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <div style="margin-top:2.5rem;">
+    <Newsletter />
+  </div>
+</BaseLayout>

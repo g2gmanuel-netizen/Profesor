@@ -1,0 +1,168 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Anuncio from '../components/Anuncio.astro';
+import Compartir from '../components/Compartir.astro';
+import Newsletter from '../components/Newsletter.astro';
+import TarjetaArticulo from '../components/TarjetaArticulo.astro';
+import { SITIO, categoriaPorSlug, slugAutor } from '../lib/sitio';
+import { fechaLegible, urlArticulo, relacionados, type Articulo } from '../lib/articulos';
+
+interface Props {
+  articulo: Articulo;
+  palabras: number;
+}
+const { articulo, palabras } = Astro.props;
+const d = articulo.data;
+const cat = categoriaPorSlug(d.categoria);
+const urlAbs = new URL(urlArticulo(articulo), SITIO.url).href;
+const tiempoLectura = Math.max(1, Math.round(palabras / 200));
+const rel = await relacionados(articulo, 4);
+const largo = palabras > 600;
+
+const newsArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: d.titulo,
+  description: d.descripcion,
+  image: [new URL(d.imagen, SITIO.url).href],
+  datePublished: d.fechaPublicacion.toISOString(),
+  dateModified: (d.fechaActualizacion ?? d.fechaPublicacion).toISOString(),
+  author: { '@type': 'Person', name: d.autor, url: new URL(`/autor/${slugAutor(d.autor)}/`, SITIO.url).href },
+  publisher: {
+    '@type': 'Organization',
+    name: SITIO.nombre,
+    logo: { '@type': 'ImageObject', url: new URL('/imagenes/logo.svg', SITIO.url).href },
+  },
+  mainEntityOfPage: urlAbs,
+  articleSection: cat?.nombre,
+  inLanguage: 'es-ES',
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Portada', item: SITIO.url },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: cat?.nombre ?? 'Sección',
+      item: new URL(`/categoria/${d.categoria}/`, SITIO.url).href,
+    },
+    { '@type': 'ListItem', position: 3, name: d.titulo, item: urlAbs },
+  ],
+};
+---
+
+<BaseLayout
+  titulo={d.tituloSeo || d.titulo}
+  descripcion={d.descripcion}
+  imagen={d.imagen}
+  tipo="article"
+>
+  <Fragment slot="head">
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(newsArticle)}</script>`} />
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`} />
+  </Fragment>
+
+  <article class="lectura" style="margin-inline:auto;">
+    <nav class="migas" aria-label="Ruta">
+      <a href="/">Portada</a> › <a href={`/categoria/${d.categoria}/`}>{cat?.nombre}</a>
+    </nav>
+
+    <header class="articulo-cabecera">
+      {cat && <span class="etiqueta-cat">{cat.nombre}</span>}
+      <h1>{d.titulo}</h1>
+      <p class="entradilla">{d.subtitulo}</p>
+      <p class="meta">
+        Por <a href={`/autor/${slugAutor(d.autor)}/`}>{d.autor}</a> ·
+        <time datetime={d.fechaPublicacion.toISOString()}>{fechaLegible(d.fechaPublicacion)}</time>
+        {
+          d.fechaActualizacion && (
+            <>
+              {' '}· Actualizado el{' '}
+              <time datetime={d.fechaActualizacion.toISOString()}>
+                {fechaLegible(d.fechaActualizacion)}
+              </time>
+            </>
+          )
+        }
+        · <span class="tiempo-lectura">{tiempoLectura} min de lectura</span>
+      </p>
+    </header>
+
+    <img
+      src={d.imagen}
+      alt={d.imagenAlt}
+      width="1200"
+      height="675"
+      style="border-radius:var(--radio);margin-block:1rem;"
+    />
+
+    <Compartir url={urlAbs} titulo={d.titulo} />
+
+    <Anuncio formato="horizontal" />
+
+    <div class="cuerpo-articulo">
+      <slot />
+    </div>
+
+    {largo && <Anuncio formato="rectangulo" />}
+
+    {
+      d.clavesRapidas.length > 0 && (
+        <section class="claves" aria-label="Claves rápidas">
+          <strong>Claves rápidas</strong>
+          <ul>
+            {d.clavesRapidas.map((c) => (
+              <li>{c}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section class="fuentes-lista" aria-label="Fuentes">
+      <h2>Fuentes</h2>
+      <ul>
+        {
+          d.fuentes.map((f) => (
+            <li>
+              <a href={f.url} target="_blank" rel="noopener nofollow">
+                {f.titulo}
+              </a>
+              {f.organismo && <span> — {f.organismo}</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <p class="aviso-ia">
+      Este artículo se ha elaborado con asistencia de inteligencia artificial a partir de las
+      fuentes citadas y ha pasado por revisión editorial humana antes de publicarse. Consulta
+      nuestra <a href="/politica-editorial/">política editorial y de uso de IA</a>.
+    </p>
+
+    <Anuncio formato="horizontal" />
+
+    <Compartir url={urlAbs} titulo={d.titulo} />
+  </article>
+
+  {
+    rel.length > 0 && (
+      <section style="margin-top:3rem;">
+        <h2>Te puede interesar</h2>
+        <div class="rejilla cols-3">
+          {rel.map((a) => (
+            <TarjetaArticulo articulo={a} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <div style="margin-top:2.5rem;">
+    <Newsletter />
+  </div>
+</BaseLayout>

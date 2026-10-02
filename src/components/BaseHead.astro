@@ -1,0 +1,72 @@
+---
+import { SITIO } from '../lib/sitio';
+import '../styles/global.css';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen?: string;
+  tipo?: 'website' | 'article';
+  canonical?: string;
+  noindex?: boolean;
+}
+const {
+  titulo,
+  descripcion,
+  imagen = '/imagenes/portada-generica.svg',
+  tipo = 'website',
+  canonical,
+  noindex = false,
+} = Astro.props;
+
+const urlCanonica = canonical ?? new URL(Astro.url.pathname, SITIO.url).href;
+const urlImagen = new URL(imagen, SITIO.url).href;
+
+const organizacion = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITIO.nombre,
+  url: SITIO.url,
+  description: SITIO.descripcion,
+  logo: new URL('/imagenes/logo.svg', SITIO.url).href,
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={urlCanonica} />
+<link rel="alternate" type="application/rss+xml" title={SITIO.nombre} href="/rss.xml" />
+
+<title>{titulo === SITIO.nombre ? titulo : `${titulo} | ${SITIO.nombre}`}</title>
+<meta name="description" content={descripcion} />
+<meta
+  name="robots"
+  content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'}
+/>
+
+<meta property="og:type" content={tipo} />
+<meta property="og:site_name" content={SITIO.nombre} />
+<meta property="og:title" content={titulo} />
+<meta property="og:description" content={descripcion} />
+<meta property="og:url" content={urlCanonica} />
+<meta property="og:image" content={urlImagen} />
+<meta property="og:locale" content="es_ES" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={titulo} />
+<meta name="twitter:description" content={descripcion} />
+<meta name="twitter:image" content={urlImagen} />
+
+<meta name="generator" content={Astro.generator} />
+<set:html value={`<script type="application/ld+json">${JSON.stringify(organizacion)}</script>`} />
+
+<script is:inline>
+  // Tema claro/oscuro: respeta preferencia guardada antes de pintar.
+  (function () {
+    try {
+      var t = localStorage.getItem('bd-tema');
+      if (t) document.documentElement.setAttribute('data-tema', t);
+    } catch (e) {}
+  })();
+</script>

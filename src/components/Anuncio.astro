@@ -1,0 +1,40 @@
+---
+/**
+ * Hueco de anuncio. Por defecto NO carga ningún script (ADSENSE_ACTIVO=false).
+ * Reserva espacio fijo según el formato para evitar saltos de diseño (CLS).
+ * Formatos: horizontal (tras entradilla / final), rectangulo (mitad del texto), lateral.
+ */
+import { SITIO } from '../lib/sitio';
+
+interface Props {
+  formato?: 'horizontal' | 'rectangulo' | 'lateral';
+  slot?: string; // data-ad-slot de AdSense
+}
+const { formato = 'horizontal', slot = '' } = Astro.props;
+const activo = SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
+---
+
+<aside class="hueco-anuncio" data-formato={formato} aria-label="Publicidad">
+  {
+    activo ? (
+      <ins
+        class="adsbygoogle"
+        style="display:block;width:100%;"
+        data-ad-client={SITIO.adsense.clientId}
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    ) : (
+      <span>Espacio publicitario</span>
+    )
+  }
+</aside>
+
+{
+  activo && (
+    <script is:inline>
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  )
+}

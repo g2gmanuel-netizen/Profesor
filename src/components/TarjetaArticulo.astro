@@ -1,0 +1,33 @@
+---
+import { categoriaPorSlug } from '../lib/sitio';
+import { fechaLegible, urlArticulo, type Articulo } from '../lib/articulos';
+
+interface Props {
+  articulo: Articulo;
+}
+const { articulo } = Astro.props;
+const cat = categoriaPorSlug(articulo.data.categoria);
+---
+
+<article class="tarjeta">
+  <a href={urlArticulo(articulo)} aria-label={articulo.data.titulo}>
+    <img
+      src={articulo.data.imagen}
+      alt={articulo.data.imagenAlt}
+      width="1200"
+      height="675"
+      loading="lazy"
+    />
+  </a>
+  <div class="tarjeta-cuerpo">
+    {cat && <span class="etiqueta-cat">{cat.nombre}</span>}
+    <h3>
+      <a href={urlArticulo(articulo)}>{articulo.data.titulo}</a>
+    </h3>
+    <p class="meta">
+      {articulo.data.autor} · <time datetime={articulo.data.fechaPublicacion.toISOString()}>
+        {fechaLegible(articulo.data.fechaPublicacion)}
+      </time>
+    </p>
+  </div>
+</article>

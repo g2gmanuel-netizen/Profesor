@@ -1,0 +1,50 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Cabecera from '../components/Cabecera.astro';
+import Pie from '../components/Pie.astro';
+import Consentimiento from '../components/Consentimiento.astro';
+import Analitica from '../components/Analitica.astro';
+import { SITIO } from '../lib/sitio';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  imagen?: string;
+  tipo?: 'website' | 'article';
+  canonical?: string;
+  noindex?: boolean;
+}
+const {
+  titulo,
+  descripcion = SITIO.descripcion,
+  imagen,
+  tipo = 'website',
+  canonical,
+  noindex = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead
+      titulo={titulo}
+      descripcion={descripcion}
+      imagen={imagen}
+      tipo={tipo}
+      canonical={canonical}
+      noindex={noindex}
+    />
+    <Consentimiento />
+    <Analitica />
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#principal" class="sr-only">Saltar al contenido</a>
+    <Cabecera />
+    <main id="principal" class="contenedor" style="padding-block:1.5rem;">
+      <slot />
+    </main>
+    <Pie />
+  </body>
+</html>

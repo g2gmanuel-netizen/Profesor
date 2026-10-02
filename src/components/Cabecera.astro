@@ -1,0 +1,39 @@
+---
+import { SITIO, CATEGORIAS } from '../lib/sitio';
+---
+
+<header class="cabecera">
+  <div class="contenedor">
+    <div class="cabecera-fila">
+      <a href="/" class="logo">{SITIO.nombre}</a>
+      <div class="nav-acciones">
+        <a href="/buscar/" class="boton-icono" aria-label="Buscar">Buscar</a>
+        <button id="btn-tema" class="boton-icono" aria-label="Cambiar tema claro u oscuro">
+          Tema
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-principal contenedor" aria-label="Secciones">
+    <a href="/">Portada</a>
+    {CATEGORIAS.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('btn-tema');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var raiz = document.documentElement;
+      var actual =
+        raiz.getAttribute('data-tema') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
+      var nuevo = actual === 'oscuro' ? 'claro' : 'oscuro';
+      raiz.setAttribute('data-tema', nuevo);
+      try {
+        localStorage.setItem('bd-tema', nuevo);
+      } catch (e) {}
+    });
+  })();
+</script>

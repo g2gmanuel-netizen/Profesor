@@ -1,0 +1,20 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@agentes/*": ["agentes/*"]
+    },
+    "types": ["node"]
+  },
+  "include": ["src", "agentes", "scripts", "tests", "*.config.*"],
+  "exclude": ["node_modules", "dist", "panel/dist", ".astro"]
+}

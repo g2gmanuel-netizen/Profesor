@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TarjetaArticulo from '../../components/TarjetaArticulo.astro';
+import Anuncio from '../../components/Anuncio.astro';
+import { CATEGORIAS, categoriaPorSlug } from '../../lib/sitio';
+import { articulosPorCategoria } from '../../lib/articulos';
+
+export async function getStaticPaths() {
+  return CATEGORIAS.map((c) => ({ params: { categoria: c.slug } }));
+}
+
+const { categoria } = Astro.params;
+const cat = categoriaPorSlug(categoria);
+if (!cat) return Astro.redirect('/404');
+const arts = await articulosPorCategoria(categoria);
+---
+
+<BaseLayout titulo={cat.nombre} descripcion={cat.descripcion}>
+  <nav class="migas" aria-label="Ruta"><a href="/">Portada</a> › {cat.nombre}</nav>
+  <h1>{cat.nombre}</h1>
+  <p class="entradilla">{cat.descripcion}</p>
+
+  <Anuncio formato="horizontal" />
+
+  {
+    arts.length === 0 ? (
+      <p>Todavía no hay artículos en esta sección.</p>
+    ) : (
+      <div class="rejilla cols-3">
+        {arts.map((a) => (
+          <TarjetaArticulo articulo={a} />
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>

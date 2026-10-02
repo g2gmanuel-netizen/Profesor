@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITIO } from '../lib/sitio';
+const email = SITIO.emailContacto;
+const hayEmail = email && email !== '[PENDIENTE]';
+---
+
+<BaseLayout titulo="Contacto" descripcion={`Cómo contactar con ${SITIO.nombre}.`}>
+  <article class="lectura cuerpo-articulo" style="margin-inline:auto;">
+    <h1>Contacto</h1>
+    <p class="entradilla">¿Una corrección, una sugerencia o una pregunta? Te leemos.</p>
+
+    {
+      hayEmail ? (
+        <p>
+          Escríbenos a <a href={`mailto:${email}`}>{email}</a>. Respondemos en días laborables.
+        </p>
+      ) : (
+        <p>
+          Email de contacto pendiente de configurar. Añádelo en la variable
+          <code>EMAIL_CONTACTO</code> (ver GUIA_PASOS_MANUALES.md).
+        </p>
+      )
+    }
+
+    <h2>Correcciones</h2>
+    <p>
+      Si ves un dato erróneo, indícanos el artículo y la frase concreta. Verificamos y, si procede,
+      corregimos señalando la actualización.
+    </p>
+
+    <h2>Publicidad y colaboraciones</h2>
+    <p>Para consultas comerciales, utiliza el mismo correo indicando el asunto.</p>
+  </article>
+</BaseLayout>

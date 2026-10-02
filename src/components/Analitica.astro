@@ -1,0 +1,41 @@
+---
+/**
+ * Google Analytics 4 y script de AdSense.
+ * - GA4 solo si GA4_ID tiene valor.
+ * - AdSense solo si ADSENSE_ACTIVO=true y hay client id.
+ * - Ambos respetan el Consent Mode definido en Consentimiento.astro
+ *   (arrancan en "denied"; GA4 ya no registra hasta que se concede).
+ */
+import { SITIO } from '../lib/sitio';
+const ga4 = SITIO.ga4Id;
+const adsense = SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
+---
+
+{
+  ga4 && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} />
+      <script is:inline define:vars={{ ga4 }}>
+        window.dataLayer = window.dataLayer || [];
+        window.gtag =
+          window.gtag ||
+          function () {
+            dataLayer.push(arguments);
+          };
+        gtag('js', new Date());
+        gtag('config', ga4, { anonymize_ip: true });
+      </script>
+    </>
+  )
+}
+
+{
+  adsense && (
+    <script
+      is:inline
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITIO.adsense.clientId}`}
+      crossorigin="anonymous"
+    />
+  )
+}

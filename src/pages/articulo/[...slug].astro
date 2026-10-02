@@ -1,0 +1,23 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { todosLosArticulos } from '../../lib/articulos';
+
+export async function getStaticPaths() {
+  const arts = await todosLosArticulos();
+  return arts.map((articulo) => ({
+    params: { slug: articulo.id },
+    props: { articulo },
+  }));
+}
+
+const { articulo } = Astro.props;
+const { Content } = await render(articulo);
+
+// Conteo aproximado de palabras del cuerpo (para tiempo de lectura y anuncio central).
+const palabras = (articulo.body ?? '').split(/\s+/).filter(Boolean).length;
+---
+
+<ArticleLayout articulo={articulo} palabras={palabras}>
+  <Content />
+</ArticleLayout>

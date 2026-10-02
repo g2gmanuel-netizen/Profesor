@@ -1,0 +1,4 @@
+# ads.txt de Bolsillo Diario
+# Sustituye pub-XXXXXXXXXXXXXXXX por tu ID de cliente de Google AdSense
+# una vez te aprueben. Ver GUIA_PASOS_MANUALES.md (paso de AdSense).
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

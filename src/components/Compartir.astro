@@ -1,0 +1,15 @@
+---
+interface Props {
+  url: string;
+  titulo: string;
+}
+const { url, titulo } = Astro.props;
+const t = encodeURIComponent(titulo);
+const u = encodeURIComponent(url);
+---
+
+<div class="compartir" aria-label="Compartir">
+  <a href={`https://wa.me/?text=${t}%20${u}`} target="_blank" rel="noopener">WhatsApp</a>
+  <a href={`https://twitter.com/intent/tweet?text=${t}&url=${u}`} target="_blank" rel="noopener">X</a>
+  <a href={`https://t.me/share/url?url=${u}&text=${t}`} target="_blank" rel="noopener">Telegram</a>
+</div>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITIO } from '../lib/sitio';
+---
+
+<BaseLayout
+  titulo="Política editorial y de uso de IA"
+  descripcion="Cómo elaboramos, verificamos y publicamos nuestro contenido, y cómo usamos la inteligencia artificial."
+>
+  <article class="lectura cuerpo-articulo" style="margin-inline:auto;">
+    <h1>Política editorial y de uso de IA</h1>
+    <p class="entradilla">
+      Transparencia total sobre cómo trabajamos. Estas son nuestras reglas, y no son negociables.
+    </p>
+
+    <h2>Principios</h2>
+    <ul>
+      <li><strong>Cero hechos inventados.</strong> Toda afirmación procede de una fuente citada y enlazada.</li>
+      <li><strong>Cero copia.</strong> No reproducimos párrafos de otros medios. Priorizamos fuentes primarias oficiales.</li>
+      <li><strong>Valor añadido.</strong> Cada pieza aporta contexto, explicación y utilidad práctica.</li>
+      <li><strong>Titulares honestos.</strong> El titular promete exactamente lo que el texto cumple.</li>
+      <li><strong>Calidad antes que volumen.</strong> Preferimos no publicar a publicar algo flojo.</li>
+    </ul>
+
+    <h2>Cómo usamos la inteligencia artificial</h2>
+    <p>
+      Utilizamos modelos de IA para detectar temas relevantes, investigar fuentes oficiales, redactar
+      borradores, verificar hechos y optimizar la presentación. El proceso está dividido en fases con
+      controles de verificación y cumplimiento. <strong>Ninguna pieza se publica sin que su
+      contenido factual se haya contrastado con las fuentes citadas</strong>, y durante las primeras
+      semanas todo pasa por revisión humana antes de publicarse.
+    </p>
+    <p>
+      Cada artículo indica de forma visible que se ha elaborado con asistencia de IA y revisión
+      editorial.
+    </p>
+
+    <h2>Fuentes</h2>
+    <p>
+      Damos prioridad a fuentes primarias: BOE, INE, Banco de España, Eurostat, BCE, Agencia
+      Tributaria, Seguridad Social, CNMC, ministerios y organismos oficiales. Cuando citamos
+      textualmente, lo hacemos de forma breve, entrecomillada y atribuida.
+    </p>
+
+    <h2>Correcciones</h2>
+    <p>
+      Corregimos los errores con rapidez y transparencia. Si una corrección afecta a un dato
+      relevante, lo indicamos en el artículo con su fecha de actualización. Puedes avisarnos desde la
+      <a href="/contacto/">página de contacto</a>.
+    </p>
+
+    <h2>Temas sensibles</h2>
+    <p>
+      Excluimos o tratamos con criterios estrictos los temas de salud, sucesos, menores y suicidio.
+      No practicamos el sensacionalismo ni el alarmismo.
+    </p>
+
+    <h2>Responsable editorial</h2>
+    <p>El responsable de los contenidos de {SITIO.nombre} es {SITIO.legal.titular}.</p>
+  </article>
+</BaseLayout>

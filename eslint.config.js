@@ -1,0 +1,18 @@
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import astro from 'eslint-plugin-astro';
+
+export default [
+  {
+    ignores: ['dist/**', 'panel/dist/**', '.astro/**', 'panel/.astro/**', 'node_modules/**', 'coverage/**'],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...astro.configs.recommended,
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
+];
