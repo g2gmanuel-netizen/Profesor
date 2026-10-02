@@ -1,0 +1,65 @@
+name: Redacción diaria
+
+# Ejecuta el pipeline de agentes 3 veces al día.
+# Los crons van en UTC. 05:00/11:00/17:00 UTC ≈ 07:00/13:00/19:00 hora de Madrid en verano (CEST);
+# en invierno (CET) equivalen a 06:00/12:00/18:00. Ajusta si lo prefieres exacto todo el año.
+on:
+  schedule:
+    - cron: '0 5,11,17 * * *'
+  workflow_dispatch: # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: redaccion
+  cancel-in-progress: false
+
+jobs:
+  redaccion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Ejecutar el pipeline de redacción
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELO_REDACCION: ${{ vars.MODELO_REDACCION }}
+          MODELO_RAPIDO: ${{ vars.MODELO_RAPIDO }}
+          PRESUPUESTO_DIARIO_USD: ${{ vars.PRESUPUESTO_DIARIO_USD }}
+          REVISION_HUMANA: ${{ vars.REVISION_HUMANA }}
+          AUTOR_RESPONSABLE: ${{ vars.AUTOR_RESPONSABLE }}
+        run: npm run redaccion
+
+      - name: Validar que el sitio sigue compilando
+        run: npm run build
+
+      - name: Abrir pull request con la edición (si REVISION_HUMANA=true)
+        if: ${{ vars.REVISION_HUMANA != 'false' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: edicion/${{ github.run_id }}
+          title: 'Edición del día (revisión humana)'
+          body-path: datos/resumen-edicion.md
+          commit-message: 'Edición automática pendiente de revisión'
+          add-paths: |
+            src/content/articulos/**
+            public/imagenes/**
+            datos/publicados.json
+
+      - name: Commit directo a main (si REVISION_HUMANA=false)
+        if: ${{ vars.REVISION_HUMANA == 'false' }}
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add src/content/articulos public/imagenes datos/publicados.json
+          git commit -m "Edición automática del día" || echo "Sin cambios que publicar"
+          git push

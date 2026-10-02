@@ -1,0 +1,42 @@
+name: Recolección de métricas
+
+# Cada 6 horas. Descarga métricas y las guarda en datos/metricas/ para el panel.
+# (Esos JSON están en .gitignore para desarrollo local; aquí se fuerzan con -f
+#  para que el panel privado los muestre. El repositorio es privado.)
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  metricas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Recolectar métricas
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL }}
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_REFRESH_TOKEN: ${{ secrets.ADSENSE_REFRESH_TOKEN }}
+          ADSENSE_ACCOUNT_ID: ${{ vars.ADSENSE_ACCOUNT_ID }}
+        run: npm run metricas
+
+      - name: Guardar métricas
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -f datos/metricas/*.json
+          git commit -m "Métricas actualizadas" || echo "Sin cambios"
+          git push

@@ -4,12 +4,12 @@ import { CONFIG } from '../config/config';
 import { ContadorCostes } from './costes';
 import { Logger } from './logger';
 
-export interface OpcionesLlm<T> {
+export interface OpcionesLlm<S extends z.ZodTypeAny> {
   agente: string;
   modelo: string;
   system: string;
   user: string;
-  schema: z.ZodType<T>;
+  schema: S;
   maxTokens?: number;
   articulo?: string;
 }
@@ -43,7 +43,7 @@ export class Llm {
   }
 
   /** Llama al modelo pidiendo JSON, valida con Zod y reintenta con espera exponencial. */
-  async generarJSON<T>(opts: OpcionesLlm<T>): Promise<T> {
+  async generarJSON<S extends z.ZodTypeAny>(opts: OpcionesLlm<S>): Promise<z.infer<S>> {
     const cliente = this.obtenerCliente();
     const maxIntentos = 4;
     let ultimoError: unknown;

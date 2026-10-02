@@ -114,7 +114,7 @@ const breadcrumb = {
         <section class="claves" aria-label="Claves rápidas">
           <strong>Claves rápidas</strong>
           <ul>
-            {d.clavesRapidas.map((c) => (
+            {d.clavesRapidas.map((c: string) => (
               <li>{c}</li>
             ))}
           </ul>
@@ -126,7 +126,7 @@ const breadcrumb = {
       <h2>Fuentes</h2>
       <ul>
         {
-          d.fuentes.map((f) => (
+          d.fuentes.map((f: { titulo: string; url: string; organismo?: string }) => (
             <li>
               <a href={f.url} target="_blank" rel="noopener nofollow">
                 {f.titulo}

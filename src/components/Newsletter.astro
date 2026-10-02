@@ -8,7 +8,7 @@ const url = SITIO.newsletterUrl;
   <p style="margin:0;">Un correo breve con lo esencial de la economía doméstica en España.</p>
   {
     url ? (
-      <form action={url} method="post" target="_blank" rel="noopener">
+      <form action={url} method="post" target="_blank">
         <label class="sr-only" for="nl-email">Tu correo electrónico</label>
         <input id="nl-email" type="email" name="email" placeholder="tu@correo.com" required />
         <button type="submit">Suscribirme</button>

@@ -1,0 +1,33 @@
+name: Tests y build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tests (Vitest)
+        run: npm test
+
+      - name: Simulación del pipeline sin API
+        run: npm run redaccion -- --simulacion --sin-api
+
+      - name: Build de la web
+        run: npm run build
+
+      - name: Build del panel (demo)
+        run: npm run panel -- --build --demo

@@ -18,7 +18,7 @@ export function guardarMetrica(fuente: string, datos: unknown): string {
   return ruta;
 }
 
-export function pendiente(fuente: string, falta: string[], paso: string): object {
+export function pendiente(_fuente: string, falta: string[], paso: string): object {
   return {
     estado: 'pendiente',
     mensaje: `Pendiente de conectar — ver ${paso} de la guía`,

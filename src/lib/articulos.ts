@@ -6,12 +6,13 @@ const esProd = import.meta.env.PROD;
 
 /** Todos los artículos publicables, ordenados por fecha descendente. */
 export async function todosLosArticulos(): Promise<Articulo[]> {
-  const arts = await getCollection('articulos', ({ data }) => {
+  const arts = await getCollection('articulos', ({ data }: Articulo) => {
     // En producción ocultamos borradores; en dev se ven todos.
     return esProd ? data.borrador !== true : true;
   });
   return arts.sort(
-    (a, b) => b.data.fechaPublicacion.valueOf() - a.data.fechaPublicacion.valueOf(),
+    (a: Articulo, b: Articulo) =>
+      b.data.fechaPublicacion.valueOf() - a.data.fechaPublicacion.valueOf(),
   );
 }
 
@@ -45,7 +46,7 @@ export async function relacionados(articulo: Articulo, n = 4): Promise<Articulo[
   const puntuar = (a: Articulo): number => {
     let p = 0;
     if (a.data.categoria === articulo.data.categoria) p += 3;
-    const comunes = a.data.etiquetas.filter((t) => articulo.data.etiquetas.includes(t));
+    const comunes = a.data.etiquetas.filter((t: string) => articulo.data.etiquetas.includes(t));
     p += comunes.length;
     return p;
   };
