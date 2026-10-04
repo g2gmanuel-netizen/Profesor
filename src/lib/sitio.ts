@@ -34,8 +34,8 @@ export const SITIO = {
     telegram: '',
   },
   adsense: {
-    activo: env('ADSENSE_ACTIVO', 'false') === 'true',
-    clientId: env('ADSENSE_CLIENT_ID', ''),
+    activo: env('ADSENSE_ACTIVO', 'true') === 'true',
+    clientId: env('ADSENSE_CLIENT_ID', 'ca-pub-8207466106350245'),
   },
   cmp: {
     activo: env('CMP_ACTIVO', 'true') === 'true',
