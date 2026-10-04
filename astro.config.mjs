@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 // Mientras sea "[PENDIENTE]" usamos un placeholder para que el build no falle.
 const dominio = process.env.DOMINIO && process.env.DOMINIO !== '[PENDIENTE]'
   ? process.env.DOMINIO
-  : 'ejemplo.local';
+  : 'tubolsillodiario.com';
 
 export default defineConfig({
   site: `https://${dominio}`,

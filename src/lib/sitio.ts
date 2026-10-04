@@ -15,7 +15,7 @@ export const SITIO = {
   nicho:
     'economía doméstica en España: vivienda, alquiler, hipotecas, ahorro, impuestos, pensiones y precios',
   idioma: 'es-ES',
-  dominio: env('DOMINIO', '[PENDIENTE]'),
+  dominio: env('DOMINIO', 'tubolsillodiario.com'),
   get url(): string {
     const d = this.dominio;
     return d && d !== '[PENDIENTE]' ? `https://${d}` : 'https://ejemplo.local';
