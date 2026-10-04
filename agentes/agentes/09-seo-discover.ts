@@ -18,6 +18,7 @@ export interface EntradaSeo {
   etiquetas: string[];
   imagen: string;
   imagenAlt: string;
+  imagenCredito?: string;
   autor: string;
   /** Artículos ya existentes para enlaces internos. */
   existentes: { slug: string; titulo: string; categoria: string; etiquetas: string[] }[];
@@ -65,6 +66,7 @@ export function seoDiscover(e: EntradaSeo, ctx: ContextoEjecucion): ArticuloFina
       fechaPublicacion: new Date().toISOString().slice(0, 10),
       imagen: e.imagen,
       imagenAlt: e.imagenAlt,
+      imagenCredito: e.imagenCredito,
       etiquetas,
       fuentes: e.ficha.fuentes,
       clavesRapidas: e.borrador.clavesRapidas,

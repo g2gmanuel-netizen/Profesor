@@ -91,13 +91,20 @@ const breadcrumb = {
       </p>
     </header>
 
-    <img
-      src={d.imagen}
-      alt={d.imagenAlt}
-      width="1200"
-      height="675"
-      style="border-radius:var(--radio);margin-block:1rem;"
-    />
+    <figure style="margin:1rem 0;">
+      <img
+        src={d.imagen}
+        alt={d.imagenAlt}
+        width="1200"
+        height="675"
+        style="border-radius:var(--radio);width:100%;"
+      />
+      {
+        d.imagenCredito && (
+          <figcaption class="meta" style="margin-top:.35rem;">{d.imagenCredito}</figcaption>
+        )
+      }
+    </figure>
 
     <Compartir url={urlAbs} titulo={d.titulo} />
 

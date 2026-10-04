@@ -3,11 +3,13 @@ import { resolve } from 'node:path';
 import type { ContextoEjecucion } from '../lib/contexto';
 import type { FichaHechos } from '../lib/esquemas';
 import { portadaSVG, graficoBarrasSVG } from '../lib/portada';
+import { descargarFotoPexels, queryParaArticulo } from '../lib/fotos';
 import { categoriaPorSlug, colorCategoria } from '../../src/lib/sitio';
 
 export interface ResultadoIlustracion {
-  imagen: string; // ruta pública, p.ej. /imagenes/slug.svg
+  imagen: string; // ruta pública, p.ej. /imagenes/slug.svg o .jpg
   imagenAlt: string;
+  imagenCredito?: string;
 }
 
 /**
@@ -16,20 +18,36 @@ export interface ResultadoIlustracion {
  * color de la sección si no. Nunca usa imágenes de terceros. En simulación escribe
  * en datos/simulacion/imagenes para no ensuciar public/.
  */
-export function ilustrador(
+export async function ilustrador(
   ficha: FichaHechos,
   slug: string,
   titulo: string,
   categoria: string,
   ctx: ContextoEjecucion,
-): ResultadoIlustracion {
+): Promise<ResultadoIlustracion> {
   ctx.logger.paso('ilustrador', `Imagen para «${titulo}»`);
   const dir = ctx.simulacion
     ? resolve(process.cwd(), 'datos/simulacion/imagenes')
     : resolve(process.cwd(), 'public/imagenes');
   mkdirSync(dir, { recursive: true });
-  const ruta = resolve(dir, `${slug}.svg`);
 
+  // 1) Si hay clave de Pexels (y no es simulación), intentamos una foto real con licencia.
+  const apiKey = process.env.PEXELS_API_KEY ?? '';
+  if (apiKey && !ctx.simulacion) {
+    const foto = await descargarFotoPexels({
+      query: queryParaArticulo(categoria, []),
+      apiKey,
+      destinoAbsSinExt: resolve(dir, slug),
+      slug,
+      altBase: `Imagen del artículo: ${titulo}`,
+    });
+    if (foto) {
+      return { imagen: foto.rutaPublica, imagenAlt: foto.alt, imagenCredito: foto.credito };
+    }
+  }
+
+  // 2) Portada propia de color (alternativa segura si no hay foto).
+  const ruta = resolve(dir, `${slug}.svg`);
   const seccion = categoriaPorSlug(categoria)?.nombre ?? 'Actualidad';
   const colores = colorCategoria(categoria);
 

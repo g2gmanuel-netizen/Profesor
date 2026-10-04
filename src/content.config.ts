@@ -22,6 +22,7 @@ const articulos = defineCollection({
     fechaActualizacion: z.coerce.date().optional(),
     imagen: z.string().default('/imagenes/portada-generica.svg'),
     imagenAlt: z.string().min(5),
+    imagenCredito: z.string().optional(),
     etiquetas: z.array(z.string()).default([]),
     fuentes: z
       .array(

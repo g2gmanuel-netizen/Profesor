@@ -1,0 +1,36 @@
+name: Fotos de artículos (Pexels)
+
+# Descarga una foto con licencia (Pexels) para los artículos que aún no tienen
+# foto real y las sube. Se lanza a mano desde la pestaña Actions.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Descargar fotos de los artículos
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: npx tsx scripts/fotos-articulos.ts
+
+      - name: Validar que la web sigue compilando
+        run: npm run build
+
+      - name: Guardar las fotos y los cambios
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add src/content/articulos public/imagenes
+          git commit -m "Fotos reales (Pexels) en los artículos" || echo "Sin cambios"
+          git push

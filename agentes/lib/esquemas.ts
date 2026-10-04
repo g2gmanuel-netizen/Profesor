@@ -113,6 +113,7 @@ export const ArticuloFinalSchema = z.object({
     fechaPublicacion: z.string(),
     imagen: z.string(),
     imagenAlt: z.string(),
+    imagenCredito: z.string().optional(),
     etiquetas: z.array(z.string()),
     fuentes: z.array(FuenteSchema).min(1),
     clavesRapidas: z.array(z.string()),
