@@ -38,10 +38,10 @@ export const SITIO = {
     clientId: env('ADSENSE_CLIENT_ID', ''),
   },
   cmp: {
-    activo: env('CMP_ACTIVO', 'false') === 'true',
+    activo: env('CMP_ACTIVO', 'true') === 'true',
     proveedor: env('CMP_PROVEEDOR', 'google'),
   },
-  ga4Id: env('GA4_ID', ''),
+  ga4Id: env('GA4_ID', 'G-2V4428ZNLE'),
   newsletterUrl: env('NEWSLETTER_ACTION_URL', ''),
 } as const;
 
