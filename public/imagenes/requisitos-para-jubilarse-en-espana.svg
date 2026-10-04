@@ -11,5 +11,5 @@
   <rect x="80" y="86" width="64" height="8" rx="4" fill="#ffffff" opacity="0.9"/>
   <text x="160" y="98" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="3" fill="#ffffff" opacity="0.95">PENSIONES</text>
   <text font-family="Helvetica, Arial, sans-serif" font-size="62" font-weight="800" fill="#ffffff"><tspan x="80" y="251">Requisitos para</tspan><tspan x="80" y="325">jubilarte en España:</tspan><tspan x="80" y="399">edad y años cotizados</tspan></text>
-  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">€ Bolsillo Diario</text>
+  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">Bolsillo Diario</text>
 </svg>

@@ -11,5 +11,5 @@
   <rect x="80" y="86" width="64" height="8" rx="4" fill="#ffffff" opacity="0.9"/>
   <text x="160" y="98" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="3" fill="#ffffff" opacity="0.95">ALQUILER</text>
   <text font-family="Helvetica, Arial, sans-serif" font-size="54" font-weight="800" fill="#ffffff"><tspan x="80" y="222">Cómo se actualiza la</tspan><tspan x="80" y="288">renta del alquiler</tspan><tspan x="80" y="354">cada año y qué puedes</tspan><tspan x="80" y="420">exigir</tspan></text>
-  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">€ Bolsillo Diario</text>
+  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">Bolsillo Diario</text>
 </svg>

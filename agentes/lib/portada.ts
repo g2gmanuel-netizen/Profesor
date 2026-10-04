@@ -53,7 +53,7 @@ export function portadaSVG(
   <rect x="80" y="86" width="64" height="8" rx="4" fill="#ffffff" opacity="0.9"/>
   <text x="160" y="98" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="3" fill="#ffffff" opacity="0.95">${esc(seccion.toUpperCase())}</text>
   <text font-family="Helvetica, Arial, sans-serif" font-size="${fontSize}" font-weight="800" fill="#ffffff">${tspans}</text>
-  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">€ Bolsillo Diario</text>
+  <text x="80" y="620" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff" opacity="0.95">Bolsillo Diario</text>
 </svg>`;
 }
 

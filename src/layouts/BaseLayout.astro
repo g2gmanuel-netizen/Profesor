@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Cabecera from '../components/Cabecera.astro';
 import Pie from '../components/Pie.astro';
 import Consentimiento from '../components/Consentimiento.astro';
+import BannerCookies from '../components/BannerCookies.astro';
 import Analitica from '../components/Analitica.astro';
 import { SITIO } from '../lib/sitio';
 
@@ -46,5 +47,6 @@ const {
       <slot />
     </main>
     <Pie />
+    <BannerCookies />
   </body>
 </html>

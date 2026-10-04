@@ -3,74 +3,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TarjetaArticulo from '../components/TarjetaArticulo.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Anuncio from '../components/Anuncio.astro';
-import { SITIO, CATEGORIAS } from '../lib/sitio';
-import { todosLosArticulos, destacados } from '../lib/articulos';
+import { SITIO, CATEGORIAS, categoriaPorSlug } from '../lib/sitio';
+import { todosLosArticulos, destacados, fechaLegible, urlArticulo } from '../lib/articulos';
 
 const arts = await todosLosArticulos();
-const dest = await destacados(3);
-const recientes = arts.slice(0, 9);
-const masLeidos = arts.slice(0, 5); // Placeholder: se reordenará con datos de GA4 (ver panel).
+const dest = await destacados(5);
+const lead = dest[0] ?? arts[0];
+const secundarias = (dest.slice(1, 5).length ? dest.slice(1, 5) : arts.slice(1, 5));
+const resto = arts.filter((a) => a.id !== lead?.id).slice(0, 9);
+const masLeidos = arts.slice(0, 5); // Se reordenará con datos reales de GA4 (ver panel).
+const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
 ---
 
 <BaseLayout titulo={SITIO.nombre} descripcion={SITIO.descripcion}>
   {
     arts.length === 0 && (
       <p>
-        Todavía no hay artículos publicados. Ejecuta el pipeline de agentes con{' '}
+        Todavía no hay artículos publicados. Ejecuta el pipeline con{' '}
         <code>npm run redaccion -- --simulacion --sin-api</code> o espera a la primera edición.
       </p>
     )
   }
 
   {
-    dest.length > 0 && (
-      <section aria-label="Destacadas">
-        <h2 class="sr-only">Destacadas</h2>
-        <div class="rejilla cols-3">
-          {dest.map((a) => (
-            <TarjetaArticulo articulo={a} />
-          ))}
-        </div>
+    lead && (
+      <section class="portada-lead" aria-label="Destacado">
+        <article class="lead">
+          <a href={urlArticulo(lead)} aria-label={lead.data.titulo}>
+            <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1200" height="675" />
+          </a>
+          <div class="lead-texto">
+            {catLead && <span class="etiqueta-cat">{catLead.nombre}</span>}
+            <h2><a href={urlArticulo(lead)}>{lead.data.titulo}</a></h2>
+            <p>{lead.data.subtitulo}</p>
+            <p class="meta" style="margin-top:.6rem;">
+              {lead.data.autor} · {fechaLegible(lead.data.fechaPublicacion)}
+            </p>
+          </div>
+        </article>
+
+        {
+          masLeidos.length > 0 && (
+            <aside class="lomas" aria-label="Lo más leído">
+              <h3>Lo más leído</h3>
+              <ol>
+                {masLeidos.map((a) => (
+                  <li>
+                    <a href={urlArticulo(a)}>{a.data.titulo}</a>
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          )
+        }
       </section>
+    )
+  }
+
+  {
+    secundarias.length > 0 && (
+      <div class="rejilla cols-3">
+        {secundarias.map((a) => <TarjetaArticulo articulo={a} />)}
+      </div>
     )
   }
 
   <Anuncio formato="horizontal" />
 
-  <div style="display:grid;gap:2rem;grid-template-columns:1fr;">
-    <section aria-label="Últimas noticias">
-      <h2>Últimas noticias</h2>
-      <div class="rejilla cols-3">
-        {recientes.map((a) => <TarjetaArticulo articulo={a} />)}
-      </div>
-    </section>
+  {
+    resto.length > 0 && (
+      <section aria-label="Últimas noticias">
+        <div class="seccion-cabecera">
+          <h2>Últimas noticias</h2>
+          <span class="linea" />
+        </div>
+        <div class="rejilla cols-3">
+          {resto.map((a) => <TarjetaArticulo articulo={a} />)}
+        </div>
+      </section>
+    )
+  }
 
-    {
-      masLeidos.length > 0 && (
-        <section aria-label="Lo más leído">
-          <h2>Lo más leído</h2>
-          <ol>
-            {masLeidos.map((a) => (
-              <li style="margin-block:.4rem;">
-                <a href={`/articulo/${a.id}/`}>{a.data.titulo}</a>
-              </li>
-            ))}
-          </ol>
-        </section>
-      )
-    }
-  </div>
-
-  <section style="margin-top:2.5rem;" aria-label="Secciones">
-    <h2>Secciones</h2>
+  <section aria-label="Secciones">
+    <div class="seccion-cabecera">
+      <h2>Explora por secciones</h2>
+      <span class="linea"></span>
+    </div>
     <div class="rejilla cols-3">
       {
         CATEGORIAS.map((c) => (
-          <a
-            href={`/categoria/${c.slug}/`}
-            class="tarjeta"
-            style="padding:1rem;text-decoration:none;"
-          >
+          <a href={`/categoria/${c.slug}/`} class="tarjeta" style="padding:1rem;text-decoration:none;">
             <span class="etiqueta-cat">{c.nombre}</span>
             <p style="margin:.4rem 0 0;color:var(--color-texto-suave);">{c.descripcion}</p>
           </a>

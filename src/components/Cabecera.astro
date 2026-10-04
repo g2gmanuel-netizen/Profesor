@@ -3,37 +3,68 @@ import { SITIO, CATEGORIAS } from '../lib/sitio';
 ---
 
 <header class="cabecera">
-  <div class="contenedor">
-    <div class="cabecera-fila">
-      <a href="/" class="logo">{SITIO.nombre}</a>
+  <div class="barra-superior">
+    <div class="contenedor barra-superior-fila">
+      <span id="fecha-hoy" class="fecha-hoy"></span>
       <div class="nav-acciones">
-        <a href="/buscar/" class="boton-icono" aria-label="Buscar">Buscar</a>
-        <button id="btn-tema" class="boton-icono" aria-label="Cambiar tema claro u oscuro">
-          Tema
-        </button>
+        <a href="/buscar/" class="boton-icono" aria-label="Buscar">🔍 Buscar</a>
+        <button id="btn-tema" class="boton-icono" aria-label="Cambiar tema claro u oscuro">◐ Tema</button>
       </div>
     </div>
   </div>
-  <nav class="nav-principal contenedor" aria-label="Secciones">
-    <a href="/">Portada</a>
-    {CATEGORIAS.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+
+  <div class="contenedor masthead">
+    <a href="/" class="logo" aria-label={SITIO.nombre}>
+      <svg class="logo-cerebro" viewBox="0 0 64 64" aria-hidden="true">
+        <g transform="translate(32 33)" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0 -17 a7 7 0 0 0 -13 2 a7 7 0 0 0 -6 9 a7.5 7.5 0 0 0 1.4 9.5 a7 7 0 0 0 2.6 8 a7 7 0 0 0 7 4 a6.5 6.5 0 0 0 8 1 Z"/>
+          <path d="M0 -17 a7 7 0 0 1 13 2 a7 7 0 0 1 6 9 a7.5 7.5 0 0 1 -1.4 9.5 a7 7 0 0 1 -2.6 8 a7 7 0 0 1 -7 4 a6.5 6.5 0 0 1 -8 1 Z"/>
+          <path d="M0 -17 V 16.5"/>
+          <path d="M-13 -9 q4 1 5 4"/><path d="M13 -9 q-4 1 -5 4"/>
+          <path d="M-18 2 q5 1 7 -2"/><path d="M18 2 q-5 1 -7 -2"/>
+        </g>
+      </svg>
+      <span class="logo-texto">
+        <span class="logo-nombre">{SITIO.nombre}</span>
+        <span class="logo-tagline">La actualidad, explicada claro</span>
+      </span>
+    </a>
+  </div>
+
+  <nav class="nav-principal" aria-label="Secciones">
+    <div class="contenedor nav-principal-fila">
+      <a href="/" class="nav-portada">Portada</a>
+      {CATEGORIAS.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+    </div>
   </nav>
 </header>
 
 <script is:inline>
   (function () {
-    var btn = document.getElementById('btn-tema');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var raiz = document.documentElement;
-      var actual =
-        raiz.getAttribute('data-tema') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
-      var nuevo = actual === 'oscuro' ? 'claro' : 'oscuro';
-      raiz.setAttribute('data-tema', nuevo);
+    var el = document.getElementById('fecha-hoy');
+    if (el) {
       try {
-        localStorage.setItem('bd-tema', nuevo);
+        el.textContent = new Intl.DateTimeFormat('es-ES', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        }).format(new Date());
       } catch (e) {}
-    });
+    }
+    var btn = document.getElementById('btn-tema');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var raiz = document.documentElement;
+        var actual =
+          raiz.getAttribute('data-tema') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
+        var nuevo = actual === 'oscuro' ? 'claro' : 'oscuro';
+        raiz.setAttribute('data-tema', nuevo);
+        try {
+          localStorage.setItem('bd-tema', nuevo);
+        } catch (e) {}
+      });
+    }
   })();
 </script>
