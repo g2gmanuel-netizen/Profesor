@@ -20,12 +20,14 @@ export const SITIO = {
     const d = this.dominio;
     return d && d !== '[PENDIENTE]' ? `https://${d}` : 'https://ejemplo.local';
   },
-  emailContacto: env('EMAIL_CONTACTO', '[PENDIENTE]'),
-  // Datos legales (los rellena la persona; ver GUIA_PASOS_MANUALES.md)
+  emailContacto: env('EMAIL_CONTACTO', 'g2gmanuel@gmail.com'),
+  autorBio:
+    'Divulgo sobre economía doméstica para ayudar a la gente a cuidar su bolsillo.',
+  // Datos legales (titular responsable del medio). Públicos en el aviso legal (LSSI).
   legal: {
-    titular: env('AUTOR_RESPONSABLE', '[PENDIENTE]'),
-    nif: '[PENDIENTE]',
-    domicilio: '[PENDIENTE]',
+    titular: env('AUTOR_RESPONSABLE', 'Manuel González'),
+    nif: '02307212J',
+    domicilio: 'Calle General Rodrigo, 2',
   },
   redes: {
     x: '',

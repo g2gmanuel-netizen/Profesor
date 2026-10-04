@@ -21,11 +21,11 @@ const { autor } = Astro.params;
 const { nombre } = Astro.props;
 const arts = await articulosPorAutor(autor);
 
-const bioEnv = (import.meta.env.AUTOR_BIO as string) ?? '[PENDIENTE]';
+const bioEnv = (import.meta.env.AUTOR_BIO as string) ?? '';
 const bio =
   bioEnv && bioEnv !== '[PENDIENTE]'
     ? bioEnv
-    : `${nombre} es responsable editorial de ${SITIO.nombre}. (Completa esta biografía con datos reales: ver GUIA_PASOS_MANUALES.md.)`;
+    : SITIO.autorBio;
 
 const persona = {
   '@context': 'https://schema.org',
