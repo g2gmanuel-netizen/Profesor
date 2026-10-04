@@ -6,7 +6,7 @@ descripcion: 'Cómo y cuándo puede subir la renta de tu alquiler, qué índice 
 categoria: 'alquiler'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-18
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/como-se-actualiza-la-renta-del-alquiler.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['alquiler', 'renta', 'ley de vivienda', 'ine']
 clavesRapidas:

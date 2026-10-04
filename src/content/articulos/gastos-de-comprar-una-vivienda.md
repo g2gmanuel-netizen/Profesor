@@ -6,7 +6,7 @@ descripcion: 'Todos los gastos de comprar una casa además del precio: impuestos
 categoria: 'vivienda'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-05
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/gastos-de-comprar-una-vivienda.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['vivienda', 'compra', 'impuestos', 'hipoteca', 'itp']
 clavesRapidas:

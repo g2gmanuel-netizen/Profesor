@@ -6,7 +6,7 @@ descripcion: 'Qué es el PVPC, en qué se diferencia del mercado libre y cómo e
 categoria: 'precios'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-10
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/que-es-el-pvpc-factura-de-la-luz.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['luz', 'electricidad', 'pvpc', 'factura', 'cnmc']
 clavesRapidas:

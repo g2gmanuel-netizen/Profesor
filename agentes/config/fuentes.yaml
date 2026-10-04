@@ -50,6 +50,25 @@ fuentes:
     prioridad: 2
     web: https://www.cnmc.es/prensa
 
+  # ---------- Actualidad y política (oficiales) ----------
+  - nombre: La Moncloa — Consejo de Ministros y notas
+    organismo: La Moncloa
+    tipo: oficial
+    prioridad: 1
+    web: https://www.lamoncloa.gob.es/
+
+  - nombre: Congreso de los Diputados
+    organismo: Congreso
+    tipo: oficial
+    prioridad: 2
+    web: https://www.congreso.es/
+
+  - nombre: Senado de España
+    organismo: Senado
+    tipo: oficial
+    prioridad: 2
+    web: https://www.senado.es/
+
   # ---------- Datos abiertos ----------
   - nombre: datos.gob.es
     organismo: Gobierno de España
@@ -70,7 +89,20 @@ fuentes:
     prioridad: 3
     rss: https://news.google.com/rss/search?q=hipoteca+OR+alquiler+OR+IRPF+OR+pensiones+economia+Espa%C3%B1a&hl=es&gl=ES&ceid=ES:es
 
+  - nombre: Google News — actualidad España (titulares)
+    organismo: Google News
+    tipo: tendencia
+    prioridad: 3
+    rss: https://news.google.com/rss?hl=es&gl=ES&ceid=ES:es
+
+  - nombre: Google News — política y leyes España
+    organismo: Google News
+    tipo: tendencia
+    prioridad: 3
+    rss: https://news.google.com/rss/search?q=decreto+OR+ley+OR+gobierno+OR+congreso+Espa%C3%B1a&hl=es&gl=ES&ceid=ES:es
+
 palabras_clave:
+  # Economía doméstica
   - euríbor
   - hipoteca
   - alquiler
@@ -81,3 +113,12 @@ palabras_clave:
   - vivienda
   - ahorro
   - Seguridad Social
+  # Actualidad y política
+  - decreto
+  - ley
+  - gobierno
+  - congreso
+  - ayuda
+  - sentencia
+  - normativa
+  - presupuestos

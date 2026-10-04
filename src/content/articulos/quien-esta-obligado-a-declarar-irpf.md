@@ -6,7 +6,7 @@ descripcion: 'Quién tiene que presentar la declaración de la renta en España,
 categoria: 'impuestos'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-15
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/quien-esta-obligado-a-declarar-irpf.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['irpf', 'declaración de la renta', 'agencia tributaria']
 clavesRapidas:

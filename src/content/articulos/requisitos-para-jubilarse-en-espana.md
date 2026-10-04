@@ -6,7 +6,7 @@ descripcion: 'Cómo funcionan los requisitos de jubilación en España: edad leg
 categoria: 'pensiones'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-08
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/requisitos-para-jubilarse-en-espana.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['pensiones', 'jubilación', 'seguridad social', 'cotización']
 clavesRapidas:

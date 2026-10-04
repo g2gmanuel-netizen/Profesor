@@ -46,11 +46,13 @@ const cmpActivo = SITIO.cmp.activo;
 {
   cmpActivo && (
     <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-      <p>
-        Usamos cookies propias y de terceros para analítica y publicidad. Puedes aceptarlas,
-        rechazarlas o leer nuestra{' '}
-        <a href="/politica-cookies/">política de cookies</a>.
-      </p>
+      <div class="cmp-texto">
+        <strong class="cmp-titulo">🍪 Tu privacidad</strong>
+        <p>
+          Usamos cookies propias y de terceros para analítica y publicidad. ¿Nos das tu
+          consentimiento? Puedes leer nuestra <a href="/politica-cookies/">política de cookies</a>.
+        </p>
+      </div>
       <div class="cmp-botones">
         <button type="button" data-consent="denied">Rechazar</button>
         <button type="button" data-consent="granted" class="primario">Aceptar</button>
@@ -65,13 +67,19 @@ const cmpActivo = SITIO.cmp.activo;
       <style>
         {`
         .cmp-banner{position:fixed;inset-inline:0;bottom:0;z-index:100;background:var(--color-fondo);
-          border-top:2px solid var(--color-marca);padding:1rem;font-family:var(--fuente-ui);
-          font-size:.9rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
-        .cmp-banner p{margin:0;max-width:70ch}
-        .cmp-botones{display:flex;gap:.5rem}
-        .cmp-botones button{padding:8px 16px;border-radius:var(--radio);border:1px solid var(--color-borde);
-          cursor:pointer;font-weight:600;background:var(--color-fondo);color:var(--color-texto)}
-        .cmp-botones .primario{background:var(--color-marca);color:#fff;border-color:var(--color-marca)}
+          border-top:4px solid var(--color-marca);padding:1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom,0px));
+          font-family:var(--fuente-ui);font-size:1rem;display:flex;flex-wrap:wrap;gap:1rem 1.5rem;
+          align-items:center;justify-content:center;box-shadow:0 -8px 30px rgba(0,0,0,.28)}
+        .cmp-texto{max-width:56ch;flex:1;min-width:min(100%,280px)}
+        .cmp-titulo{display:block;font-size:1.1rem;color:var(--color-marca);margin-bottom:.2rem}
+        .cmp-banner p{margin:0}
+        .cmp-botones{display:flex;gap:.75rem;flex-wrap:wrap}
+        .cmp-botones button{padding:13px 28px;border-radius:999px;border:2px solid var(--color-marca);
+          cursor:pointer;font-weight:800;font-size:1rem;background:var(--color-fondo);color:var(--color-marca);
+          min-width:130px}
+        .cmp-botones button:hover{filter:brightness(1.05)}
+        .cmp-botones .primario{background:var(--color-marca);color:#fff}
+        @media (min-width:720px){.cmp-banner{font-size:1.05rem}}
       `}
       </style>
       <script is:inline>

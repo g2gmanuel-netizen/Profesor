@@ -11,9 +11,9 @@ function env(nombre: string, porDefecto = ''): string {
 export const SITIO = {
   nombre: env('NOMBRE_MEDIO', 'Bolsillo Diario'),
   descripcion:
-    'Economía doméstica en España explicada claro: vivienda, alquiler, hipotecas, ahorro, impuestos, pensiones y precios. Qué significa cada noticia para tu bolsillo.',
+    'La actualidad de España explicada claro: política, sociedad, economía y lo que afecta a tu bolsillo. Qué ha pasado, por qué importa y qué significa para ti, sin tecnicismos.',
   nicho:
-    'economía doméstica en España: vivienda, alquiler, hipotecas, ahorro, impuestos, pensiones y precios',
+    'actualidad de España explicada de forma sencilla: política y leyes (decretos, normativa), sociedad, economía del país y economía doméstica (vivienda, alquiler, hipotecas, ahorro, impuestos, pensiones, precios)',
   idioma: 'es-ES',
   dominio: env('DOMINIO', 'tubolsillodiario.com'),
   get url(): string {
@@ -53,6 +53,21 @@ export interface Categoria {
 
 export const CATEGORIAS: Categoria[] = [
   {
+    slug: 'actualidad',
+    nombre: 'Actualidad',
+    descripcion: 'Lo que pasa hoy en España, explicado claro y al grano.',
+  },
+  {
+    slug: 'politica',
+    nombre: 'Política',
+    descripcion: 'Leyes, decretos y decisiones que te afectan, sin tecnicismos.',
+  },
+  {
+    slug: 'sociedad',
+    nombre: 'Sociedad',
+    descripcion: 'Los temas que mueven a la sociedad, con contexto y datos.',
+  },
+  {
     slug: 'vivienda',
     nombre: 'Vivienda',
     descripcion: 'Compra, obra nueva, precios y mercado residencial en España.',
@@ -91,6 +106,24 @@ export const CATEGORIAS: Categoria[] = [
 
 export function categoriaPorSlug(slug: string): Categoria | undefined {
   return CATEGORIAS.find((c) => c.slug === slug);
+}
+
+/** Color de cada sección, para las imágenes de portada propias (degradado). */
+export const COLORES_CATEGORIA: Record<string, [string, string]> = {
+  actualidad: ['#1f6f8b', '#2b8aa8'],
+  politica: ['#6a3d9a', '#8a5cc0'],
+  sociedad: ['#b4531a', '#d47636'],
+  vivienda: ['#0b5d3b', '#0e7a4e'],
+  hipotecas: ['#0b5d3b', '#0e7a4e'],
+  alquiler: ['#1f6f8b', '#2b8aa8'],
+  ahorro: ['#0b5d3b', '#0e7a4e'],
+  impuestos: ['#8a3b2a', '#b04f39'],
+  pensiones: ['#355070', '#4a6b97'],
+  precios: ['#b4531a', '#d47636'],
+};
+
+export function colorCategoria(slug: string): [string, string] {
+  return COLORES_CATEGORIA[slug] ?? ['#0b5d3b', '#0e7a4e'];
 }
 
 export function slugAutor(nombre: string): string {

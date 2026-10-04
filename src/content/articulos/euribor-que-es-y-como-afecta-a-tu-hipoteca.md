@@ -6,7 +6,7 @@ descripcion: 'Qué es el Euríbor, cómo se calcula tu cuota y cuánto cambia la
 categoria: 'hipotecas'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-20
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/euribor-que-es-y-como-afecta-a-tu-hipoteca.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, imagen de portada de Bolsillo Diario'
 etiquetas: ['euríbor', 'hipoteca variable', 'tipos de interés', 'banco de españa']
 clavesRapidas:

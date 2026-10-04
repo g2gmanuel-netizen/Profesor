@@ -165,7 +165,7 @@ async function main(): Promise<void> {
         }
 
         // 10. Ilustrador (antes del SEO para tener la ruta de imagen)
-        const img = ilustrador(ficha, slugify(tit.elegido), tit.elegido, ctx);
+        const img = ilustrador(ficha, slugify(tit.elegido), tit.elegido, tema.categoria, ctx);
 
         // 9. SEO y Discover
         const final = seoDiscover(

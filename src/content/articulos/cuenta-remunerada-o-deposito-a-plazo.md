@@ -6,7 +6,7 @@ descripcion: 'Diferencias entre una cuenta remunerada y un depósito a plazo fij
 categoria: 'ahorro'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-12
-imagen: '/imagenes/portada-generica.svg'
+imagen: '/imagenes/cuenta-remunerada-o-deposito-a-plazo.svg'
 imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
 etiquetas: ['ahorro', 'depósitos', 'cuentas remuneradas', 'banco de españa']
 clavesRapidas:
