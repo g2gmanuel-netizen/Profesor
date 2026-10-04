@@ -22,7 +22,7 @@ export const SITIO = {
   },
   emailContacto: env('EMAIL_CONTACTO', 'g2gmanuel@gmail.com'),
   autorBio:
-    'Divulgo sobre economía doméstica para ayudar a la gente a cuidar su bolsillo.',
+    'Economía doméstica en España explicada claro, con fuentes oficiales y revisión editorial.',
   // Datos legales (titular responsable del medio). Públicos en el aviso legal (LSSI).
   legal: {
     titular: env('AUTOR_RESPONSABLE', 'Manuel González'),

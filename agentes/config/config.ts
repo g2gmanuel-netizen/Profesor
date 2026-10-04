@@ -38,7 +38,7 @@ export const CONFIG = {
   revisionHumana: (process.env.REVISION_HUMANA ?? 'true') !== 'false',
   articulosMinDia: num('ARTICULOS_MIN_DIA', 3),
   articulosMaxDia: num('ARTICULOS_MAX_DIA', 6),
-  autor: process.env.AUTOR_RESPONSABLE ?? 'Manuel González',
+  autor: process.env.AUTOR_FIRMA ?? 'Redacción Bolsillo Diario',
 } as const;
 
 /**

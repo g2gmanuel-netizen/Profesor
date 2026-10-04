@@ -7,10 +7,8 @@ import { todosLosArticulos, articulosPorAutor } from '../../lib/articulos';
 export async function getStaticPaths() {
   const arts = await todosLosArticulos();
   const autores = new Map<string, string>();
+  // Solo se generan páginas de las firmas que realmente han publicado artículos.
   for (const a of arts) autores.set(slugAutor(a.data.autor), a.data.autor);
-  // Garantiza una página para el autor responsable aunque aún no tenga artículos.
-  const resp = SITIO.legal.titular;
-  if (resp && resp !== '[PENDIENTE]') autores.set(slugAutor(resp), resp);
   return Array.from(autores.entries()).map(([slug, nombre]) => ({
     params: { autor: slug },
     props: { nombre },
