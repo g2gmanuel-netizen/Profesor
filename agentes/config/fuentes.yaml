@@ -101,6 +101,12 @@ fuentes:
     prioridad: 3
     rss: https://news.google.com/rss/search?q=decreto+OR+ley+OR+gobierno+OR+congreso+Espa%C3%B1a&hl=es&gl=ES&ceid=ES:es
 
+  - nombre: Google Trends — tendencias del día en España
+    organismo: Google Trends
+    tipo: tendencia
+    prioridad: 3
+    rss: https://trends.google.com/trending/rss?geo=ES
+
 palabras_clave:
   # Economía doméstica
   - euríbor
