@@ -1,6 +1,6 @@
 # Aprendizajes del medio
 
-_Última actualización: 2026-10-02._
+_Última actualización: 2026-10-05._
 
 
 ## Reglas para los agentes (Editor jefe, Analista de audiencia, Titulador)
