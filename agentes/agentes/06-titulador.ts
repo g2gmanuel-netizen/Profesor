@@ -52,7 +52,7 @@ export async function titulador(
     system: leerPrompt('6-titulador'),
     user,
     schema: TitularesSchema,
-    maxTokens: 1500,
+    maxTokens: 3000,
     articulo: ficha.temaId,
   });
 

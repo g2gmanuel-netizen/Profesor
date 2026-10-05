@@ -32,7 +32,7 @@ export async function analistaAudiencia(
     system: leerPrompt('4-analista-audiencia'),
     user,
     schema: BriefLectorSchema,
-    maxTokens: 1500,
+    maxTokens: 3000,
     articulo: ficha.temaId,
   });
 }

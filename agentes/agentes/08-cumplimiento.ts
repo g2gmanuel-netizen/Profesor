@@ -99,7 +99,7 @@ export async function cumplimiento(
     system: leerPrompt('8-cumplimiento'),
     user,
     schema: InformeCumplimientoSchema,
-    maxTokens: 1500,
+    maxTokens: 3000,
     articulo: articuloId,
   });
 

@@ -33,7 +33,7 @@ export async function redactor(
     system: leerPrompt('5-redactor'),
     user,
     schema: BorradorSchema,
-    maxTokens: 4096,
+    maxTokens: 8000,
     articulo: ficha.temaId,
   });
 }

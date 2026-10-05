@@ -43,7 +43,7 @@ export async function editorJefe(
     system: leerPrompt('2-editor-jefe'),
     user,
     schema,
-    maxTokens: 3000,
+    maxTokens: 8000,
   });
   return res.aprobados
     .filter((t) => t.riesgo !== 'alto')

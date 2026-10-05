@@ -68,7 +68,7 @@ export async function verificador(
     system: leerPrompt('7-verificador'),
     user,
     schema: InformeVerificacionSchema,
-    maxTokens: 3000,
+    maxTokens: 6000,
     articulo: ficha.temaId,
   });
 

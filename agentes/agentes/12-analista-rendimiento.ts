@@ -49,7 +49,7 @@ export async function analistaRendimiento(ctx: ContextoEjecucion): Promise<Anali
         system: leerPrompt('12-analista-rendimiento'),
         user,
         schema: AnalisisSchema,
-        maxTokens: 2000,
+        maxTokens: 4000,
       });
     } catch (e) {
       ctx.logger.info(`Fallo del analista, uso valores por defecto: ${String(e)}`);

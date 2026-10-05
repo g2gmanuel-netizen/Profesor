@@ -38,7 +38,7 @@ export async function investigador(
     system: leerPrompt('3-investigador'),
     user,
     schema: FichaHechosSchema,
-    maxTokens: 3000,
+    maxTokens: 8000,
     articulo: tema.id,
   });
 }

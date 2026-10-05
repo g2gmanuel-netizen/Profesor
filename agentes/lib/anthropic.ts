@@ -70,7 +70,7 @@ export class Llm {
         this.contador.comprobarPresupuesto();
         const resp = await cliente.messages.create({
           model: opts.modelo,
-          max_tokens: opts.maxTokens ?? 4096,
+          max_tokens: opts.maxTokens ?? 8000,
           system: opts.system + '\n\nUsa la herramienta «responder» para devolver el resultado.',
           messages: [{ role: 'user', content: opts.user }],
           tools: [herramienta],
