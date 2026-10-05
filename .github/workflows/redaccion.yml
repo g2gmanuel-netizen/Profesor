@@ -37,6 +37,8 @@ jobs:
           PRESUPUESTO_DIARIO_USD: ${{ vars.PRESUPUESTO_DIARIO_USD }}
           REVISION_HUMANA: ${{ vars.REVISION_HUMANA }}
           AUTOR_RESPONSABLE: ${{ vars.AUTOR_RESPONSABLE }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: npm run redaccion
 
       - name: Validar que el sitio sigue compilando

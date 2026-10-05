@@ -1,18 +1,20 @@
 /**
- * Pone una foto real (Pexels) a cada artículo que lo necesite y actualiza su
- * frontmatter. Requiere la variable PEXELS_API_KEY. Si no está, no hace nada.
- * Uso: PEXELS_API_KEY=xxx npx tsx scripts/fotos-articulos.ts
+ * Pone una foto real (Pixabay o Pexels) a cada artículo que lo necesite y
+ * actualiza su frontmatter. Requiere PIXABAY_API_KEY o PEXELS_API_KEY. Si no
+ * hay ninguna, no hace nada.
+ * Uso: PIXABAY_API_KEY=xxx npx tsx scripts/fotos-articulos.ts
  * (Normalmente se lanza desde el workflow de GitHub "Fotos de artículos".)
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
-import { descargarFotoPexels, queryParaArticulo } from '../agentes/lib/fotos';
+import { descargarFoto, queryParaArticulo, hayClaveFotos } from '../agentes/lib/fotos';
 
-const API_KEY = process.env.PEXELS_API_KEY ?? '';
-if (!API_KEY) {
+if (!hayClaveFotos()) {
   // eslint-disable-next-line no-console
-  console.log('No hay PEXELS_API_KEY. No se descargan fotos (se mantienen las portadas de color).');
+  console.log(
+    'No hay PIXABAY_API_KEY ni PEXELS_API_KEY. No se descargan fotos (se mantienen las portadas de color).',
+  );
   process.exit(0);
 }
 
@@ -48,9 +50,8 @@ async function main(): Promise<void> {
     if (fm.imagen && fm.imagen.endsWith('.jpg')) continue;
 
     const query = queryParaArticulo(fm.categoria ?? 'actualidad', fm.etiquetas ?? []);
-    const foto = await descargarFotoPexels({
+    const foto = await descargarFoto({
       query,
-      apiKey: API_KEY,
       destinoAbsSinExt: resolve(DIR_IMG, slug),
       slug,
       altBase: `Imagen del artículo: ${fm.titulo ?? slug}`,

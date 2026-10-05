@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import type { ContextoEjecucion } from '../lib/contexto';
 import type { FichaHechos } from '../lib/esquemas';
 import { portadaSVG, graficoBarrasSVG } from '../lib/portada';
-import { descargarFotoPexels, queryParaArticulo } from '../lib/fotos';
+import { descargarFoto, queryParaArticulo, hayClaveFotos } from '../lib/fotos';
 import { categoriaPorSlug, colorCategoria } from '../../src/lib/sitio';
 
 export interface ResultadoIlustracion {
@@ -31,12 +31,10 @@ export async function ilustrador(
     : resolve(process.cwd(), 'public/imagenes');
   mkdirSync(dir, { recursive: true });
 
-  // 1) Si hay clave de Pexels (y no es simulación), intentamos una foto real con licencia.
-  const apiKey = process.env.PEXELS_API_KEY ?? '';
-  if (apiKey && !ctx.simulacion) {
-    const foto = await descargarFotoPexels({
+  // 1) Si hay clave de un banco de fotos (y no es simulación), intentamos una foto con licencia.
+  if (hayClaveFotos() && !ctx.simulacion) {
+    const foto = await descargarFoto({
       query: queryParaArticulo(categoria, []),
-      apiKey,
       destinoAbsSinExt: resolve(dir, slug),
       slug,
       altBase: `Imagen del artículo: ${titulo}`,
