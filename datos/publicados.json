@@ -48,6 +48,41 @@
       "slug": "gastos-de-comprar-una-vivienda",
       "categoria": "vivienda",
       "fecha": "2026-09-05"
+    },
+    {
+      "id": "esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave",
+      "titulo": "Esfuerzo hipotecario al 65%: qué significa y cómo saber si tu caso es tan grave",
+      "slug": "esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave",
+      "categoria": "hipotecas",
+      "fecha": "2026-10-05"
+    },
+    {
+      "id": "espana-grava-el-alquiler-13-puntos-mas-que-la-ue-que-significa-y-que-puedes-hace",
+      "titulo": "España grava el alquiler 13 puntos más que la UE: qué significa y qué puedes hacer tú",
+      "slug": "espana-grava-el-alquiler-13-puntos-mas-que-la-ue-que-significa-y-que-puedes-hace",
+      "categoria": "alquiler",
+      "fecha": "2026-10-05"
+    },
+    {
+      "id": "pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer",
+      "titulo": "Pagas más del 40 % de tu sueldo en alquiler: qué significa y qué puedes hacer",
+      "slug": "pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer",
+      "categoria": "alquiler",
+      "fecha": "2026-10-05"
+    },
+    {
+      "id": "nuevas-pensiones-de-2027-cuanto-cobraras-de-media-y-como-estimar-tu-caso-real",
+      "titulo": "Nuevas pensiones de 2027: cuánto cobrarás de media y cómo estimar tu caso real",
+      "slug": "nuevas-pensiones-de-2027-cuanto-cobraras-de-media-y-como-estimar-tu-caso-real",
+      "categoria": "pensiones",
+      "fecha": "2026-10-05"
+    },
+    {
+      "id": "el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda",
+      "titulo": "El Congreso rechaza los decretos de vivienda: tres medidas que te protegían quedan en suspenso",
+      "slug": "el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda",
+      "categoria": "vivienda",
+      "fecha": "2026-10-05"
     }
   ]
 }
