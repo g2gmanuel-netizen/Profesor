@@ -6,8 +6,8 @@ descripcion: 'Cómo funcionan los requisitos de jubilación en España: edad leg
 categoria: 'pensiones'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-08
-imagen: '/imagenes/requisitos-para-jubilarse-en-espana.svg'
-imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
+imagen: '/imagenes/requisitos-para-jubilarse-en-espana.jpg'
+imagenAlt: 'Imagen del artículo: Requisitos para jubilarte en España: edad y años cotizados (anciano)'
 etiquetas: ['pensiones', 'jubilación', 'seguridad social', 'cotización']
 clavesRapidas:
   - 'La edad legal de jubilación depende de los años cotizados.'
@@ -20,6 +20,7 @@ fuentes:
   - titulo: 'Importe Mi Jubilación (simulador)'
     url: 'https://www.seg-social.es/'
     organismo: 'Seguridad Social'
+imagenCredito: 'Foto: stevepb (Pixabay)'
 ---
 
 Una de las preguntas más repetidas sobre la pensión es a qué edad se puede uno jubilar. En España no hay una única respuesta: la **edad legal de jubilación depende de los años que hayas cotizado** a lo largo de tu vida laboral.

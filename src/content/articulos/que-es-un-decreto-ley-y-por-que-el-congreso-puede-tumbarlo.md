@@ -6,8 +6,8 @@ descripcion: 'Qué es un decreto ley, por qué entra en vigor de inmediato y qu�
 categoria: 'politica'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-10-02
-imagen: '/imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.svg'
-imagenAlt: 'Portada de Bolsillo Diario sobre qué es un decreto ley'
+imagen: '/imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg'
+imagenAlt: 'Imagen del artículo: Qué es un decreto ley y por qué el Congreso puede tumbarlo (budapest)'
 etiquetas: ['decreto ley', 'congreso', 'leyes', 'gobierno']
 clavesRapidas:
   - 'Un decreto ley lo aprueba el Gobierno y entra en vigor al día siguiente.'
@@ -21,6 +21,7 @@ fuentes:
   - titulo: 'El Congreso: la convalidación de los decretos leyes'
     url: 'https://www.congreso.es/'
     organismo: 'Congreso de los Diputados'
+imagenCredito: 'Foto: Hermann (Pixabay)'
 ---
 
 De vez en cuando oyes que "el Gobierno ha aprobado un decreto ley" y, poco después, que "el Congreso lo ha tumbado". ¿Cómo puede entrar en vigor algo y caerse después? Te lo explicamos con calma.

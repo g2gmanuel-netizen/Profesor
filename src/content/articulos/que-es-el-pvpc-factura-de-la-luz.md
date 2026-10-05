@@ -6,8 +6,8 @@ descripcion: 'Qué es el PVPC, en qué se diferencia del mercado libre y cómo e
 categoria: 'precios'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-10
-imagen: '/imagenes/que-es-el-pvpc-factura-de-la-luz.svg'
-imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
+imagen: '/imagenes/que-es-el-pvpc-factura-de-la-luz.jpg'
+imagenAlt: 'Imagen del artículo: Qué es el PVPC y cómo entender tu factura de la luz (carritos de compra)'
 etiquetas: ['luz', 'electricidad', 'pvpc', 'factura', 'cnmc']
 clavesRapidas:
   - 'El PVPC es la tarifa regulada; su precio varía hora a hora.'
@@ -20,6 +20,7 @@ fuentes:
   - titulo: 'Factura eléctrica — información oficial'
     url: 'https://www.mitfactura.es/'
     organismo: 'Gobierno de España'
+imagenCredito: 'Foto: 652234 (Pixabay)'
 ---
 
 La factura de la luz es una de las que más dudas genera. Buena parte de la confusión viene de no distinguir entre el **PVPC** (la tarifa regulada) y el **mercado libre**, y de no saber qué significan los conceptos que aparecen desglosados.

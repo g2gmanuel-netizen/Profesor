@@ -6,8 +6,8 @@ descripcion: 'Quién tiene que presentar la declaración de la renta en España,
 categoria: 'impuestos'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-15
-imagen: '/imagenes/quien-esta-obligado-a-declarar-irpf.svg'
-imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
+imagen: '/imagenes/quien-esta-obligado-a-declarar-irpf.jpg'
+imagenAlt: 'Imagen del artículo: Quién está obligado a hacer la declaración de la renta (y quién no) (documento)'
 etiquetas: ['irpf', 'declaración de la renta', 'agencia tributaria']
 clavesRapidas:
   - 'La obligación depende sobre todo del tipo e importe de tus rendimientos.'
@@ -20,6 +20,7 @@ fuentes:
   - titulo: 'Ley 35/2006 del IRPF'
     url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764'
     organismo: 'BOE'
+imagenCredito: 'Foto: jarmoluk (Pixabay)'
 ---
 
 Cada primavera se abre la campaña de la declaración de la renta (IRPF), y la primera duda de mucha gente es simple: ¿tengo que presentarla? La respuesta depende sobre todo del tipo de ingresos que hayas tenido y de su importe.

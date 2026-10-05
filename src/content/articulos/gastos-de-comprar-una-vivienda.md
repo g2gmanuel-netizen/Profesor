@@ -6,8 +6,8 @@ descripcion: 'Todos los gastos de comprar una casa además del precio: impuestos
 categoria: 'vivienda'
 autor: 'Redacción Bolsillo Diario'
 fechaPublicacion: 2026-09-05
-imagen: '/imagenes/gastos-de-comprar-una-vivienda.svg'
-imagenAlt: 'Símbolo del euro sobre fondo verde, portada de Bolsillo Diario'
+imagen: '/imagenes/gastos-de-comprar-una-vivienda.jpg'
+imagenAlt: 'Imagen del artículo: Cuánto cuesta comprar una casa más allá del precio: todos los gastos (edificio)'
 etiquetas: ['vivienda', 'compra', 'impuestos', 'hipoteca', 'itp']
 clavesRapidas:
   - 'A la vivienda de segunda mano se le aplica ITP; a la obra nueva, IVA más AJD.'
@@ -20,6 +20,7 @@ fuentes:
   - titulo: 'Ley 5/2019 reguladora de los contratos de crédito inmobiliario'
     url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814'
     organismo: 'BOE'
+imagenCredito: 'Foto: One_Second_Photo (Pixabay)'
 ---
 
 Cuando se habla del precio de una vivienda, suele darse una cifra: la del inmueble. Pero comprar una casa implica **gastos adicionales** que conviene tener presupuestados desde el principio, porque pueden suponer un porcentaje nada despreciable sobre el precio.
