@@ -7,6 +7,29 @@ import { cargarPublicados, guardarPublicados } from '../lib/publicados';
 
 const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 
+/** Recorta un texto a `max` caracteres (con … final) para no romper el esquema del build. */
+function recortar(texto: string, max: number): string {
+  if (texto.length <= max) return texto;
+  return texto.slice(0, max - 1).trimEnd() + '…';
+}
+
+/**
+ * Red de seguridad: ajusta los campos del frontmatter a los límites del esquema de
+ * contenido (src/content.config.ts) para que el build nunca falle por longitud,
+ * pase lo que pase aguas arriba.
+ */
+function sanearFrontmatter<T extends { titulo: string; subtitulo: string; tituloSeo: string; descripcion: string }>(
+  fm: T,
+): T {
+  return {
+    ...fm,
+    titulo: recortar(fm.titulo, 140),
+    subtitulo: recortar(fm.subtitulo, 220),
+    tituloSeo: recortar(fm.tituloSeo, 65),
+    descripcion: recortar(fm.descripcion, 165),
+  };
+}
+
 export interface ResultadoPublicacion {
   rutas: string[];
   resumen: string;
@@ -28,7 +51,7 @@ export function publicador(
   const publicados = cargarPublicados();
 
   for (const a of articulos) {
-    const fm = stringify(a.frontmatter).trimEnd();
+    const fm = stringify(sanearFrontmatter(a.frontmatter)).trimEnd();
     const contenido = `---\n${fm}\n---\n\n${a.cuerpoMarkdown.trim()}\n`;
     const ruta = resolve(DIR_ART, `${a.slug}.md`);
     writeFileSync(ruta, contenido, 'utf8');

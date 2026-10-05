@@ -62,6 +62,7 @@ export async function titulador(
   return {
     ...res,
     elegido,
+    subtitulo: acortar(res.subtitulo, 218), // el frontmatter admite máx. 220
     tituloSeo: acortar(res.tituloSeo || elegido, 60),
     alternativos: candidatos.filter((c) => c !== elegido),
     puntuaciones,
