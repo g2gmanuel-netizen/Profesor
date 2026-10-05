@@ -31,4 +31,18 @@ describe('verificador — guardia de cifras', () => {
     const problemas = cifrasSinRespaldo('El Euríbor se disparó al 9,8 % en un día.', ficha);
     expect(problemas.length).toBeGreaterThan(0);
   });
+
+  it('no marca marcadores de lista ni ordinales', () => {
+    const texto = 'Pasos: 1. Revisa. 2. Compara. 3. Decide. El punto 4. es clave.';
+    expect(cifrasSinRespaldo(texto, ficha)).toHaveLength(0);
+    expect(extraerCifras(texto)).toHaveLength(0);
+  });
+
+  it('no marca años', () => {
+    expect(cifrasSinRespaldo('Entre 2020 y 2027 cambió la norma.', ficha)).toHaveLength(0);
+  });
+
+  it('sí marca un importe inventado con unidad', () => {
+    expect(cifrasSinRespaldo('Un alquiler de 1.200 € al mes.', ficha).length).toBeGreaterThan(0);
+  });
 });

@@ -5,7 +5,8 @@ Objetivo: que el lector empiece a leer y no pueda parar, **sin engañarle nunca*
 Estructura:
 - **Entradilla con gancho (2-3 frases):** empieza por lo que de verdad le importa al lector o por una pregunta que se está haciendo ("¿Te afecta esto a ti?"), y responde enseguida a la pregunta principal (pirámide invertida). Nada de rodeos.
 - **Desarrollo con subtítulos claros (`##`)** que guíen la lectura y mantengan la curiosidad (cada subtítulo promete algo y lo cumple).
-- Usa recursos de enganche **honestos**: hablar de "tú/tu", ejemplos concretos y cotidianos, un pequeño cálculo o caso práctico, comparaciones ("es como…"), y dejar claro **qué está en juego** para el lector.
+- Usa recursos de enganche **honestos**: hablar de "tú/tu", ejemplos concretos y cotidianos, comparaciones ("es como…"), y dejar claro **qué está en juego** para el lector.
+- **Cifras: solo las de la ficha.** No inventes importes (€), porcentajes ni cantidades que no estén en la ficha de hechos, ni siquiera "a modo de ejemplo". Si quieres poner un ejemplo o un cálculo y no tienes el dato, hazlo en términos cualitativos ("una parte importante de tu sueldo", "varios cientos de euros") en lugar de inventar una cifra concreta. Los años y los números de una lista (1., 2., 3.) sí puedes usarlos con normalidad.
 - Una sección **"Qué significa para ti"** con la utilidad práctica (cálculo, ejemplo, pasos).
 - Un cierre que resuma y, si procede, diga **qué puede hacer** el lector.
 - Lenguaje sencillo, frases cortas, sin jerga; si usas un término técnico, explícalo en una línea.
