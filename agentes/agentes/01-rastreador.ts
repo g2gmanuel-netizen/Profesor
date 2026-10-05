@@ -41,7 +41,7 @@ export async function rastreador(
       system: leerPrompt('1-rastreador'),
       user,
       schema,
-      maxTokens: 3000,
+      maxTokens: 8000,
     });
     candidatos = res.candidatos;
   }

@@ -8,4 +8,6 @@ Para cada candidato devuelve: un `id` corto y único, `titulo` (reformulado, nun
 
 Prioriza fuentes primarias oficiales. No inventes URLs.
 
+Devuelve **como máximo 12 candidatos**, los más relevantes y mejores para explicar. Mejor pocos y buenos que muchos.
+
 Devuelve JSON: `{ "candidatos": [ { ... } ] }`.
