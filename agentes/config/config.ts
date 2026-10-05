@@ -30,15 +30,26 @@ function num(nombre: string, porDefecto: number): number {
   return Number.isFinite(n) ? n : porDefecto;
 }
 
+/**
+ * Lee una variable de texto. Trata la cadena vacía o con solo espacios como
+ * "no definida" y usa el valor por defecto. Esto es clave en GitHub Actions:
+ * una variable (`vars.X`) no definida se inyecta como "" y, sin este filtro,
+ * pisaría los valores por defecto (p.ej. dejando el modelo vacío → error 400).
+ */
+function str(nombre: string, porDefecto: string): string {
+  const v = process.env[nombre];
+  return v && v.trim() !== '' ? v.trim() : porDefecto;
+}
+
 export const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY ?? '',
-  modeloRedaccion: process.env.MODELO_REDACCION ?? 'claude-opus-4-8',
-  modeloRapido: process.env.MODELO_RAPIDO ?? 'claude-haiku-4-5',
+  modeloRedaccion: str('MODELO_REDACCION', 'claude-opus-4-8'),
+  modeloRapido: str('MODELO_RAPIDO', 'claude-haiku-4-5'),
   presupuestoDiarioUsd: num('PRESUPUESTO_DIARIO_USD', 3),
-  revisionHumana: (process.env.REVISION_HUMANA ?? 'true') !== 'false',
+  revisionHumana: str('REVISION_HUMANA', 'true') !== 'false',
   articulosMinDia: num('ARTICULOS_MIN_DIA', 3),
   articulosMaxDia: num('ARTICULOS_MAX_DIA', 6),
-  autor: process.env.AUTOR_FIRMA ?? 'Redacción Bolsillo Diario',
+  autor: str('AUTOR_FIRMA', 'Redacción Bolsillo Diario'),
 } as const;
 
 /**
