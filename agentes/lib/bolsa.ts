@@ -243,19 +243,36 @@ export async function obtenerDatosYahoo(ticker: string): Promise<DatosAccion | n
   };
 }
 
-/** Descarga el logo de la empresa (Clearbit). Devuelve el buffer PNG o null. */
+/**
+ * Descarga el logo de la empresa probando varias fuentes gratuitas (la mejor
+ * disponible). Devuelve un buffer de imagen que sharp pueda leer (PNG/JPG), o null.
+ * Clearbit cerró su API de logos gratis, así que se prueban alternativas.
+ */
 export async function descargarLogo(dominio: string | undefined): Promise<Buffer | null> {
   if (!dominio) return null;
-  try {
-    const r = await fetch(`https://logo.clearbit.com/${encodeURIComponent(dominio)}?size=256`, {
-      headers: { 'User-Agent': UA },
-    });
-    if (!r.ok) return null;
-    const buf = Buffer.from(await r.arrayBuffer());
-    return buf.length > 200 ? buf : null;
-  } catch {
-    return null;
+  const fuentes = [
+    `https://logo.clearbit.com/${encodeURIComponent(dominio)}?size=256`,
+    `https://www.google.com/s2/favicons?domain=${encodeURIComponent(dominio)}&sz=256`,
+    `https://icons.duckduckgo.com/ip3/${encodeURIComponent(dominio)}.ico`,
+  ];
+  for (const url of fuentes) {
+    try {
+      const r = await fetch(url, { headers: { 'User-Agent': UA } });
+      if (!r.ok) continue;
+      const buf = Buffer.from(await r.arrayBuffer());
+      if (buf.length < 400) continue; // demasiado pequeño: probablemente un icono vacío
+      // sharp no lee .ico; validamos que sea una imagen legible antes de aceptarla.
+      try {
+        const meta = await sharp(buf).metadata();
+        if (meta.width && meta.width >= 32) return buf;
+      } catch {
+        continue;
+      }
+    } catch {
+      continue;
+    }
   }
+  return null;
 }
 
 /**
