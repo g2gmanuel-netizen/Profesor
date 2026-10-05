@@ -1,0 +1,66 @@
+name: Bolsa semanal
+
+# Genera cada semana el análisis en profundidad de una acción de un sector
+# emergente (rota el sector cada semana). Datos reales de Yahoo Finance.
+# Los crons van en UTC. 06:07 UTC del lunes ≈ 08:07 hora de Madrid en verano.
+on:
+  schedule:
+    - cron: '7 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bolsa
+  cancel-in-progress: false
+
+jobs:
+  bolsa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generar el análisis de bolsa de la semana
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELO_REDACCION: ${{ vars.MODELO_REDACCION }}
+          MODELO_RAPIDO: ${{ vars.MODELO_RAPIDO }}
+          PRESUPUESTO_DIARIO_USD: ${{ vars.PRESUPUESTO_DIARIO_USD }}
+        run: npx tsx scripts/analisis-bolsa.ts
+
+      - name: Validar que el sitio sigue compilando
+        run: npm run build
+
+      - name: Abrir pull request con el análisis (si REVISION_HUMANA=true)
+        if: ${{ vars.REVISION_HUMANA != 'false' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bolsa/${{ github.run_id }}
+          title: 'Análisis de bolsa de la semana (revisión humana)'
+          commit-message: 'Análisis de bolsa semanal pendiente de revisión'
+          body: |
+            Análisis semanal de una acción de un sector emergente, generado con datos
+            reales de Yahoo Finance. Contenido divulgativo: no es asesoramiento financiero.
+
+            Revisa el artículo en "Files changed" y fusiona si te convence.
+          add-paths: |
+            src/content/articulos/**
+            public/imagenes/**
+
+      - name: Commit directo a main (si REVISION_HUMANA=false)
+        if: ${{ vars.REVISION_HUMANA == 'false' }}
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add src/content/articulos public/imagenes
+          git commit -m "Análisis de bolsa semanal" || echo "Sin cambios"
+          git push

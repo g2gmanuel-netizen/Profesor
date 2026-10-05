@@ -39,6 +39,13 @@ const articulos = defineCollection({
     elaboradoConIA: z.boolean().default(true),
     destacado: z.boolean().default(false),
     borrador: z.boolean().default(false),
+    // Campos opcionales para los análisis de Bolsa (categoría "bolsa").
+    ticker: z.string().max(12).optional(),
+    bolsaMercado: z.string().max(60).optional(), // p.ej. "NASDAQ"
+    sectorBolsa: z.string().max(80).optional(),
+    precioActual: z.string().max(40).optional(),
+    precioEntrada: z.string().max(40).optional(),
+    fechaDatos: z.string().max(40).optional(), // fecha de los datos de mercado
   }),
 });
 
