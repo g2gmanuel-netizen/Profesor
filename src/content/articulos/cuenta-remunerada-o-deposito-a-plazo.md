@@ -1,26 +1,39 @@
 ---
-titulo: 'Cuenta remunerada o depósito a plazo: en qué se diferencian y cuál te conviene'
-subtitulo: 'Las dos prometen rentabilidad por tu ahorro, pero funcionan distinto. Te explicamos la diferencia clave —la disponibilidad del dinero— y en qué fijarte antes de contratar.'
-tituloSeo: 'Cuenta remunerada o depósito: diferencias'
-descripcion: 'Diferencias entre una cuenta remunerada y un depósito a plazo fijo: disponibilidad, rentabilidad y garantía. Qué mirar antes de elegir dónde poner tu ahorro.'
-categoria: 'ahorro'
-autor: 'Redacción Bolsillo Diario'
+titulo: "Cuenta remunerada o depósito a plazo: en qué se diferencian y cuál te
+  conviene"
+subtitulo: Las dos prometen rentabilidad por tu ahorro, pero funcionan distinto.
+  Te explicamos la diferencia clave —la disponibilidad del dinero— y en qué
+  fijarte antes de contratar.
+tituloSeo: "Cuenta remunerada o depósito: diferencias"
+descripcion: "Diferencias entre una cuenta remunerada y un depósito a plazo
+  fijo: disponibilidad, rentabilidad y garantía. Qué mirar antes de elegir dónde
+  poner tu ahorro."
+categoria: ahorro
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-12
-imagen: '/imagenes/cuenta-remunerada-o-deposito-a-plazo.jpg'
-imagenAlt: 'Imagen del artículo: Cuenta remunerada o depósito a plazo: en qué se diferencian y cuál te conviene (euro)'
-etiquetas: ['ahorro', 'depósitos', 'cuentas remuneradas', 'banco de españa']
+imagen: /imagenes/cuenta-remunerada-o-deposito-a-plazo.jpg
+imagenAlt: "Imagen del artículo: Cuenta remunerada o depósito a plazo: en qué se
+  diferencian y cuál te conviene (dinero en efectivo)"
+etiquetas:
+  - ahorro
+  - depósitos
+  - cuentas remuneradas
+  - banco de españa
 clavesRapidas:
-  - 'En la cuenta remunerada el dinero sigue disponible; en el depósito queda inmovilizado un plazo.'
-  - 'Fíjate en la TAE, las condiciones y las comisiones, no solo en el tipo anunciado.'
-  - 'Los depósitos están cubiertos por el Fondo de Garantía hasta 100.000 € por titular y entidad.'
+  - En la cuenta remunerada el dinero sigue disponible; en el depósito queda
+    inmovilizado un plazo.
+  - Fíjate en la TAE, las condiciones y las comisiones, no solo en el tipo
+    anunciado.
+  - Los depósitos están cubiertos por el Fondo de Garantía hasta 100.000 € por
+    titular y entidad.
 fuentes:
-  - titulo: 'Portal del Cliente Bancario — Banco de España'
-    url: 'https://clientebancario.bde.es/'
-    organismo: 'Banco de España'
-  - titulo: 'Fondo de Garantía de Depósitos de Entidades de Crédito'
-    url: 'https://www.fgd.es/'
-    organismo: 'FGD'
-imagenCredito: 'Foto: image4you (Pixabay)'
+  - titulo: Portal del Cliente Bancario — Banco de España
+    url: https://clientebancario.bde.es/
+    organismo: Banco de España
+  - titulo: Fondo de Garantía de Depósitos de Entidades de Crédito
+    url: https://www.fgd.es/
+    organismo: FGD
+imagenCredito: "Foto: F1Digitals (Pixabay)"
 ---
 
 Cuando buscas sacar algo de rentabilidad a tus ahorros sin arriesgar, aparecen dos productos muy parecidos en apariencia: la **cuenta remunerada** y el **depósito a plazo fijo**. La diferencia esencial no está en el tipo de interés, sino en **cuándo puedes disponer de tu dinero**.

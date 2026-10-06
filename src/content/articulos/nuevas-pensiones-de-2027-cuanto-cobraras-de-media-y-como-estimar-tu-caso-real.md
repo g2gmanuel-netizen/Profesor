@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/nuevas-pensiones-de-2027-cuanto-cobraras-de-media-y-como-estimar-tu-caso-real.jpg
 imagenAlt: "Imagen del artículo: Nuevas pensiones de 2027: cuánto cobrarás de
-  media y cómo estimar tu caso real (anciano)"
-imagenCredito: "Foto: stevepb (Pixabay)"
+  media y cómo estimar tu caso real (monedas)"
+imagenCredito: "Foto: alandsmann (Pixabay)"
 etiquetas:
   - pensiones
   - nuevas

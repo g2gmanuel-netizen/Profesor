@@ -1,26 +1,35 @@
 ---
-titulo: 'Requisitos para jubilarte en España: edad y años cotizados'
-subtitulo: 'La edad legal de jubilación depende de los años que hayas cotizado. Te explicamos cómo funciona la jubilación ordinaria y dónde consultar tu situación real.'
-tituloSeo: 'Requisitos para jubilarse: edad y cotización'
-descripcion: 'Cómo funcionan los requisitos de jubilación en España: edad legal según años cotizados, jubilación ordinaria y dónde consultar tu vida laboral.'
-categoria: 'pensiones'
-autor: 'Redacción Bolsillo Diario'
+titulo: "Requisitos para jubilarte en España: edad y años cotizados"
+subtitulo: La edad legal de jubilación depende de los años que hayas cotizado.
+  Te explicamos cómo funciona la jubilación ordinaria y dónde consultar tu
+  situación real.
+tituloSeo: "Requisitos para jubilarse: edad y cotización"
+descripcion: "Cómo funcionan los requisitos de jubilación en España: edad legal
+  según años cotizados, jubilación ordinaria y dónde consultar tu vida laboral."
+categoria: pensiones
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-08
-imagen: '/imagenes/requisitos-para-jubilarse-en-espana.jpg'
-imagenAlt: 'Imagen del artículo: Requisitos para jubilarte en España: edad y años cotizados (anciano)'
-etiquetas: ['pensiones', 'jubilación', 'seguridad social', 'cotización']
+imagen: /imagenes/requisitos-para-jubilarse-en-espana.jpg
+imagenAlt: "Imagen del artículo: Requisitos para jubilarte en España: edad y
+  años cotizados (monedas)"
+etiquetas:
+  - pensiones
+  - jubilación
+  - seguridad social
+  - cotización
 clavesRapidas:
-  - 'La edad legal de jubilación depende de los años cotizados.'
-  - 'Cuantos más años hayas cotizado, antes puedes acceder a la jubilación ordinaria.'
-  - 'Puedes consultar tu vida laboral y una simulación en la Seguridad Social.'
+  - La edad legal de jubilación depende de los años cotizados.
+  - Cuantos más años hayas cotizado, antes puedes acceder a la jubilación
+    ordinaria.
+  - Puedes consultar tu vida laboral y una simulación en la Seguridad Social.
 fuentes:
-  - titulo: 'Jubilación — Seguridad Social'
-    url: 'https://www.seg-social.es/'
-    organismo: 'Seguridad Social'
-  - titulo: 'Importe Mi Jubilación (simulador)'
-    url: 'https://www.seg-social.es/'
-    organismo: 'Seguridad Social'
-imagenCredito: 'Foto: stevepb (Pixabay)'
+  - titulo: Jubilación — Seguridad Social
+    url: https://www.seg-social.es/
+    organismo: Seguridad Social
+  - titulo: Importe Mi Jubilación (simulador)
+    url: https://www.seg-social.es/
+    organismo: Seguridad Social
+imagenCredito: "Foto: alandsmann (Pixabay)"
 ---
 
 Una de las preguntas más repetidas sobre la pensión es a qué edad se puede uno jubilar. En España no hay una única respuesta: la **edad legal de jubilación depende de los años que hayas cotizado** a lo largo de tu vida laboral.

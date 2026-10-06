@@ -1,27 +1,36 @@
 ---
-titulo: 'Qué es un decreto ley y por qué el Congreso puede tumbarlo'
-subtitulo: 'El Gobierno aprueba decretos leyes que entran en vigor al día siguiente, pero el Congreso tiene que validarlos en 30 días. Te explicamos, sin tecnicismos, qué pasa cuando no salen adelante.'
-tituloSeo: 'Decreto ley: qué es y por qué se puede tumbar'
-descripcion: 'Qué es un decreto ley, por qué entra en vigor de inmediato y qué ocurre cuando el Congreso no lo convalida en el plazo de 30 días. Explicado claro.'
-categoria: 'politica'
-autor: 'Redacción Bolsillo Diario'
+titulo: Qué es un decreto ley y por qué el Congreso puede tumbarlo
+subtitulo: El Gobierno aprueba decretos leyes que entran en vigor al día
+  siguiente, pero el Congreso tiene que validarlos en 30 días. Te explicamos,
+  sin tecnicismos, qué pasa cuando no salen adelante.
+tituloSeo: "Decreto ley: qué es y por qué se puede tumbar"
+descripcion: Qué es un decreto ley, por qué entra en vigor de inmediato y qué
+  ocurre cuando el Congreso no lo convalida en el plazo de 30 días. Explicado
+  claro.
+categoria: politica
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-02
-imagen: '/imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg'
-imagenAlt: 'Imagen del artículo: Qué es un decreto ley y por qué el Congreso puede tumbarlo (budapest)'
-etiquetas: ['decreto ley', 'congreso', 'leyes', 'gobierno']
+imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg
+imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
+  puede tumbarlo (edificio del capitolio estadounidense)"
+etiquetas:
+  - decreto ley
+  - congreso
+  - leyes
+  - gobierno
 clavesRapidas:
-  - 'Un decreto ley lo aprueba el Gobierno y entra en vigor al día siguiente.'
-  - 'El Congreso debe convalidarlo en 30 días o deja de tener efecto.'
-  - 'Se reserva para casos de "extraordinaria y urgente necesidad".'
+  - Un decreto ley lo aprueba el Gobierno y entra en vigor al día siguiente.
+  - El Congreso debe convalidarlo en 30 días o deja de tener efecto.
+  - Se reserva para casos de "extraordinaria y urgente necesidad".
 destacado: true
 fuentes:
-  - titulo: 'Constitución Española, artículo 86 (decretos leyes)'
-    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229'
-    organismo: 'BOE'
-  - titulo: 'El Congreso: la convalidación de los decretos leyes'
-    url: 'https://www.congreso.es/'
-    organismo: 'Congreso de los Diputados'
-imagenCredito: 'Foto: Hermann (Pixabay)'
+  - titulo: Constitución Española, artículo 86 (decretos leyes)
+    url: https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229
+    organismo: BOE
+  - titulo: "El Congreso: la convalidación de los decretos leyes"
+    url: https://www.congreso.es/
+    organismo: Congreso de los Diputados
+imagenCredito: "Foto: 1778011 (Pixabay)"
 ---
 
 De vez en cuando oyes que "el Gobierno ha aprobado un decreto ley" y, poco después, que "el Congreso lo ha tumbado". ¿Cómo puede entrar en vigor algo y caerse después? Te lo explicamos con calma.

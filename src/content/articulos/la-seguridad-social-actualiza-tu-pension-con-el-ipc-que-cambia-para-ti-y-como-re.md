@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/la-seguridad-social-actualiza-tu-pension-con-el-ipc-que-cambia-para-ti-y-como-re.jpg
 imagenAlt: "Imagen del artículo: La Seguridad Social actualiza tu pensión con el
-  IPC: qué cambia para ti y cómo reclamar si no cuadra (anciano)"
-imagenCredito: "Foto: stevepb (Pixabay)"
+  IPC: qué cambia para ti y cómo reclamar si no cuadra (monedas)"
+imagenCredito: "Foto: alandsmann (Pixabay)"
 etiquetas:
   - pensiones
   - seguridad

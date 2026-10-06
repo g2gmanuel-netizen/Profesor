@@ -1,26 +1,35 @@
 ---
-titulo: 'Quién está obligado a hacer la declaración de la renta (y quién no)'
-subtitulo: 'No todo el mundo tiene que presentar el IRPF. Te explicamos los límites generales por rendimientos del trabajo y cuándo conviene declarar aunque no estés obligado.'
-tituloSeo: 'Declaración de la renta: quién está obligado'
-descripcion: 'Quién tiene que presentar la declaración de la renta en España, los límites por rendimientos del trabajo y cuándo compensa declarar aunque no sea obligatorio.'
-categoria: 'impuestos'
-autor: 'Redacción Bolsillo Diario'
+titulo: Quién está obligado a hacer la declaración de la renta (y quién no)
+subtitulo: No todo el mundo tiene que presentar el IRPF. Te explicamos los
+  límites generales por rendimientos del trabajo y cuándo conviene declarar
+  aunque no estés obligado.
+tituloSeo: "Declaración de la renta: quién está obligado"
+descripcion: Quién tiene que presentar la declaración de la renta en España, los
+  límites por rendimientos del trabajo y cuándo compensa declarar aunque no sea
+  obligatorio.
+categoria: impuestos
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-15
-imagen: '/imagenes/quien-esta-obligado-a-declarar-irpf.jpg'
-imagenAlt: 'Imagen del artículo: Quién está obligado a hacer la declaración de la renta (y quién no) (documento)'
-etiquetas: ['irpf', 'declaración de la renta', 'agencia tributaria']
+imagen: /imagenes/quien-esta-obligado-a-declarar-irpf.jpg
+imagenAlt: "Imagen del artículo: Quién está obligado a hacer la declaración de
+  la renta (y quién no) (valla)"
+etiquetas:
+  - irpf
+  - declaración de la renta
+  - agencia tributaria
 clavesRapidas:
-  - 'La obligación depende sobre todo del tipo e importe de tus rendimientos.'
-  - 'Tener dos pagadores puede rebajar el umbral a partir del cual hay que declarar.'
-  - 'Aunque no estés obligado, declarar puede salir a devolver.'
+  - La obligación depende sobre todo del tipo e importe de tus rendimientos.
+  - Tener dos pagadores puede rebajar el umbral a partir del cual hay que
+    declarar.
+  - Aunque no estés obligado, declarar puede salir a devolver.
 fuentes:
-  - titulo: 'Campaña de Renta — Agencia Tributaria'
-    url: 'https://sede.agenciatributaria.gob.es/'
-    organismo: 'Agencia Tributaria'
-  - titulo: 'Ley 35/2006 del IRPF'
-    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764'
-    organismo: 'BOE'
-imagenCredito: 'Foto: jarmoluk (Pixabay)'
+  - titulo: Campaña de Renta — Agencia Tributaria
+    url: https://sede.agenciatributaria.gob.es/
+    organismo: Agencia Tributaria
+  - titulo: Ley 35/2006 del IRPF
+    url: https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764
+    organismo: BOE
+imagenCredito: "Foto: Maaark (Pixabay)"
 ---
 
 Cada primavera se abre la campaña de la declaración de la renta (IRPF), y la primera duda de mucha gente es simple: ¿tengo que presentarla? La respuesta depende sobre todo del tipo de ingresos que hayas tenido y de su importe.
