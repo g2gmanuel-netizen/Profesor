@@ -43,12 +43,13 @@ function str(nombre: string, porDefecto: string): string {
 
 export const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY ?? '',
-  modeloRedaccion: str('MODELO_REDACCION', 'claude-opus-4-8'),
+  // Config económica por defecto: Sonnet (buena calidad, ~2,5× más barato que Opus).
+  modeloRedaccion: str('MODELO_REDACCION', 'claude-sonnet-5-5'),
   modeloRapido: str('MODELO_RAPIDO', 'claude-haiku-4-5'),
-  presupuestoDiarioUsd: num('PRESUPUESTO_DIARIO_USD', 3),
+  presupuestoDiarioUsd: num('PRESUPUESTO_DIARIO_USD', 2),
   revisionHumana: str('REVISION_HUMANA', 'true') !== 'false',
-  articulosMinDia: num('ARTICULOS_MIN_DIA', 3),
-  articulosMaxDia: num('ARTICULOS_MAX_DIA', 6),
+  articulosMinDia: num('ARTICULOS_MIN_DIA', 2),
+  articulosMaxDia: num('ARTICULOS_MAX_DIA', 4),
   autor: str('AUTOR_FIRMA', 'Redacción Bolsillo Diario'),
 } as const;
 
