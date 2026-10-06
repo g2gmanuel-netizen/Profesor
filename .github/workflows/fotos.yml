@@ -4,6 +4,11 @@ name: Fotos de artículos
 # no tienen foto real y las sube. Se lanza a mano desde la pestaña Actions.
 on:
   workflow_dispatch:
+    inputs:
+      reemplazar:
+        description: 'Refrescar también las fotos ya puestas (búsqueda más acorde)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -23,6 +28,7 @@ jobs:
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          REEMPLAZAR_FOTOS: ${{ inputs.reemplazar }}
         run: npx tsx scripts/fotos-articulos.ts
 
       - name: Validar que la web sigue compilando
