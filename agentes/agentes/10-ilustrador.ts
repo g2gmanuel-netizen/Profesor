@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import type { ContextoEjecucion } from '../lib/contexto';
 import type { FichaHechos } from '../lib/esquemas';
 import { portadaSVG, graficoBarrasSVG } from '../lib/portada';
-import { descargarFoto, queryParaArticulo, hayClaveFotos } from '../lib/fotos';
+import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos } from '../lib/fotos';
 import { categoriaPorSlug, colorCategoria } from '../../src/lib/sitio';
 
 export interface ResultadoIlustracion {
@@ -34,7 +34,8 @@ export async function ilustrador(
   // 1) Si hay clave de un banco de fotos (y no es simulación), intentamos una foto con licencia.
   if (hayClaveFotos() && !ctx.simulacion) {
     const foto = await descargarFoto({
-      query: queryParaArticulo(categoria, []),
+      query: queryParaArticulo(categoria, [], titulo),
+      queryFallback: queryFallback(categoria),
       destinoAbsSinExt: resolve(dir, slug),
       slug,
       altBase: `Imagen del artículo: ${titulo}`,

@@ -8,7 +8,11 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
-import { descargarFoto, queryParaArticulo, hayClaveFotos } from '../agentes/lib/fotos';
+import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos } from '../agentes/lib/fotos';
+
+// Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
+// (para refrescarlas con una búsqueda más acorde a cada noticia).
+const REEMPLAZAR = process.env.REEMPLAZAR_FOTOS === 'true';
 
 if (!hayClaveFotos()) {
   // eslint-disable-next-line no-console
@@ -46,12 +50,16 @@ async function main(): Promise<void> {
       imagen?: string;
     };
 
-    // Si ya tiene una foto .jpg, no la volvemos a descargar.
-    if (fm.imagen && fm.imagen.endsWith('.jpg')) continue;
+    // Los análisis de bolsa llevan su propia portada compuesta (logo + ticker): no la tocamos.
+    if (fm.categoria === 'bolsa') continue;
 
-    const query = queryParaArticulo(fm.categoria ?? 'actualidad', fm.etiquetas ?? []);
+    // Si ya tiene una foto .jpg, no la volvemos a descargar (salvo REEMPLAZAR_FOTOS=true).
+    if (fm.imagen && fm.imagen.endsWith('.jpg') && !REEMPLAZAR) continue;
+
+    const categoria = fm.categoria ?? 'actualidad';
     const foto = await descargarFoto({
-      query,
+      query: queryParaArticulo(categoria, fm.etiquetas ?? [], fm.titulo ?? ''),
+      queryFallback: queryFallback(categoria),
       destinoAbsSinExt: resolve(DIR_IMG, slug),
       slug,
       altBase: `Imagen del artículo: ${fm.titulo ?? slug}`,

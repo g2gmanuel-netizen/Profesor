@@ -13,7 +13,7 @@ interface Props {
 const {
   titulo,
   descripcion,
-  imagen = '/imagenes/portada-generica.svg',
+  imagen = '/og-image.jpg',
   tipo = 'website',
   canonical,
   noindex = false,
@@ -35,6 +35,10 @@ const organizacion = {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#0b5d3b" />
 <meta name="google-site-verification" content="wJ5d1cW4WmZRM-5mlmcxCb4EoxKFlVXzAASnJrHPGlk" />
 <link rel="canonical" href={urlCanonica} />
 <link rel="alternate" type="application/rss+xml" title={SITIO.nombre} href="/rss.xml" />
@@ -52,6 +56,9 @@ const organizacion = {
 <meta property="og:description" content={descripcion} />
 <meta property="og:url" content={urlCanonica} />
 <meta property="og:image" content={urlImagen} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${SITIO.nombre} — ${descripcion}`} />
 <meta property="og:locale" content="es_ES" />
 
 <meta name="twitter:card" content="summary_large_image" />

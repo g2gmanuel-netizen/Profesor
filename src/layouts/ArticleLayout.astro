@@ -106,6 +106,53 @@ const breadcrumb = {
       }
     </figure>
 
+    {
+      d.categoria === 'bolsa' && (
+        <aside class="ficha-bolsa">
+          <div class="ficha-bolsa-datos">
+            {d.ticker && (
+              <span>
+                <small>Ticker</small>
+                {d.ticker}
+                {d.bolsaMercado ? ` · ${d.bolsaMercado}` : ''}
+              </span>
+            )}
+            {d.sectorBolsa && (
+              <span>
+                <small>Sector</small>
+                {d.sectorBolsa}
+              </span>
+            )}
+            {d.precioActual && (
+              <span>
+                <small>Precio</small>
+                {d.precioActual}
+              </span>
+            )}
+            {d.precioEntrada && (
+              <span>
+                <small>Entrada propuesta</small>
+                {d.precioEntrada}
+              </span>
+            )}
+            {d.fechaDatos && (
+              <span>
+                <small>Datos a</small>
+                {d.fechaDatos}
+              </span>
+            )}
+          </div>
+          <p class="ficha-bolsa-aviso">
+            ⚠️ <strong>Esto no es asesoramiento financiero</strong> ni una recomendación ni una
+            incitación a comprar o vender. Es un análisis divulgativo elaborado con datos públicos;
+            invertir en bolsa conlleva riesgo de perder parte o la totalidad del dinero. Rendimientos
+            pasados no garantizan rendimientos futuros. Decide por tu cuenta y, si lo necesitas,
+            consulta a un asesor registrado en la CNMV.
+          </p>
+        </aside>
+      )
+    }
+
     <Compartir url={urlAbs} titulo={d.titulo} />
 
     <Anuncio formato="horizontal" />
@@ -173,3 +220,39 @@ const breadcrumb = {
     <Newsletter />
   </div>
 </BaseLayout>
+
+<style>
+  .ficha-bolsa {
+    border: 1px solid var(--borde, #d8dee4);
+    border-left: 5px solid #0e7490;
+    border-radius: var(--radio, 10px);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0;
+    background: color-mix(in srgb, #0e7490 7%, transparent);
+  }
+  .ficha-bolsa-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .ficha-bolsa-datos span {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .ficha-bolsa-datos small {
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+  .ficha-bolsa-aviso {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+</style>

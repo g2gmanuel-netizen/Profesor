@@ -11,7 +11,7 @@ function env(nombre: string, porDefecto = ''): string {
 export const SITIO = {
   nombre: env('NOMBRE_MEDIO', 'Bolsillo Diario'),
   descripcion:
-    'La actualidad de España explicada claro: política, sociedad, economía y lo que afecta a tu bolsillo. Qué ha pasado, por qué importa y qué significa para ti, sin tecnicismos.',
+    'Tu dinero y la actualidad de España, con cabeza: política, sociedad y economía doméstica. Qué ha pasado, por qué importa y qué puedes hacer. Con rigor, con fuentes y sin postureo.',
   nicho:
     'actualidad de España explicada de forma sencilla: política y leyes (decretos, normativa), sociedad, economía del país y economía doméstica (vivienda, alquiler, hipotecas, ahorro, impuestos, pensiones, precios)',
   idioma: 'es-ES',
@@ -102,6 +102,12 @@ export const CATEGORIAS: Categoria[] = [
     nombre: 'Precios',
     descripcion: 'IPC, luz, combustibles, alimentación y coste de la vida.',
   },
+  {
+    slug: 'bolsa',
+    nombre: 'Bolsa',
+    descripcion:
+      'Análisis semanal en profundidad de una acción de un sector emergente: números reales, catalizadores, calificaciones y escenarios. Contenido divulgativo: no es asesoramiento ni una recomendación de inversión.',
+  },
 ];
 
 export function categoriaPorSlug(slug: string): Categoria | undefined {
@@ -120,6 +126,7 @@ export const COLORES_CATEGORIA: Record<string, [string, string]> = {
   impuestos: ['#8a3b2a', '#b04f39'],
   pensiones: ['#355070', '#4a6b97'],
   precios: ['#b4531a', '#d47636'],
+  bolsa: ['#0a4d5c', '#0e7490'],
 };
 
 export function colorCategoria(slug: string): [string, string] {

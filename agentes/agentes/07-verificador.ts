@@ -29,7 +29,7 @@ export function extraerCifras(texto: string): string[] {
       if (digitos.length <= 3 && !tieneSeparador) continue; // lista/ordinal/número pequeño
       if (!tieneSeparador && /^(1[89]|20)\d{2}$/.test(digitos)) continue; // años
     }
-    const unidadNorm = unidad ? unidad[1].replace(/\s+/g, '').toLowerCase() : '';
+    const unidadNorm = unidad && unidad[1] ? unidad[1].replace(/\s+/g, '').toLowerCase() : '';
     salida.push((nucleo + unidadNorm).toLowerCase());
   }
   return Array.from(new Set(salida)).filter((s) => s.length > 0);
