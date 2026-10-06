@@ -7,7 +7,7 @@
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { parse } from 'yaml';
+import { parse, stringify } from 'yaml';
 import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos } from '../agentes/lib/fotos';
 
 // Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
@@ -26,12 +26,6 @@ const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 const DIR_IMG = resolve(process.cwd(), 'public/imagenes');
 mkdirSync(DIR_IMG, { recursive: true });
 
-function ponerCampo(fm: string, clave: string, valor: string): string {
-  const linea = `${clave}: '${valor.replace(/'/g, '’')}'`;
-  const re = new RegExp(`^${clave}:.*$`, 'm');
-  return re.test(fm) ? fm.replace(re, linea) : `${fm}\n${linea}`;
-}
-
 async function main(): Promise<void> {
   let ok = 0;
   let fallos = 0;
@@ -43,26 +37,24 @@ async function main(): Promise<void> {
     const m = contenido.match(/^---\n([\s\S]*?)\n---/);
     if (!m || m[1] === undefined) continue;
     const fmTexto: string = m[1];
-    const fm = parse(fmTexto) as {
-      titulo?: string;
-      categoria?: string;
-      etiquetas?: string[];
-      imagen?: string;
-    };
+    const fm = parse(fmTexto) as Record<string, unknown>;
+    const categoria = typeof fm.categoria === 'string' ? fm.categoria : 'actualidad';
+    const imagen = typeof fm.imagen === 'string' ? fm.imagen : '';
+    const titulo = typeof fm.titulo === 'string' ? fm.titulo : slug;
+    const etiquetas = Array.isArray(fm.etiquetas) ? (fm.etiquetas as string[]) : [];
 
     // Los análisis de bolsa llevan su propia portada compuesta (logo + ticker): no la tocamos.
-    if (fm.categoria === 'bolsa') continue;
+    if (categoria === 'bolsa') continue;
 
     // Si ya tiene una foto .jpg, no la volvemos a descargar (salvo REEMPLAZAR_FOTOS=true).
-    if (fm.imagen && fm.imagen.endsWith('.jpg') && !REEMPLAZAR) continue;
+    if (imagen.endsWith('.jpg') && !REEMPLAZAR) continue;
 
-    const categoria = fm.categoria ?? 'actualidad';
     const foto = await descargarFoto({
-      query: queryParaArticulo(categoria, fm.etiquetas ?? [], fm.titulo ?? ''),
+      query: queryParaArticulo(categoria, etiquetas, titulo),
       queryFallback: queryFallback(categoria),
       destinoAbsSinExt: resolve(DIR_IMG, slug),
       slug,
-      altBase: `Imagen del artículo: ${fm.titulo ?? slug}`,
+      altBase: `Imagen del artículo: ${titulo}`,
     });
 
     if (!foto) {
@@ -72,10 +64,12 @@ async function main(): Promise<void> {
       continue;
     }
 
-    let nuevoFm = fmTexto;
-    nuevoFm = ponerCampo(nuevoFm, 'imagen', foto.rutaPublica);
-    nuevoFm = ponerCampo(nuevoFm, 'imagenAlt', foto.alt);
-    nuevoFm = ponerCampo(nuevoFm, 'imagenCredito', foto.credito);
+    // Actualizamos el frontmatter de forma segura: parseamos, cambiamos los
+    // campos de imagen y re-serializamos (así no rompemos textos de varias líneas).
+    fm.imagen = foto.rutaPublica;
+    fm.imagenAlt = foto.alt;
+    fm.imagenCredito = foto.credito;
+    const nuevoFm = stringify(fm).trimEnd();
     writeFileSync(ruta, contenido.replace(m[0], `---\n${nuevoFm}\n---`), 'utf8');
     ok++;
     // eslint-disable-next-line no-console
