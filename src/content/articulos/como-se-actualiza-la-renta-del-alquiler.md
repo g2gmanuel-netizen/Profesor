@@ -1,27 +1,36 @@
 ---
-titulo: 'Cómo se actualiza la renta del alquiler cada año y qué puedes exigir'
-subtitulo: 'La renta de tu contrato solo puede subir en los términos que marca la ley y el índice de referencia. Te contamos cuándo, cuánto y qué debe avisarte el casero.'
-tituloSeo: 'Actualización de la renta del alquiler: guía'
-descripcion: 'Cómo y cuándo puede subir la renta de tu alquiler, qué índice se aplica y qué derechos tienes como inquilino. Explicado paso a paso.'
-categoria: 'alquiler'
-autor: 'Redacción Bolsillo Diario'
+titulo: Cómo se actualiza la renta del alquiler cada año y qué puedes exigir
+subtitulo: La renta de tu contrato solo puede subir en los términos que marca la
+  ley y el índice de referencia. Te contamos cuándo, cuánto y qué debe avisarte
+  el casero.
+tituloSeo: "Actualización de la renta del alquiler: guía"
+descripcion: Cómo y cuándo puede subir la renta de tu alquiler, qué índice se
+  aplica y qué derechos tienes como inquilino. Explicado paso a paso.
+categoria: alquiler
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-18
-imagen: '/imagenes/como-se-actualiza-la-renta-del-alquiler.jpg'
-imagenAlt: 'Imagen del artículo: Cómo se actualiza la renta del alquiler cada año y qué puedes exigir (casa)'
-etiquetas: ['alquiler', 'renta', 'ley de vivienda', 'ine']
+imagen: /imagenes/como-se-actualiza-la-renta-del-alquiler.jpg
+imagenAlt: "Imagen del artículo: Cómo se actualiza la renta del alquiler cada
+  año y qué puedes exigir (para construir)"
+etiquetas:
+  - alquiler
+  - renta
+  - ley de vivienda
+  - ine
 clavesRapidas:
-  - 'La renta solo se actualiza si el contrato lo prevé y una vez al año.'
-  - 'La actualización usa el índice de referencia que fija la ley y publica el INE.'
-  - 'El casero debe notificarte la subida por escrito; no es automática.'
+  - La renta solo se actualiza si el contrato lo prevé y una vez al año.
+  - La actualización usa el índice de referencia que fija la ley y publica el
+    INE.
+  - El casero debe notificarte la subida por escrito; no es automática.
 destacado: true
 fuentes:
-  - titulo: 'Ley 12/2023, de 24 de mayo, por el derecho a la vivienda'
-    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2023-12203'
-    organismo: 'BOE'
-  - titulo: 'Índices de referencia para el alquiler — INE'
-    url: 'https://www.ine.es/'
-    organismo: 'INE'
-imagenCredito: 'Foto: image4you (Pixabay)'
+  - titulo: Ley 12/2023, de 24 de mayo, por el derecho a la vivienda
+    url: https://www.boe.es/buscar/act.php?id=BOE-A-2023-12203
+    organismo: BOE
+  - titulo: Índices de referencia para el alquiler — INE
+    url: https://www.ine.es/
+    organismo: INE
+imagenCredito: "Foto: JHertle (Pixabay)"
 ---
 
 Si vives de alquiler, una de las dudas más habituales es cuánto puede subirte el casero la renta al cabo de un año. La respuesta corta: solo puede hacerlo si el contrato lo recoge, como máximo una vez al año y según el índice de referencia que marca la normativa de vivienda.

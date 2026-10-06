@@ -1,26 +1,37 @@
 ---
-titulo: 'Qué es el PVPC y cómo entender tu factura de la luz'
-subtitulo: 'El precio regulado de la electricidad cambia cada hora. Te explicamos qué es el PVPC, en qué se diferencia del mercado libre y cómo leer los conceptos de tu factura.'
-tituloSeo: 'PVPC: qué es y cómo leer la factura de la luz'
-descripcion: 'Qué es el PVPC, en qué se diferencia del mercado libre y cómo entender los términos de potencia y energía de tu factura de la luz. Guía clara.'
-categoria: 'precios'
-autor: 'Redacción Bolsillo Diario'
+titulo: Qué es el PVPC y cómo entender tu factura de la luz
+subtitulo: El precio regulado de la electricidad cambia cada hora. Te explicamos
+  qué es el PVPC, en qué se diferencia del mercado libre y cómo leer los
+  conceptos de tu factura.
+tituloSeo: "PVPC: qué es y cómo leer la factura de la luz"
+descripcion: Qué es el PVPC, en qué se diferencia del mercado libre y cómo
+  entender los términos de potencia y energía de tu factura de la luz. Guía
+  clara.
+categoria: precios
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-10
-imagen: '/imagenes/que-es-el-pvpc-factura-de-la-luz.jpg'
-imagenAlt: 'Imagen del artículo: Qué es el PVPC y cómo entender tu factura de la luz (carritos de compra)'
-etiquetas: ['luz', 'electricidad', 'pvpc', 'factura', 'cnmc']
+imagen: /imagenes/que-es-el-pvpc-factura-de-la-luz.jpg
+imagenAlt: "Imagen del artículo: Qué es el PVPC y cómo entender tu factura de la
+  luz (pájaro)"
+etiquetas:
+  - luz
+  - electricidad
+  - pvpc
+  - factura
+  - cnmc
 clavesRapidas:
-  - 'El PVPC es la tarifa regulada; su precio varía hora a hora.'
-  - 'Tu factura tiene un término de potencia (fijo) y uno de energía (lo que consumes).'
-  - 'Al PVPC solo se accede con comercializadoras de referencia.'
+  - El PVPC es la tarifa regulada; su precio varía hora a hora.
+  - Tu factura tiene un término de potencia (fijo) y uno de energía (lo que
+    consumes).
+  - Al PVPC solo se accede con comercializadoras de referencia.
 fuentes:
-  - titulo: 'Precio voluntario para el pequeño consumidor (PVPC)'
-    url: 'https://www.cnmc.es/'
-    organismo: 'CNMC'
-  - titulo: 'Factura eléctrica — información oficial'
-    url: 'https://www.mitfactura.es/'
-    organismo: 'Gobierno de España'
-imagenCredito: 'Foto: 652234 (Pixabay)'
+  - titulo: Precio voluntario para el pequeño consumidor (PVPC)
+    url: https://www.cnmc.es/
+    organismo: CNMC
+  - titulo: Factura eléctrica — información oficial
+    url: https://www.mitfactura.es/
+    organismo: Gobierno de España
+imagenCredito: "Foto: JacekBen (Pixabay)"
 ---
 
 La factura de la luz es una de las que más dudas genera. Buena parte de la confusión viene de no distinguir entre el **PVPC** (la tarifa regulada) y el **mercado libre**, y de no saber qué significan los conceptos que aparecen desglosados.

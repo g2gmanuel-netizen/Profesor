@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/guia-5-pasos-para-saber-si-tu-alquiler-es-legal-y-negociar-con-el-dato-oficial-e.jpg
 imagenAlt: "Imagen del artículo: Guía: 5 pasos para saber si tu alquiler es
-  legal y negociar con el dato oficial en la mano (casa)"
-imagenCredito: "Foto: image4you (Pixabay)"
+  legal y negociar con el dato oficial en la mano (péndulo)"
+imagenCredito: "Foto: poupoune05 (Pixabay)"
 etiquetas:
   - alquiler
   - guia

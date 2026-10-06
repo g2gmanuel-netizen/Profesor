@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/espana-grava-el-alquiler-13-puntos-mas-que-la-ue-que-significa-y-que-puedes-hace.jpg
 imagenAlt: "Imagen del artículo: España grava el alquiler 13 puntos más que la
-  UE: qué significa y qué puedes hacer tú (casa)"
-imagenCredito: "Foto: image4you (Pixabay)"
+  UE: qué significa y qué puedes hacer tú (españa)"
+imagenCredito: "Foto: csminsoo1 (Pixabay)"
 etiquetas:
   - alquiler
   - espana

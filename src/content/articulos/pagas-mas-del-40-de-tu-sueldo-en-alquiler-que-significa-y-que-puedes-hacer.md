@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer.jpg
 imagenAlt: "Imagen del artículo: Pagas más del 40 % de tu sueldo en alquiler:
-  qué significa y qué puedes hacer (casa)"
-imagenCredito: "Foto: image4you (Pixabay)"
+  qué significa y qué puedes hacer (esperar)"
+imagenCredito: "Foto: Couleur (Pixabay)"
 etiquetas:
   - alquiler
   - pagas

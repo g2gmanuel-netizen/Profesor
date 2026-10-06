@@ -1,26 +1,36 @@
 ---
-titulo: 'Cuánto cuesta comprar una casa más allá del precio: todos los gastos'
-subtitulo: 'Al precio de la vivienda hay que sumar impuestos, notaría, registro y gestoría. Te explicamos qué gastos asume el comprador para que no te pillen por sorpresa.'
-tituloSeo: 'Gastos de comprar una vivienda en España'
-descripcion: 'Todos los gastos de comprar una casa además del precio: impuestos (ITP o IVA), notaría, registro, gestoría y los de la hipoteca. Quién paga qué.'
-categoria: 'vivienda'
-autor: 'Redacción Bolsillo Diario'
+titulo: "Cuánto cuesta comprar una casa más allá del precio: todos los gastos"
+subtitulo: Al precio de la vivienda hay que sumar impuestos, notaría, registro y
+  gestoría. Te explicamos qué gastos asume el comprador para que no te pillen
+  por sorpresa.
+tituloSeo: Gastos de comprar una vivienda en España
+descripcion: "Todos los gastos de comprar una casa además del precio: impuestos
+  (ITP o IVA), notaría, registro, gestoría y los de la hipoteca. Quién paga
+  qué."
+categoria: vivienda
+autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-05
-imagen: '/imagenes/gastos-de-comprar-una-vivienda.jpg'
-imagenAlt: 'Imagen del artículo: Cuánto cuesta comprar una casa más allá del precio: todos los gastos (edificio)'
-etiquetas: ['vivienda', 'compra', 'impuestos', 'hipoteca', 'itp']
+imagen: /imagenes/gastos-de-comprar-una-vivienda.jpg
+imagenAlt: "Imagen del artículo: Cuánto cuesta comprar una casa más allá del
+  precio: todos los gastos (inmobiliaria)"
+etiquetas:
+  - vivienda
+  - compra
+  - impuestos
+  - hipoteca
+  - itp
 clavesRapidas:
-  - 'A la vivienda de segunda mano se le aplica ITP; a la obra nueva, IVA más AJD.'
-  - 'Suma notaría, registro y, si usas gestoría, sus honorarios.'
-  - 'Con la ley hipotecaria, la mayoría de gastos del préstamo los paga el banco.'
+  - A la vivienda de segunda mano se le aplica ITP; a la obra nueva, IVA más AJD.
+  - Suma notaría, registro y, si usas gestoría, sus honorarios.
+  - Con la ley hipotecaria, la mayoría de gastos del préstamo los paga el banco.
 fuentes:
-  - titulo: 'Impuesto sobre Transmisiones Patrimoniales (ITP) — Agencia Tributaria'
-    url: 'https://sede.agenciatributaria.gob.es/'
-    organismo: 'Agencia Tributaria'
-  - titulo: 'Ley 5/2019 reguladora de los contratos de crédito inmobiliario'
-    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814'
-    organismo: 'BOE'
-imagenCredito: 'Foto: One_Second_Photo (Pixabay)'
+  - titulo: Impuesto sobre Transmisiones Patrimoniales (ITP) — Agencia Tributaria
+    url: https://sede.agenciatributaria.gob.es/
+    organismo: Agencia Tributaria
+  - titulo: Ley 5/2019 reguladora de los contratos de crédito inmobiliario
+    url: https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814
+    organismo: BOE
+imagenCredito: "Foto: OleksandrPidvalnyi (Pixabay)"
 ---
 
 Cuando se habla del precio de una vivienda, suele darse una cifra: la del inmueble. Pero comprar una casa implica **gastos adicionales** que conviene tener presupuestados desde el principio, porque pueden suponer un porcentaje nada despreciable sobre el precio.

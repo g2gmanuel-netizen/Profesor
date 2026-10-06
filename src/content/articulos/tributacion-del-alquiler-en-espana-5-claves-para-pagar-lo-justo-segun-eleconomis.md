@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/tributacion-del-alquiler-en-espana-5-claves-para-pagar-lo-justo-segun-eleconomis.jpg
 imagenAlt: "Imagen del artículo: Tributación del alquiler en España: 5 claves
-  para pagar lo justo según elEconomista (documento)"
-imagenCredito: "Foto: jarmoluk (Pixabay)"
+  para pagar lo justo según elEconomista (impuestos)"
+imagenCredito: "Foto: Alexas_Fotos (Pixabay)"
 etiquetas:
   - impuestos
   - tributacion
