@@ -1,0 +1,12 @@
+{
+  "fuente": "ga4",
+  "fecha": "2026-10-07",
+  "actualizado": "2026-10-07T03:03:24.822Z",
+  "estado": "pendiente",
+  "mensaje": "Pendiente de conectar — ver el paso de Google Analytics de la guía",
+  "falta": [
+    "GOOGLE_SERVICE_ACCOUNT_JSON",
+    "GA4_PROPERTY_ID"
+  ],
+  "datos": null
+}
