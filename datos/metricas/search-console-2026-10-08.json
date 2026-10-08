@@ -1,0 +1,12 @@
+{
+  "fuente": "search-console",
+  "fecha": "2026-10-08",
+  "actualizado": "2026-10-08T03:19:39.503Z",
+  "estado": "pendiente",
+  "mensaje": "Pendiente de conectar — ver el paso de Google Search Console de la guía",
+  "falta": [
+    "GOOGLE_SERVICE_ACCOUNT_JSON",
+    "SEARCH_CONSOLE_SITE_URL"
+  ],
+  "datos": null
+}
