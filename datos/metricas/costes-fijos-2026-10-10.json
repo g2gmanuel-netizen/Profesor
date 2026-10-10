@@ -1,0 +1,29 @@
+{
+  "fuente": "costes-fijos",
+  "fecha": "2026-10-10",
+  "actualizado": "2026-10-10T03:05:21.278Z",
+  "estado": "ok",
+  "conceptos": [
+    {
+      "concepto": "Dominio (.es)",
+      "importe": 12,
+      "periodicidad": "anual"
+    },
+    {
+      "concepto": "Hosting (Cloudflare Pages / Vercel)",
+      "importe": 0,
+      "periodicidad": "mensual"
+    },
+    {
+      "concepto": "Proveedor de newsletter",
+      "importe": 0,
+      "periodicidad": "mensual"
+    },
+    {
+      "concepto": "Herramientas varias",
+      "importe": 0,
+      "periodicidad": "mensual"
+    }
+  ],
+  "moneda": "EUR"
+}
