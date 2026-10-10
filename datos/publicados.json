@@ -104,6 +104,34 @@
       "slug": "el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda",
       "categoria": "vivienda",
       "fecha": "2026-10-05"
+    },
+    {
+      "id": "irpf-el-sobrecoste-de-no-ajustar-tramos-a-la-inflacion-llegaria-hasta-255-euros",
+      "titulo": "IRPF: el sobrecoste de no ajustar tramos a la inflación llegaría hasta 255 euros",
+      "slug": "irpf-el-sobrecoste-de-no-ajustar-tramos-a-la-inflacion-llegaria-hasta-255-euros",
+      "categoria": "impuestos",
+      "fecha": "2026-10-10"
+    },
+    {
+      "id": "alquiler-cinco-datos-que-debes-buscar-en-el-decreto-de-vivienda-antes-de-aceptar",
+      "titulo": "Alquiler: cinco datos que debes buscar en el decreto de vivienda antes de aceptar una subida",
+      "slug": "alquiler-cinco-datos-que-debes-buscar-en-el-decreto-de-vivienda-antes-de-aceptar",
+      "categoria": "vivienda",
+      "fecha": "2026-10-10"
+    },
+    {
+      "id": "como-comprobar-si-tu-subida-de-alquiler-es-legal-con-la-calculadora-actualizada-",
+      "titulo": "Cómo comprobar si tu subida de alquiler es legal con la calculadora actualizada de Vivienda",
+      "slug": "como-comprobar-si-tu-subida-de-alquiler-es-legal-con-la-calculadora-actualizada-",
+      "categoria": "alquiler",
+      "fecha": "2026-10-10"
+    },
+    {
+      "id": "pensiones-2027-sube-la-pension-pero-aun-no-el-porcentaje-como-preparar-tu-calcul",
+      "titulo": "Pensiones 2027: sube la pensión, pero aún no el porcentaje; cómo preparar tu cálculo",
+      "slug": "pensiones-2027-sube-la-pension-pero-aun-no-el-porcentaje-como-preparar-tu-calcul",
+      "categoria": "pensiones",
+      "fecha": "2026-10-10"
     }
   ]
 }
