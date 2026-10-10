@@ -463,6 +463,25 @@ img {
 .cuerpo-articulo p {
   margin-block: 1.1rem;
 }
+/* Listas del cuerpo (viñetas y numeradas): legibles y bien sangradas. */
+.cuerpo-articulo ul,
+.cuerpo-articulo ol {
+  margin: 1.1rem 0;
+  padding-left: 1.4rem;
+}
+.cuerpo-articulo li {
+  margin-block: 0.45rem;
+  padding-left: 0.2rem;
+}
+.cuerpo-articulo li::marker {
+  color: var(--color-marca);
+}
+.cuerpo-articulo ul ul,
+.cuerpo-articulo ol ol,
+.cuerpo-articulo ul ol,
+.cuerpo-articulo ol ul {
+  margin: 0.4rem 0;
+}
 /* Letra capital en el primer párrafo (detalle de prensa). */
 .cuerpo-articulo > p:first-of-type::first-letter {
   font-family: var(--fuente-display);
@@ -479,6 +498,18 @@ img {
   font-family: var(--fuente-ui);
   font-size: 0.95rem;
   margin: 1.5rem 0;
+  /* En móvil, si la tabla es ancha, se desplaza en vez de romper la página. */
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cuerpo-articulo td,
+.cuerpo-articulo th {
+  min-width: 7.5rem;
+}
+.cuerpo-articulo td:first-child,
+.cuerpo-articulo th:first-child {
+  min-width: 9rem;
 }
 .cuerpo-articulo th,
 .cuerpo-articulo td {
@@ -668,4 +699,88 @@ img {
   padding: 11px 18px;
   font-weight: 700;
   cursor: pointer;
+}
+
+/* ============================================================
+   Ajustes para móvil / pantallas pequeñas.
+   Objetivo: que listas, tablas, titulares y la barra de secciones
+   se vean igual de cuidados en el teléfono que en el ordenador.
+   ============================================================ */
+@media (max-width: 640px) {
+  body {
+    font-size: 1.04rem;
+    line-height: 1.7;
+  }
+  .contenedor {
+    padding-inline: 16px;
+  }
+
+  /* Barra de secciones: una sola fila deslizable (estilo app de periódico). */
+  .nav-principal-fila {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 0 1.1rem;
+    padding-block: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-principal-fila::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-principal a {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  /* Portada: titular principal y entradilla más contenidos. */
+  .portada-lead {
+    gap: 1.5rem;
+    margin: 1rem 0 2rem;
+    padding-bottom: 2rem;
+  }
+  .lead > .lead-texto > p:not(.meta) {
+    font-size: 1.08rem;
+  }
+
+  /* Artículo: cuerpo, entradilla y capitular ajustados a la pantalla. */
+  .cuerpo-articulo {
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+  .cuerpo-articulo h2 {
+    font-size: 1.42rem;
+    margin-top: 1.9rem;
+  }
+  .entradilla {
+    font-size: 1.14rem;
+  }
+  .cuerpo-articulo > p:first-of-type::first-letter {
+    font-size: 2.9em;
+    margin: 0.04em 0.08em 0 0;
+  }
+  .cuerpo-articulo blockquote {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+  .cuerpo-articulo table {
+    font-size: 0.9rem;
+  }
+
+  /* Bloques de apoyo y newsletter con menos aire lateral. */
+  .claves {
+    padding: 0.9rem 1rem 1rem;
+  }
+  .newsletter {
+    padding: 1.4rem 1.2rem;
+  }
+
+  /* Secciones y "lo más leído" un poco más compactas. */
+  .seccion-cabecera {
+    margin: 2.25rem 0 1.25rem;
+  }
+  .seccion-cabecera h2 {
+    font-size: 1.3rem;
+  }
 }
