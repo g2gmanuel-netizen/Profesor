@@ -58,6 +58,12 @@ export const CATEGORIAS: Categoria[] = [
     descripcion: 'Lo que pasa hoy en España, explicado claro y al grano.',
   },
   {
+    slug: 'bolsa',
+    nombre: 'Bolsa',
+    descripcion:
+      'Análisis semanal en profundidad de una acción de un sector emergente: números reales, catalizadores, calificaciones y escenarios. Contenido divulgativo: no es asesoramiento ni una recomendación de inversión.',
+  },
+  {
     slug: 'politica',
     nombre: 'Política',
     descripcion: 'Leyes, decretos y decisiones que te afectan, sin tecnicismos.',
@@ -101,12 +107,6 @@ export const CATEGORIAS: Categoria[] = [
     slug: 'precios',
     nombre: 'Precios',
     descripcion: 'IPC, luz, combustibles, alimentación y coste de la vida.',
-  },
-  {
-    slug: 'bolsa',
-    nombre: 'Bolsa',
-    descripcion:
-      'Análisis semanal en profundidad de una acción de un sector emergente: números reales, catalizadores, calificaciones y escenarios. Contenido divulgativo: no es asesoramiento ni una recomendación de inversión.',
   },
 ];
 
