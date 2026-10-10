@@ -156,7 +156,8 @@ async function main(): Promise<void> {
     sectorBolsa: sector.sector,
     precioActual: `${datos.precioFmt ?? ''} ${datos.moneda}`.trim(),
     precioEntrada: recortar(res.precioEntrada, 40),
-    fechaDatos: datos.fechaDatos,
+    // En formato dd/mm/aaaa para que YAML lo trate como texto (no como fecha) y sea legible.
+    fechaDatos: datos.fechaDatos.split('-').reverse().join('/'),
   };
 
   const resumenPropuesta = `**Propuesta (divulgativa):** entrada en torno a **${frontmatter.precioEntrada}** · horizonte: ${res.horizonte} · riesgo: ${res.riesgo}.`;
