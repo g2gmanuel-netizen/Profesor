@@ -31,6 +31,17 @@ function esquemaJsonDeZod(schema: z.ZodTypeAny): Record<string, unknown> {
   return js;
 }
 
+/** Red de seguridad: extrae un objeto JSON de un texto (por si el modelo responde sin usar la herramienta). */
+function extraerJSONDeTexto(texto: string): unknown {
+  const limpio = texto.trim();
+  const valla = limpio.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const cand = valla ? valla[1]! : limpio;
+  const i = cand.indexOf('{');
+  const f = cand.lastIndexOf('}');
+  if (i === -1 || f === -1) throw new Error('La respuesta no contiene JSON.');
+  return JSON.parse(cand.slice(i, f + 1));
+}
+
 export class Llm {
   private cliente: Anthropic | null = null;
   constructor(
@@ -48,11 +59,11 @@ export class Llm {
 
   /**
    * Llama al modelo pidiéndole que rellene una "herramienta" cuyo esquema es el
-   * esquema Zod del agente. Con `tool_choice` forzado, la API devuelve el resultado
-   * como un objeto ya parseado (`tool_use.input`), de modo que NUNCA se rompe por
-   * comillas o caracteres sin escapar dentro de un JSON escrito a mano (que era la
-   * causa de los fallos "Expected ',' or ']'..."). Valida con Zod y reintenta con
-   * espera exponencial.
+   * esquema Zod del agente. Normalmente la API devuelve el resultado como un objeto
+   * ya parseado (`tool_use.input`), de modo que no se rompe por comillas sin escapar.
+   * Se usa `tool_choice: auto` (los modelos nuevos como Sonnet 5.5 rechazan el forzado)
+   * con una instrucción fuerte; si aun así respondiera en texto, se extrae el JSON.
+   * Valida con Zod y reintenta con espera exponencial.
    */
   async generarJSON<S extends z.ZodTypeAny>(opts: OpcionesLlm<S>): Promise<z.infer<S>> {
     const cliente = this.obtenerCliente();
@@ -71,10 +82,12 @@ export class Llm {
         const resp = await cliente.messages.create({
           model: opts.modelo,
           max_tokens: opts.maxTokens ?? 8000,
-          system: opts.system + '\n\nUsa la herramienta «responder» para devolver el resultado.',
+          system:
+            opts.system +
+            '\n\nResponde SIEMPRE llamando a la herramienta «responder» con el resultado. No escribas texto fuera de la herramienta.',
           messages: [{ role: 'user', content: opts.user }],
           tools: [herramienta],
-          tool_choice: { type: 'tool', name: 'responder' },
+          tool_choice: { type: 'auto', disable_parallel_tool_use: true },
         });
 
         const entrada = resp.usage.input_tokens;
@@ -97,9 +110,19 @@ export class Llm {
         const bloque = resp.content.find(
           (b): b is Anthropic.ToolUseBlock => b.type === 'tool_use',
         );
-        if (!bloque) throw new Error(`El modelo no usó la herramienta en ${opts.agente}.`);
+        let datos: unknown;
+        if (bloque) {
+          datos = bloque.input;
+        } else {
+          // Red de seguridad: el modelo respondió en texto en vez de usar la herramienta.
+          const texto = resp.content
+            .filter((b): b is Anthropic.TextBlock => b.type === 'text')
+            .map((b) => b.text)
+            .join('');
+          datos = extraerJSONDeTexto(texto);
+        }
 
-        const parsed = opts.schema.safeParse(bloque.input);
+        const parsed = opts.schema.safeParse(datos);
         if (!parsed.success) {
           throw new Error(`JSON no válido para ${opts.agente}: ${parsed.error.message}`);
         }
