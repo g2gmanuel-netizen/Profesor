@@ -104,6 +104,27 @@
       "slug": "el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda",
       "categoria": "vivienda",
       "fecha": "2026-10-05"
+    },
+    {
+      "id": "esfuerzo-hipotecario-en-maximos-por-que-el-hasta-el-65-del-salario-no-es-la-medi",
+      "titulo": "Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salario no es la media",
+      "slug": "esfuerzo-hipotecario-en-maximos-por-que-el-hasta-el-65-del-salario-no-es-la-medi",
+      "categoria": "hipotecas",
+      "fecha": "2026-10-11"
+    },
+    {
+      "id": "banco-de-espana-y-alquiler-dos-medidas-del-debate-que-segun-el-supervisor-podria",
+      "titulo": "Banco de España y alquiler: dos medidas del debate que, según el supervisor, podrían perjudicar a la economía",
+      "slug": "banco-de-espana-y-alquiler-dos-medidas-del-debate-que-segun-el-supervisor-podria",
+      "categoria": "alquiler",
+      "fecha": "2026-10-11"
+    },
+    {
+      "id": "como-calcular-tu-subida-de-pension-en-2027-cuando-se-conozca-el-porcentaje-ofici",
+      "titulo": "Cómo calcular tu subida de pensión en 2027 cuando se conozca el porcentaje oficial",
+      "slug": "como-calcular-tu-subida-de-pension-en-2027-cuando-se-conozca-el-porcentaje-ofici",
+      "categoria": "pensiones",
+      "fecha": "2026-10-11"
     }
   ]
 }
