@@ -1,0 +1,48 @@
+name: Difusión en redes
+
+# Cuando se publican artículos nuevos en main (al fusionar la edición del día),
+# genera el "kit de posts" para copiar y pegar y, si hay bot de Telegram
+# configurado, publica en el canal. También se puede lanzar a mano.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/articulos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: difusion
+  cancel-in-progress: false
+
+jobs:
+  difusion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generar kit de difusión y publicar en Telegram (si está configurado)
+        env:
+          DOMINIO: ${{ vars.DOMINIO }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: npm run difusion -- --publicar
+
+      - name: Guardar el kit y el registro de difusión
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add datos/difusion-ultima.md datos/difundidos.json
+          git commit -m "Kit de difusión del día" || { echo "Sin cambios de difusión"; exit 0; }
+          for i in 1 2 3 4; do
+            git pull --rebase origin main && git push && break || { echo "reintento $i"; sleep $((2**i)); }
+          done
