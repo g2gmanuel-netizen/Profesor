@@ -25,6 +25,8 @@ export type Candidato = z.infer<typeof CandidatoSchema>;
 /** Agente 2 — Editor jefe */
 export const TemaAprobadoSchema = CandidatoSchema.extend({
   puntuacion: z.number().min(0).max(10),
+  /** Potencial viral/trending: cuánta gente en España se interesaría HOY por el tema. */
+  viralidad: z.number().min(0).max(10).default(5),
   categoria: z.enum(slugsCategoria),
   enfoque: z.string(),
   anguloUtilidad: z.string(),

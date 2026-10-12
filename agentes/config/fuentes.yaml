@@ -107,6 +107,18 @@ fuentes:
     prioridad: 3
     rss: https://trends.google.com/trending/rss?geo=ES
 
+  - nombre: Menéame — portada (lo más votado en España)
+    organismo: Menéame
+    tipo: tendencia
+    prioridad: 3
+    rss: https://www.meneame.net/rss
+
+  - nombre: Google News — lo más leído en España (actualidad)
+    organismo: Google News
+    tipo: tendencia
+    prioridad: 3
+    rss: https://news.google.com/rss/search?q=when:1d&hl=es&gl=ES&ceid=ES:es
+
 palabras_clave:
   # Economía doméstica
   - euríbor

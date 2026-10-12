@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { stringify } from 'yaml';
 import { crearContexto } from './lib/contexto';
 import { PresupuestoExcedidoError } from './lib/costes';
-import { cargarFuentes, leerFeed } from './lib/fuentes';
+import { cargarFuentes, leerFeed, obtenerTendenciasEspana } from './lib/fuentes';
 import { cargarPublicados } from './lib/publicados';
 import { FIXTURES } from './lib/fixtures';
 import { slugify } from './lib/util';
@@ -37,24 +37,53 @@ function parsearArgs(): Opciones {
   };
 }
 
-async function recopilarItems(): Promise<ItemCrudo[]> {
+async function recopilarItems(): Promise<{ items: ItemCrudo[]; tendenciasTexto: string }> {
   const { fuentes } = cargarFuentes();
-  const items: ItemCrudo[] = [];
   const conRss = fuentes.filter((f) => f.rss);
   const resultados = await Promise.all(
     conRss.map(async (f) => ({ f, feed: await leerFeed(f.rss!) })),
   );
+
+  const oficiales: ItemCrudo[] = [];
+  const tendencia: ItemCrudo[] = [];
   for (const { f, feed } of resultados) {
     if (!feed) {
       // eslint-disable-next-line no-console
       console.log(`  · Fuente caída o sin respuesta: ${f.nombre}`);
       continue;
     }
-    for (const it of feed.slice(0, 15)) {
-      items.push({ titulo: it.titulo, resumen: it.resumen, url: it.enlace, organismo: f.organismo });
+    const destino = f.tipo === 'tendencia' ? tendencia : oficiales;
+    for (const it of feed.slice(0, 12)) {
+      destino.push({
+        titulo: it.titulo,
+        resumen: it.resumen,
+        url: it.enlace,
+        organismo: f.organismo,
+        tipo: f.tipo,
+        fuente: f.nombre,
+      });
     }
   }
-  return items;
+
+  // Lo que la gente busca HOY en España (Google Trends): la señal viral más directa.
+  const trends = await obtenerTendenciasEspana();
+  const tendenciasTexto = trends
+    .slice(0, 20)
+    .map((t, n) => `${n + 1}. ${t.termino}${t.trafico ? ` (${t.trafico} búsquedas)` : ''}`)
+    .join('\n');
+  if (tendenciasTexto) {
+    // eslint-disable-next-line no-console
+    console.log(`Tendencias del día en España:\n${tendenciasTexto}\n`);
+  }
+
+  // Intercalamos tendencia y oficial para que lo viral nunca quede fuera del cupo.
+  const items: ItemCrudo[] = [];
+  const max = Math.max(oficiales.length, tendencia.length);
+  for (let i = 0; i < max; i++) {
+    if (tendencia[i]) items.push(tendencia[i]!);
+    if (oficiales[i]) items.push(oficiales[i]!);
+  }
+  return { items, tendenciasTexto };
 }
 
 async function main(): Promise<void> {
@@ -79,7 +108,12 @@ async function main(): Promise<void> {
     const publicados = cargarPublicados();
 
     // 1. Rastreador
-    const items = opts.sinApi ? [] : await recopilarItems();
+    let items: ItemCrudo[] = [];
+    if (!opts.sinApi) {
+      const recopilado = await recopilarItems();
+      items = recopilado.items;
+      ctx.tendencias = recopilado.tendenciasTexto;
+    }
     const candidatos = await rastreador(items, publicados.temas, ctx);
     if (candidatos.length === 0) {
       // eslint-disable-next-line no-console

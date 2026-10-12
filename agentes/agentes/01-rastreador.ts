@@ -10,6 +10,9 @@ export interface ItemCrudo {
   resumen: string;
   url: string;
   organismo?: string;
+  /** De dónde viene: oficial (rigor) o tendencia (viralidad). */
+  tipo?: 'oficial' | 'datos_abiertos' | 'tendencia';
+  fuente?: string;
 }
 
 /**
@@ -29,9 +32,15 @@ export async function rastreador(
     candidatos = FIXTURES.map((f) => f.candidato);
   } else {
     const schema = z.object({ candidatos: z.array(CandidatoSchema) });
+    const marca = (i: ItemCrudo): string => (i.tipo === 'tendencia' ? '🔥TENDENCIA' : 'oficial');
     const user = [
-      'Items de fuentes (titulo | resumen | url | organismo):',
-      ...entrada.slice(0, 40).map((i, n) => `${n + 1}. ${i.titulo} | ${i.resumen} | ${i.url} | ${i.organismo ?? ''}`),
+      ctx.tendencias
+        ? `TRENDING TOPICS HOY EN ESPAÑA (lo que la gente busca y comenta ahora mismo):\n${ctx.tendencias}\n`
+        : '',
+      'Items de fuentes (señal | titulo | resumen | url | organismo):',
+      ...entrada
+        .slice(0, 60)
+        .map((i, n) => `${n + 1}. [${marca(i)}] ${i.titulo} | ${i.resumen} | ${i.url} | ${i.organismo ?? ''}`),
       '',
       `Fecha de hoy: ${new Date().toISOString().slice(0, 10)}.`,
     ].join('\n');

@@ -32,20 +32,67 @@ export interface ItemFeed {
   fecha: string;
 }
 
-/** Comprueba que un feed responde; devuelve los items o null si falla (sin romper). */
-export async function leerFeed(url: string, timeoutMs = 8000): Promise<ItemFeed[] | null> {
+/** Descarga el texto de una URL con timeout; devuelve null si falla (sin romper). */
+export async function descargarTexto(url: string, timeoutMs = 8000): Promise<string | null> {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeoutMs);
   try {
     const r = await fetch(url, { signal: ctrl.signal, headers: { 'User-Agent': 'BolsilloDiarioBot/1.0' } });
     if (!r.ok) return null;
-    const xml = await r.text();
-    return parsearRss(xml);
+    return await r.text();
   } catch {
     return null;
   } finally {
     clearTimeout(t);
   }
+}
+
+/** Comprueba que un feed responde; devuelve los items o null si falla (sin romper). */
+export async function leerFeed(url: string, timeoutMs = 8000): Promise<ItemFeed[] | null> {
+  const xml = await descargarTexto(url, timeoutMs);
+  return xml === null ? null : parsearRss(xml);
+}
+
+export interface TendenciaTermino {
+  termino: string;
+  /** Tráfico aproximado que da Google Trends (p. ej. "50 mil+"), si viene. */
+  trafico?: string;
+}
+
+/**
+ * Lo que la gente está buscando AHORA MISMO en España (Google Trends, búsquedas
+ * del día). Es la señal de "trending topic" más fiable y gratuita. Prueba varios
+ * endpoints por si alguno cambia; devuelve [] si ninguno responde (nunca rompe).
+ */
+export async function obtenerTendenciasEspana(timeoutMs = 8000): Promise<TendenciaTermino[]> {
+  const urls = [
+    'https://trends.google.com/trending/rss?geo=ES',
+    'https://trends.google.es/trending/rss?geo=ES',
+    'https://trends.google.com/trends/trendingsearches/daily/rss?geo=ES',
+  ];
+  for (const url of urls) {
+    const xml = await descargarTexto(url, timeoutMs);
+    if (!xml) continue;
+    const terminos = parsearTendenciasGoogle(xml);
+    if (terminos.length > 0) return terminos;
+  }
+  return [];
+}
+
+/** Extrae los términos de tendencia (y su tráfico) del RSS de Google Trends. */
+export function parsearTendenciasGoogle(xml: string): TendenciaTermino[] {
+  const out: TendenciaTermino[] = [];
+  const bloques = xml.match(/<item[\s\S]*?<\/item>/g) ?? [];
+  for (const b of bloques) {
+    const mt =
+      b.match(/<title>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/title>/) ??
+      b.match(/<title>([\s\S]*?)<\/title>/);
+    const termino = mt ? limpiarHtml(mt[1]!) : '';
+    if (!termino) continue;
+    const mtr = b.match(/<ht:approx_traffic>\s*([\s\S]*?)\s*<\/ht:approx_traffic>/);
+    out.push({ termino, trafico: mtr ? mtr[1]!.trim() : undefined });
+  }
+  return out;
 }
 
 /** Parser RSS/Atom mínimo sin dependencias. */

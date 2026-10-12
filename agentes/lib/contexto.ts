@@ -16,6 +16,8 @@ export interface ContextoEjecucion {
   config: typeof CONFIG;
   /** Aprendizajes del analista semanal, que leen los agentes 2, 4 y 6. */
   aprendizajes: string;
+  /** Tendencias del día en España (Google Trends + Menéame), ya formateadas. Las leen los agentes 1 y 2. */
+  tendencias: string;
 }
 
 export function leerPrompt(nombre: string): string {
@@ -48,5 +50,6 @@ export function crearContexto(opts: {
     logger,
     config: CONFIG,
     aprendizajes: leerAprendizajes(),
+    tendencias: '',
   };
 }

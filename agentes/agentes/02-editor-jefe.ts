@@ -12,6 +12,9 @@ export async function editorJefe(
   ctx.logger.paso('editor-jefe', `Puntuando ${candidatos.length} candidatos (límite ${limite})`);
   if (candidatos.length === 0) return [];
 
+  // Orden final: mezcla de calidad editorial y potencial viral (50/50).
+  const orden = (t: TemaAprobado): number => t.puntuacion * 0.5 + t.viralidad * 0.5;
+
   if (ctx.sinApi) {
     // Heurística determinista: prioriza utilidad y oficialidad; riesgo bajo por defecto.
     const puntuados = candidatos.map((c, i) => {
@@ -20,6 +23,7 @@ export async function editorJefe(
       const tema: TemaAprobado = {
         ...c,
         puntuacion: Math.round(puntuacion * 10) / 10,
+        viralidad: 5,
         categoria: c.categoriaSugerida,
         enfoque: `Explicar la noticia y traducirla a impacto práctico para el lector (${c.categoriaSugerida}).`,
         anguloUtilidad: 'Qué significa para tu bolsillo y qué puedes hacer.',
@@ -27,12 +31,13 @@ export async function editorJefe(
       };
       return tema;
     });
-    return puntuados.sort((a, b) => b.puntuacion - a.puntuacion).slice(0, limite);
+    return puntuados.sort((a, b) => orden(b) - orden(a)).slice(0, limite);
   }
 
   const schema = z.object({ aprobados: z.array(TemaAprobadoSchema) });
   const user = [
     ctx.aprendizajes ? `Aprendizajes recientes:\n${ctx.aprendizajes}\n` : '',
+    ctx.tendencias ? `TRENDING TOPICS HOY EN ESPAÑA (úsalo para puntuar la viralidad):\n${ctx.tendencias}\n` : '',
     `Límite de artículos a aprobar hoy: ${limite}.`,
     'Candidatos (JSON):',
     JSON.stringify(candidatos, null, 2),
@@ -47,6 +52,6 @@ export async function editorJefe(
   });
   return res.aprobados
     .filter((t) => t.riesgo !== 'alto')
-    .sort((a, b) => b.puntuacion - a.puntuacion)
+    .sort((a, b) => orden(b) - orden(a))
     .slice(0, limite);
 }
