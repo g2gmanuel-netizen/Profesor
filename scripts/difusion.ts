@@ -213,13 +213,13 @@ async function publicarTelegram(a: Articulo, token: string, chatId: string): Pro
       body: JSON.stringify({
         chat_id: chatId,
         text: postChat(a),
-        parse_mode: 'Markdown',
+        
         disable_web_page_preview: false,
       }),
     });
     if (!r.ok) {
       // eslint-disable-next-line no-console
-      console.log(`  · Telegram respondió ${r.status} para «${a.titulo}»`);
+      console.log(`  · Telegram respondió ${r.status} para «${a.titulo}»: ${await r.text()}`);
       return false;
     }
     return true;
