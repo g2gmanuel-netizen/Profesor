@@ -6,6 +6,13 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="675" fill="url(#g)"/>
-  <text x="600" y="330" font-family="Helvetica, Arial, sans-serif" font-size="140" font-weight="800" fill="#ffffff" text-anchor="middle">€</text>
-  <text x="600" y="430" font-family="Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.92">Bolsillo Diario</text>
+  <g transform="translate(600 250) scale(6)" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 -17 a7 7 0 0 0 -13 2 a7 7 0 0 0 -6 9 a7.5 7.5 0 0 0 1.4 9.5 a7 7 0 0 0 2.6 8 a7 7 0 0 0 7 4 a6.5 6.5 0 0 0 8 1 Z"/>
+    <path d="M0 -17 a7 7 0 0 1 13 2 a7 7 0 0 1 6 9 a7.5 7.5 0 0 1 -1.4 9.5 a7 7 0 0 1 -2.6 8 a7 7 0 0 1 -7 4 a6.5 6.5 0 0 1 -8 1 Z"/>
+    <path d="M0 -17 V 16.5"/>
+    <path d="M-13 -9 q4 1 5 4"/><path d="M13 -9 q-4 1 -5 4"/>
+    <path d="M-18 2 q5 1 7 -2"/><path d="M18 2 q-5 1 -7 -2"/>
+  </g>
+  <text x="600" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="800" fill="#ffffff" text-anchor="middle">Bolsillo Diario</text>
+  <text x="600" y="530" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.85" letter-spacing="3">TU DINERO Y LA ACTUALIDAD, CON CABEZA</text>
 </svg>
