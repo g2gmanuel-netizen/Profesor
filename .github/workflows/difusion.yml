@@ -9,6 +9,11 @@ on:
     paths:
       - 'src/content/articulos/**'
   workflow_dispatch:
+    inputs:
+      prueba:
+        description: 'Enviar solo un post de PRUEBA a Telegram (para comprobar que funciona)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,7 +35,16 @@ jobs:
 
       - run: npm ci
 
+      - name: Enviar post de PRUEBA a Telegram
+        if: ${{ inputs.prueba }}
+        env:
+          DOMINIO: ${{ vars.DOMINIO }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: npm run difusion -- --test
+
       - name: Generar kit de difusión y publicar en Telegram (si está configurado)
+        if: ${{ !inputs.prueba }}
         env:
           DOMINIO: ${{ vars.DOMINIO }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -38,6 +52,7 @@ jobs:
         run: npm run difusion -- --publicar
 
       - name: Guardar el kit y el registro de difusión
+        if: ${{ !inputs.prueba }}
         run: |
           git config user.name "Bolsillo Diario bot"
           git config user.email "bot@users.noreply.github.com"

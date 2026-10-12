@@ -232,6 +232,7 @@ async function publicarTelegram(a: Articulo, token: string, chatId: string): Pro
 
 async function main(): Promise<void> {
   const publicar = process.argv.includes('--publicar');
+  const test = process.argv.includes('--test');
   const token = process.env.TELEGRAM_BOT_TOKEN ?? '';
   const chatId = process.env.TELEGRAM_CHAT_ID ?? '';
 
@@ -240,6 +241,21 @@ async function main(): Promise<void> {
     // eslint-disable-next-line no-console
     console.log('No hay artículos. Nada que difundir.');
     return;
+  }
+
+  // Modo prueba: publica el artículo más reciente en Telegram para comprobar que
+  // la conexión funciona, SIN tocar el registro ni generar kit.
+  if (test) {
+    if (!token || !chatId) {
+      // eslint-disable-next-line no-console
+      console.log('PRUEBA: faltan TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID. Añádelos como secretos y reintenta.');
+      process.exit(1);
+    }
+    const a = articulos[0]!;
+    const ok = await publicarTelegram(a, token, chatId);
+    // eslint-disable-next-line no-console
+    console.log(ok ? `✓ PRUEBA enviada a Telegram: ${a.titulo}` : '✗ PRUEBA fallida: revisa el token y que el bot sea administrador del canal.');
+    process.exit(ok ? 0 : 1);
   }
 
   const primeraVez = !existsSync(RUTA_DIFUNDIDOS);
