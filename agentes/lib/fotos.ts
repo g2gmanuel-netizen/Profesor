@@ -83,7 +83,11 @@ const CONCEPTOS: Concepto[] = [
   },
   {
     patron: /irpf|hacienda|agencia tributaria|declaraci[oó]n de la renta|impuesto|tribut|fiscal|grava/i,
-    busqueda: { consultas: ['tax form calculator', 'taxes paperwork calculator', 'tax return documents'] },
+    busqueda: {
+      // Con euros: así la foto es de aquí y no un impreso en otro idioma.
+      consultas: ['euro calculator money', 'euro banknotes calculator', 'euro tax money documents'],
+      requiere: /\beuros?\b/i,
+    },
   },
   {
     patron: /eur[ií]bor|hipoteca|hipotecari/i,
