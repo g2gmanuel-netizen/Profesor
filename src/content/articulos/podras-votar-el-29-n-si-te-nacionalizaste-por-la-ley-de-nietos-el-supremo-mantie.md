@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/podras-votar-el-29-n-si-te-nacionalizaste-por-la-ley-de-nietos-el-supremo-mantie.jpg
 imagenAlt: "Imagen del artículo: ¿Podrás votar el 29-N si te nacionalizaste por
-  la ley de nietos? El Supremo mantiene el veto (elecciones)"
-imagenCredito: "Foto: OrnaW (Pixabay)"
+  la ley de nietos? El Supremo mantiene el veto"
+imagenCredito: "Foto: planet_fox (Pixabay)"
 etiquetas:
   - politica
   - podras

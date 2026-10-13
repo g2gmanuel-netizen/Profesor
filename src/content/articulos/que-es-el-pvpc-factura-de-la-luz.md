@@ -11,8 +11,7 @@ categoria: precios
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-10
 imagen: /imagenes/que-es-el-pvpc-factura-de-la-luz.jpg
-imagenAlt: "Imagen del artículo: Qué es el PVPC y cómo entender tu factura de la
-  luz (pájaro)"
+imagenAlt: "Imagen del artículo: Qué es el PVPC y cómo entender tu factura de la luz"
 etiquetas:
   - luz
   - electricidad
@@ -31,7 +30,7 @@ fuentes:
   - titulo: Factura eléctrica — información oficial
     url: https://www.mitfactura.es/
     organismo: Gobierno de España
-imagenCredito: "Foto: JacekBen (Pixabay)"
+imagenCredito: "Foto: geralt (Pixabay)"
 ---
 
 La factura de la luz es una de las que más dudas genera. Buena parte de la confusión viene de no distinguir entre el **PVPC** (la tarifa regulada) y el **mercado libre**, y de no saber qué significan los conceptos que aparecen desglosados.

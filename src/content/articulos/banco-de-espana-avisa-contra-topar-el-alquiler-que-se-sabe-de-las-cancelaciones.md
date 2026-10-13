@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones.jpg
 imagenAlt: "Imagen del artículo: Banco de España avisa contra topar el alquiler:
-  qué se sabe de las cancelaciones (mesa de trabajo)"
-imagenCredito: "Foto: biancamentil (Pixabay)"
+  qué se sabe de las cancelaciones"
+imagenCredito: "Foto: BarbeeAnne (Pixabay)"
 etiquetas:
   - alquiler
   - banco

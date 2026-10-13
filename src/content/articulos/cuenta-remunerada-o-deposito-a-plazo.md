@@ -13,7 +13,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-12
 imagen: /imagenes/cuenta-remunerada-o-deposito-a-plazo.jpg
 imagenAlt: "Imagen del artículo: Cuenta remunerada o depósito a plazo: en qué se
-  diferencian y cuál te conviene (dinero en efectivo)"
+  diferencian y cuál te conviene"
 etiquetas:
   - ahorro
   - depósitos
@@ -33,7 +33,7 @@ fuentes:
   - titulo: Fondo de Garantía de Depósitos de Entidades de Crédito
     url: https://www.fgd.es/
     organismo: FGD
-imagenCredito: "Foto: F1Digitals (Pixabay)"
+imagenCredito: "Foto: horstkoenemund (Pixabay)"
 ---
 
 Cuando buscas sacar algo de rentabilidad a tus ahorros sin arriesgar, aparecen dos productos muy parecidos en apariencia: la **cuenta remunerada** y el **depósito a plazo fijo**. La diferencia esencial no está en el tipo de interés, sino en **cuándo puedes disponer de tu dinero**.

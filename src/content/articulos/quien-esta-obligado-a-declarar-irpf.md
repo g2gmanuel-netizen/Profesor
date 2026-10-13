@@ -12,7 +12,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-15
 imagen: /imagenes/quien-esta-obligado-a-declarar-irpf.jpg
 imagenAlt: "Imagen del artículo: Quién está obligado a hacer la declaración de
-  la renta (y quién no) (valla)"
+  la renta (y quién no)"
 etiquetas:
   - irpf
   - declaración de la renta
@@ -29,7 +29,7 @@ fuentes:
   - titulo: Ley 35/2006 del IRPF
     url: https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764
     organismo: BOE
-imagenCredito: "Foto: Maaark (Pixabay)"
+imagenCredito: "Foto: Snatali (Pixabay)"
 ---
 
 Cada primavera se abre la campaña de la declaración de la renta (IRPF), y la primera duda de mucha gente es simple: ¿tengo que presentarla? La respuesta depende sobre todo del tipo de ingresos que hayas tenido y de su importe.

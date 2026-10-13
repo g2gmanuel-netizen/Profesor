@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/irpf-2027-por-que-una-subida-de-sueldo-puede-no-dejarte-mas-dinero-en-el-bolsill.jpg
 imagenAlt: "Imagen del artículo: IRPF 2027: por qué una subida de sueldo puede
-  no dejarte más dinero en el bolsillo (jeju)"
-imagenCredito: "Foto: songsy (Pixabay)"
+  no dejarte más dinero en el bolsillo"
+imagenCredito: "Foto: stevepb (Pixabay)"
 etiquetas:
   - impuestos
   - irpf

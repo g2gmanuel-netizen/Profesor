@@ -12,7 +12,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-05
 imagen: /imagenes/gastos-de-comprar-una-vivienda.jpg
 imagenAlt: "Imagen del artículo: Cuánto cuesta comprar una casa más allá del
-  precio: todos los gastos (inmobiliaria)"
+  precio: todos los gastos"
 etiquetas:
   - vivienda
   - compra
@@ -30,7 +30,7 @@ fuentes:
   - titulo: Ley 5/2019 reguladora de los contratos de crédito inmobiliario
     url: https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814
     organismo: BOE
-imagenCredito: "Foto: OleksandrPidvalnyi (Pixabay)"
+imagenCredito: "Foto: muhammadabubakar123 (Pixabay)"
 ---
 
 Cuando se habla del precio de una vivienda, suele darse una cifra: la del inmueble. Pero comprar una casa implica **gastos adicionales** que conviene tener presupuestados desde el principio, porque pueden suponer un porcentaje nada despreciable sobre el precio.

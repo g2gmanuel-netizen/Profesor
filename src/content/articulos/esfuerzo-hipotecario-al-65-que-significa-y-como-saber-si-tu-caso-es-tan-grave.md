@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave.jpg
 imagenAlt: "Imagen del artículo: Esfuerzo hipotecario al 65%: qué significa y
-  cómo saber si tu caso es tan grave (baya)"
-imagenCredito: "Foto: Nennieinszweidrei (Pixabay)"
+  cómo saber si tu caso es tan grave"
+imagenCredito: "Foto: AS_Photography (Pixabay)"
 etiquetas:
   - hipotecas
   - esfuerzo

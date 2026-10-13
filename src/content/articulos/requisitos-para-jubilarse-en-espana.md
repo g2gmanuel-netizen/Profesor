@@ -11,7 +11,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-08
 imagen: /imagenes/requisitos-para-jubilarse-en-espana.jpg
 imagenAlt: "Imagen del artículo: Requisitos para jubilarte en España: edad y
-  años cotizados (monedas)"
+  años cotizados"
 etiquetas:
   - pensiones
   - jubilación
@@ -29,7 +29,7 @@ fuentes:
   - titulo: Importe Mi Jubilación (simulador)
     url: https://www.seg-social.es/
     organismo: Seguridad Social
-imagenCredito: "Foto: alandsmann (Pixabay)"
+imagenCredito: "Foto: MabelAmber (Pixabay)"
 ---
 
 Una de las preguntas más repetidas sobre la pensión es a qué edad se puede uno jubilar. En España no hay una única respuesta: la **edad legal de jubilación depende de los años que hayas cotizado** a lo largo de tu vida laboral.

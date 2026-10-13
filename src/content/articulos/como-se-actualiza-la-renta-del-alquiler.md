@@ -11,7 +11,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-18
 imagen: /imagenes/como-se-actualiza-la-renta-del-alquiler.jpg
 imagenAlt: "Imagen del artículo: Cómo se actualiza la renta del alquiler cada
-  año y qué puedes exigir (para construir)"
+  año y qué puedes exigir"
 etiquetas:
   - alquiler
   - renta
@@ -30,7 +30,7 @@ fuentes:
   - titulo: Índices de referencia para el alquiler — INE
     url: https://www.ine.es/
     organismo: INE
-imagenCredito: "Foto: JHertle (Pixabay)"
+imagenCredito: "Foto: mastersenaiper (Pixabay)"
 ---
 
 Si vives de alquiler, una de las dudas más habituales es cuánto puede subirte el casero la renta al cabo de un año. La respuesta corta: solo puede hacerlo si el contrato lo recoge, como máximo una vez al año y según el índice de referencia que marca la normativa de vivienda.
