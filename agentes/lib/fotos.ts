@@ -10,9 +10,12 @@ import { resolve, dirname, basename } from 'node:path';
  * Si no hay clave o algo falla, devuelve null y el sistema usa la portada propia
  * de color. Nunca usa imágenes con derechos de autor.
  *
- * La foto se busca a partir del TÍTULO concreto de la noticia (para que vaya
- * acorde), y si esa búsqueda no da resultados se recurre a un término genérico de
- * la sección como red de seguridad.
+ * Cómo se elige la foto: NO con palabras sueltas del titular (en un banco de
+ * fotos "banco" es un banco de parque y "luz" un atardecer), sino detectando el
+ * CONCEPTO de la noticia (Banco de España, Congreso, pensiones, alquiler, luz…)
+ * y usando búsquedas pensadas para él, en inglés, que es como están etiquetadas
+ * las fotos. Además se descartan fotos de otros países (dólares, rupias, el
+ * Capitolio de EE. UU…) y nunca se repite una foto ya usada en la web.
  */
 
 export interface FotoDescargada {
@@ -21,60 +24,126 @@ export interface FotoDescargada {
   alt: string;
 }
 
-/** Términos de respaldo por sección (si la búsqueda por título no da resultados). */
-const QUERY_SECCION: Record<string, string> = {
-  actualidad: 'noticias periódico',
-  politica: 'parlamento gobierno',
-  sociedad: 'gente ciudad',
-  vivienda: 'edificio vivienda',
-  hipotecas: 'casa llaves',
-  alquiler: 'apartamento alquiler',
-  ahorro: 'ahorro monedas euro',
-  impuestos: 'calculadora documentos',
-  pensiones: 'persona mayor',
-  precios: 'supermercado compra',
-  bolsa: 'bolsa valores gráfico',
-};
+export interface Busqueda {
+  /** Búsquedas del concepto de la noticia, en orden (de la más concreta a la más general). */
+  consultas: string[];
+  /** Búsquedas genéricas de la sección, si las del concepto no dan nada (sin "requiere"). */
+  respaldo?: string[];
+  /** Si las etiquetas de la foto casan con esto, se descarta. */
+  evitar?: RegExp;
+  /** Si se indica, las etiquetas de la foto deben casar con esto. */
+  requiere?: RegExp;
+}
 
-const VACIAS = new Set([
-  'el','la','los','las','un','una','unos','unas','de','del','al','a','y','o','u','que','qué','como','cómo',
-  'en','con','por','para','su','tu','tus','sus','se','lo','le','les','es','son','ser','más','mas','ya','si',
-  'sí','no','me','mi','te','ti','nos','este','esta','esto','estos','estas','ese','esa','eso','cuando','cuánto',
-  'cuanto','donde','dónde','porque','sobre','entre','hasta','desde','muy','ante','tras','cada','otro','otra',
-  'vas','va','van','hacer','puede','puedes','debe','debes','e','ni','pero','hay','está','están','saber',
-]);
+/** Fotos que delatan otro país o no pintan nada en un medio español. */
+const EVITAR_SIEMPRE =
+  /\b(rupee|rupees|india|indian|dollar|dollars|usd|capitol|washington|white house|united states|usa|america|american|israel|yen|yuan|renminbi|pound sterling|halloween|christmas|wedding)\b/i;
 
-const sinTildes = (w: string): string => w.normalize('NFD').replace(/[̀-ͯ]/g, '');
-
-/** Extrae las palabras con contenido de un texto (sin artículos, preposiciones, números…). */
-function palabrasClave(texto: string, n: number): string[] {
-  const limpio = texto.toLowerCase().replace(/[^\p{L}\s]/gu, ' ');
-  const out: string[] = [];
-  for (const w of limpio.split(/\s+/)) {
-    if (w.length > 3 && !VACIAS.has(sinTildes(w)) && !out.includes(w)) out.push(w);
-    if (out.length >= n) break;
-  }
-  return out;
+interface Concepto {
+  patron: RegExp;
+  busqueda: Busqueda;
 }
 
 /**
- * Construye la búsqueda específica de la noticia a partir del título (y una
- * etiqueta como refuerzo). Pensada para que la foto vaya acorde con el contenido.
+ * Conceptos ordenados del más concreto al más general: gana el primero que
+ * aparezca en el titular.
  */
-export function queryParaArticulo(
-  categoria: string,
-  etiquetas: string[] = [],
-  titulo = '',
-): string {
-  const claves = palabrasClave(titulo, 3);
-  const etiqueta = etiquetas.find((t) => t.length > 3 && !claves.includes(t.toLowerCase()));
-  const q = [...claves, etiqueta].filter(Boolean).join(' ').trim();
-  return (q || QUERY_SECCION[categoria] || 'españa actualidad').slice(0, 80);
-}
+const CONCEPTOS: Concepto[] = [
+  {
+    patron: /banco de espa[ñn]a/i,
+    busqueda: {
+      consultas: ['bank of spain madrid', 'madrid cibeles', 'madrid gran via building', 'madrid architecture'],
+      requiere: /madrid|spain|spanish|cibeles|bank/i,
+    },
+  },
+  {
+    patron: /\bbce\b|banco central europeo/i,
+    busqueda: { consultas: ['european central bank', 'euro banknotes', 'euro currency'] },
+  },
+  {
+    patron: /elecci[oó]n|elecciones|votar|voto|votaci[oó]n|censo electoral|urnas?\b|29-n/i,
+    busqueda: { consultas: ['ballot box election', 'voting election ballot', 'vote polling station'] },
+  },
+  {
+    patron: /supremo|constitucional|tribunal|sentencia|juez|jueza|juzgado/i,
+    busqueda: { consultas: ['justice gavel law', 'judge gavel court', 'law books justice'] },
+  },
+  {
+    patron: /congreso|diputados|senado|decreto|parlamento|consejo de ministros/i,
+    busqueda: {
+      consultas: ['spanish parliament madrid', 'congress of deputies madrid', 'parliament session'],
+    },
+  },
+  {
+    patron: /seguridad social|pensi[oó]n|pensiones|jubila|pensionista/i,
+    busqueda: { consultas: ['senior couple retirement', 'elderly hands euro coins', 'retirement pension savings'] },
+  },
+  {
+    patron: /irpf|hacienda|agencia tributaria|declaraci[oó]n de la renta|impuesto|tribut|fiscal|grava/i,
+    busqueda: { consultas: ['tax form calculator', 'taxes paperwork calculator', 'tax return documents'] },
+  },
+  {
+    patron: /eur[ií]bor|hipoteca|hipotecari/i,
+    busqueda: { consultas: ['mortgage house keys', 'house model euro money', 'mortgage contract signing'] },
+  },
+  {
+    patron: /alquiler|alquilar|inquilin|casero|arrendad|renta del alquiler/i,
+    busqueda: { consultas: ['apartment keys rent', 'apartment building balconies', 'rental flat keys door'] },
+  },
+  {
+    patron: /comprar (una )?(casa|vivienda|piso)|vivienda|inmobiliari/i,
+    busqueda: { consultas: ['house keys new home', 'residential building apartments', 'real estate house'] },
+  },
+  {
+    patron: /\bluz\b|pvpc|electricidad|el[eé]ctric|factura de la luz|tarifa/i,
+    busqueda: { consultas: ['electricity meter', 'electric bill energy', 'power socket plug energy'] },
+  },
+  {
+    patron: /\bipc\b|inflaci[oó]n|precios|cesta de la compra|supermercado/i,
+    busqueda: { consultas: ['supermarket shopping cart', 'grocery shopping prices', 'shopping basket food'] },
+  },
+  {
+    patron: /dep[oó]sito|cuenta remunerada|ahorro|ahorrar|inter[eé]s/i,
+    busqueda: { consultas: ['euro savings piggy bank', 'euro coins savings', 'saving money euro'] },
+  },
+  {
+    patron: /sueldo|salario|n[oó]mina|trabajador/i,
+    busqueda: { consultas: ['salary payslip money', 'euro banknotes wallet', 'office worker money'] },
+  },
+  {
+    patron: /bolsa|acciones|cotiza|inversi[oó]n/i,
+    busqueda: { consultas: ['stock market chart', 'stock exchange trading screen'] },
+  },
+];
 
-/** Término genérico de respaldo de la sección. */
-export function queryFallback(categoria: string): string {
-  return QUERY_SECCION[categoria] ?? 'españa actualidad';
+/** Respaldo por sección si el titular no encaja con ningún concepto. */
+const POR_SECCION: Record<string, string[]> = {
+  actualidad: ['spain newspaper news', 'madrid street people'],
+  politica: ['spanish parliament madrid', 'parliament session'],
+  sociedad: ['people street spain', 'crowd city spain'],
+  vivienda: ['residential building apartments', 'house keys new home'],
+  hipotecas: ['mortgage house keys', 'house model euro money'],
+  alquiler: ['apartment keys rent', 'apartment building balconies'],
+  ahorro: ['euro savings piggy bank', 'euro coins savings'],
+  impuestos: ['tax form calculator', 'taxes paperwork calculator'],
+  pensiones: ['senior couple retirement', 'elderly hands euro coins'],
+  precios: ['supermarket shopping cart', 'grocery shopping prices'],
+  bolsa: ['stock market chart', 'stock exchange trading screen'],
+};
+
+/**
+ * Qué buscar para la foto de una noticia: el concepto del titular y, como red de
+ * seguridad, el de su sección.
+ */
+export function busquedaParaArticulo(categoria: string, titulo = ''): Busqueda {
+  const concepto = CONCEPTOS.find((c) => c.patron.test(titulo));
+  const seccion = POR_SECCION[categoria] ?? ['spain city', 'euro money'];
+  return {
+    consultas: concepto?.busqueda.consultas ?? [],
+    respaldo: seccion,
+    evitar: concepto?.busqueda.evitar,
+    requiere: concepto?.busqueda.requiere,
+  };
 }
 
 export function hayClaveFotos(): boolean {
@@ -108,6 +177,14 @@ export function huellasEnUso(dirImagenes: string, excluirSlug?: string): Set<str
   return out;
 }
 
+/** ¿Encajan las etiquetas/descripción de la foto con lo que buscamos? */
+export function fotoAdmisible(etiquetas: string, b: Pick<Busqueda, 'evitar' | 'requiere'>): boolean {
+  if (EVITAR_SIEMPRE.test(etiquetas)) return false;
+  if (b.evitar?.test(etiquetas)) return false;
+  if (b.requiere && !b.requiere.test(etiquetas)) return false;
+  return true;
+}
+
 /** Descarga la imagen y la guarda SOLO si no es igual a otra ya usada en la web. */
 async function guardarSiNueva(urlImagen: string, opts: Opts): Promise<boolean> {
   const ir = await fetch(urlImagen);
@@ -125,7 +202,7 @@ async function pixabay(query: string, opts: Opts): Promise<FotoDescargada | null
   const key = process.env.PIXABAY_API_KEY;
   if (!key) return null;
   const url =
-    'https://pixabay.com/api/?image_type=photo&orientation=horizontal&safesearch=true&lang=es&per_page=30&key=' +
+    'https://pixabay.com/api/?image_type=photo&orientation=horizontal&safesearch=true&lang=en&per_page=40&key=' +
     encodeURIComponent(key) +
     '&q=' +
     encodeURIComponent(query);
@@ -134,15 +211,15 @@ async function pixabay(query: string, opts: Opts): Promise<FotoDescargada | null
   const data = (await r.json()) as {
     hits?: { largeImageURL?: string; webformatURL?: string; user?: string; tags?: string }[];
   };
-  // Primera foto de los resultados que NO esté ya usada en otro artículo.
+  // Primera foto admisible que NO esté ya usada en otro artículo.
   for (const hit of data.hits ?? []) {
     const img = hit.largeImageURL ?? hit.webformatURL;
-    if (!img) continue;
+    if (!img || !fotoAdmisible(hit.tags ?? '', opts.busqueda)) continue;
     if (!(await guardarSiNueva(img, opts))) continue;
     return {
       rutaPublica: `/imagenes/${opts.slug}.jpg`,
       credito: `Foto: ${hit.user ?? 'Pixabay'} (Pixabay)`,
-      alt: hit.tags ? `${opts.altBase} (${hit.tags.split(',')[0]})` : opts.altBase,
+      alt: opts.altBase,
     };
   }
   return null;
@@ -152,7 +229,7 @@ async function pexels(query: string, opts: Opts): Promise<FotoDescargada | null>
   const key = process.env.PEXELS_API_KEY;
   if (!key) return null;
   const url =
-    'https://api.pexels.com/v1/search?orientation=landscape&per_page=30&query=' + encodeURIComponent(query);
+    'https://api.pexels.com/v1/search?orientation=landscape&per_page=40&query=' + encodeURIComponent(query);
   const r = await fetch(url, { headers: { Authorization: key } });
   if (!r.ok) return null;
   const data = (await r.json()) as {
@@ -160,20 +237,19 @@ async function pexels(query: string, opts: Opts): Promise<FotoDescargada | null>
   };
   for (const foto of data.photos ?? []) {
     const img = foto.src?.landscape ?? foto.src?.large;
-    if (!img) continue;
+    if (!img || !fotoAdmisible(foto.alt ?? '', opts.busqueda)) continue;
     if (!(await guardarSiNueva(img, opts))) continue;
     return {
       rutaPublica: `/imagenes/${opts.slug}.jpg`,
       credito: `Foto: ${foto.photographer ?? 'Pexels'} (Pexels)`,
-      alt: foto.alt && foto.alt.length > 5 ? foto.alt : opts.altBase,
+      alt: opts.altBase,
     };
   }
   return null;
 }
 
 interface Opts {
-  query: string; // búsqueda específica de la noticia (por título)
-  queryFallback?: string; // término genérico de la sección, si la específica falla
+  busqueda: Busqueda;
   destinoAbsSinExt: string;
   slug: string;
   altBase: string;
@@ -182,17 +258,18 @@ interface Opts {
 }
 
 /**
- * Descarga una foto con licencia al destino indicado. Prueba primero la búsqueda
- * específica de la noticia y, si no hay resultados, el término genérico de la
- * sección. Pixabay primero, Pexels después.
+ * Descarga una foto con licencia al destino indicado, probando las búsquedas en
+ * orden. Pixabay primero, Pexels después.
  */
 export async function descargarFoto(opts: Opts): Promise<FotoDescargada | null> {
   // Calculamos una vez las fotos ya usadas para no repetir ninguna.
   opts.usadas ??= huellasEnUso(dirname(opts.destinoAbsSinExt), opts.slug);
-  const queries = Array.from(new Set([opts.query, opts.queryFallback].filter((q): q is string => !!q && q.length > 1)));
-  for (const q of queries) {
+  const especificas = opts.busqueda.consultas.map((q) => ({ q, b: opts.busqueda }));
+  const genericas = (opts.busqueda.respaldo ?? []).map((q) => ({ q, b: { ...opts.busqueda, requiere: undefined } }));
+  for (const { q, b } of [...especificas, ...genericas]) {
     try {
-      const foto = (await pixabay(q, opts)) ?? (await pexels(q, opts));
+      const o = { ...opts, busqueda: b };
+      const foto = (await pixabay(q, o)) ?? (await pexels(q, o));
       if (foto) return foto;
     } catch {
       // probamos la siguiente búsqueda

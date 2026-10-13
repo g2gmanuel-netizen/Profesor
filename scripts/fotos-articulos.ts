@@ -8,7 +8,7 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse, stringify } from 'yaml';
-import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos, huella } from '../agentes/lib/fotos';
+import { descargarFoto, busquedaParaArticulo, hayClaveFotos, huella } from '../agentes/lib/fotos';
 
 // Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
 // (para refrescarlas con una búsqueda más acorde a cada noticia).
@@ -75,7 +75,6 @@ async function main(): Promise<void> {
     const categoria = typeof fm.categoria === 'string' ? fm.categoria : 'actualidad';
     const imagen = typeof fm.imagen === 'string' ? fm.imagen : '';
     const titulo = typeof fm.titulo === 'string' ? fm.titulo : slug;
-    const etiquetas = Array.isArray(fm.etiquetas) ? (fm.etiquetas as string[]) : [];
 
     // Los análisis de bolsa llevan su propia portada compuesta (logo + ticker): no la tocamos.
     if (categoria === 'bolsa') continue;
@@ -85,8 +84,7 @@ async function main(): Promise<void> {
     if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
 
     const foto = await descargarFoto({
-      query: queryParaArticulo(categoria, etiquetas, titulo),
-      queryFallback: queryFallback(categoria),
+      busqueda: busquedaParaArticulo(categoria, titulo),
       destinoAbsSinExt: resolve(DIR_IMG, slug),
       slug,
       altBase: `Imagen del artículo: ${titulo}`,
