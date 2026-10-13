@@ -29,7 +29,7 @@ fuentes:
   - titulo: Ley 35/2006 del IRPF
     url: https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764
     organismo: BOE
-imagenCredito: "Foto: Snatali (Pixabay)"
+imagenCredito: "Foto: cloudhoreca (Pixabay)"
 ---
 
 Cada primavera se abre la campaña de la declaración de la renta (IRPF), y la primera duda de mucha gente es simple: ¿tengo que presentarla? La respuesta depende sobre todo del tipo de ingresos que hayas tenido y de su importe.

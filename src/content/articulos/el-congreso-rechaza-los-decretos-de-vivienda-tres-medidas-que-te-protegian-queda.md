@@ -12,7 +12,7 @@ fechaPublicacion: 2026-10-05
 imagen: /imagenes/el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda.jpg
 imagenAlt: "Imagen del artículo: El Congreso rechaza los decretos de vivienda:
   tres medidas que te protegían quedan en suspenso"
-imagenCredito: "Foto: alessandra1barbieri (Pixabay)"
+imagenCredito: "Foto: jorono (Pixabay)"
 etiquetas:
   - vivienda
   - congreso

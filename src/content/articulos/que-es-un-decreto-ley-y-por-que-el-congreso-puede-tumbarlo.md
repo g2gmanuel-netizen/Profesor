@@ -30,7 +30,7 @@ fuentes:
   - titulo: "El Congreso: la convalidación de los decretos leyes"
     url: https://www.congreso.es/
     organismo: Congreso de los Diputados
-imagenCredito: "Foto: pcjvdwiel (Pixabay)"
+imagenCredito: "Foto: TGG23 (Pixabay)"
 ---
 
 De vez en cuando oyes que "el Gobierno ha aprobado un decreto ley" y, poco después, que "el Congreso lo ha tumbado". ¿Cómo puede entrar en vigor algo y caerse después? Te lo explicamos con calma.
