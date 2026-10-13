@@ -37,7 +37,7 @@ export interface Busqueda {
 
 /** Fotos que delatan otro país o no pintan nada en un medio español. */
 const EVITAR_SIEMPRE =
-  /\b(rupee|rupees|india|indian|dollar|dollars|usd|capitol|washington|white house|united states|usa|america|american|israel|yen|yuan|renminbi|pound sterling|halloween|christmas|wedding)\b/i;
+  /\b(rupee|rupees|india|indian|dollar|dollars|usd|capitol|washington|white house|united states|usa|america|american|israel|yen|yuan|renminbi|pound sterling|budapest|hungary|hungarian|russia|russian|ruble|rouble|london|westminster|big ben|berlin|reichstag|halloween|christmas|wedding)\b/i;
 
 interface Concepto {
   patron: RegExp;
@@ -52,8 +52,9 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /banco de espa[ñn]a/i,
     busqueda: {
-      consultas: ['bank of spain madrid', 'madrid cibeles', 'madrid gran via building', 'madrid architecture'],
+      consultas: ['madrid cibeles', 'madrid gran via building', 'madrid architecture', 'bank of spain madrid'],
       requiere: /madrid|spain|spanish|cibeles|bank/i,
+      evitar: /sculpture|statue|face|head|portrait|relief|mask|woman|man\b/i,
     },
   },
   {
@@ -71,7 +72,8 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /congreso|diputados|senado|decreto|parlamento|consejo de ministros/i,
     busqueda: {
-      consultas: ['spanish parliament madrid', 'congress of deputies madrid', 'parliament session'],
+      consultas: ['congress of deputies madrid', 'spanish parliament madrid', 'spain flag', 'spanish flag building'],
+      requiere: /madrid|spain|spanish/i,
     },
   },
   {

@@ -13,6 +13,13 @@ import { descargarFoto, busquedaParaArticulo, hayClaveFotos, huella } from '../a
 // Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
 // (para refrescarlas con una búsqueda más acorde a cada noticia).
 const REEMPLAZAR = process.env.REEMPLAZAR_FOTOS === 'true';
+// Con FOTOS_SLUGS="slug1,slug2" solo se refrescan esos artículos (aunque ya tengan foto).
+const SOLO = new Set(
+  (process.env.FOTOS_SLUGS ?? '')
+    .split(',')
+    .map((x) => x.trim())
+    .filter(Boolean),
+);
 
 if (!hayClaveFotos()) {
   // eslint-disable-next-line no-console
@@ -81,7 +88,9 @@ async function main(): Promise<void> {
 
     // Si ya tiene una foto .jpg propia, no la volvemos a descargar
     // (salvo REEMPLAZAR_FOTOS=true o que esté repetida en otro artículo).
-    if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
+    if (SOLO.size > 0) {
+      if (!SOLO.has(slug)) continue;
+    } else if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
 
     const foto = await descargarFoto({
       busqueda: busquedaParaArticulo(categoria, titulo),
