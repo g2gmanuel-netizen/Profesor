@@ -8,7 +8,7 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse, stringify } from 'yaml';
-import { descargarFoto, busquedaParaArticulo, hayClaveFotos, huella } from '../agentes/lib/fotos';
+import { descargarFoto, busquedaParaArticulo, hayClaveFotos, huella, huellasEnUso } from '../agentes/lib/fotos';
 
 // Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
 // (para refrescarlas con una búsqueda más acorde a cada noticia).
@@ -94,6 +94,9 @@ async function main(): Promise<void> {
 
     const foto = await descargarFoto({
       busqueda: busquedaParaArticulo(categoria, titulo),
+      // Al refrescar, la foto actual del artículo también cuenta como "usada":
+      // así siempre se elige una distinta.
+      usadas: huellasEnUso(DIR_IMG),
       destinoAbsSinExt: resolve(DIR_IMG, slug),
       slug,
       altBase: `Imagen del artículo: ${titulo}`,

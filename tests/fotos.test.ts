@@ -18,3 +18,13 @@ describe('búsqueda de fotos por concepto', () => {
     expect(fotoAdmisible('euro, coins, savings', {})).toBe(true);
   });
 });
+
+describe('Congreso: siempre algo institucional español', () => {
+  const b = busquedaParaArticulo('politica', 'El Congreso rechaza los decretos de vivienda');
+  it('acepta bandera de España o el Congreso, rechaza estadios o paisajes', () => {
+    expect(fotoAdmisible('spain, flag, wind', b)).toBe(true);
+    expect(fotoAdmisible('madrid, congress, parliament', b)).toBe(true);
+    expect(fotoAdmisible('stadium, seats, madrid, spain', b)).toBe(false);
+    expect(fotoAdmisible('madrid, sunset, city', b)).toBe(false);
+  });
+});

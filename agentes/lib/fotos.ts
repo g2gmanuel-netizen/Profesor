@@ -72,8 +72,9 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /congreso|diputados|senado|decreto|parlamento|consejo de ministros/i,
     busqueda: {
-      consultas: ['congress of deputies madrid', 'spanish parliament madrid', 'spain flag', 'spanish flag building'],
-      requiere: /madrid|spain|spanish/i,
+      consultas: ['congress of deputies madrid', 'spanish parliament madrid', 'spain flag', 'spanish flag'],
+      // Tiene que ser España Y algo institucional (parlamento, congreso o la bandera).
+      requiere: /^(?=.*\b(spain|spanish|madrid|españa)\b)(?=.*\b(flag|bandera|parliament|congress|congreso|government)\b)/i,
     },
   },
   {
