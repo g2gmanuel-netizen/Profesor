@@ -77,7 +77,7 @@ Como los propietarios son mayoría, cuando se calcula la "presión de la viviend
 
 Piénsalo así: es como calcular la temperatura media de una casa mezclando el salón calentito con una habitación helada. La media sale templada, pero quien está en la habitación fría sigue pasando frío. Ese grupo que "pasa frío" son los inquilinos. Por eso la media del país se ve moderada mientras que, dentro, el subgrupo que alquila lo pasa mal.
 
-Resumen honesto: no es que tu percepción esté equivocada. Es que la estadística global no habla de tu caso concreto; habla del promedio de todos, incluidos quienes no pagan alquiler.
+En resumen: no es que tu percepción esté equivocada. Es que la estadística global no habla de tu caso concreto; habla del promedio de todos, incluidos quienes no pagan alquiler.
 
 ## Qué es el "umbral de pobreza tras pagar el alquiler"
 
@@ -85,7 +85,7 @@ Aquí conviene ser precisos, porque es la cifra que de verdad importa.
 
 El dato de la fuente es claro: **la mitad de los inquilinos queda por debajo del umbral de pobreza una vez que han pagado el alquiler**. Es decir, se mira cuánto dinero te queda *después* de ese gasto, no antes. Y a mucha gente lo que le queda ya no le da para vivir sin estrechez.
 
-Un apunte de transparencia: la fuente de esta noticia da el dato de "uno de cada dos" y la comparación europea, pero **no detalla aquí el valor exacto del umbral ni los porcentajes por país**. Para esas cifras finas (importes concretos, umbrales oficiales y comparativas país por país) los organismos de referencia son Eurostat, con su indicador de sobrecarga del coste de la vivienda, y el INE, con la Encuesta de Condiciones de Vida. Preferimos decírtelo a inventarte números.
+Si quieres ir a las cifras finas (importes concretos, umbrales oficiales y comparativas país por país), los organismos de referencia son Eurostat, con su indicador de sobrecarga del coste de la vivienda, y el INE, con la Encuesta de Condiciones de Vida.
 
 ## En resumen
 

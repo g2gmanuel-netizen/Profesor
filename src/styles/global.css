@@ -591,6 +591,54 @@ img {
 }
 .hueco-anuncio[data-formato='lateral'] {
   min-height: 600px;
+  width: 300px;
+  margin-block: 0;
+}
+.hueco-anuncio[data-formato='rascacielos'] {
+  min-height: 600px;
+  width: 160px;
+  margin-block: 0;
+}
+
+/* ----- Banners laterales (solo donde sobra espacio a los lados) ----- */
+.rail,
+.articulo-lateral {
+  display: none;
+}
+.rail-pegajoso {
+  position: sticky;
+  top: 16px;
+}
+/* Artículo: columna derecha de 300 px que acompaña la lectura. */
+@media (min-width: 1100px) {
+  .articulo-rejilla {
+    display: grid;
+    grid-template-columns: minmax(0, var(--ancho-lectura)) 300px;
+    gap: 3rem;
+    justify-content: center;
+    align-items: start;
+  }
+  .articulo-rejilla > .lectura {
+    margin-inline: 0 !important;
+  }
+  .articulo-lateral {
+    display: block;
+    align-self: stretch; /* ocupa toda la altura para que el anuncio "acompañe" */
+    padding-top: 0.5rem;
+  }
+}
+/* Pantallas grandes: columnas "rascacielos" a ambos lados de toda la web. */
+@media (min-width: 1600px) {
+  .lienzo {
+    display: grid;
+    grid-template-columns: 160px minmax(0, var(--ancho-max)) 160px;
+    gap: 0 24px;
+    justify-content: center;
+  }
+  .rail {
+    display: block;
+    padding-top: 1.5rem;
+  }
 }
 
 /* ----- Pie ----- */

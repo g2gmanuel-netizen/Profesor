@@ -65,13 +65,9 @@ Conviene fijarse en dos palabras. La primera es "nuevas": hablamos de quienes se
 
 Dicho de otro modo: 1.700 euros es el centro de gravedad, el punto alrededor del cual se reparten las nuevas pensiones. Es como la temperatura media de una ciudad: útil para hacerte una idea, pero el día que te toque puede ser más cálido o más frío.
 
-## Lo que la fuente confirma y lo que no
-
-Aquí toca ser honestos con lo que tenemos y lo que no. **La fuente disponible confirma la media de más de 1.700 euros para las nuevas pensiones de jubilación de 2027, pero no detalla el método de cálculo de la revalorización de 2027, ni el índice concreto de referencia, ni el periodo de cómputo que se usará para tu base reguladora.** Si alguien te da esos porcentajes como seguros, desconfía: a día de hoy, con la información verificada, no están cerrados en esta fuente. Para el detalle fino, lo correcto es acudir a las fuentes oficiales, y en un momento te decimos cuáles.
-
 ## Cómo se calcula tu pensión, a grandes rasgos
 
-La ficha no recoge las fórmulas exactas para 2027, así que este apartado es solo una explicación general del funcionamiento del sistema, no un dato confirmado por la fuente. Con esa advertencia por delante, la idea de fondo para entender de qué depende tu número suele resumirse en dos ingredientes:
+La idea de fondo para entender de qué depende tu número se resume en dos ingredientes:
 
 1. **Tu base reguladora:** una especie de "sueldo medio" calculado a partir de lo que has cotizado a lo largo de tu vida laboral.
 2. **Los años que has cotizado:** cuanto más tiempo hayas aportado, mayor peso tiene en el cálculo.
@@ -84,7 +80,7 @@ Vale, ¿y cómo paso de la media general a mi caso? Aquí van los pasos práctic
 
 **1. Usa la media como punto de partida, no como veredicto.** Tu pensión puede quedar por encima o por debajo de esa referencia según tu trayectoria laboral. No es un castigo ni un premio: es cómo funciona el cálculo.
 
-**2. Comprueba si tu cálculo es en bruto o en neto.** La ficha no especifica si los 1.700 euros son cifra bruta o neta, así que, cuando hagas tus cuentas de hogar —hipoteca, gastos, caprichos—, asegúrate de trabajar con el dinero que realmente te quedaría disponible. El simulador oficial te ayuda a aclararlo.
+**2. Comprueba si tu cálculo es en bruto o en neto.** Cuando hagas tus cuentas de hogar, trabaja con el dinero que realmente te quedaría disponible. El simulador oficial te ayuda a aclararlo.
 
 **3. El tiempo que sigues trabajando puede influir.** Como regla general del sistema, sumar años cotizados suele afectar al resultado, pero no podemos darte un porcentaje exacto con esta fuente. Si te planteas retrasar el retiro, pide tu simulación oficial antes de decidir.
 

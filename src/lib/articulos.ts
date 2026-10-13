@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { CATEGORIAS, type Categoria } from './sitio';
 
 export type Articulo = CollectionEntry<'articulos'>;
 
@@ -71,4 +72,13 @@ export function fechaLegible(d: Date): string {
 
 export function fechaISO(d: Date): string {
   return d.toISOString();
+}
+
+/**
+ * Secciones que tienen al menos un artículo publicado (en el orden del menú).
+ * Las secciones vacías no se muestran en la web hasta que tengan contenido.
+ */
+export async function categoriasConArticulos(): Promise<Categoria[]> {
+  const usadas = new Set((await todosLosArticulos()).map((a) => a.data.categoria));
+  return CATEGORIAS.filter((c) => usadas.has(c.slug));
 }

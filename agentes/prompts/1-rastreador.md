@@ -15,4 +15,6 @@ Prioriza fuentes primarias oficiales para los datos. No inventes URLs.
 
 Devuelve **como máximo 14 candidatos**, los más relevantes y virales que podamos explicar bien. Mejor pocos y buenos que muchos.
 
+**No repitas noticias.** Recibirás la lista **YA PUBLICADO EN LA WEB**: descarta cualquier candidato que cuente la misma noticia o el mismo dato aunque cambie el titular, el enfoque o la fuente, y no aceptes dos candidatos sobre la misma noticia en la misma edición.
+
 Devuelve JSON: `{ "candidatos": [ { ... } ] }`.

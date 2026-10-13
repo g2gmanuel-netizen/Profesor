@@ -4,6 +4,7 @@ import { stringify } from 'yaml';
 import type { ContextoEjecucion } from '../lib/contexto';
 import type { ArticuloFinal } from '../lib/esquemas';
 import { cargarPublicados, guardarPublicados } from '../lib/publicados';
+import { limpiarCarencias, limpiarLista } from '../lib/carencias';
 
 const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 
@@ -51,8 +52,10 @@ export function publicador(
   const publicados = cargarPublicados();
 
   for (const a of articulos) {
-    const fm = stringify(sanearFrontmatter(a.frontmatter)).trimEnd();
-    const contenido = `---\n${fm}\n---\n\n${a.cuerpoMarkdown.trim()}\n`;
+    // Red de seguridad: nunca publicar frases sobre fuentes internas o datos que faltan.
+    const frontmatter = { ...a.frontmatter, clavesRapidas: limpiarLista(a.frontmatter.clavesRapidas) };
+    const fm = stringify(sanearFrontmatter(frontmatter)).trimEnd();
+    const contenido = `---\n${fm}\n---\n\n${limpiarCarencias(a.cuerpoMarkdown)}\n`;
     const ruta = resolve(DIR_ART, `${a.slug}.md`);
     writeFileSync(ruta, contenido, 'utf8');
     rutas.push(`src/content/articulos/${a.slug}.md`);
@@ -63,6 +66,7 @@ export function publicador(
       slug: a.slug,
       categoria: a.frontmatter.categoria,
       fecha: a.frontmatter.fechaPublicacion,
+      urls: a.frontmatter.fuentes.map((f) => f.url),
     });
   }
 

@@ -17,6 +17,7 @@ import { Llm } from '../agentes/lib/anthropic';
 import { Logger } from '../agentes/lib/logger';
 import { ContadorCostes } from '../agentes/lib/costes';
 import { leerPrompt } from '../agentes/lib/contexto';
+import { limpiarCarencias, limpiarLista } from '../agentes/lib/carencias';
 import {
   objetivoSemana,
   obtenerDatosYahoo,
@@ -148,7 +149,7 @@ async function main(): Promise<void> {
     imagenAlt: portada.alt,
     etiquetas: Array.from(new Set(['bolsa', datos.ticker, ...sector.sector.toLowerCase().split(/\s+y\s+|\s+/).filter((w) => w.length > 3)])).slice(0, 6),
     fuentes,
-    clavesRapidas: res.clavesRapidas.slice(0, 5),
+    clavesRapidas: limpiarLista(res.clavesRapidas).slice(0, 5),
     elaboradoConIA: true,
     destacado: true,
     ticker: datos.ticker,
@@ -161,7 +162,7 @@ async function main(): Promise<void> {
   };
 
   const resumenPropuesta = `**Propuesta (divulgativa):** entrada en torno a **${frontmatter.precioEntrada}** · horizonte: ${res.horizonte} · riesgo: ${res.riesgo}.`;
-  const cuerpo = `${res.cuerpoMarkdown.trim()}\n\n${resumenPropuesta}${DISCLAIMER}`;
+  const cuerpo = `${limpiarCarencias(res.cuerpoMarkdown)}\n\n${resumenPropuesta}${DISCLAIMER}`;
 
   mkdirSync(DIR_ART, { recursive: true });
   const ruta = resolve(DIR_ART, `${slug}.md`);

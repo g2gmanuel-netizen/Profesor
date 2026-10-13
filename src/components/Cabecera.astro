@@ -1,5 +1,7 @@
 ---
-import { SITIO, CATEGORIAS } from '../lib/sitio';
+import { SITIO } from '../lib/sitio';
+import { categoriasConArticulos } from '../lib/articulos';
+const secciones = await categoriasConArticulos();
 ---
 
 <header class="cabecera">
@@ -34,7 +36,7 @@ import { SITIO, CATEGORIAS } from '../lib/sitio';
   <nav class="nav-principal" aria-label="Secciones">
     <div class="contenedor nav-principal-fila">
       <a href="/" class="nav-portada">Portada</a>
-      {CATEGORIAS.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+      {secciones.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
     </div>
   </nav>
 </header>

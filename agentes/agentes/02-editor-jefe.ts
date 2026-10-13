@@ -1,7 +1,18 @@
 import { z } from 'zod';
 import type { ContextoEjecucion } from '../lib/contexto';
 import { leerPrompt } from '../lib/contexto';
+import { esDuplicado } from '../lib/publicados';
 import { TemaAprobadoSchema, type Candidato, type TemaAprobado } from '../lib/esquemas';
+
+/** Quita de la edición los temas que repiten la misma noticia (misma fuente o mismo tema). */
+function sinRepetidos(temas: TemaAprobado[]): TemaAprobado[] {
+  const out: TemaAprobado[] = [];
+  for (const t of temas) {
+    const previos = out.map((o) => ({ id: o.id, slug: o.id, titulo: o.titulo, categoria: o.categoria, fecha: '', urls: [o.url] }));
+    if (!esDuplicado(t.titulo, t.url, previos)) out.push(t);
+  }
+  return out;
+}
 
 /** Agente 2 — Editor jefe. Puntúa y selecciona los mejores temas hasta el límite. */
 export async function editorJefe(
@@ -37,6 +48,9 @@ export async function editorJefe(
   const schema = z.object({ aprobados: z.array(TemaAprobadoSchema) });
   const user = [
     ctx.aprendizajes ? `Aprendizajes recientes:\n${ctx.aprendizajes}\n` : '',
+    ctx.yaPublicados
+      ? `YA PUBLICADO EN LA WEB (descarta cualquier candidato que sea la misma noticia, aunque cambie el titular o el enfoque):\n${ctx.yaPublicados}\n`
+      : '',
     ctx.tendencias ? `TRENDING TOPICS HOY EN ESPAÑA (úsalo para puntuar la viralidad):\n${ctx.tendencias}\n` : '',
     `Límite de artículos a aprobar hoy: ${limite}.`,
     'Candidatos (JSON):',
@@ -50,8 +64,7 @@ export async function editorJefe(
     schema,
     maxTokens: 8000,
   });
-  return res.aprobados
-    .filter((t) => t.riesgo !== 'alto')
-    .sort((a, b) => orden(b) - orden(a))
-    .slice(0, limite);
+  return sinRepetidos(
+    res.aprobados.filter((t) => t.riesgo !== 'alto').sort((a, b) => orden(b) - orden(a)),
+  ).slice(0, limite);
 }

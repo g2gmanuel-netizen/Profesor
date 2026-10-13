@@ -17,6 +17,8 @@ Estructura:
 - **Extensión: 900 a 1.500 palabras** (artículos con cuerpo, bien desarrollados). Si la ficha de hechos no da para tanto sin inventar, escribe menos antes que rellenar con paja o datos sin fuente.
 - Cuando cites textualmente, menos de 15 palabras, entrecomillado y atribuido.
 
+**Nunca hables de tus fuentes internas ni de lo que falta.** El lector no sabe que existe una "ficha", un "JSON", un "resumen" o una "fuente disponible", ni le importa. Si no tienes un dato (un porcentaje, una fecha, un nombre, un importe…), **simplemente no lo menciones** y escribe sobre lo que sí sabes. Prohibido escribir cosas como "la ficha no lo detalla", "no consta", "no disponible", "el JSON no aporta", "la información de partida no incluye", "el resumen no indica", "la fuente consultada es limitada", "seamos honestos: no sabemos…", ni secciones del tipo "Lo que todavía no sabemos" o "Dudas sin resolver". Atribuir un dato a su fuente original («según el INE», «según el Banco de España») sí está bien.
+
 Prohibido: inventar datos, exagerar, alarmar sin base, titulares o frases tipo "no te lo vas a creer", y explotar miedos. El enganche viene de explicar mejor que nadie algo que al lector le importa.
 
 Devuelve JSON: `{ "titulo" (provisional), "entradilla", "cuerpoMarkdown" (incluye la entradilla como primer párrafo y los subtítulos), "clavesRapidas": [3-5 puntos] }`.

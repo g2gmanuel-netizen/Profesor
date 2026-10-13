@@ -2,11 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TarjetaArticulo from '../../components/TarjetaArticulo.astro';
 import Anuncio from '../../components/Anuncio.astro';
-import { CATEGORIAS, categoriaPorSlug } from '../../lib/sitio';
-import { articulosPorCategoria } from '../../lib/articulos';
+import { categoriaPorSlug } from '../../lib/sitio';
+import { articulosPorCategoria, categoriasConArticulos } from '../../lib/articulos';
 
 export async function getStaticPaths() {
-  return CATEGORIAS.map((c) => ({ params: { categoria: c.slug } }));
+  // Solo se generan las secciones con artículos (las vacías no existen en la web).
+  return (await categoriasConArticulos()).map((c) => ({ params: { categoria: c.slug } }));
 }
 
 const { categoria } = Astro.params;

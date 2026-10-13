@@ -39,6 +39,19 @@ export function similitud(a: string, b: string): number {
   return union === 0 ? 0 : inter / union;
 }
 
+/**
+ * Coeficiente de solapamiento (0..1): palabras en común sobre el texto más corto.
+ * Detecta la misma noticia aunque uno de los titulares sea más largo o esté reformulado.
+ */
+export function solapamiento(a: string, b: string): number {
+  const sa = new Set(tokens(a));
+  const sb = new Set(tokens(b));
+  if (sa.size === 0 || sb.size === 0) return 0;
+  let inter = 0;
+  for (const t of sa) if (sb.has(t)) inter++;
+  return inter / Math.min(sa.size, sb.size);
+}
+
 /** Longitud de la secuencia de palabras en común más larga (para detectar copia literal). */
 export function maxRachaComun(fuente: string, texto: string): number {
   const pf = tokens(fuente);

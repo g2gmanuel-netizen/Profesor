@@ -5,6 +5,7 @@ import Pie from '../components/Pie.astro';
 import Consentimiento from '../components/Consentimiento.astro';
 import BannerCookies from '../components/BannerCookies.astro';
 import Analitica from '../components/Analitica.astro';
+import Anuncio from '../components/Anuncio.astro';
 import { SITIO } from '../lib/sitio';
 
 interface Props {
@@ -43,9 +44,17 @@ const {
   <body>
     <a href="#principal" class="sr-only">Saltar al contenido</a>
     <Cabecera />
-    <main id="principal" class="contenedor" style="padding-block:1.5rem;">
-      <slot />
-    </main>
+    <div class="lienzo">
+      <aside class="rail rail-izq" aria-label="Publicidad">
+        <div class="rail-pegajoso"><Anuncio formato="rascacielos" /></div>
+      </aside>
+      <main id="principal" class="contenedor" style="padding-block:1.5rem;">
+        <slot />
+      </main>
+      <aside class="rail rail-der" aria-label="Publicidad">
+        <div class="rail-pegajoso"><Anuncio formato="rascacielos" /></div>
+      </aside>
+    </div>
     <Pie />
     <BannerCookies />
   </body>

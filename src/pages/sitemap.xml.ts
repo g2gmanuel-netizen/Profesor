@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
-import { SITIO, CATEGORIAS, slugAutor } from '../lib/sitio';
-import { todosLosArticulos, urlArticulo } from '../lib/articulos';
+import { SITIO, slugAutor } from '../lib/sitio';
+import { todosLosArticulos, urlArticulo, categoriasConArticulos } from '../lib/articulos';
 import { construirSitemap, type UrlSitemap } from '../lib/sitemap';
 
 export const GET: APIRoute = async () => {
@@ -18,7 +18,7 @@ export const GET: APIRoute = async () => {
     { loc: `${base}/politica-cookies/` },
   ];
 
-  for (const c of CATEGORIAS) urls.push({ loc: `${base}/categoria/${c.slug}/` });
+  for (const c of await categoriasConArticulos()) urls.push({ loc: `${base}/categoria/${c.slug}/` });
 
   const autores = new Set<string>();
   for (const a of arts) autores.add(slugAutor(a.data.autor));

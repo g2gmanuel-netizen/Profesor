@@ -3,8 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TarjetaArticulo from '../components/TarjetaArticulo.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Anuncio from '../components/Anuncio.astro';
-import { SITIO, CATEGORIAS, categoriaPorSlug } from '../lib/sitio';
-import { todosLosArticulos, destacados, fechaLegible, urlArticulo } from '../lib/articulos';
+import { SITIO, categoriaPorSlug } from '../lib/sitio';
+import { todosLosArticulos, destacados, fechaLegible, urlArticulo, categoriasConArticulos } from '../lib/articulos';
+const secciones = await categoriasConArticulos();
 
 const arts = await todosLosArticulos();
 const dest = await destacados(5);
@@ -91,7 +92,7 @@ const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
     </div>
     <div class="rejilla cols-3">
       {
-        CATEGORIAS.map((c) => (
+        secciones.map((c) => (
           <a href={`/categoria/${c.slug}/`} class="tarjeta" style="padding:1rem;text-decoration:none;">
             <span class="etiqueta-cat">{c.nombre}</span>
             <p style="margin:.4rem 0 0;color:var(--color-texto-suave);">{c.descripcion}</p>

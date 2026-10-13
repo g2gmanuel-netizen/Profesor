@@ -1,29 +1,38 @@
 ---
 /**
- * Hueco de anuncio. Por defecto NO carga ningún script (ADSENSE_ACTIVO=false).
- * Reserva espacio fijo según el formato para evitar saltos de diseño (CLS).
- * Formatos: horizontal (tras entradilla / final), rectangulo (mitad del texto), lateral.
+ * Hueco de anuncio. Reserva espacio fijo según el formato para evitar saltos de
+ * diseño (CLS). Formatos:
+ *   - horizontal  → banda ancha (tras la entradilla, final de artículo, secciones)
+ *   - rectangulo  → mitad del texto
+ *   - lateral     → columna de 300 px junto al artículo (300×600)
+ *   - rascacielos → columnas estrechas a los lados de la web (160×600)
+ *
+ * Los laterales se ocultan en pantallas estrechas. Para no provocar errores de
+ * AdSense con huecos ocultos, cada anuncio solo se "activa" (clase adsbygoogle +
+ * push) si es visible en la pantalla del lector.
  */
 import { SITIO } from '../lib/sitio';
 
+type Formato = 'horizontal' | 'rectangulo' | 'lateral' | 'rascacielos';
 interface Props {
-  formato?: 'horizontal' | 'rectangulo' | 'lateral';
+  formato?: Formato;
   slot?: string; // data-ad-slot de AdSense
 }
 const { formato = 'horizontal', slot = '' } = Astro.props;
 const activo = SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
+const vertical = formato === 'lateral' || formato === 'rascacielos';
 ---
 
 <aside class="hueco-anuncio" data-formato={formato} aria-label="Publicidad">
   {
     activo ? (
       <ins
-        class="adsbygoogle"
+        class="anuncio-ins"
         style="display:block;width:100%;"
         data-ad-client={SITIO.adsense.clientId}
         data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
+        data-ad-format={vertical ? 'vertical' : 'auto'}
+        data-full-width-responsive={vertical ? 'false' : 'true'}
       />
     ) : (
       <span>Espacio publicitario</span>
@@ -34,7 +43,13 @@ const activo = SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
 {
   activo && (
     <script is:inline>
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      (function (s) {
+        var hueco = s && s.previousElementSibling;
+        var ins = hueco && hueco.querySelector('ins.anuncio-ins');
+        if (!ins || ins.offsetWidth === 0) return; // oculto (p. ej. lateral en móvil)
+        ins.classList.add('adsbygoogle');
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      })(document.currentScript);
     </script>
   )
 }

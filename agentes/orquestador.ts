@@ -4,7 +4,7 @@ import { stringify } from 'yaml';
 import { crearContexto } from './lib/contexto';
 import { PresupuestoExcedidoError } from './lib/costes';
 import { cargarFuentes, leerFeed, obtenerTendenciasEspana } from './lib/fuentes';
-import { cargarPublicados } from './lib/publicados';
+import { cargarHistorial, resumenHistorial } from './lib/publicados';
 import { FIXTURES } from './lib/fixtures';
 import { slugify } from './lib/util';
 import type { ArticuloFinal } from './lib/esquemas';
@@ -105,7 +105,8 @@ async function main(): Promise<void> {
   }
 
   try {
-    const publicados = cargarPublicados();
+    const historial = cargarHistorial();
+    ctx.yaPublicados = resumenHistorial(historial);
 
     // 1. Rastreador
     let items: ItemCrudo[] = [];
@@ -114,7 +115,7 @@ async function main(): Promise<void> {
       items = recopilado.items;
       ctx.tendencias = recopilado.tendenciasTexto;
     }
-    const candidatos = await rastreador(items, publicados.temas, ctx);
+    const candidatos = await rastreador(items, historial, ctx);
     if (candidatos.length === 0) {
       // eslint-disable-next-line no-console
       console.log('No hay candidatos nuevos. Fin de la ejecución.');
@@ -128,7 +129,7 @@ async function main(): Promise<void> {
     const temas = await editorJefe(candidatos, limite, ctx);
     ctx.logger.info(`${temas.length} tema(s) aprobados.`);
 
-    const existentes = publicados.temas.map((p) => ({
+    const existentes = historial.map((p) => ({
       slug: p.slug,
       titulo: p.titulo,
       categoria: p.categoria,

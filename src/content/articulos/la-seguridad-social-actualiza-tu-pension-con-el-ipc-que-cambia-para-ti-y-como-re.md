@@ -41,8 +41,8 @@ clavesRapidas:
     antes y después, y contrástala con el IPC anual del INE."
   - Si la subida no coincide con el IPC, tienes derecho a presentar una
     reclamación.
-  - "El porcentaje exacto no figura en la fuente: consúltalo en el INE (IPC) y
-    en la Seguridad Social o el BOE (importe)."
+  - "Consulta el porcentaje exacto en el INE (IPC) y el importe en la Seguridad
+    Social o el BOE."
 titularesAlternativos:
   - "Tu pensión sube con el IPC: cómo comprobar paso a paso que la cifra que
     cobras es la correcta"
@@ -91,7 +91,7 @@ Vamos a lo práctico, que es lo que de verdad importa cuando hablamos del dinero
 
 **3. Afecta a tus cuentas del día a día.** Para muchos hogares, la pensión es la principal o la única fuente de ingresos. Que se actualice correctamente puede suponer la diferencia de poder afrontar con más holgura gastos tan básicos como la cesta de la compra o los recibos. No hablamos de un detalle menor, sino de una parte importante de tu economía doméstica.
 
-Un apunte honesto: en la información oficial de la que partimos **no figura el porcentaje concreto** de subida de este año ni cifras de importes. Por eso no vamos a inventarte una cantidad. Lo correcto es que el número exacto lo consultes en las fuentes primarias, y más abajo te decimos dónde.
+El porcentaje exacto de cada año lo publica la Seguridad Social; más abajo te decimos dónde consultarlo.
 
 ## Cómo comprobar tú mismo que tu subida es correcta
 
@@ -115,9 +115,8 @@ Consultar estas fuentes te da dos ventajas: ves el número exacto aplicable a tu
 
 ## Preguntas que quizá sigues teniendo
 
-Es normal que te queden dudas concretas. Te las planteamos con honestidad, señalando lo que la información oficial de partida no detalla para que sepas dónde preguntar:
+Es normal que te queden dudas concretas. Estas son las más habituales:
 
-- **¿Sube igual la de jubilación que la de viudedad o incapacidad?** La información que manejamos confirma la actualización conforme al IPC, pero no detalla las diferencias por tipo de pensión. Para asegurarte de cómo se aplica a la tuya, consúltalo en la Seguridad Social.
 - **¿Hay que esperar para ver el aumento en el banco?** La actualización es anual y automática; los detalles sobre fechas de cobro conviene confirmarlos también en la Seguridad Social.
 - **¿Y si llega el mes y no veo la subida?** Ahí es donde entran los pasos de verificación que te hemos dado: descarga tu certificado, compara y, si no cuadra, reclama.
 

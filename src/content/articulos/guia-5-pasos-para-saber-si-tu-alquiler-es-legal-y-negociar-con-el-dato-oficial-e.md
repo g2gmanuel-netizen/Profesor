@@ -101,7 +101,7 @@ Un ejemplo cotidiano: imagina que tu casero te dice que al renovar la renta sube
 
 ## ¿Y si creo que me están cobrando de más?
 
-Aquí hay que ser honestos: los límites concretos de subida y los pasos exactos de reclamación dependen de tu contrato, de la fecha en que se firmó y de si tu municipio está en zona tensionada. Son datos que **deben confirmarse en las fuentes oficiales**, no de oído.
+Los límites de subida y los pasos para reclamar dependen de tu contrato, de la fecha en que se firmó y de si tu municipio está en zona tensionada. Confírmalos siempre en las **fuentes oficiales**, no de oído.
 
 Dicho esto, el orden lógico para defenderte es este:
 
@@ -115,4 +115,4 @@ Dicho esto, el orden lógico para defenderte es este:
 
 Que el alquiler ha subido de forma notable en España no es una sensación: es una tendencia confirmada. Pero frente a eso no estás indefenso. Hoy tienes acceso a herramientas públicas que te dicen, con tu dirección en la mano, cuál es el precio de referencia de tu zona y cómo han evolucionado los precios.
 
-El resumen honesto es este: no te quedes con el titular general. Mira **tu** zona, consulta el **SERPAVI** y el **INE**, comprueba si vives en zona **tensionada** y usa esos datos para negociar o reclamar. La información oficial es gratuita, y en un tema que afecta directamente a tu bolsillo, saber cuánto *deberías* pagar es el mejor punto de partida para no pagar de más.
+En resumen: no te quedes con el titular general. Mira **tu** zona, consulta el **SERPAVI** y el **INE**, comprueba si vives en zona **tensionada** y usa esos datos para negociar o reclamar. La información oficial es gratuita, y en un tema que afecta directamente a tu bolsillo, saber cuánto *deberías* pagar es el mejor punto de partida para no pagar de más.

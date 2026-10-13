@@ -1,4 +1,6 @@
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { resolve, dirname, basename } from 'node:path';
 
 /**
  * Búsqueda y descarga de fotos con licencia de uso comercial. Admite dos bancos
@@ -79,11 +81,43 @@ export function hayClaveFotos(): boolean {
   return Boolean(process.env.PIXABAY_API_KEY || process.env.PEXELS_API_KEY);
 }
 
-async function guardar(urlImagen: string, destinoAbsSinExt: string): Promise<boolean> {
+export function huella(buf: Buffer): string {
+  return createHash('md5').update(buf).digest('hex');
+}
+
+/**
+ * Huellas de todas las fotos que ya usa la web (public/imagenes y subcarpetas),
+ * salvo la del propio artículo. Sirve para no repetir nunca una foto.
+ */
+export function huellasEnUso(dirImagenes: string, excluirSlug?: string): Set<string> {
+  const out = new Set<string>();
+  const recorrer = (dir: string): void => {
+    if (!existsSync(dir)) return;
+    for (const f of readdirSync(dir)) {
+      const ruta = resolve(dir, f);
+      if (statSync(ruta).isDirectory()) {
+        recorrer(ruta);
+        continue;
+      }
+      if (!/\.(jpe?g|png|webp)$/i.test(f)) continue;
+      if (excluirSlug && basename(f).replace(/\.[^.]+$/, '') === excluirSlug) continue;
+      out.add(huella(readFileSync(ruta)));
+    }
+  };
+  recorrer(dirImagenes);
+  return out;
+}
+
+/** Descarga la imagen y la guarda SOLO si no es igual a otra ya usada en la web. */
+async function guardarSiNueva(urlImagen: string, opts: Opts): Promise<boolean> {
   const ir = await fetch(urlImagen);
   if (!ir.ok) return false;
   const buf = Buffer.from(await ir.arrayBuffer());
-  writeFileSync(`${destinoAbsSinExt}.jpg`, buf);
+  const h = huella(buf);
+  const usadas = opts.usadas ?? huellasEnUso(dirname(opts.destinoAbsSinExt), opts.slug);
+  if (usadas.has(h)) return false; // repetida: probamos con la siguiente
+  writeFileSync(`${opts.destinoAbsSinExt}.jpg`, buf);
+  usadas.add(h);
   return true;
 }
 
@@ -91,7 +125,7 @@ async function pixabay(query: string, opts: Opts): Promise<FotoDescargada | null
   const key = process.env.PIXABAY_API_KEY;
   if (!key) return null;
   const url =
-    'https://pixabay.com/api/?image_type=photo&orientation=horizontal&safesearch=true&lang=es&per_page=6&key=' +
+    'https://pixabay.com/api/?image_type=photo&orientation=horizontal&safesearch=true&lang=es&per_page=30&key=' +
     encodeURIComponent(key) +
     '&q=' +
     encodeURIComponent(query);
@@ -100,36 +134,41 @@ async function pixabay(query: string, opts: Opts): Promise<FotoDescargada | null
   const data = (await r.json()) as {
     hits?: { largeImageURL?: string; webformatURL?: string; user?: string; tags?: string }[];
   };
-  const hit = data.hits?.[0];
-  const img = hit?.largeImageURL ?? hit?.webformatURL;
-  if (!hit || !img) return null;
-  if (!(await guardar(img, opts.destinoAbsSinExt))) return null;
-  return {
-    rutaPublica: `/imagenes/${opts.slug}.jpg`,
-    credito: `Foto: ${hit.user ?? 'Pixabay'} (Pixabay)`,
-    alt: hit.tags ? `${opts.altBase} (${hit.tags.split(',')[0]})` : opts.altBase,
-  };
+  // Primera foto de los resultados que NO esté ya usada en otro artículo.
+  for (const hit of data.hits ?? []) {
+    const img = hit.largeImageURL ?? hit.webformatURL;
+    if (!img) continue;
+    if (!(await guardarSiNueva(img, opts))) continue;
+    return {
+      rutaPublica: `/imagenes/${opts.slug}.jpg`,
+      credito: `Foto: ${hit.user ?? 'Pixabay'} (Pixabay)`,
+      alt: hit.tags ? `${opts.altBase} (${hit.tags.split(',')[0]})` : opts.altBase,
+    };
+  }
+  return null;
 }
 
 async function pexels(query: string, opts: Opts): Promise<FotoDescargada | null> {
   const key = process.env.PEXELS_API_KEY;
   if (!key) return null;
   const url =
-    'https://api.pexels.com/v1/search?orientation=landscape&per_page=6&query=' + encodeURIComponent(query);
+    'https://api.pexels.com/v1/search?orientation=landscape&per_page=30&query=' + encodeURIComponent(query);
   const r = await fetch(url, { headers: { Authorization: key } });
   if (!r.ok) return null;
   const data = (await r.json()) as {
     photos?: { src?: { landscape?: string; large?: string }; photographer?: string; alt?: string }[];
   };
-  const foto = data.photos?.[0];
-  const img = foto?.src?.landscape ?? foto?.src?.large;
-  if (!foto || !img) return null;
-  if (!(await guardar(img, opts.destinoAbsSinExt))) return null;
-  return {
-    rutaPublica: `/imagenes/${opts.slug}.jpg`,
-    credito: `Foto: ${foto.photographer ?? 'Pexels'} (Pexels)`,
-    alt: foto.alt && foto.alt.length > 5 ? foto.alt : opts.altBase,
-  };
+  for (const foto of data.photos ?? []) {
+    const img = foto.src?.landscape ?? foto.src?.large;
+    if (!img) continue;
+    if (!(await guardarSiNueva(img, opts))) continue;
+    return {
+      rutaPublica: `/imagenes/${opts.slug}.jpg`,
+      credito: `Foto: ${foto.photographer ?? 'Pexels'} (Pexels)`,
+      alt: foto.alt && foto.alt.length > 5 ? foto.alt : opts.altBase,
+    };
+  }
+  return null;
 }
 
 interface Opts {
@@ -138,6 +177,8 @@ interface Opts {
   destinoAbsSinExt: string;
   slug: string;
   altBase: string;
+  /** Huellas de las fotos ya usadas en la web (si no se pasa, se calcula del disco). */
+  usadas?: Set<string>;
 }
 
 /**
@@ -146,6 +187,8 @@ interface Opts {
  * sección. Pixabay primero, Pexels después.
  */
 export async function descargarFoto(opts: Opts): Promise<FotoDescargada | null> {
+  // Calculamos una vez las fotos ya usadas para no repetir ninguna.
+  opts.usadas ??= huellasEnUso(dirname(opts.destinoAbsSinExt), opts.slug);
   const queries = Array.from(new Set([opts.query, opts.queryFallback].filter((q): q is string => !!q && q.length > 1)));
   for (const q of queries) {
     try {

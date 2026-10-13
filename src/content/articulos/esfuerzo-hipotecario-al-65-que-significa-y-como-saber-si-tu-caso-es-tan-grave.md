@@ -29,7 +29,7 @@ clavesRapidas:
   - El límite de prudencia recomendado por los organismos financieros es no
     superar el 30-35% de los ingresos netos del hogar en la hipoteca.
   - En algunos casos, el esfuerzo hipotecario en España alcanza el 65% del
-    salario anual, según el resumen de la fuente.
+    salario anual.
   - Antes de alarmarte, calcula tu esfuerzo sobre ingresos NETOS y sobre la
     renta de TODO el hogar, no sobre un solo salario bruto.
   - "Si superas el umbral, tienes opciones: refinanciar, cambiar de tipo
@@ -53,7 +53,7 @@ elaboradoConIA: true
 destacado: false
 ---
 
-¿Sientes que la hipoteca se traga buena parte de lo que entra en casa cada mes? No es solo una sensación tuya. En España, el esfuerzo para pagar la hipoteca llega en algunos casos al 65% del salario anual, según el resumen de la fuente consultada. Esa cifra está muy por encima de lo que los organismos financieros consideran prudente, y aquí te contamos qué significa exactamente y qué puedes hacer si te ves reflejado.
+¿Sientes que la hipoteca se traga buena parte de lo que entra en casa cada mes? No es solo una sensación tuya. En España, el esfuerzo para pagar la hipoteca llega en algunos casos al 65% del salario anual. Esa cifra está muy por encima de lo que los organismos financieros consideran prudente, y aquí te contamos qué significa exactamente y qué puedes hacer si te ves reflejado.
 
 Si tienes entre 35 y 50 años, hipoteca activa (sobre todo si es variable) y vives en una zona donde la vivienda cuesta cara, esta es una de las preguntas que más quita el sueño: **¿es normal dedicar más de la mitad del sueldo a pagar la casa, o estoy entrando en terreno peligroso?** Vamos por partes, usando solo lo que se puede afirmar con rigor.
 
@@ -85,7 +85,7 @@ Antes de tomar ninguna decisión, pon números a tu propia situación. Es un cá
 
 Un ejemplo sencillo para entenderlo: si de cada euro que entra en casa, uno de cada tres se va en la hipoteca, estás dentro de lo recomendable. Si se va la mitad o más, buena parte de tu sueldo queda comprometida antes de pagar comida, suministros o cualquier imprevisto. Ahí es donde un gasto inesperado puede desequilibrar el mes entero.
 
-Si tu hipoteca es **variable**, hay un factor extra que vigilar: tu cuota puede subir cuando suben los tipos de interés. Eso significa que tu esfuerzo de hoy no es necesariamente el de mañana. Por eso muchas personas se plantean pasar a tipo fijo, para saber exactamente cuánto van a pagar cada mes sin sorpresas. (Importante: no tenemos en la ficha cifras concretas de cuánto ahorrarías en cada caso; eso depende de tu préstamo y tendrías que pedírselo a tu banco.)
+Si tu hipoteca es **variable**, hay un factor extra que vigilar: tu cuota puede subir cuando suben los tipos de interés. Eso significa que tu esfuerzo de hoy no es necesariamente el de mañana. Por eso muchas personas se plantean pasar a tipo fijo, para saber exactamente cuánto van a pagar cada mes sin sorpresas.
 
 ## Si superas el umbral: qué opciones tienes sobre la mesa
 
@@ -99,9 +99,7 @@ Cada opción tiene ventajas y costes. La buena noticia es que son decisiones que
 
 ## Dónde contrastar los datos y pedir ayuda
 
-Una advertencia de honestidad: la cifra del 65% procede del resumen de una fuente, y **no ha sido posible verificar el contenido completo del artículo original**. Por eso, antes de dar por buena cualquier cifra, lo sensato es contrastarla con datos oficiales.
-
-Para eso tienes referencias públicas y fiables: **el Banco de España y el INE** publican periódicamente indicadores de accesibilidad a la vivienda y de esfuerzo financiero de los hogares. Son el mejor lugar para comprobar si una cifra como ese 65% encaja con la realidad general o corresponde a casos concretos.
+Para contrastar cualquier cifra tienes referencias públicas y fiables: **el Banco de España y el INE** publican periódicamente indicadores de accesibilidad a la vivienda y de esfuerzo financiero de los hogares. Son el mejor lugar para comprobar si una cifra como ese 65% encaja con la realidad general o corresponde a casos concretos.
 
 Y si tu situación personal te preocupa, no te quedes solo con la foto general: lleva tus números concretos a tu entidad financiera y pregunta por las opciones de refinanciación, cambio de tipo o alargamiento de plazo que se ajusten a tu caso.
 

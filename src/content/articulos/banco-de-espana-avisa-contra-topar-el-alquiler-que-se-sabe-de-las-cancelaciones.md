@@ -71,24 +71,11 @@ La información disponible se apoya en tres hechos:
 
 Conviene fijarse en el matiz del segundo punto. Es la explicación que dan las propias empresas. Es una versión de parte, no un análisis independiente de por qué se retiran. Que cancelen y que la causa sea la norma son dos afirmaciones distintas, y la segunda procede de quienes cancelan.
 
-## Qué no se sabe todavía
-
-Aquí está lo que más te interesa y lo que la información disponible no resuelve. Los datos de partida son un resumen de la noticia, no el texto completo ni el informe original. Por eso no se pueden concretar:
-
-- **Qué inmobiliarias son** ni su tamaño.
-- **Qué contiene exactamente la normativa**: ni los topes, ni los cambios fiscales, ni los plazos mínimos de contrato.
-- **Si el tope afecta a todos los pisos o solo a algunos.**
-- **Cuándo entra en vigor** cada medida ni hasta dónde puede subir una renta.
-- **Si existen ayudas** para los inquilinos afectados.
-- **Cuántas operaciones se han cancelado** ni qué efecto medido hay sobre la oferta o los precios.
-
-No es una laguna menor. Cualquier cifra o fecha que circule sin apoyo en el texto oficial de la norma o en el informe del Banco de España debe tomarse con cautela.
-
 ## ¿Menos oferta y rentas más altas?
 
-Es la pregunta lógica, y la respuesta honesta es que todavía no se puede dar. La lógica es sencilla: si quienes ofrecen pisos se retiran, hay menos pisos disponibles, y con menos oferta suele subir la presión sobre los precios. Pero eso es un razonamiento general, no un resultado medido. La información disponible no establece que haya menos pisos ni que las rentas vayan a subir más.
+Es la pregunta lógica. El razonamiento es sencillo: si quienes ofrecen pisos se retiran, hay menos pisos disponibles, y con menos oferta suele subir la presión sobre los precios. Pero eso es un razonamiento general, no un resultado medido.
 
-También hay un matiz sobre quién cancela. Se habla de inmobiliarias internacionales. Que algunas retiren operaciones no dice por sí solo cuánto pesan en el total del mercado, y ese dato no está disponible.
+También hay un matiz sobre quién cancela. Se habla de inmobiliarias internacionales. Que algunas retiren operaciones no dice por sí solo cuánto pesan en el total del mercado.
 
 ## La advertencia del Banco de España
 

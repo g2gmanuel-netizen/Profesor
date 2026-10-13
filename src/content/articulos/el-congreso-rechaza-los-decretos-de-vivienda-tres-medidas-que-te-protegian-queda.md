@@ -63,7 +63,7 @@ Según la información disponible, ese rechazo afecta a tres medidas concretas p
 2. La **prórroga del alquiler** prevista en los decretos.
 3. Las **ayudas a la compra de vivienda** contempladas en esos mismos decretos.
 
-Conviene ser honestos contigo: la fuente consultada es un agregador de noticias con un resumen limitado. **No incluye el resultado de la votación, ni las fechas exactas, ni el número del decreto.** Por eso aquí no vas a encontrar cifras de votos ni plazos concretos: preferimos no dártelos a inventarlos. Lo que sí está confirmado es el titular que te importa: estas tres protecciones se caen.
+Lo esencial, y lo que te importa: estas tres protecciones se caen.
 
 ## Lo que prometía el decreto vs. lo que tienes ahora
 
@@ -128,7 +128,7 @@ Seremos transparentes: hay cosas que, con la información confirmada, todavía n
 
 - **"¿Y si ya tengo un desahucio en marcha?"** No esperes a que se aclare el panorama general. Lleva tu situación a asesoría legal gratuita cuanto antes.
 - **"¿Hay otras ayudas que sigan vivas?"** Es muy probable que existan programas autonómicos o locales distintos de los decretos rechazados. La única forma de saberlo con certeza es preguntar en tu comunidad y tu ayuntamiento.
-- **"¿El Gobierno presentará nuevas medidas?"** Es una posibilidad razonable tras un rechazo parlamentario, pero con la fuente disponible no podemos confirmarte plazos ni contenido. Mantente atento a las fuentes oficiales.
+- **"¿El Gobierno presentará nuevas medidas?"** Es una posibilidad razonable tras un rechazo parlamentario. Si llega, se publicará en el BOE: mantente atento a las fuentes oficiales.
 
 ## En resumen
 

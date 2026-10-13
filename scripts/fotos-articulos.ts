@@ -5,10 +5,10 @@
  * Uso: PIXABAY_API_KEY=xxx npx tsx scripts/fotos-articulos.ts
  * (Normalmente se lanza desde el workflow de GitHub "Fotos de artículos".)
  */
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse, stringify } from 'yaml';
-import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos } from '../agentes/lib/fotos';
+import { descargarFoto, queryParaArticulo, queryFallback, hayClaveFotos, huella } from '../agentes/lib/fotos';
 
 // Con REEMPLAZAR_FOTOS=true se vuelven a descargar también las fotos ya puestas
 // (para refrescarlas con una búsqueda más acorde a cada noticia).
@@ -26,9 +26,43 @@ const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 const DIR_IMG = resolve(process.cwd(), 'public/imagenes');
 mkdirSync(DIR_IMG, { recursive: true });
 
+/**
+ * Detecta artículos que comparten exactamente la misma foto. Se conserva la del
+ * artículo más antiguo y los demás se marcan para descargar una foto nueva.
+ */
+function slugsConFotoRepetida(): Set<string> {
+  const porHuella = new Map<string, { slug: string; fecha: string }[]>();
+  for (const archivo of readdirSync(DIR_ART)) {
+    if (!/\.(md|mdx)$/.test(archivo)) continue;
+    const slug = archivo.replace(/\.(md|mdx)$/, '');
+    const m = readFileSync(resolve(DIR_ART, archivo), 'utf8').match(/^---\n([\s\S]*?)\n---/);
+    if (!m) continue;
+    const fm = parse(m[1]!) as Record<string, unknown>;
+    const img = typeof fm.imagen === 'string' ? fm.imagen : '';
+    if (!img.endsWith('.jpg')) continue;
+    const ruta = resolve(process.cwd(), 'public', img.replace(/^\//, ''));
+    if (!existsSync(ruta)) continue;
+    const h = huella(readFileSync(ruta));
+    const fecha = String(fm.fechaPublicacion instanceof Date ? fm.fechaPublicacion.toISOString() : fm.fechaPublicacion ?? '');
+    porHuella.set(h, [...(porHuella.get(h) ?? []), { slug, fecha }]);
+  }
+  const repetidos = new Set<string>();
+  for (const grupo of porHuella.values()) {
+    if (grupo.length < 2) continue;
+    grupo.sort((a, b) => a.fecha.localeCompare(b.fecha));
+    grupo.slice(1).forEach((g) => repetidos.add(g.slug));
+  }
+  return repetidos;
+}
+
 async function main(): Promise<void> {
   let ok = 0;
   let fallos = 0;
+  const repetidos = slugsConFotoRepetida();
+  if (repetidos.size > 0) {
+    // eslint-disable-next-line no-console
+    console.log(`Fotos repetidas detectadas: ${[...repetidos].join(', ')}. Se sustituyen.`);
+  }
   for (const archivo of readdirSync(DIR_ART)) {
     if (!archivo.endsWith('.md') && !archivo.endsWith('.mdx')) continue;
     const slug = archivo.replace(/\.(md|mdx)$/, '');
@@ -46,8 +80,9 @@ async function main(): Promise<void> {
     // Los análisis de bolsa llevan su propia portada compuesta (logo + ticker): no la tocamos.
     if (categoria === 'bolsa') continue;
 
-    // Si ya tiene una foto .jpg, no la volvemos a descargar (salvo REEMPLAZAR_FOTOS=true).
-    if (imagen.endsWith('.jpg') && !REEMPLAZAR) continue;
+    // Si ya tiene una foto .jpg propia, no la volvemos a descargar
+    // (salvo REEMPLAZAR_FOTOS=true o que esté repetida en otro artículo).
+    if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
 
     const foto = await descargarFoto({
       query: queryParaArticulo(categoria, etiquetas, titulo),

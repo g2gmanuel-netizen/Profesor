@@ -2,7 +2,7 @@ import { z } from 'zod';
 import type { ContextoEjecucion } from '../lib/contexto';
 import { leerPrompt } from '../lib/contexto';
 import { CandidatoSchema, type Candidato } from '../lib/esquemas';
-import { type TemaPublicado, yaPublicado } from '../lib/publicados';
+import { type TemaPublicado, esDuplicado } from '../lib/publicados';
 import { FIXTURES } from '../lib/fixtures';
 
 export interface ItemCrudo {
@@ -34,6 +34,9 @@ export async function rastreador(
     const schema = z.object({ candidatos: z.array(CandidatoSchema) });
     const marca = (i: ItemCrudo): string => (i.tipo === 'tendencia' ? '🔥TENDENCIA' : 'oficial');
     const user = [
+      ctx.yaPublicados
+        ? `YA PUBLICADO EN LA WEB (NO propongas la misma noticia aunque cambie el enfoque o el titular):\n${ctx.yaPublicados}\n`
+        : '',
       ctx.tendencias
         ? `TRENDING TOPICS HOY EN ESPAÑA (lo que la gente busca y comenta ahora mismo):\n${ctx.tendencias}\n`
         : '',
@@ -55,8 +58,18 @@ export async function rastreador(
     candidatos = res.candidatos;
   }
 
-  // Descartar lo ya publicado.
-  const nuevos = candidatos.filter((c) => !yaPublicado(c.titulo, publicados));
+  // Descartar lo ya publicado (misma fuente o mismo tema) y los repetidos entre sí.
+  const nuevos: Candidato[] = [];
+  for (const c of candidatos) {
+    const previo = esDuplicado(c.titulo, c.url, publicados);
+    if (previo) {
+      ctx.logger.info(`Descartado por repetido: «${c.titulo}» ≈ «${previo.titulo}»`);
+      continue;
+    }
+    const enLote = nuevos.map((n) => ({ id: n.id, slug: n.id, titulo: n.titulo, categoria: '', fecha: '', urls: [n.url] }));
+    if (esDuplicado(c.titulo, c.url, enLote)) continue;
+    nuevos.push(c);
+  }
   ctx.logger.info(`${nuevos.length} candidato(s) nuevos de ${candidatos.length}`);
   return nuevos;
 }

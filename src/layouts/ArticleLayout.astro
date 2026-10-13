@@ -65,6 +65,7 @@ const breadcrumb = {
     <set:html value={`<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`} />
   </Fragment>
 
+  <div class="articulo-rejilla">
   <article class="lectura" style="margin-inline:auto;">
     <nav class="migas" aria-label="Ruta">
       <a href="/">Portada</a> › <a href={`/categoria/${d.categoria}/`}>{cat?.nombre}</a>
@@ -202,6 +203,12 @@ const breadcrumb = {
 
     <Compartir url={urlAbs} titulo={d.titulo} />
   </article>
+  <aside class="articulo-lateral" aria-label="Publicidad">
+    <div class="rail-pegajoso">
+      <Anuncio formato="lateral" />
+    </div>
+  </aside>
+  </div>
 
   {
     rel.length > 0 && (

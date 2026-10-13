@@ -30,8 +30,6 @@ clavesRapidas:
     por encima de la media de la UE.
   - Con los mismos ingresos brutos, tu rendimiento neto como propietario tiende
     a ser menor aquí que en la media europea.
-  - "El dato firme es la diferencia de 13 puntos: no constan los porcentajes
-    exactos, el año de referencia ni el organismo que lo calcula."
   - "El mejor ejemplo práctico es el tuyo: mira en tu última declaración qué
     parte de tu alquiler acabó tributando."
   - Antes de aplicar cualquier deducción o fiarte de cifras concretas,
@@ -57,7 +55,7 @@ destacado: false
 
 ¿Alquilas tu vivienda o estás pensando en hacerlo? Entonces esto te toca el bolsillo directamente: en España, la carga fiscal sobre los ingresos por alquiler supera en 13 puntos porcentuales la media de la Unión Europea. Dicho de otro modo, con los mismos ingresos brutos por tu piso, aquí te quedas con menos dinero en el bolsillo que un propietario de la media del continente.
 
-Es una diferencia que conviene conocer antes de echar cuentas sobre si compensa alquilar, a qué precio y qué esperar en tu próxima declaración. Vamos a explicarlo con calma y, muy importante, vamos a ser honestos también con lo que todavía no sabemos de este dato.
+Es una diferencia que conviene conocer antes de echar cuentas sobre si compensa alquilar, a qué precio y qué esperar en tu próxima declaración.
 
 ## El dato, en una frase
 
@@ -85,20 +83,7 @@ Vamos al ejemplo práctico, que es lo que de verdad ayuda. Supongamos que alquil
 
 Si esa carga en España está 13 puntos por encima de la media de la UE, el efecto es intuitivo: **de cada bloque de ingresos por tu alquiler, la diferencia frente a un propietario medio europeo puede suponer una parte nada despreciable de lo que ingresas**. No hablamos de céntimos. Hablamos de que, a lo largo de un año de alquiler, esa brecha de puntos se va acumulando mes a mes.
 
-Aquí tengo que ser transparente contigo, porque prefiero que te fíes del artículo: **el dato del que disponemos es la diferencia de 13 puntos, no los porcentajes exactos ni los importes en euros**. Por eso no te voy a inventar una cifra de "pagarías tanto al mes" que suene muy concreta pero que no pueda respaldar. Lo honesto es decirte el sentido del impacto —menos renta neta para ti— y la magnitud comparativa —13 puntos por encima de la media—, sin maquillarlo con números que no están sobre la mesa.
-
-Lo que sí puedes hacer tú mismo es una comprobación sencilla: coge lo que ingresas al año por el alquiler y mira, en tu última declaración, qué parte acabó tributando. Ese ejercicio, con tus números reales, es el mejor ejemplo práctico posible, porque es el tuyo.
-
-## Lo que este dato no te dice (y conviene que sepas)
-
-Un buen artículo no solo cuenta lo que sabe; también avisa de lo que no sabe. Y en este caso hay varias piezas que **no constan en la información de partida**:
-
-- **No consta el porcentaje exacto** que se paga en España ni el de la media europea. Solo la diferencia entre ambos: 13 puntos.
-- **No consta el año de referencia** de la comparación. Los sistemas fiscales cambian, así que el momento importa.
-- **No consta qué organismo elabora el dato** (si es un cálculo de una institución estadística, de un centro de análisis u otro) ni si se refiere a un perfil concreto de contribuyente.
-- **No constan las deducciones** aplicables ni su detalle, ni la lista de países europeos donde la carga es menor.
-
-¿Por qué te cuento todo esto en lugar de rellenar con cifras llamativas? Porque mezclar el dato sólido (los 13 puntos) con números inventados te daría una falsa sensación de precisión. Y tú necesitas decisiones basadas en lo real, no en lo que suena bien.
+Puedes hacer tú mismo una comprobación sencilla: coge lo que ingresas al año por el alquiler y mira, en tu última declaración, qué parte acabó tributando. Ese ejercicio, con tus números reales, es el mejor ejemplo práctico posible, porque es el tuyo.
 
 ## Cómo salir de dudas con tus propios números
 
@@ -106,8 +91,7 @@ Si quieres pasar del titular a tu caso concreto, estos son los pasos sensatos:
 
 1. **Reúne tus ingresos brutos por alquiler** del año: suma todas las rentas cobradas.
 2. **Localiza cómo tributaron** en tu última declaración de la renta. Ahí verás qué parte de esos ingresos se fue en impuestos.
-3. **Pregunta por las deducciones aplicables a tu caso.** La información de partida no detalla cuáles son ni sus límites, así que, antes de descontar nada, confírmalo con una fuente oficial o con un asesor. No des por hecho una deducción que no te hayan confirmado.
-4. **Contrasta con fuentes primarias.** Para los porcentajes concretos y la comparativa europea, lo correcto es acudir a los organismos oficiales competentes, no quedarse solo con el titular.
+3. **Contrasta con fuentes primarias.** Para los porcentajes concretos y la comparativa europea, lo correcto es acudir a los organismos oficiales competentes, no quedarse solo con el titular.
 
 Este método tiene una ventaja: te protege de dos errores típicos. El de pensar que pagas menos de lo que realmente pagas, y el de asustarte con cifras exageradas que circulan sin respaldo.
 

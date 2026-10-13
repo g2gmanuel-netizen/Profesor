@@ -18,6 +18,8 @@ export interface ContextoEjecucion {
   aprendizajes: string;
   /** Tendencias del día en España (Google Trends + Menéame), ya formateadas. Las leen los agentes 1 y 2. */
   tendencias: string;
+  /** Titulares ya publicados (los más recientes), para que la IA no repita temas. */
+  yaPublicados: string;
 }
 
 export function leerPrompt(nombre: string): string {
@@ -51,5 +53,6 @@ export function crearContexto(opts: {
     config: CONFIG,
     aprendizajes: leerAprendizajes(),
     tendencias: '',
+    yaPublicados: '',
   };
 }
