@@ -13,8 +13,8 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/la-seguridad-social-actualiza-tu-pension-con-el-ipc-que-cambia-para-ti-y-como-re.jpg
 imagenAlt: "Imagen del artículo: La Seguridad Social actualiza tu pensión con el
-  IPC: qué cambia para ti y cómo reclamar si no cuadra (monedas)"
-imagenCredito: "Foto: alandsmann (Pixabay)"
+  IPC: qué cambia para ti y cómo reclamar si no cuadra (viejo)"
+imagenCredito: "Foto: wir_sind_klein (Pixabay)"
 etiquetas:
   - pensiones
   - seguridad
@@ -41,8 +41,8 @@ clavesRapidas:
     antes y después, y contrástala con el IPC anual del INE."
   - Si la subida no coincide con el IPC, tienes derecho a presentar una
     reclamación.
-  - "Consulta el porcentaje exacto en el INE (IPC) y el importe en la Seguridad
-    Social o el BOE."
+  - Consulta el porcentaje exacto en el INE (IPC) y el importe en la Seguridad
+    Social o el BOE.
 titularesAlternativos:
   - "Tu pensión sube con el IPC: cómo comprobar paso a paso que la cifra que
     cobras es la correcta"

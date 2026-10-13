@@ -11,7 +11,7 @@ autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-20
 imagen: /imagenes/euribor-que-es-y-como-afecta-a-tu-hipoteca.jpg
 imagenAlt: "Imagen del artículo: Qué es el Euríbor y cómo afecta exactamente a
-  la cuota de tu hipoteca (inmobiliaria)"
+  la cuota de tu hipoteca (dinero)"
 etiquetas:
   - euríbor
   - hipoteca variable
@@ -31,7 +31,7 @@ fuentes:
   - titulo: Reglamento (UE) 2016/1011 sobre índices de referencia
     url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R1011
     organismo: Diario Oficial de la UE
-imagenCredito: "Foto: OleksandrPidvalnyi (Pixabay)"
+imagenCredito: "Foto: nattanan23 (Pixabay)"
 ---
 
 El **Euríbor** (del inglés *Euro Interbank Offered Rate*) es el tipo de interés medio al que las entidades financieras de la zona euro se prestan dinero entre sí. En España es, con diferencia, el índice de referencia más utilizado para las **hipotecas a tipo variable**: cuando sube, las cuotas de millones de hogares suben; cuando baja, bajan.
