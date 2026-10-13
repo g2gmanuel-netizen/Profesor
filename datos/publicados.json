@@ -146,6 +146,27 @@
       "slug": "banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones",
       "categoria": "alquiler",
       "fecha": "2026-10-12"
+    },
+    {
+      "id": "esfuerzo-hipotecario-del-65-que-mide-la-cifra-y-como-calcular-el-tuyo",
+      "titulo": "Esfuerzo hipotecario del 65%: qué mide la cifra y cómo calcular el tuyo",
+      "slug": "esfuerzo-hipotecario-del-65-que-mide-la-cifra-y-como-calcular-el-tuyo",
+      "categoria": "hipotecas",
+      "fecha": "2026-10-13"
+    },
+    {
+      "id": "pension-de-1-700-euros-en-2027-por-que-la-media-no-sirve-para-calcular-tu-jubila",
+      "titulo": "Pensión de 1.700 euros en 2027: por qué la media no sirve para calcular tu jubilación y qué hacer",
+      "slug": "pension-de-1-700-euros-en-2027-por-que-la-media-no-sirve-para-calcular-tu-jubila",
+      "categoria": "pensiones",
+      "fecha": "2026-10-13"
+    },
+    {
+      "id": "el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7-preguntas-clave",
+      "titulo": "El Gobierno Vasco presenta un seguro gratuito contra impagos: 7 preguntas clave",
+      "slug": "el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7-preguntas-clave",
+      "categoria": "vivienda",
+      "fecha": "2026-10-13"
     }
   ]
 }
