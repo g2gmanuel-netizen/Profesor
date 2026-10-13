@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-12
+# Kit de difusión — 2026-10-13
 
 
 
@@ -6,207 +6,125 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Banco de España y alquiler: dos medidas del debate que, según el supervisor, podrían perjudicar a la economía
-**Enlace:** https://tubolsillodiario.com/articulo/banco-de-espana-y-alquiler-dos-medidas-del-debate-que-segun-el-supervisor-podria/
+## 1. Banco de España avisa contra topar el alquiler: qué se sabe de las cancelaciones
+**Enlace:** https://tubolsillodiario.com/articulo/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones/
 
 ### X / Twitter
 ```
-Banco de España y alquiler: dos medidas del debate que, según el supervisor, podrían perjudicar a la economía
+Banco de España avisa contra topar el alquiler: qué se sabe de las cancelaciones
 
-👉 https://tubolsillodiario.com/articulo/banco-de-espana-y-alquiler-dos-medidas-del-debate-que-segun-el-supervisor-podria/
-#Alquiler #Banco #Dos #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones/
+#Alquiler #Banco #Avisa #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Banco de España y alquiler: dos medidas del debate que, según el supervisor, podrían perjudicar a la economía*
+📰 *Banco de España avisa contra topar el alquiler: qué se sabe de las cancelaciones*
 
-Su posición contrasta con los planes del Gobierno en vivienda. Qué se sabe, qué no y qué conviene revisar si alquilas o tienes un piso en alquiler.
+Inmobiliarias internacionales cancelan firmas y visitas en España y lo atribuyen a una nueva normativa. Separamos lo confirmado de lo que aún no se sabe y qué conviene revisar en tu contrato.
 
-• El Banco de España advierte de que topar el alquiler podría dañar la economía.
-• También avisa de que reducir las ayudas fiscales a propietarios podría tener ese efecto.
-• Su posición contrasta con los planes del Gobierno en vivienda y alquiler.
+• Inmobiliarias internacionales están cancelando firmas y visitas de alquiler en España y lo atribuyen a una nueva normativa.
+• El Banco de España advierte de que topar el alquiler y las ayudas fiscales a los caseros dañarán la economía.
+• No está confirmado que vaya a haber menos oferta ni rentas más altas: faltan el texto de la norma y datos medidos.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/banco-de-espana-y-alquiler-dos-medidas-del-debate-que-segun-el-supervisor-podria/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones/
 
 _Alquiler · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Banco de España y alquiler: dos medidas del debate que, según el supervisor, podrían perjudicar a la economía
-  • Gancho (0-3 s): "¿Banco de España y alquiler: dos medidas del debate que, según el supe…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Banco de España avisa contra topar el alquiler: qué se sabe de las cancelaciones
+  • Gancho (0-3 s): "¿Banco de España avisa contra topar el alquiler: qué se sabe de las ca…?"
   • Desarrollo (3-25 s):
-  1. El Banco de España advierte de que topar el alquiler podría dañar la economía.
-  2. También avisa de que reducir las ayudas fiscales a propietarios podría tener ese efecto.
-  3. Su posición contrasta con los planes del Gobierno en vivienda y alquiler.
+  1. Inmobiliarias internacionales están cancelando firmas y visitas de alquiler en España y lo atribuyen a una nueva normativa.
+  2. El Banco de España advierte de que topar el alquiler y las ayudas fiscales a los caseros dañarán la economía.
+  3. No está confirmado que vaya a haber menos oferta ni rentas más altas: faltan el texto de la norma y datos medidos.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Su posición contrasta con los planes del Gobierno en vivienda. Qué se sabe, qué no y qué conviene revisar si alquilas o tienes un piso en alquiler.
-  🔗 Enlace en la bio · #Alquiler #Banco #Dos #España #BolsilloDiario
+  Inmobiliarias internacionales cancelan firmas y visitas en España y lo atribuyen a una nueva normativa. Separamos lo confirmado de lo que aún no se sabe y qué conviene revisar en tu contrato.
+  🔗 Enlace en la bio · #Alquiler #Banco #Avisa #España #BolsilloDiario
 ```
 
-## 2. Cómo calcular tu subida de pensión en 2027 cuando se conozca el porcentaje oficial
-**Enlace:** https://tubolsillodiario.com/articulo/como-calcular-tu-subida-de-pension-en-2027-cuando-se-conozca-el-porcentaje-ofici/
+## 2. IRPF 2027: por qué una subida de sueldo puede no dejarte más dinero en el bolsillo
+**Enlace:** https://tubolsillodiario.com/articulo/irpf-2027-por-que-una-subida-de-sueldo-puede-no-dejarte-mas-dinero-en-el-bolsill/
 
 ### X / Twitter
 ```
-Cómo calcular tu subida de pensión en 2027 cuando se conozca el porcentaje oficial
+IRPF 2027: por qué una subida de sueldo puede no dejarte más dinero en el bolsillo
 
-👉 https://tubolsillodiario.com/articulo/como-calcular-tu-subida-de-pension-en-2027-cuando-se-conozca-el-porcentaje-ofici/
-#Pensiones #Calcular #Subida #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/irpf-2027-por-que-una-subida-de-sueldo-puede-no-dejarte-mas-dinero-en-el-bolsill/
+#Impuestos #Irpf #2027 #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Cómo calcular tu subida de pensión en 2027 cuando se conozca el porcentaje oficial*
+📰 *IRPF 2027: por qué una subida de sueldo puede no dejarte más dinero en el bolsillo*
 
-Los 1.700 euros son una media estimada de las nuevas jubilaciones, no lo que subirá tu pensión. Qué falta por conocer y cómo calcular tu caso cuando haya cifra oficial.
+Según el análisis consultado, los tramos del IRPF no se ajustan a la inflación real y las rentas medias son las más expuestas. Aún no hay cifra verificada para 2027, pero puedes calcular tu caso con cuatro datos.
 
-• Según el resumen de la fuente, el Gobierno confirma incrementos de pensiones para 2027, pero no indica el porcentaje.
-• Los 1.700 euros son una media estimada de las nuevas jubilaciones («superarían»), no el importe de la subida.
-• No hay datos sobre método de cálculo, colectivos afectados, viudedad/orfandad, inflación ni IRPF.
+• Según la fuente, los tramos del IRPF no se ajustan a la inflación real y eso afecta especialmente a las rentas medias.
+• Una subida de sueldo que solo compensa los precios puede tributar a tipos más altos sin darte más poder adquisitivo.
+• La cifra de «hasta 255 euros» no está verificada en la fuente disponible, así que no se usa como dato.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/como-calcular-tu-subida-de-pension-en-2027-cuando-se-conozca-el-porcentaje-ofici/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/irpf-2027-por-que-una-subida-de-sueldo-puede-no-dejarte-mas-dinero-en-el-bolsill/
 
-_Pensiones · Bolsillo Diario_
+_Impuestos · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Cómo calcular tu subida de pensión en 2027 cuando se conozca el porcentaje oficial
-  • Gancho (0-3 s): "¿Cómo calcular tu subida de pensión en 2027 cuando se conozca el porce…?"
+🎬 GUION VÍDEO CORTO (~30 s) — IRPF 2027: por qué una subida de sueldo puede no dejarte más dinero en el bolsillo
+  • Gancho (0-3 s): "¿IRPF 2027: por qué una subida de sueldo puede no dejarte más dinero e…?"
   • Desarrollo (3-25 s):
-  1. Según el resumen de la fuente, el Gobierno confirma incrementos de pensiones para 2027, pero no indica el porcentaje.
-  2. Los 1.700 euros son una media estimada de las nuevas jubilaciones («superarían»), no el importe de la subida.
-  3. No hay datos sobre método de cálculo, colectivos afectados, viudedad/orfandad, inflación ni IRPF.
+  1. Según la fuente, los tramos del IRPF no se ajustan a la inflación real y eso afecta especialmente a las rentas medias.
+  2. Una subida de sueldo que solo compensa los precios puede tributar a tipos más altos sin darte más poder adquisitivo.
+  3. La cifra de «hasta 255 euros» no está verificada en la fuente disponible, así que no se usa como dato.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Los 1.700 euros son una media estimada de las nuevas jubilaciones, no lo que subirá tu pensión. Qué falta por conocer y cómo calcular tu caso cuando haya cifra oficial.
-  🔗 Enlace en la bio · #Pensiones #Calcular #Subida #España #BolsilloDiario
+  Según el análisis consultado, los tramos del IRPF no se ajustan a la inflación real y las rentas medias son las más expuestas. Aún no hay cifra verificada para 2027, pero puedes calcular tu caso con…
+  🔗 Enlace en la bio · #Impuestos #Irpf #2027 #España #BolsilloDiario
 ```
 
-## 3. Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salario no es la media
-**Enlace:** https://tubolsillodiario.com/articulo/esfuerzo-hipotecario-en-maximos-por-que-el-hasta-el-65-del-salario-no-es-la-medi/
+## 3. ¿Podrás votar el 29-N si te nacionalizaste por la ley de nietos? El Supremo mantiene el veto
+**Enlace:** https://tubolsillodiario.com/articulo/podras-votar-el-29-n-si-te-nacionalizaste-por-la-ley-de-nietos-el-supremo-mantie/
 
 ### X / Twitter
 ```
-Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salario no es la media
+¿Podrás votar el 29-N si te nacionalizaste por la ley de nietos? El Supremo mantiene el veto
 
-👉 https://tubolsillodiario.com/articulo/esfuerzo-hipotecario-en-maximos-por-que-el-hasta-el-65-del-salario-no-es-la-medi/
-#Hipotecas #Esfuerzo #Hipotecario #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/podras-votar-el-29-n-si-te-nacionalizaste-por-la-ley-de-nietos-el-supremo-mantie/
+#Politica #Podras #Votar #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salario no es la media*
+📰 *¿Podrás votar el 29-N si te nacionalizaste por la ley de nietos? El Supremo mantiene el veto*
 
-El dato habla de «hasta el 65% del salario anual», pero no es la media ni sabemos a qué perfil se refiere. Te explicamos qué mide, qué falta por confirmar y cómo calcular tu propio esfuerzo en cuatro pasos.
+El tribunal justifica la suspensión por los riesgos en la constitución del censo electoral; quedan sin aclarar el número de afectados, la fecha y los posibles recursos.
 
-• El esfuerzo hipotecario en España está en máximos históricos y, según la fuente, dificulta el acceso a la vivienda a los trabajadores.
-• El titular habla de 'hasta el 65% del salario anual': es un tope, no la media, y falta verificar a qué perfil o territorio corresponde.
-• Tu esfuerzo se calcula dividiendo la cuota anual de la hipoteca entre tus ingresos anuales; usa siempre el mismo criterio (neto o bruto).
+• El Supremo mantiene la suspensión del voto de los nacionalizados por la ley de nietos en las elecciones del 29-N.
+• El tribunal lo justifica por los riesgos que existirían en la constitución del censo electoral.
+• No constan en la fuente el número de afectados, la fecha, el tipo de resolución ni el ámbito de las elecciones.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/esfuerzo-hipotecario-en-maximos-por-que-el-hasta-el-65-del-salario-no-es-la-medi/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/podras-votar-el-29-n-si-te-nacionalizaste-por-la-ley-de-nietos-el-supremo-mantie/
 
-_Hipotecas · Bolsillo Diario_
+_Política · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salario no es la media
-  • Gancho (0-3 s): "¿Esfuerzo hipotecario en máximos: por qué el «hasta el 65%» del salari…?"
+🎬 GUION VÍDEO CORTO (~30 s) — ¿Podrás votar el 29-N si te nacionalizaste por la ley de nietos? El Supremo mantiene el veto
+  • Gancho (0-3 s): "¿¿Podrás votar el 29-N si te nacionalizaste por la ley de nietos? El S…?"
   • Desarrollo (3-25 s):
-  1. El esfuerzo hipotecario en España está en máximos históricos y, según la fuente, dificulta el acceso a la vivienda a los trabajadores.
-  2. El titular habla de 'hasta el 65% del salario anual': es un tope, no la media, y falta verificar a qué perfil o territorio corresponde.
-  3. Tu esfuerzo se calcula dividiendo la cuota anual de la hipoteca entre tus ingresos anuales; usa siempre el mismo criterio (neto o bruto).
+  1. El Supremo mantiene la suspensión del voto de los nacionalizados por la ley de nietos en las elecciones del 29-N.
+  2. El tribunal lo justifica por los riesgos que existirían en la constitución del censo electoral.
+  3. No constan en la fuente el número de afectados, la fecha, el tipo de resolución ni el ámbito de las elecciones.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  El dato habla de «hasta el 65% del salario anual», pero no es la media ni sabemos a qué perfil se refiere. Te explicamos qué mide, qué falta por confirmar y cómo calcular tu propio esfuerzo en cuatro…
-  🔗 Enlace en la bio · #Hipotecas #Esfuerzo #Hipotecario #España #BolsilloDiario
-```
-
-## 4. Sunrun (RUN): solar residencial a 7,64 USD, muy cerca de mínimos y con objetivo de analistas el doble
-**Enlace:** https://tubolsillodiario.com/articulo/bolsa-run-2026-10-10/
-
-### X / Twitter
-```
-Sunrun (RUN): solar residencial a 7,64 USD, muy cerca de mínimos y con objetivo de analistas el doble
-
-👉 https://tubolsillodiario.com/articulo/bolsa-run-2026-10-10/
-#Bolsa #RUN #Energia #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Sunrun (RUN): solar residencial a 7,64 USD, muy cerca de mínimos y con objetivo de analistas el doble*
-
-Sunrun cotiza a 7,64 USD, cerca de su mínimo de 52 semanas (7,26), con PER bajo, ingresos al alza y mucha deuda. Analizamos qué hay detrás, sin humo.
-
-• Cotiza a 7,64 USD, casi en su mínimo de 52 semanas (7,26) y un 66% por debajo del máximo (22,44).
-• Ingresos +52,80%, margen neto 11,59% y PER de 5,16 (forward 11,70): barata, pero el beneficio podría no repetirse.
-• Deuda/EBITDA de 292,51% y beta de 2,43: mucho apalancamiento y mucha volatilidad.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/bolsa-run-2026-10-10/
-
-_Bolsa · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Sunrun (RUN): solar residencial a 7,64 USD, muy cerca de mínimos y con objetivo de analistas el doble
-  • Gancho (0-3 s): "¿Sunrun (RUN): solar residencial a 7,64 USD, muy cerca de mínimos y co…?"
-  • Desarrollo (3-25 s):
-  1. Cotiza a 7,64 USD, casi en su mínimo de 52 semanas (7,26) y un 66% por debajo del máximo (22,44).
-  2. Ingresos +52,80%, margen neto 11,59% y PER de 5,16 (forward 11,70): barata, pero el beneficio podría no repetirse.
-  3. Deuda/EBITDA de 292,51% y beta de 2,43: mucho apalancamiento y mucha volatilidad.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Sunrun cotiza a 7,64 USD, cerca de su mínimo de 52 semanas (7,26), con PER bajo, ingresos al alza y mucha deuda. Analizamos qué hay detrás, sin humo.
-  🔗 Enlace en la bio · #Bolsa #RUN #Energia #España #BolsilloDiario
-```
-
-## 5. El Congreso rechaza los decretos de vivienda: tres medidas que te protegían quedan en suspenso
-**Enlace:** https://tubolsillodiario.com/articulo/el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda/
-
-### X / Twitter
-```
-El Congreso rechaza los decretos de vivienda: tres medidas que te protegían quedan en suspenso
-
-👉 https://tubolsillodiario.com/articulo/el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda/
-#Vivienda #Congreso #Rechaza #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *El Congreso rechaza los decretos de vivienda: tres medidas que te protegían quedan en suspenso*
-
-Si alquilas, estás en riesgo de desahucio o ibas a comprar con ayuda, esto es lo que cambia para ti y los pasos que puedes dar ahora.
-
-• El Congreso rechazó los decretos de vivienda: caen el escudo antidesahucios, la prórroga del alquiler y las ayudas a la compra.
-• Si estás en riesgo de desahucio, busca ya asesoría legal gratuita en tu ayuntamiento o en una ONG especializada.
-• Si alquilas, revisa tu contrato y tus derechos antes de que venza el plazo.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/el-congreso-rechaza-los-decretos-de-vivienda-tres-medidas-que-te-protegian-queda/
-
-_Vivienda · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — El Congreso rechaza los decretos de vivienda: tres medidas que te protegían quedan en suspenso
-  • Gancho (0-3 s): "¿El Congreso rechaza los decretos de vivienda: tres medidas que te pro…?"
-  • Desarrollo (3-25 s):
-  1. El Congreso rechazó los decretos de vivienda: caen el escudo antidesahucios, la prórroga del alquiler y las ayudas a la compra.
-  2. Si estás en riesgo de desahucio, busca ya asesoría legal gratuita en tu ayuntamiento o en una ONG especializada.
-  3. Si alquilas, revisa tu contrato y tus derechos antes de que venza el plazo.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Si alquilas, estás en riesgo de desahucio o ibas a comprar con ayuda, esto es lo que cambia para ti y los pasos que puedes dar ahora.
-  🔗 Enlace en la bio · #Vivienda #Congreso #Rechaza #España #BolsilloDiario
+  El tribunal justifica la suspensión por los riesgos en la constitución del censo electoral; quedan sin aclarar el número de afectados, la fecha y los posibles recursos.
+  🔗 Enlace en la bio · #Politica #Podras #Votar #España #BolsilloDiario
 ```
