@@ -8,7 +8,7 @@
  * no publica nada (nunca inventamos cifras). La descarga solo funciona con salida a
  * internet (GitHub Actions). Normalmente se lanza desde "Bolsa semanal".
  */
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { z } from 'zod';
 import { stringify } from 'yaml';
@@ -63,7 +63,23 @@ const DISCLAIMER =
   'no garantizan rendimientos futuros. Toma tus decisiones por tu cuenta y, si lo necesitas, consulta ' +
   'a un asesor financiero registrado en la CNMV.';
 
+// Un análisis por semana: si ya hay uno de hace menos de 6 días (p. ej. uno encargado a mano), no se escribe otro.
+function hayAnalisisReciente(hoy = new Date()): string | null {
+  const limite = hoy.getTime() - 6 * 24 * 3600 * 1000;
+  for (const f of readdirSync(DIR_ART)) {
+    const m = /^bolsa-.+-(\d{4}-\d{2}-\d{2})\.md$/.exec(f);
+    if (m && new Date(`${m[1]}T00:00:00Z`).getTime() > limite) return f;
+  }
+  return null;
+}
+
 async function main(): Promise<void> {
+  const reciente = hayAnalisisReciente();
+  if (reciente) {
+    // eslint-disable-next-line no-console
+    console.log(`Ya hay un análisis de bolsa reciente (${reciente}). Esta semana no se escribe otro.`);
+    process.exit(0);
+  }
   if (!CONFIG.anthropicApiKey) {
     // eslint-disable-next-line no-console
     console.log('Sin ANTHROPIC_API_KEY: no se genera análisis de bolsa.');
