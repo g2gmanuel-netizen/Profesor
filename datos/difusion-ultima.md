@@ -6,84 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
-**Enlace:** https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
+## 1. Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
+**Enlace:** https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
 
 ### X / Twitter
 ```
-Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
+Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
 
-👉 https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
-#Alquiler #Inmobiliarias #Internacionales #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
+#Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso*
+📰 *Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?*
 
-Varias empresas cancelan contratos y suspenden operaciones alegando incompatibilidad con la nueva normativa. Qué cambia para ti como inquilino y cinco pautas para buscar vivienda ahora.
+Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
 
-• Inmobiliarias internacionales cancelan contratos y suspenden operaciones en el alquiler español, alegando incompatibilidad con la nueva normativa.
-• Algunos anuncios pueden aparecer como "anulados": confirma siempre que el piso sigue disponible antes de moverte.
-• Menos oferta tiende a significar más competencia por cada vivienda; prepara tu documentación con antelación.
+• Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
+• Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
+• Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
 
-_Alquiler · Bolsillo Diario_
+_Bolsa · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
-  • Gancho (0-3 s): "¿Inmobiliarias internacionales frenan el alquiler en España: qué hacer…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
+  • Gancho (0-3 s): "¿Charter (CHTR): el gigante del cable que ha caído un 60% en un año y…?"
   • Desarrollo (3-25 s):
-  1. Inmobiliarias internacionales cancelan contratos y suspenden operaciones en el alquiler español, alegando incompatibilidad con la nueva normativa.
-  2. Algunos anuncios pueden aparecer como "anulados": confirma siempre que el piso sigue disponible antes de moverte.
-  3. Menos oferta tiende a significar más competencia por cada vivienda; prepara tu documentación con antelación.
+  1. Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
+  2. Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
+  3. Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Varias empresas cancelan contratos y suspenden operaciones alegando incompatibilidad con la nueva normativa. Qué cambia para ti como inquilino y cinco pautas para buscar vivienda ahora.
-  🔗 Enlace en la bio · #Alquiler #Inmobiliarias #Internacionales #España #BolsilloDiario
-```
-
-## 2. Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
-**Enlace:** https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
-
-### X / Twitter
-```
-Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
-
-👉 https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
-#Impuestos #Tribunal #Supremo #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario*
-
-Es la primera vez que el alto tribunal aborda la cuestión, pero no hay sentencia ni cambio normativo: así queda tu declaración de la renta mientras tanto.
-
-• El Supremo estudiará por primera vez si los extranjeros no comunitarios pueden deducirse el alquiler en España.
-• Hasta ahora la cuestión no se había abordado judicialmente.
-• No hay sentencia ni cambio normativo confirmado: de momento, tu declaración no cambia.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
-
-_Impuestos · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
-  • Gancho (0-3 s): "¿Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero…?"
-  • Desarrollo (3-25 s):
-  1. El Supremo estudiará por primera vez si los extranjeros no comunitarios pueden deducirse el alquiler en España.
-  2. Hasta ahora la cuestión no se había abordado judicialmente.
-  3. No hay sentencia ni cambio normativo confirmado: de momento, tu declaración no cambia.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Es la primera vez que el alto tribunal aborda la cuestión, pero no hay sentencia ni cambio normativo: así queda tu declaración de la renta mientras tanto.
-  🔗 Enlace en la bio · #Impuestos #Tribunal #Supremo #España #BolsilloDiario
+  Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
+  🔗 Enlace en la bio · #Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
 ```
