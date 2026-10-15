@@ -59,7 +59,7 @@ clavesRapidas:
   - "Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000)."
   - "Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas."
   - "Mediana de los analistas: 150 USD (+40%), pero con 6 «venta», 11 «mantener» y solo 5 «compra»."
-  - "Rango de entrada divulgativo: 90–105 USD, por tramos y mejor tras los resultados del 6 de noviembre. Riesgo muy alto."
+  - "Entrada divulgativa: 90–105 USD por tramos. Salida escalonada en 140, 150-160 y 180-190 USD, y venta si la tesis se rompe o cierra la semana por debajo de 88. No es un «hold» sin más."
 enlacesInternos:
   - bolsa-s-2026-10-12
   - bolsa-run-2026-10-10
@@ -273,11 +273,70 @@ Las bajas superan las 200.000 por trimestre, el EBITDA cae un 5% o más y la int
 - **Horizonte: largo plazo** (3 años o más). Es el plazo que la propia empresa se da para bajar la deuda y recoger la caja de las menores inversiones.
 - **Riesgo: muy alto.** Con tanta deuda, la acción puede caer otro 30-50% si el negocio se deteriora. Solo con dinero que puedas permitirte no ver en años, y como una parte pequeña de una cartera diversificada.
 
+## ¿Es buen momento para entrar ahora?
+
+**A favor de entrar ya:**
+
+- El precio (106,95 USD) está a solo un 5% del mínimo de 52 semanas y dentro del rango de entrada.
+- El pesimismo es extremo: muchos analistas en «venta» y una caída del 60% en un año. Históricamente, comprar cuando casi nadie quiere una acción ha dado buenos resultados, siempre que la empresa no se hunda.
+- Si los resultados del 6 de noviembre sorprenden para bien, la subida puede ser rápida y quien espere entrará más caro.
+
+**En contra de entrar todo ya:**
+
+- **La tendencia sigue siendo bajista.** Cada resultado de 2026 ha traído una caída fuerte (−25,5% en abril, −12% en julio) y nuevos mínimos en octubre. Un rebote de un día (+4,4% el 13 de octubre) no confirma un cambio de tendencia. Comprar ahora es intentar «coger un cuchillo que cae».
+- **Hay un examen dentro de tres semanas.** El 6 de noviembre se sabrá si las bajas de internet se frenan. Es un evento de todo o nada: puede mover la acción un 10-25% en cualquier dirección.
+
+**Conclusión sobre el momento:** es una zona de precio interesante, pero **no** un momento claro. Lo razonable es **entrar solo con una parte** (un tercio como máximo) y reservar el resto para después de ver los datos del 6 de noviembre.
+
+## Estrategia de salida
+
+Charter **no es una empresa de crecimiento**. Sus ingresos caen ligeramente, pierde clientes en su negocio principal y el móvil no compensa todavía. Por eso no tiene sentido comprarla y olvidarse durante décadas, como se haría con una empresa que crece con fuerza. Es una **apuesta de recuperación**: se gana si el mercado pasa de valorarla como un negocio en declive a valorarla como un negocio estable. Cuando eso ocurra, la mayor parte del beneficio ya estará hecha. Por eso la salida hay que planificarla desde el primer día.
+
+Tomando como referencia un precio medio de compra de unos 100 USD:
+
+### Salida con ganancias (por tramos)
+
+| Tramo | Precio de venta orientativo | Ganancia aproximada | Por qué ese precio |
+|---|---|---|---|
+| 1.er tercio | ≈ 140 USD | +40% | Objetivo de Morgan Stanley y UBS; el mercado empezaría a creer en la estabilización |
+| 2.º tercio | ≈ 150–160 USD | +50-60% | Mediana de los analistas: a partir de ahí ya no hay un descuento evidente |
+| Último tercio | Se mantiene mientras la tesis siga viva; venta hacia 180–190 USD | +80-90% | Escenario alcista: deuda en 3,5 veces y caja libre al alza |
+
+Vender por tramos evita el error más común: no vender nunca esperando «un poco más» y devolver toda la ganancia en el siguiente mal trimestre.
+
+### Salida por «tesis rota» (la más importante)
+
+Hay que vender, aunque sea con pérdidas, si se cumple **cualquiera** de estas señales:
+
+1. **Dos trimestres seguidos perdiendo más de 200.000 clientes de internet.** Significaría que la competencia gana más rápido de lo que la empresa puede compensar.
+2. **El EBITDA cae más de un 5% interanual** sin que lo expliquen gastos puntuales de la fusión.
+3. **La deuda sube en vez de bajar**: el apalancamiento por encima de 4,2 veces en 2027, o una rebaja de la calificación crediticia que obligue a refinanciar más caro.
+4. **La empresa recompra acciones mientras la deuda no baja.** Sería mala gestión del capital, como ya ocurrió en primavera.
+
+### Salida por precio (red de seguridad)
+
+- **Cierre semanal por debajo de unos 88 USD** (un 13% por debajo del mínimo actual de 101,63). Es la señal de que el mercado descuenta el escenario bajista. La pérdida máxima quedaría en torno al 12-15% sobre el precio medio de compra.
+- Conviene usar el **cierre semanal** y no el precio de un momento del día: esta acción se mueve mucho y un mal día no debe sacarte de la posición.
+
+### Salida por tiempo
+
+Si en **18-24 meses** (finales de 2027 o principios de 2028) las bajas de internet no se han frenado y la deuda no baja hacia 3,5 veces, el dinero está mejor en otro sitio, aunque la acción no haya caído.
+
+## ¿Es una acción para mantener («hold») sin más?
+
+**No, al menos de momento.** «Mantener» a largo plazo sin plan de salida tiene sentido con empresas que crecen año tras año y cuyo valor aumenta con el tiempo. Charter hoy no cumple esa condición: su capacidad de crecer es baja y su deuda es muy alta.
+
+La forma más prudente de verlo:
+
+- **Para quien no tiene la acción:** compra **parcial y especulativa**, y como mucho un tercio antes del 6 de noviembre.
+- **Para quien ya la tiene:** **mantener (hold) con vigilancia**, revisando cada trimestre las señales de «tesis rota». No conviene promediar a la baja (comprar más a medida que cae) hasta que las bajas de internet se frenen.
+- **Cuándo podría pasar a «mantener a largo plazo»:** si durante dos o tres trimestres seguidos las bajas de internet se reducen claramente, el móvil sigue creciendo y la deuda baja como se ha prometido. En ese caso sería una empresa estable que genera 8.000-9.000 millones de caja al año, y el último tramo podría quedarse en cartera muchos años.
+
 ## En resumen
 
 Charter es una empresa que **sigue ganando mucho dinero** pero **pierde su posición dominante** en el internet de casa, y que acaba de duplicar su apuesta comprando Cox con más deuda. El precio actual descuenta mucho pesimismo. Si el cable aguanta, el efecto palanca de la deuda puede hacer que la acción suba con fuerza. Si no aguanta, ese mismo efecto puede hundirla. No es una «ganga» segura ni una trampa segura: es una **apuesta apalancada a que el declive del cable será lento**. El dato que lo decidirá llega el 6 de noviembre.
 
-**Propuesta (divulgativa):** entrada en torno a **90–105 USD (por tramos)** · horizonte: largo plazo · riesgo: muy alto.
+**Propuesta (divulgativa):** entrada en torno a **90–105 USD (por tramos)** · salida escalonada en 140, 150-160 y 180-190 USD, o venta si la tesis se rompe o la semana cierra por debajo de 88 USD · horizonte: largo plazo · riesgo: muy alto · no es un «hold» sin plan.
 
 ---
 
