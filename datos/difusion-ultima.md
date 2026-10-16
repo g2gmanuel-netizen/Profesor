@@ -6,84 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
-**Enlace:** https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
+## 1. Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
+**Enlace:** https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
 
 ### X / Twitter
 ```
-Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
+Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
 
-👉 https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
-#Actualidad #Cuidar #Familiar #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
+#Actualidad #Tesla #ElonMusk #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días*
+📰 *Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo*
 
-Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
+Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie te cuenta.
 
-• El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
-• Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
-• Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
+• El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas.
+• Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos).
+• En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
 
 _Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
-  • Gancho (0-3 s): "¿Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
+  • Gancho (0-3 s): "¿Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así…?"
   • Desarrollo (3-25 s):
-  1. El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
-  2. Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
-  3. Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
+  1. El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas.
+  2. Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos).
+  3. En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
-  🔗 Enlace en la bio · #Actualidad #Cuidar #Familiar #España #BolsilloDiario
-```
-
-## 2. Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
-**Enlace:** https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
-
-### X / Twitter
-```
-Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
-
-👉 https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
-#Impuestos #Sin #Irpf #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles*
-
-Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
-
-• La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
-• Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
-• Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
-
-_Impuestos · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
-  • Gancho (0-3 s): "¿Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda:…?"
-  • Desarrollo (3-25 s):
-  1. La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
-  2. Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
-  3. Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
-  🔗 Enlace en la bio · #Impuestos #Sin #Irpf #España #BolsilloDiario
+  Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie…
+  🔗 Enlace en la bio · #Actualidad #Tesla #ElonMusk #España #BolsilloDiario
 ```
