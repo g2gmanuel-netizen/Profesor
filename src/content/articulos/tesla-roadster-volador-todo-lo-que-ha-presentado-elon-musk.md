@@ -92,6 +92,10 @@ No es una película de Marvel. Es lo que Elon Musk enseñó la noche del jueves 
 
 **2. La voltereta.** Despegó, voló por encima de los cinco vehículos, giró en el aire y aterrizó de pie. Es la imagen que ya ha visto medio planeta.
 
+![El Roadster en el aire, girando sobre sí mismo y dejando estelas de humo blanco, por encima de una fila de vehículos de Tesla con un camión Semi en el centro.](/imagenes/tesla/tesla-roadster-presentacion-salto.jpg)
+
+*La voltereta del Roadster sobre la fila de vehículos de Tesla. Imagen de la presentación oficial del 15 de octubre de 2026.*
+
 **3. El cohete.** En una prueba en directo, con los propulsores traseros encendidos, pasó de 0 a 97 km/h en **0,81 segundos**. Nadie lo midió de forma independiente, así que es el cronómetro de Tesla.
 
 Para ponerlo en perspectiva:
@@ -161,6 +165,10 @@ La reserva se hace desde la página del Roadster en la web de Tesla. Estas son l
 | Precio final | Sin anunciar | Lo que pagas ahora es para coger turno |
 
 ## ¿Cómo puede «volar» un coche sin alas?
+
+![El Roadster blanco suspendido en el aire sobre cuatro columnas de humo de sus propulsores, en un escenario rojo con focos.](/imagenes/tesla/tesla-roadster-presentacion-propulsores.jpg)
+
+*El Roadster despegando con sus propulsores de gas frío. Imagen de la presentación oficial del 15 de octubre de 2026.*
 
 Con física de globo de cumpleaños. Si inflas un globo y lo sueltas, sale disparado: el aire escapa hacia un lado y el globo sale hacia el contrario. El Roadster hace lo mismo con **propulsores de gas frío**: expulsa gas a altísima presión por unas toberas y eso lo empuja en la dirección opuesta. Los cohetes y las naves espaciales usan esta misma tecnología para orientarse, y por eso Tesla se ha aliado con SpaceX.
 
