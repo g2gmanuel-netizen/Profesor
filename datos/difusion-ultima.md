@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-15
+# Kit de difusión — 2026-10-16
 
 
 
@@ -6,43 +6,84 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
-**Enlace:** https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
+## 1. Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
+**Enlace:** https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
 
 ### X / Twitter
 ```
-Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
+Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
 
-👉 https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
-#Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
+#Actualidad #Cuidar #Familiar #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?*
+📰 *Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días*
 
-Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
+Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
 
-• Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
-• Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
-• Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
+• El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
+• Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
+• Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
 
-_Bolsa · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
-  • Gancho (0-3 s): "¿Charter (CHTR): el gigante del cable que ha caído un 60% en un año y…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
+  • Gancho (0-3 s): "¿Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual…?"
   • Desarrollo (3-25 s):
-  1. Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
-  2. Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
-  3. Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
+  1. El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
+  2. Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
+  3. Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
-  🔗 Enlace en la bio · #Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
+  Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
+  🔗 Enlace en la bio · #Actualidad #Cuidar #Familiar #España #BolsilloDiario
+```
+
+## 2. Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
+**Enlace:** https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
+
+### X / Twitter
+```
+Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
+
+👉 https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
+#Impuestos #Sin #Irpf #España #BolsilloDiario
+```
+
+### Telegram / Canal de WhatsApp
+```
+📰 *Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles*
+
+Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
+
+• La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
+• Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
+• Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
+
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
+
+_Impuestos · Bolsillo Diario_
+```
+
+### Instagram / TikTok / YouTube Shorts
+```
+🎬 GUION VÍDEO CORTO (~30 s) — Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
+  • Gancho (0-3 s): "¿Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda:…?"
+  • Desarrollo (3-25 s):
+  1. La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
+  2. Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
+  3. Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
+  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
+
+📸 PIE PARA INSTAGRAM / TIKTOK:
+  Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
+  🔗 Enlace en la bio · #Impuestos #Sin #Irpf #España #BolsilloDiario
 ```
