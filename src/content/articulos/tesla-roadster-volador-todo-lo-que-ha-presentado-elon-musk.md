@@ -1,8 +1,8 @@
 ---
-titulo: "Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo en España"
-subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo en España y la letra pequeña que nadie te cuenta."
-tituloSeo: "Nuevo Tesla Roadster que vuela: precio, reservas en España y más"
-descripcion: "Elon Musk presenta el Tesla Roadster que salta y gira en el aire con propulsores de SpaceX: versiones, reservas en España desde 50.000 € y lo que puede hacer."
+titulo: "Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo"
+subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie te cuenta."
+tituloSeo: "Nuevo Tesla Roadster que vuela: precio, reserva y requisitos"
+descripcion: "Elon Musk presenta el Tesla Roadster que salta y gira en el aire con propulsores de SpaceX: versiones, cuánto cuesta reservarlo y lo que puede hacer."
 categoria: actualidad
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-17
@@ -43,6 +43,15 @@ fuentes:
   - titulo: "La locura de Tesla va más allá de ‘poder volar’: tendrás que pagar hasta 250.000€ en 10 días si quieres tener uno en tu garaje"
     url: https://www.hibridosyelectricos.com/coches/locura-tesla-va-mas-alla-poder-volar-tendras-pagar-hasta-250000-en-10-dias-si-quieres-tener-en-tu-garaje_89984_102.html
     organismo: Híbridos y Eléctricos
+  - titulo: Tesla reopens $50,000 Roadster reservations ahead of October 1 unveil
+    url: https://electrek.co/2026/09/20/tesla-reopens-50000-roadster-reservations-october-1-unveil/
+    organismo: Electrek
+  - titulo: "Tesla Roadster: A €50,000 Deposit, but for What?"
+    url: https://www.trendingtopics.eu/tesla-roadster-reservation-50000-euro-deposit/
+    organismo: Trending Topics
+  - titulo: Tesla unveils redesigned Roadster, with Performance reservations available in China
+    url: https://cnevpost.com/2026/10/16/tesla-unveils-redesigned-roadster/
+    organismo: CnEVPost
   - titulo: El futuro ha venido a vernos con el Tesla Roadster
     url: https://www.autofacil.es/nuevo-tesla-roadster-presentacion-oficial-propulsores-spacex/
     organismo: Autofácil
@@ -59,7 +68,7 @@ clavesRapidas:
   - "El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas."
   - "Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos)."
   - "En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía."
-  - "Ya se reserva en España: 50.000 € el Performance y 250.000 € el Thrust, a pagar en 10 días y sin conocer el precio final."
+  - "Reservarlo cuesta 50.000 dólares (5.000 con tarjeta y 45.000 por transferencia en 10 días) el Performance y 250.000 el Thrust, sin conocer el precio final."
   - "No es el coche volador de las películas: los propulsores lo elevan unos segundos y Tesla avisa de que no se puede volar por la calle."
 elaboradoConIA: true
 destacado: true
@@ -67,7 +76,7 @@ destacado: true
 
 Imagina la escena. Es de noche en el desierto de Texas. Hay una rampa, una nube de humo y, en fila, cinco vehículos de Tesla: un Model 3 azul, un Model Y rojo, un camión Semi enorme, un Cybertruck y un Cybercab dorado. Un deportivo blanco y anguloso arranca, sube por la rampa y **despega**. En el aire, sobre el camión, **se da la vuelta**: durante un instante vuela boca abajo, escupiendo chorros de gas blanco hacia el cielo. Luego se endereza y aterriza sobre sus cuatro ruedas como si nada.
 
-No es una película de Marvel. Es lo que Elon Musk enseñó la noche del jueves 15 de octubre. Se llama **Tesla Roadster**, lleva nueve años de retraso y ya puedes reservarlo en España. Agárrate, que vienen curvas.
+No es una película de Marvel. Es lo que Elon Musk enseñó la noche del jueves 15 de octubre. Se llama **Tesla Roadster**, lleva nueve años de retraso y ya se puede reservar. Agárrate, que vienen curvas.
 
 ![Recreación generada con IA de un deportivo blanco subiendo de noche por una enorme rampa curva sostenida por torres metálicas.](/imagenes/tesla/tesla-roadster-ia-rampa.jpg)
 
@@ -110,14 +119,14 @@ Antes de que termines de decir «Ro-ad-ster», ya va a velocidad de autovía.
 - **2 plazas** · de 0 a 97 km/h en **menos de 1,6 segundos** · **sin propulsores**.
 - **Qué podrás hacer:** usarlo como coche de calle. Es la versión «para el día a día», por llamarlo de alguna manera.
 - **Quién podrá tenerlo:** cualquiera que reserve y espere su turno.
-- **Reserva en España:** 50.000 euros (5.000 € de señal y 45.000 € a los diez días). En EE. UU., 50.000 dólares.
+- **Reserva:** 50.000 dólares (5.000 de señal y 45.000 a los diez días).
 
 ### Thrust: «el de circuito»
 
 - **2 plazas** · de 0 a 97 km/h en **menos de 0,9 segundos** · **propulsores traseros de gas frío** que lo empujan como un cohete pequeño al arrancar.
 - **Qué podrás hacer:** salidas brutales en circuito. Tesla lo describe como «listo para competir».
 - **Quién podrá tenerlo:** pocos, porque es una **serie limitada**.
-- **Reserva en España:** 250.000 euros, a pagar en un plazo de diez días. En EE. UU., 250.000 dólares.
+- **Reserva:** 250.000 dólares, a pagar en un plazo de diez días.
 
 ### Rocket: «el que vuela»
 
@@ -125,6 +134,21 @@ Antes de que termines de decir «Ro-ad-ster», ya va a velocidad de autovía.
 - De 0 a 97 km/h en **menos de 0,59 segundos** · **diez propulsores** repartidos por todo el coche, también por debajo.
 - **Qué podrás hacer:** saltar, girar y mantenerte en el aire. Cada carga de gas da para **unos 5 o 6 segundos** de propulsión.
 - **Quién podrá tenerlo:** **solo quien Tesla invite**. Y la marca avisa: **nada de volar por la vía pública**.
+
+### Cómo reservarlo: los requisitos
+
+La reserva se hace desde la página del Roadster en la web de Tesla. Estas son las condiciones que han publicado los medios especializados:
+
+1. **Primer pago: 5.000 dólares con tarjeta de crédito.** Es una señal y Tesla la califica de «totalmente reembolsable».
+2. **Segundo pago: 45.000 dólares por transferencia bancaria en un plazo de 10 días.** Hasta que no llega esa transferencia, la reserva no es firme. Si no pagas a tiempo, Tesla puede cancelarla.
+3. **Para el Thrust**, el depósito total es de **250.000 dólares**, también a pagar en diez días.
+4. **El Rocket no se puede reservar:** solo se accede por **invitación de Tesla**.
+5. **No hay precio final.** Tesla llama al precio estimado «meramente una estimación». Te avisarán para configurar el coche cuando llegue tu turno, y entonces sabrás lo que cuesta.
+6. **Devoluciones.** En EE. UU., las condiciones permiten cancelar y recuperar el dinero mientras no firmes el contrato de compra. En Europa, la página alemana de Tesla solo garantiza como totalmente reembolsable el primer pago, el de la señal. Si cambias la configuración del pedido, la diferencia no se devuelve.
+7. **No hay fecha de entrega.** La reserva te da un turno, no un coche. La producción está prevista para 2028.
+8. **El importe cambia según el país:** en Canadá son 6.000 dólares canadienses con tarjeta y 58.000 por transferencia; en China, un único pago de 332.000 yuanes; en Europa, 5.000 euros de señal y el resto en diez días.
+
+**Antes de pagar**, lee las condiciones de reserva de tu país en la web de Tesla: cambian de un mercado a otro y pueden actualizarse.
 
 ### Lo que comparten las tres
 
@@ -150,7 +174,7 @@ Lo que eso significa:
 
 - **Nueve años de retraso.** Tesla enseñó este Roadster por primera vez en noviembre de 2017 y prometió entregarlo en 2020. Ahora dice 2028.
 - **Media autonomía.** En 2017 prometía unos 1.000 km; ahora, más de 480. La mitad.
-- **Pagas sin saber cuánto cuesta.** En España tendrías que adelantar 50.000 o 250.000 euros en diez días **sin conocer el precio final**. Tesla llama a ese precio «meramente una estimación».
+- **Pagas sin saber cuánto cuesta.** Tienes que adelantar 50.000 o 250.000 dólares en diez días **sin conocer el precio final**. Tesla llama a ese precio «meramente una estimación».
 - **Todos los datos son de Tesla.** Ninguna revista ha cronometrado todavía el coche.
 - **Volar por la calle, prohibido.** Ningún organismo ha autorizado que un coche particular despegue en la vía pública.
 
