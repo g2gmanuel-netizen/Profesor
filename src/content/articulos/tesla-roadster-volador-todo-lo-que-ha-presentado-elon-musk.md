@@ -1,14 +1,14 @@
 ---
-titulo: "El Tesla que vuela: todo lo que presentó Elon Musk, versión a versión, y lo que puedes hacer con cada una"
-subtitulo: "Salta por encima de cinco coches, gira en el aire y aterriza sobre sus ruedas. Te contamos qué es real, qué no, cuánto cuesta reservarlo y cómo podría cambiar el futuro."
-tituloSeo: "Tesla Roadster volador: versiones, datos y qué hace cada una"
-descripcion: "El nuevo Tesla Roadster salta y 'vuela' con propulsores de SpaceX. Sus tres versiones, datos técnicos, reservas, la letra pequeña y un relato del futuro."
+titulo: "Un Tesla acaba de dar una voltereta en el aire por encima de un camión: así es el Roadster que «vuela» y ya se reserva en España"
+subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo en España y la letra pequeña que nadie te cuenta."
+tituloSeo: "Tesla Roadster que vuela: versiones, reservas en España y datos"
+descripcion: "El Tesla Roadster salta y gira en el aire con propulsores de SpaceX: sus tres versiones, reservas en España desde 50.000 €, la letra pequeña y un relato del futuro."
 categoria: actualidad
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-17
 imagen: /imagenes/tesla/tesla-roadster-portada.jpg
-imagenAlt: Ilustración de un deportivo eléctrico en el aire, impulsado por chorros de gas, saltando sobre una fila de coches tras una rampa.
-imagenCredito: "Ilustración de Bolsillo Diario (recreación, no es una foto real)"
+imagenAlt: Ilustración de un deportivo eléctrico blanco y anguloso suspendido en el aire sobre columnas de humo, en un escenario rojo con focos.
+imagenCredito: "Ilustración de Bolsillo Diario inspirada en la presentación (no es una foto real)"
 etiquetas:
   - Tesla
   - Elon Musk
@@ -40,6 +40,12 @@ fuentes:
   - titulo: Are Tesla's claims for its new 'flying' Roadster real, or is it just full of cold gas?
     url: https://electrek.co/2026/10/15/an-updated-technical-look-at-teslas-kick-flipping-0-60-in-1s-next-gen-roadster/
     organismo: Electrek
+  - titulo: "La locura de Tesla va más allá de ‘poder volar’: tendrás que pagar hasta 250.000€ en 10 días si quieres tener uno en tu garaje"
+    url: https://www.hibridosyelectricos.com/coches/locura-tesla-va-mas-alla-poder-volar-tendras-pagar-hasta-250000-en-10-dias-si-quieres-tener-en-tu-garaje_89984_102.html
+    organismo: Híbridos y Eléctricos
+  - titulo: El futuro ha venido a vernos con el Tesla Roadster
+    url: https://www.autofacil.es/nuevo-tesla-roadster-presentacion-oficial-propulsores-spacex/
+    organismo: Autofácil
   - titulo: Elon Musk dévoile une voiture volante, la Tesla Roadster
     url: https://www.franceinfo.fr/internet/elon-musk/elon-musk-devoile-un-nouveau-modele-de-voiture-volante-la-tesla-roadster-non-homologuee-pour-une-utilisation-sur-la-voie-publique_8239822.html
     organismo: franceinfo
@@ -50,124 +56,150 @@ fuentes:
     url: https://finance.yahoo.com/technology/article/teslas-flying-roadster-is-more-fuel-for-spacex-merger-rumors-than-a-real-car-155008011.html
     organismo: Yahoo Finance
 clavesRapidas:
-  - "Tesla presentó el 15 de octubre el nuevo Roadster en una base de pruebas de SpaceX en Texas: saltó sobre cinco vehículos, giró en el aire y aterrizó sobre sus ruedas."
-  - "Tres versiones: Performance (de carretera), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos segundos)."
-  - "En la demostración aceleró de 0 a 97 km/h en 0,81 segundos; Tesla promete más de 370 km/h y más de 480 km de autonomía."
-  - "No hay precio. Reservar cuesta 50.000 dólares (Performance) o 250.000 (Thrust); el Rocket es solo por invitación. Producción: 2028."
-  - "No es un coche volador como en las películas: los propulsores de gas frío solo lo elevan unos segundos y Tesla avisa de que no se puede volar en la vía pública."
+  - "El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas."
+  - "Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos)."
+  - "En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía."
+  - "Ya se reserva en España: 50.000 € el Performance y 250.000 € el Thrust, a pagar en 10 días y sin conocer el precio final."
+  - "No es el coche volador de las películas: los propulsores lo elevan unos segundos y Tesla avisa de que no se puede volar por la calle."
 elaboradoConIA: true
 destacado: true
 ---
 
-Elon Musk lleva casi nueve años prometiendo un nuevo Tesla Roadster. El jueves por la noche, hora de Texas, por fin lo enseñó, y no se parece a ningún coche que hayas visto. Subió por una rampa, despegó, pasó por encima de un Model 3, un Model Y, un Cybertruck, un Cybercab y un camión Semi, **dio una vuelta en el aire** y aterrizó sobre sus cuatro ruedas. Musk lo llamó un coche que «vuela». Aquí tienes todo lo que presentó, con sus datos técnicos, qué podrá hacer cada versión y quién podrá comprarla. Y al final, un pequeño viaje al futuro.
+Imagina la escena. Es de noche en el desierto de Texas. Hay una rampa, una nube de humo y, en fila, cinco vehículos de Tesla: un Model 3 azul, un Model Y rojo, un camión Semi enorme, un Cybertruck y un Cybercab dorado. Un deportivo blanco y anguloso arranca, sube por la rampa y **despega**. En el aire, sobre el camión, **se da la vuelta**: durante un instante vuela boca abajo, escupiendo chorros de gas blanco hacia el cielo. Luego se endereza y aterriza sobre sus cuatro ruedas como si nada.
 
-## Dónde y cómo fue la presentación
+No es una película de Marvel. Es lo que Elon Musk enseñó la noche del jueves 15 de octubre. Se llama **Tesla Roadster**, lleva nueve años de retraso y ya puedes reservarlo en España. Agárrate, que vienen curvas.
 
-- **Cuándo:** el jueves 15 de octubre de 2026 a las 19:55 hora de Texas (madrugada del viernes en España). Se había aplazado desde el 1 de octubre por el mal tiempo.
-- **Dónde:** en la base de pruebas de **SpaceX en McGregor (Texas)**, donde la empresa espacial de Musk prueba sus motores de cohete. El lugar no se eligió por casualidad: la gran novedad del coche viene de SpaceX.
-- **Cómo verlo:** Tesla la retransmitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). También puedes buscar la grabación en el **canal oficial de Tesla en YouTube** ([youtube.com/@tesla](https://www.youtube.com/@tesla)). Ojo: en YouTube circulan muchas copias y retransmisiones de aficionados; fíjate en que el canal sea el verificado de Tesla.
+![Ilustración del Roadster boca abajo en el aire, con chorros de gas saliendo de sus bajos, sobre una fila de vehículos de Tesla.](/imagenes/tesla/tesla-roadster-salto.jpg)
 
-## Lo que se vio: tres demostraciones
+## Los tres momentos que han dado la vuelta al mundo
 
-1. **La rampa al revés.** El coche subió por una rampa invertida y volvió a tierra ayudado por sus propulsores.
-2. **El gran salto.** Despegó, voló por encima de una fila de cinco vehículos de Tesla, giró sobre sí mismo en el aire y aterrizó sobre sus ruedas.
-3. **La aceleración.** En una prueba en directo, con los propulsores traseros encendidos, pasó de 0 a 60 millas por hora (unos 97 km/h) en **0,81 segundos**. Nadie la cronometró de forma independiente, así que es un dato de Tesla.
+**1. La rampa al revés.** Primero subió por una rampa invertida y volvió a tierra ayudado por sus propulsores. Hasta aquí, solo raro.
 
-Para que te hagas una idea: un coche familiar normal tarda entre 8 y 12 segundos en llegar a 100 km/h. Un superdeportivo muy rápido, unos 2,5. El Roadster lo haría en menos de un segundo: más rápido de lo que tardas en parpadear dos veces.
+**2. La voltereta.** Despegó, voló por encima de los cinco vehículos, giró en el aire y aterrizó de pie. Es la imagen que ya ha visto medio planeta.
 
-## Las tres versiones, una a una
+**3. El cohete.** En una prueba en directo, con los propulsores traseros encendidos, pasó de 0 a 97 km/h en **0,81 segundos**. Nadie lo midió de forma independiente, así que es el cronómetro de Tesla.
 
-![Infografía con las tres versiones del Tesla Roadster: Performance, Thrust y Rocket, con sus plazas, aceleración, propulsores, uso y reserva.](/imagenes/tesla/tesla-roadster-versiones.jpg)
+Para ponerlo en perspectiva:
 
-Tesla venderá el Roadster en tres versiones muy distintas. Son datos anunciados por la marca, sin pruebas independientes todavía.
+| Cuánto tarda en llegar a ~100 km/h | Tiempo aproximado |
+|---|---|
+| Un coche familiar normal | 8 a 12 segundos |
+| Un superdeportivo muy rápido | unos 2,5 segundos |
+| **El Roadster de la demostración** | **0,81 segundos** |
 
-### Roadster Performance: el deportivo «normal»
+Antes de que termines de decir «Ro-ad-ster», ya va a velocidad de autovía.
 
-- **Plazas:** 2.
-- **Aceleración:** de 0 a 97 km/h en **menos de 1,6 segundos**.
-- **Propulsores:** no tiene.
-- **Para qué sirve:** es la versión **de carretera**, la que se podrá conducir cada día.
-- **Reserva en EE. UU.:** 50.000 dólares.
-- **Quién podrá tenerlo:** cualquier cliente que haga la reserva, cuando le llegue el turno.
+## Dónde y cómo fue
 
-### Roadster Thrust: el de circuito
+- **Cuándo:** el jueves 15 de octubre de 2026 a las 19:55 hora de Texas (casi las tres de la madrugada del viernes en España). Iba a ser el 1 de octubre, pero se aplazó por el mal tiempo.
+- **Dónde:** en la base de pruebas de **SpaceX en McGregor (Texas)**, donde la empresa espacial de Musk prueba sus motores de cohete. No es casualidad: el truco del coche viene de los cohetes.
+- **Dónde verlo:** Tesla lo emitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). Búscalo también en el **canal oficial de Tesla en YouTube** ([youtube.com/@tesla](https://www.youtube.com/@tesla)). Cuidado: hay muchas copias y directos de aficionados, así que fíjate en que sea el canal verificado.
 
-- **Plazas:** 2.
-- **Aceleración:** de 0 a 97 km/h en **menos de 0,9 segundos**.
-- **Propulsores:** sí, en la parte trasera, de **gas frío**. Le dan un empujón extra al arrancar, como un cohete pequeño.
-- **Para qué sirve:** Tesla lo define como «listo para competir». Está pensado para **circuitos**.
-- **Reserva en EE. UU.:** 250.000 dólares, en una **serie limitada**.
-- **Quién podrá tenerlo:** pocos compradores, con mucho dinero y un circuito donde usarlo.
+## Las tres versiones y lo que podrás hacer con cada una
 
-### Roadster Rocket: el que «vuela»
+![Infografía con las tres versiones del Tesla Roadster: Performance, Thrust y Rocket, con plazas, aceleración, propulsores, uso y reserva.](/imagenes/tesla/tesla-roadster-versiones.jpg)
 
-- **Plazas:** **1**. Donde iría el acompañante hay un depósito extra para el gas de los propulsores.
-- **Aceleración:** de 0 a 97 km/h en **menos de 0,59 segundos**.
-- **Propulsores:** **diez**, repartidos por todo el coche, también por debajo. Son los que le permiten despegar del suelo.
-- **Para qué sirve:** saltar y mantenerse en el aire. Con cada carga de gas, los propulsores funcionan solo **unos 5 o 6 segundos**.
-- **Reserva:** **solo por invitación**.
-- **Quién podrá tenerlo:** solo quien Tesla elija. Además, la marca avisa de que **no se puede volar en la vía pública**.
+### Performance: «el tranquilo» (que acelera más que casi nada en el mundo)
+
+- **2 plazas** · de 0 a 97 km/h en **menos de 1,6 segundos** · **sin propulsores**.
+- **Qué podrás hacer:** usarlo como coche de calle. Es la versión «para el día a día», por llamarlo de alguna manera.
+- **Quién podrá tenerlo:** cualquiera que reserve y espere su turno.
+- **Reserva en España:** 50.000 euros (5.000 € de señal y 45.000 € a los diez días). En EE. UU., 50.000 dólares.
+
+### Thrust: «el de circuito»
+
+- **2 plazas** · de 0 a 97 km/h en **menos de 0,9 segundos** · **propulsores traseros de gas frío** que lo empujan como un cohete pequeño al arrancar.
+- **Qué podrás hacer:** salidas brutales en circuito. Tesla lo describe como «listo para competir».
+- **Quién podrá tenerlo:** pocos, porque es una **serie limitada**.
+- **Reserva en España:** 250.000 euros, a pagar en un plazo de diez días. En EE. UU., 250.000 dólares.
+
+### Rocket: «el que vuela»
+
+- **1 plaza.** Donde iría tu acompañante hay un depósito extra para el gas de los propulsores.
+- De 0 a 97 km/h en **menos de 0,59 segundos** · **diez propulsores** repartidos por todo el coche, también por debajo.
+- **Qué podrás hacer:** saltar, girar y mantenerte en el aire. Cada carga de gas da para **unos 5 o 6 segundos** de propulsión.
+- **Quién podrá tenerlo:** **solo quien Tesla invite**. Y la marca avisa: **nada de volar por la vía pública**.
 
 ### Lo que comparten las tres
 
-| Característica | Dato anunciado | Qué significa |
+| Característica | Dato anunciado | Traducción |
 |---|---|---|
-| Velocidad punta | Más de 370 km/h (230 mph) | Más rápido que casi cualquier coche de calle |
-| Autonomía | Más de 480 km (300 millas) | Un Madrid-Valencia y algo más sin recargar |
+| Velocidad punta | Más de 370 km/h | Más rápido que casi cualquier coche de calle |
+| Autonomía | Más de 480 km | Un Madrid-Valencia y algo más sin recargar |
 | Potencia | Hasta 1 megavatio en la versión más alta, unos 1.341 CV, según los medios especializados | Más del doble que un deportivo de lujo potente |
 | Producción | A partir de 2028 | Faltan al menos dos años para que haya clientes con el coche |
-| Precio final | Sin anunciar | La reserva no es el precio: es solo un adelanto para coger turno |
+| Precio final | Sin anunciar | Lo que pagas ahora es para coger turno |
 
-## Cómo «vuela» un coche: los propulsores de gas frío
+## ¿Cómo puede «volar» un coche sin alas?
 
-Aquí está la gran novedad, y también la letra pequeña. El Roadster no tiene alas ni hélices. Lleva **propulsores de gas frío**: expulsan gas a muy alta presión por unas toberas y, por acción y reacción (como un globo que se suelta y sale disparado), empujan el coche en la dirección contraria. Es una tecnología parecida a la que usan los cohetes y las naves espaciales para orientarse, y de ahí la colaboración con SpaceX.
+Con física de globo de cumpleaños. Si inflas un globo y lo sueltas, sale disparado: el aire escapa hacia un lado y el globo sale hacia el contrario. El Roadster hace lo mismo con **propulsores de gas frío**: expulsa gas a altísima presión por unas toberas y eso lo empuja en la dirección opuesta. Los cohetes y las naves espaciales usan esta misma tecnología para orientarse, y por eso Tesla se ha aliado con SpaceX.
 
-Lo que significa en la práctica:
+Lo que eso significa:
 
-- **No es un coche volador como en las películas.** No puede despegar e ir volando al trabajo. Puede **saltar y mantenerse en el aire unos segundos**, lo que dura el gas.
-- **Sirve para acelerar más rápido**, porque el empujón no depende solo de que las ruedas se agarren al asfalto.
-- **Hay que recargar el gas** después de cada uso intensivo.
+- **Sí puede** despegar, girar en el aire y ganar una aceleración que no depende solo del agarre de las ruedas.
+- **No puede** ir volando al trabajo. El gas dura unos segundos, y luego hay que recargarlo.
+- Es más un **salto con superpoderes** que un vuelo.
 
-## La letra pequeña que conviene saber
+## La letra pequeña (sí, la hay)
 
-- **Llega muy tarde.** Tesla enseñó este Roadster por primera vez en noviembre de 2017 y prometió entregarlo en 2020. Ahora habla de 2028.
-- **Ha perdido autonomía.** En 2017 se prometían unas 620 millas (unos 1.000 km); ahora la cifra es de más de 300 millas (unos 480 km), la mitad.
-- **Sin precio.** Solo se conocen las reservas. Quien reserva paga para coger turno, no compra el coche.
-- **Los datos no están comprobados.** Todos los tiempos de aceleración los ha dado Tesla; ninguna revista los ha medido aún.
-- **El vuelo no está permitido en carretera.** Ningún organismo ha aprobado que un coche particular despegue en la vía pública. En Europa, Tesla aún no ha anunciado cuándo ni cómo lo homologará.
+- **Nueve años de retraso.** Tesla enseñó este Roadster por primera vez en noviembre de 2017 y prometió entregarlo en 2020. Ahora dice 2028.
+- **Media autonomía.** En 2017 prometía unos 1.000 km; ahora, más de 480. La mitad.
+- **Pagas sin saber cuánto cuesta.** En España tendrías que adelantar 50.000 o 250.000 euros en diez días **sin conocer el precio final**. Tesla llama a ese precio «meramente una estimación».
+- **Todos los datos son de Tesla.** Ninguna revista ha cronometrado todavía el coche.
+- **Volar por la calle, prohibido.** Ningún organismo ha autorizado que un coche particular despegue en la vía pública.
 
-## Qué dicen los expertos y la bolsa
+## Qué dicen la bolsa y los expertos
 
-- **En bolsa, euforia y después dudas.** La acción de Tesla llegó a subir alrededor de un 5% antes de la apertura del viernes, pero a media sesión ya caía en torno a un 3%. Los inversores quieren ver el coche en la calle antes de pagar más.
-- **Gene Munster** (Deepwater) lo definió como un «alarde de ingeniería» sin valor comercial más allá de dejar en evidencia a los fabricantes tradicionales.
-- **JPMorgan** criticó que Tesla no explicara qué supone el Roadster para su negocio. Mantiene su recomendación neutral, con un precio objetivo de 415 dólares.
-- **Barclays** cree que la colaboración con SpaceX podría ser un paso previo a una posible fusión de Tesla y SpaceX. Es una especulación de los analistas, no un anuncio de Musk.
-- **Próxima cita:** Tesla presenta sus resultados del tercer trimestre el 21 de octubre.
+- **Euforia y resaca.** La acción de Tesla llegó a subir alrededor de un 5% antes de abrir el viernes, pero a media sesión ya caía en torno a un 3%. Los inversores quieren ver el coche en la calle antes de pagar más por la acción.
+- **Gene Munster** (Deepwater) lo llamó un «alarde de ingeniería» sin valor comercial más allá de dejar en evidencia a los fabricantes tradicionales.
+- **JPMorgan** echó en falta que Tesla explicara qué supone el Roadster para su negocio. Mantiene su recomendación neutral, con un precio objetivo de 415 dólares.
+- **Barclays** cree que la alianza con SpaceX podría anticipar una posible fusión de Tesla y SpaceX. Es una especulación de los analistas, no un anuncio de Musk.
+- **Próxima cita:** el 21 de octubre, Tesla presenta los resultados del tercer trimestre.
 
-**Para tu bolsillo:** si tienes acciones de Tesla, el Roadster no va a cambiar las cuentas de la empresa a corto plazo: es un coche caro y de pocas unidades. Lo que mueve la acción son las ventas de sus coches de siempre, los robotaxis y los robots Optimus. Y si te tienta reservar uno desde España, recuerda que la reserva está en dólares, no tiene precio final y el coche no llegará antes de 2028.
+**Para tu bolsillo:** el Roadster no va a cambiar las cuentas de Tesla a corto plazo, porque es un coche carísimo y de pocas unidades. Lo que mueve la acción son las ventas de los coches de siempre, los robotaxis y los robots Optimus. Y si te tienta reservar uno: es mucho dinero inmovilizado durante años, sin precio cerrado, por un coche que no llegará antes de 2028.
 
 ---
 
-## Relato de ficción: Madrid, 14 de marzo de 2041
+## Relato de ficción: «El brinco», Madrid, 2041
 
 > **Esto es ficción.** Es un relato imaginado para pensar en cómo podría cambiar el mundo esta tecnología. Ningún personaje ni hecho de esta parte es real.
 
-![Ilustración de ficción de una ciudad de noche con varios coches suspendidos en el aire sobre chorros de gas, entre rascacielos iluminados.](/imagenes/tesla/tesla-roadster-futuro.jpg)
+![Ilustración de ficción de una ciudad de noche con deportivos blancos suspendidos en el aire sobre chorros de gas, entre rascacielos iluminados.](/imagenes/tesla/tesla-roadster-futuro.jpg)
 
-A las 7:42, el despertador de Lucía no suena: la casa la despierta subiendo la persiana despacio. «Tráfico aéreo en la M-30: fluido», le dice la voz del asistente. Lucía sonríe. Se acuerda de cuando su padre tardaba una hora en llegar de Alcorcón a Castellana.
+—Abuela, ¿es verdad que antes los coches iban por el suelo?
 
-Baja al garaje. Su coche no es un Roadster Rocket, claro: esos siguen siendo juguetes de millonarios que se pasean por circuitos. Lucía usa lo que vino después. En 2031, el primer **taxi aéreo autónomo** cruzó Madrid de Barajas a la Puerta del Sol en 6 minutos. Ya nadie conduce: el coche se pide desde el móvil, llega solo y despega desde la azotea.
+Carmen, 74 años, se ríe desde el sofá. Su nieto Leo tiene nueve y está haciendo un trabajo para el colegio: «El día que los coches aprendieron a saltar».
 
-—Buenos días, Lucía —dice el robot doméstico, un descendiente de aquellos primeros Optimus que en 2026 salían en las presentaciones de Tesla como figurantes—. Te he preparado el café y he pedido el vehículo para las 8:05.
+—Por el suelo, sí. Y en atascos. Una hora para ir de Alcorcón a Castellana. Tu abuelo se pasaba media vida mirando la matrícula del de delante.
 
-El viaje es en silencio. Abajo, la Gran Vía es un paseo lleno de árboles. Cuando los coches dejaron el asfalto, la ciudad recuperó las calles: los antiguos carriles son ahora carriles bici, terrazas y huertos urbanos. En el aire, los vehículos siguen «autopistas» invisibles a distintas alturas, como las rutas de los aviones, y una red de inteligencia artificial evita que se crucen.
+Por la ventana del piso 23 pasa un taxi aéreo, silencioso, siguiendo una de esas autopistas invisibles que dibuja la inteligencia artificial sobre Madrid. Abajo, la Gran Vía ya no es una carretera: es un bosque con terrazas, carriles bici y un huerto urbano donde antes había cuatro carriles de humo.
 
-No todo es perfecto. El ruido de los propulsores obligó a prohibir los despegues en zonas residenciales antes de las 7:00. El seguro de un vehículo aéreo cuesta lo mismo que un alquiler. Y en 2036 hubo un apagón de la red de control que dejó a miles de vehículos posados en tejados durante tres horas: desde entonces, todos llevan un sistema de emergencia que los baja solos al suelo.
+—¿Y cómo empezó todo?
 
-Lucía mira por la ventanilla. A lo lejos, sobre el desierto de Almería, se ve la estela de un cohete que despega hacia la Luna: hoy sale el vuelo comercial de las 8:30. Piensa en aquel vídeo antiguo que vio en clase de Historia de la Tecnología. Un coche plateado, una rampa en Texas, un salto de cinco segundos por encima de unos coches. Todo el mundo se reía: «Eso no es volar, es dar un brinco».
+Carmen busca en su tableta un vídeo antiguo, con la imagen granulada de 2026. Un deportivo blanco sube una rampa en el desierto de Texas, salta por encima de un camión, se pone boca abajo y aterriza.
 
-Así empiezan las cosas, piensa ella mientras el taxi aterriza suavemente en la azotea de su oficina. Primero, un brinco.
+—Esto —dice—. Todo el mundo se rió. «Eso no es volar, es un brinco», decían. Tu abuelo dijo que era una tontería de millonarios.
+
+—¿Y tenía razón?
+
+—Tenía razón… y no la tenía. Aquel coche no servía para ir a trabajar. Pero los chavales que lo vieron aquella noche quisieron hacer algo mejor. Cinco años después, en 2031, el primer taxi aéreo sin conductor cruzó de Barajas a Sol en seis minutos. Luego vinieron las leyes, los carriles en el cielo, las multas por despegar antes de las siete de la mañana… y el gran apagón de 2036.
+
+Leo abre mucho los ojos.
+
+—¿Qué apagón?
+
+—Tres horas sin la red que guía los vehículos. Miles de coches posados en los tejados de Madrid, como palomas gigantes. Desde entonces, todos llevan un sistema que los baja solos al suelo si algo falla.
+
+En ese momento, la casa avisa: «Vehículo en la azotea en dos minutos». Carmen se levanta despacio y coge el abrigo.
+
+—¿Adónde vamos?
+
+—A Almería. Hoy despega el vuelo comercial de las doce hacia la Luna y tu madre va dentro. —Le guiña un ojo—. Para que veas que lo de aquel brinco fue solo el principio.
+
+Leo escribe la última frase de su trabajo antes de salir corriendo hacia la azotea:
+
+*«Todo empezó con un salto de cinco segundos que nadie se tomó en serio.»*
 
 ---
 
-**Volvemos a 2026.** Lo que Tesla presentó es un deportivo eléctrico extremo con propulsores capaces de levantarlo unos segundos, no un coche volador para ir al trabajo. Si algún día las ciudades se llenan de vehículos aéreos, será gracias a muchas empresas, muchas leyes nuevas y muchos años de pruebas. Pero el salto de McGregor ya forma parte de esa historia.
+**De vuelta a 2026.** Lo que Tesla ha presentado es un deportivo eléctrico extremo con propulsores capaces de levantarlo unos segundos, no un coche volador para ir a trabajar. Si algún día las ciudades se llenan de vehículos aéreos, será gracias a muchas empresas, muchas leyes nuevas y muchos años de pruebas. Pero el brinco de McGregor ya forma parte de esa historia.
