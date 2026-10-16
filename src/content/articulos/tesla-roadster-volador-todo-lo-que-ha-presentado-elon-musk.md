@@ -1,14 +1,14 @@
 ---
-titulo: "Un Tesla acaba de dar una voltereta en el aire por encima de un camión: así es el Roadster que «vuela» y ya se reserva en España"
+titulo: "Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo en España"
 subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo en España y la letra pequeña que nadie te cuenta."
-tituloSeo: "Tesla Roadster que vuela: versiones, reservas en España y datos"
-descripcion: "El Tesla Roadster salta y gira en el aire con propulsores de SpaceX: sus tres versiones, reservas en España desde 50.000 €, la letra pequeña y un relato del futuro."
+tituloSeo: "Nuevo Tesla Roadster que vuela: precio, reservas en España y más"
+descripcion: "Elon Musk presenta el Tesla Roadster que salta y gira en el aire con propulsores de SpaceX: versiones, reservas en España desde 50.000 € y lo que puede hacer."
 categoria: actualidad
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-17
-imagen: /imagenes/tesla/tesla-roadster-portada.jpg
-imagenAlt: Ilustración de un deportivo eléctrico blanco y anguloso suspendido en el aire sobre columnas de humo, en un escenario rojo con focos.
-imagenCredito: "Ilustración de Bolsillo Diario inspirada en la presentación (no es una foto real)"
+imagen: /imagenes/tesla/tesla-roadster-ia-puertas.jpg
+imagenAlt: Recreación generada con IA de un deportivo eléctrico blanco con las puertas abiertas hacia arriba, de noche, frente a un edificio con el logotipo de SpaceX.
+imagenCredito: "Imagen generada con IA (recreación, no es una foto real)"
 etiquetas:
   - Tesla
   - Elon Musk
@@ -69,11 +69,17 @@ Imagina la escena. Es de noche en el desierto de Texas. Hay una rampa, una nube 
 
 No es una película de Marvel. Es lo que Elon Musk enseñó la noche del jueves 15 de octubre. Se llama **Tesla Roadster**, lleva nueve años de retraso y ya puedes reservarlo en España. Agárrate, que vienen curvas.
 
-![Ilustración del Roadster boca abajo en el aire, con chorros de gas saliendo de sus bajos, sobre una fila de vehículos de Tesla.](/imagenes/tesla/tesla-roadster-salto.jpg)
+![Recreación generada con IA de un deportivo blanco subiendo de noche por una enorme rampa curva sostenida por torres metálicas.](/imagenes/tesla/tesla-roadster-ia-rampa.jpg)
+
+*Imagen generada con IA. Recreación, no es una foto real.*
 
 ## Los tres momentos que han dado la vuelta al mundo
 
 **1. La rampa al revés.** Primero subió por una rampa invertida y volvió a tierra ayudado por sus propulsores. Hasta aquí, solo raro.
+
+![Recreación generada con IA de un deportivo blanco circulando boca abajo por el interior de un arco metálico.](/imagenes/tesla/tesla-roadster-ia-boca-abajo.jpg)
+
+*Imagen generada con IA. Recreación, no es una foto real.*
 
 **2. La voltereta.** Despegó, voló por encima de los cinco vehículos, giró en el aire y aterrizó de pie. Es la imagen que ya ha visto medio planeta.
 
@@ -93,7 +99,7 @@ Antes de que termines de decir «Ro-ad-ster», ya va a velocidad de autovía.
 
 - **Cuándo:** el jueves 15 de octubre de 2026 a las 19:55 hora de Texas (casi las tres de la madrugada del viernes en España). Iba a ser el 1 de octubre, pero se aplazó por el mal tiempo.
 - **Dónde:** en la base de pruebas de **SpaceX en McGregor (Texas)**, donde la empresa espacial de Musk prueba sus motores de cohete. No es casualidad: el truco del coche viene de los cohetes.
-- **Dónde verlo:** Tesla lo emitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). Búscalo también en el **canal oficial de Tesla en YouTube** ([youtube.com/@tesla](https://www.youtube.com/@tesla)). Cuidado: hay muchas copias y directos de aficionados, así que fíjate en que sea el canal verificado.
+- **Dónde verlo:** ▶️ **[Mira aquí la presentación oficial en YouTube](https://www.youtube.com/watch?v=qt5p-_tE8d0)**, la retransmisión que enlazaba la propia web de Tesla. También la emitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). Cuidado: en YouTube circulan muchas copias y directos de aficionados.
 
 ## Las tres versiones y lo que podrás hacer con cada una
 
@@ -164,7 +170,6 @@ Lo que eso significa:
 
 > **Esto es ficción.** Es un relato imaginado para pensar en cómo podría cambiar el mundo esta tecnología. Ningún personaje ni hecho de esta parte es real.
 
-![Ilustración de ficción de una ciudad de noche con deportivos blancos suspendidos en el aire sobre chorros de gas, entre rascacielos iluminados.](/imagenes/tesla/tesla-roadster-futuro.jpg)
 
 —Abuela, ¿es verdad que antes los coches iban por el suelo?
 
