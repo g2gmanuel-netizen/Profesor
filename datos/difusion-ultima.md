@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-15
+# Kit de difusión — 2026-10-16
 
 
 
@@ -6,84 +6,84 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
-**Enlace:** https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
+## 1. Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
+**Enlace:** https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
 
 ### X / Twitter
 ```
-Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
+Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
 
-👉 https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
-#Alquiler #Inmobiliarias #Internacionales #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
+#Actualidad #Cuidar #Familiar #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso*
+📰 *Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días*
 
-Varias empresas cancelan contratos y suspenden operaciones alegando incompatibilidad con la nueva normativa. Qué cambia para ti como inquilino y cinco pautas para buscar vivienda ahora.
+Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
 
-• Inmobiliarias internacionales cancelan contratos y suspenden operaciones en el alquiler español, alegando incompatibilidad con la nueva normativa.
-• Algunos anuncios pueden aparecer como "anulados": confirma siempre que el piso sigue disponible antes de moverte.
-• Menos oferta tiende a significar más competencia por cada vivienda; prepara tu documentación con antelación.
+• El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
+• Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
+• Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d/
 
-_Alquiler · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Inmobiliarias internacionales frenan el alquiler en España: qué hacer si buscas piso
-  • Gancho (0-3 s): "¿Inmobiliarias internacionales frenan el alquiler en España: qué hacer…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual el permiso de 5 días
+  • Gancho (0-3 s): "¿Cuidar a un familiar: qué hacer si tu empresa limita a un cupo anual…?"
   • Desarrollo (3-25 s):
-  1. Inmobiliarias internacionales cancelan contratos y suspenden operaciones en el alquiler español, alegando incompatibilidad con la nueva normativa.
-  2. Algunos anuncios pueden aparecer como "anulados": confirma siempre que el piso sigue disponible antes de moverte.
-  3. Menos oferta tiende a significar más competencia por cada vivienda; prepara tu documentación con antelación.
+  1. El Supremo ha dictaminado que las empresas no pueden poner un límite anual al permiso retribuido de cinco días por cuidado de familiares.
+  2. Según la sentencia, el permiso remunerado no tiene tope anual y se renueva con cada familiar afectado.
+  3. Si tu empresa te aplica un cupo anual, guarda el comunicado: es tu prueba.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Varias empresas cancelan contratos y suspenden operaciones alegando incompatibilidad con la nueva normativa. Qué cambia para ti como inquilino y cinco pautas para buscar vivienda ahora.
-  🔗 Enlace en la bio · #Alquiler #Inmobiliarias #Internacionales #España #BolsilloDiario
+  Según la sentencia, recogida por El Economista (vía Menéame), el permiso retribuido no tiene cupo anual y se renueva con cada familiar afectado. Qué hacer si tu empresa te lo limita.
+  🔗 Enlace en la bio · #Actualidad #Cuidar #Familiar #España #BolsilloDiario
 ```
 
-## 2. Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
-**Enlace:** https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
+## 2. Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
+**Enlace:** https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
 
 ### X / Twitter
 ```
-Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
+Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
 
-👉 https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
-#Impuestos #Tribunal #Supremo #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
+#Impuestos #Sin #Irpf #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario*
+📰 *Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles*
 
-Es la primera vez que el alto tribunal aborda la cuestión, pero no hay sentencia ni cambio normativo: así queda tu declaración de la renta mientras tanto.
+Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
 
-• El Supremo estudiará por primera vez si los extranjeros no comunitarios pueden deducirse el alquiler en España.
-• Hasta ahora la cuestión no se había abordado judicialmente.
-• No hay sentencia ni cambio normativo confirmado: de momento, tu declaración no cambia.
+• La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
+• Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
+• Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas/
 
 _Impuestos · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero no comunitario
-  • Gancho (0-3 s): "¿Tribunal Supremo y alquiler: qué pasa con tu renta si eres extranjero…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda: las tres salidas posibles
+  • Gancho (0-3 s): "¿Sin IRPF, ¿quién cubre 85.000 millones? Impuestos, recortes o deuda:…?"
   • Desarrollo (3-25 s):
-  1. El Supremo estudiará por primera vez si los extranjeros no comunitarios pueden deducirse el alquiler en España.
-  2. Hasta ahora la cuestión no se había abordado judicialmente.
-  3. No hay sentencia ni cambio normativo confirmado: de momento, tu declaración no cambia.
+  1. La cifra que se maneja para el hueco de eliminar el IRPF es de 85.000 millones de euros.
+  2. Hacienda analiza la viabilidad fiscal de reformas tributarias radicales, según Europa Press.
+  3. Sin IRPF, el dinero tendría que salir de otros impuestos, de recortes o de más deuda.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Es la primera vez que el alto tribunal aborda la cuestión, pero no hay sentencia ni cambio normativo: así queda tu declaración de la renta mientras tanto.
-  🔗 Enlace en la bio · #Impuestos #Tribunal #Supremo #España #BolsilloDiario
+  Hacienda analiza la viabilidad de reformas fiscales radicales, según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de recortes o de más deuda, y no todos lo notarían igual.
+  🔗 Enlace en la bio · #Impuestos #Sin #Irpf #España #BolsilloDiario
 ```
