@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-15
+# Kit de difusión — 2026-10-16
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
-**Enlace:** https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
+## 1. Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
+**Enlace:** https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
 
 ### X / Twitter
 ```
-Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
+Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
 
-👉 https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
-#Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
+#Actualidad #Tesla #ElonMusk #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?*
+📰 *Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo*
 
-Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
+Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie te cuenta.
 
-• Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
-• Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
-• Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
+• El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas.
+• Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos).
+• En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/bolsa-chtr-2026-10-15/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/tesla-roadster-volador-todo-lo-que-ha-presentado-elon-musk/
 
-_Bolsa · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Charter (CHTR): el gigante del cable que ha caído un 60% en un año y acaba de comprar Cox. ¿Ganga o trampa?
-  • Gancho (0-3 s): "¿Charter (CHTR): el gigante del cable que ha caído un 60% en un año y…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así es, lo que puede hacer y cuánto cuesta reservarlo
+  • Gancho (0-3 s): "¿Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: así…?"
   • Desarrollo (3-25 s):
-  1. Cotiza a 106,95 USD (13/10/2026): un 60% por debajo de su máximo de 52 semanas (268,77) y a un paso del mínimo (101,63).
-  2. Pierde clientes de internet cada trimestre (−172.000 en el segundo de 2026), pero gana líneas móviles (+406.000).
-  3. Tras comprar Cox, la deuda ronda los 106.000 millones: las acciones son solo un 15% del valor total de la empresa, y eso multiplica las subidas y las bajadas.
+  1. El nuevo Tesla Roadster saltó por encima de cinco vehículos (un camión incluido), giró boca abajo en el aire y aterrizó sobre sus ruedas.
+  2. Tres versiones: Performance (para la calle), Thrust (con propulsores, para circuito) y Rocket (una plaza, puede «volar» unos 5-6 segundos).
+  3. En directo aceleró de 0 a 97 km/h en 0,81 segundos. Tesla promete más de 370 km/h y más de 480 km de autonomía.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios.
-  🔗 Enlace en la bio · #Bolsa #CHTR #Telecomunicaciones #España #BolsilloDiario
+  Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie…
+  🔗 Enlace en la bio · #Actualidad #Tesla #ElonMusk #España #BolsilloDiario
 ```
