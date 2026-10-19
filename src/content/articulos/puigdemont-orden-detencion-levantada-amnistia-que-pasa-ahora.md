@@ -12,10 +12,8 @@ categoria: politica
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora.jpg
-imagenAlt: "Imagen del artículo: El Supremo levanta la orden de detención contra
-  Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la
-  causa se cierre"
-imagenCredito: "Foto: lecreusois (Pixabay)"
+imagenAlt: "La bandera de España junto a la senyera de Cataluña"
+imagenCredito: "Imagen: Bolsillo Diario"
 etiquetas:
   - Puigdemont
   - amnistía
