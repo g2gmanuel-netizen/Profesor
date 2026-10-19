@@ -129,7 +129,6 @@ const POR_SECCION: Record<string, string[]> = {
   politica: ['spanish parliament madrid', 'parliament session'],
   sociedad: ['people street spain', 'crowd city spain'],
   vivienda: ['residential building apartments', 'house keys new home'],
-  hipotecas: ['mortgage house keys', 'house model euro money'],
   alquiler: ['apartment keys rent', 'apartment building balconies'],
   ahorro: ['euro savings piggy bank', 'euro coins savings'],
   impuestos: ['tax form calculator', 'taxes paperwork calculator'],

@@ -2,6 +2,8 @@ import { z } from 'zod';
 import { CATEGORIAS } from '../../src/lib/sitio';
 
 const slugsCategoria = CATEGORIAS.map((c) => c.slug) as [string, ...string[]];
+// «hipotecas» se fusionó en «vivienda»: se acepta el slug antiguo y se reconduce.
+const categoria = z.preprocess((v) => (v === 'hipotecas' ? 'vivienda' : v), z.enum(slugsCategoria));
 
 export const FuenteSchema = z.object({
   titulo: z.string(),
@@ -18,7 +20,7 @@ export const CandidatoSchema = z.object({
   url: z.string().url(),
   fechaDeteccion: z.string(),
   organismo: z.string().optional(),
-  categoriaSugerida: z.enum(slugsCategoria),
+  categoriaSugerida: categoria,
 });
 export type Candidato = z.infer<typeof CandidatoSchema>;
 
@@ -27,7 +29,7 @@ export const TemaAprobadoSchema = CandidatoSchema.extend({
   puntuacion: z.number().min(0).max(10),
   /** Potencial viral/trending: cuánta gente en España se interesaría HOY por el tema. */
   viralidad: z.number().min(0).max(10).default(5),
-  categoria: z.enum(slugsCategoria),
+  categoria: categoria,
   enfoque: z.string(),
   anguloUtilidad: z.string(),
   riesgo: z.enum(['bajo', 'medio', 'alto']),
@@ -110,7 +112,7 @@ export const ArticuloFinalSchema = z.object({
     subtitulo: z.string(),
     tituloSeo: z.string().max(65),
     descripcion: z.string().min(50).max(165),
-    categoria: z.enum(slugsCategoria),
+    categoria: categoria,
     autor: z.string(),
     fechaPublicacion: z.string(),
     imagen: z.string(),

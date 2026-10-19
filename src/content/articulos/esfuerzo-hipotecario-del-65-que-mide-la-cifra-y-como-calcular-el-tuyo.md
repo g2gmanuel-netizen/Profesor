@@ -7,7 +7,7 @@ tituloSeo: "Esfuerzo hipotecario del 65%: cómo calcular el tuyo"
 descripcion: Un análisis cita ese porcentaje del salario anual en algunas zonas,
   pero sin metodología ni lista de zonas. Te explicamos cómo leerlo y la fórmula
   para calcular…
-categoria: hipotecas
+categoria: vivienda
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-13
 imagen: /imagenes/esfuerzo-hipotecario-del-65-que-mide-la-cifra-y-como-calcular-el-tuyo.jpg

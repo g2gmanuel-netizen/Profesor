@@ -76,12 +76,8 @@ export const CATEGORIAS: Categoria[] = [
   {
     slug: 'vivienda',
     nombre: 'Vivienda',
-    descripcion: 'Compra, obra nueva, precios y mercado residencial en España.',
-  },
-  {
-    slug: 'hipotecas',
-    nombre: 'Hipotecas',
-    descripcion: 'Euríbor, tipos, cuotas y cómo afectan a tu préstamo.',
+    descripcion:
+      'Compra, obra nueva, precios, hipotecas y Euríbor: todo sobre el mercado residencial en España.',
   },
   {
     slug: 'alquiler',
@@ -120,7 +116,6 @@ export const COLORES_CATEGORIA: Record<string, [string, string]> = {
   politica: ['#6a3d9a', '#8a5cc0'],
   sociedad: ['#b4531a', '#d47636'],
   vivienda: ['#0b5d3b', '#0e7a4e'],
-  hipotecas: ['#0b5d3b', '#0e7a4e'],
   alquiler: ['#1f6f8b', '#2b8aa8'],
   ahorro: ['#0b5d3b', '#0e7a4e'],
   impuestos: ['#8a3b2a', '#b04f39'],

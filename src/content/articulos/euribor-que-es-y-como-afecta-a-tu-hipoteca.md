@@ -6,7 +6,7 @@ subtitulo: Te explicamos, con un ejemplo real, cuánto sube o baja tu letra
 tituloSeo: "Euríbor: qué es y cómo afecta a tu hipoteca"
 descripcion: Qué es el Euríbor, cómo se calcula tu cuota y cuánto cambia la
   letra cuando sube o baja. Con ejemplo práctico paso a paso.
-categoria: hipotecas
+categoria: vivienda
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-09-20
 imagen: /imagenes/euribor-que-es-y-como-afecta-a-tu-hipoteca.jpg

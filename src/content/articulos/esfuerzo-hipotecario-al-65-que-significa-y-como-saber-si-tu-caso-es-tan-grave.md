@@ -8,7 +8,7 @@ tituloSeo: "Esfuerzo hipotecario: el límite del 35% y qué hacer"
 descripcion: El pago de la hipoteca no debería superar el 30-35% de los ingresos
   netos del hogar. Te explicamos cómo calcular tu esfuerzo real y qué opciones
   tienes…
-categoria: hipotecas
+categoria: vivienda
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave.jpg

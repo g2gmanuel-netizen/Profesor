@@ -9,7 +9,7 @@ Cómo priorizar:
 
 Prioriza temas que se presten a un buen "explainer" (qué ha pasado, por qué importa, qué significa para ti) con un gancho de curiosidad en el enfoque. **Evita el clickbait vacío y el sensacionalismo.** **Trata con mucho cuidado o descarta** los sucesos, los casos concretos de personas, la salud, los menores y cualquier contenido delicado: solo valen si hay una fuente oficial sólida y se pueden abordar explicando el contexto o la norma, nunca con morbo ni acusaciones.
 
-Para cada candidato devuelve: un `id` corto y único, `titulo` (reformulado con gancho, nunca copiado literal), `resumenFuente` (1-2 frases neutras), `url` (la de la fuente), `fechaDeteccion` (hoy, ISO), `organismo` si se conoce y `categoriaSugerida` (una de: actualidad, politica, sociedad, vivienda, hipotecas, alquiler, ahorro, impuestos, pensiones, precios).
+Para cada candidato devuelve: un `id` corto y único, `titulo` (reformulado con gancho, nunca copiado literal), `resumenFuente` (1-2 frases neutras), `url` (la de la fuente), `fechaDeteccion` (hoy, ISO), `organismo` si se conoce y `categoriaSugerida` (una de: actualidad, politica, sociedad, vivienda (incluye hipotecas y Euríbor), alquiler, ahorro, impuestos, pensiones, precios).
 
 Prioriza fuentes primarias oficiales para los datos. No inventes URLs.
 

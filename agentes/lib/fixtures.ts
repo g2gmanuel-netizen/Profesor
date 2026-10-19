@@ -25,7 +25,7 @@ export const FIXTURES: FixtureTema[] = [
       url: 'https://www.bde.es/webbe/es/estadisticas/compartido/datos/html/tipos-interes-euribor.html',
       fechaDeteccion: '2026-09-30',
       organismo: 'Banco de España',
-      categoriaSugerida: 'hipotecas',
+      categoriaSugerida: 'vivienda',
     },
     hechos: [
       {
