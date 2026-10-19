@@ -4,6 +4,7 @@ import { SITIO } from '../lib/sitio';
 export const GET: APIRoute = () => {
   const cuerpo = `User-agent: *
 Allow: /
+Disallow: /redes/
 
 Sitemap: ${SITIO.url}/sitemap.xml
 Sitemap: ${SITIO.url}/sitemap-news.xml

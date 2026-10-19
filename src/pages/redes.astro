@@ -1,0 +1,176 @@
+---
+/**
+ * Carruseles listos para Instagram y TikTok (los genera scripts/carruseles.ts).
+ * Página de trabajo: no se indexa ni aparece en el menú.
+ */
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Carrusel {
+  slug: string;
+  titulo: string;
+  fecha: string;
+  imagenes: number;
+  texto: string;
+}
+
+const dir = resolve(process.cwd(), 'public/redes');
+const carruseles: Carrusel[] = existsSync(dir)
+  ? readdirSync(dir)
+      .filter((d) => existsSync(resolve(dir, d, 'info.json')))
+      .map((d) => ({
+        ...(JSON.parse(readFileSync(resolve(dir, d, 'info.json'), 'utf8')) as Omit<Carrusel, 'texto'>),
+        texto: readFileSync(resolve(dir, d, 'texto.txt'), 'utf8'),
+      }))
+      .sort((a, b) => b.fecha.localeCompare(a.fecha))
+  : [];
+const formatoFecha = (f: string) => f.split('-').reverse().join('/');
+---
+
+<BaseLayout titulo="Carruseles para redes" noindex>
+  <section class="redes">
+    <h1>Carruseles para redes</h1>
+    <p class="entradilla">
+      Uno por noticia, listos para Instagram y TikTok (modo foto). Pulsa «Guardar imágenes» desde el
+      móvil, copia el texto y publícalo.
+    </p>
+
+    {carruseles.length === 0 && <p>Todavía no hay carruseles generados.</p>}
+
+    {
+      carruseles.map((c) => (
+        <article class="carrusel" data-slug={c.slug} data-n={c.imagenes}>
+          <p class="fecha">{formatoFecha(c.fecha)}</p>
+          <h2>{c.titulo}</h2>
+          <div class="tira">
+            {Array.from({ length: c.imagenes }, (_, i) => (
+              <a href={`/redes/${c.slug}/${i + 1}.jpg`} download={`${c.slug}-${i + 1}.jpg`}>
+                <img src={`/redes/${c.slug}/${i + 1}.jpg`} alt={`Imagen ${i + 1} de ${c.imagenes}`} width="216" height="270" loading="lazy" />
+              </a>
+            ))}
+          </div>
+          <div class="acciones">
+            <button type="button" class="guardar">Guardar imágenes</button>
+            <button type="button" class="copiar">Copiar texto</button>
+          </div>
+          <textarea readonly rows="8">{c.texto}</textarea>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<script>
+  async function guardar(art: HTMLElement): Promise<void> {
+    const slug = art.dataset.slug!;
+    const n = Number(art.dataset.n);
+    const urls = Array.from({ length: n }, (_, i) => `/redes/${slug}/${i + 1}.jpg`);
+    const ficheros = await Promise.all(
+      urls.map(async (u, i) => new File([await (await fetch(u)).blob()], `${slug}-${i + 1}.jpg`, { type: 'image/jpeg' })),
+    );
+    // En el móvil, la hoja de compartir permite «Guardar imágenes» o enviarlas directo a Instagram/TikTok.
+    if (navigator.canShare?.({ files: ficheros })) {
+      try {
+        await navigator.share({ files: ficheros });
+        return;
+      } catch {
+        return;
+      }
+    }
+    for (const f of ficheros) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(f);
+      a.download = f.name;
+      a.click();
+      await new Promise((r) => setTimeout(r, 300));
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('.carrusel').forEach((art) => {
+    art.querySelector('.guardar')?.addEventListener('click', () => void guardar(art));
+    const copiar = art.querySelector<HTMLButtonElement>('.copiar')!;
+    copiar.addEventListener('click', async () => {
+      const texto = art.querySelector('textarea')!.value;
+      try {
+        await navigator.clipboard.writeText(texto);
+      } catch {
+        art.querySelector('textarea')!.select();
+        document.execCommand('copy');
+      }
+      copiar.textContent = '¡Copiado!';
+      setTimeout(() => (copiar.textContent = 'Copiar texto'), 2000);
+    });
+  });
+</script>
+
+<style>
+  .redes {
+    max-width: var(--ancho-lectura);
+    margin-inline: auto;
+  }
+  .carrusel {
+    border-top: 1px solid var(--color-borde);
+    padding-block: 1.5rem;
+  }
+  .fecha {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    margin: 0;
+  }
+  .carrusel h2 {
+    font-size: 1.25rem;
+    margin: 0.25rem 0 0.75rem;
+  }
+  .tira {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+  }
+  .tira a {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .tira img {
+    display: block;
+    width: 216px;
+    height: 270px;
+    object-fit: cover;
+    border: 1px solid var(--color-borde);
+  }
+  .acciones {
+    display: flex;
+    gap: 0.5rem;
+    margin-block: 0.75rem;
+  }
+  .acciones button {
+    flex: 1;
+    font-family: var(--fuente-ui);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--color-marca);
+    color: #fff;
+  }
+  .acciones .copiar {
+    background: var(--color-fondo-alt);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde-fuerte);
+  }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    background: var(--color-fondo-alt);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    padding: 0.75rem;
+  }
+</style>
