@@ -1,0 +1,55 @@
+name: Verificar escalas IRPF
+
+# Descarga las escalas oficiales del IRPF (Ministerio de Hacienda y Agencia
+# Tributaria) en texto plano para contrastarlas con la calculadora de la web.
+# Las guarda en la rama "verificacion-escalas". Se lanza a mano.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar herramientas
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils html2text wget
+
+      - name: Descargar fuentes oficiales
+        run: |
+          mkdir -p out && cd out
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
+          for anio in 2026 2025; do
+            url="https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-ii-tributacion-autonomica-${anio}.pdf"
+            if curl -sSfL -A "$UA" -o "hacienda-${anio}.pdf" "$url"; then
+              pdftotext -layout "hacienda-${anio}.pdf" "hacienda-${anio}.txt"
+              echo "OK $url ($(wc -l < hacienda-${anio}.txt) líneas)"
+            else
+              echo "NO $url"; rm -f "hacienda-${anio}.pdf"
+            fi
+          done
+          for anio in 2025 2026; do
+            base="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-${anio}/c15-calculo-impuesto-determinacion-cuotas-integras/"
+            mkdir -p "aeat-${anio}"
+            wget -q -r -l 3 -np -nH --cut-dirs=6 -A html -U "$UA" -e robots=off -P "aeat-${anio}" "${base}introduccion/general.html" "$base" || true
+            find "aeat-${anio}" -name '*.html' | sort | while read -r f; do
+              echo "===== $f" >> "aeat-${anio}.txt"
+              html2text -utf8 -width 200 "$f" >> "aeat-${anio}.txt" || true
+            done
+            echo "AEAT ${anio}: $(find aeat-${anio} -name '*.html' | wc -l) páginas"
+            rm -rf "aeat-${anio}"
+          done
+          rm -f *.pdf
+          ls -la
+
+      - name: Guardar en la rama verificacion-escalas
+        run: |
+          cd out
+          git init -q
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -q -b verificacion-escalas
+          git add -A
+          git commit -q -m "Escalas oficiales del IRPF (texto)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" verificacion-escalas
