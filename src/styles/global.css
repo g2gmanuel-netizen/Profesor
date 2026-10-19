@@ -835,3 +835,40 @@ img {
     font-size: 1.3rem;
   }
 }
+
+/* ----- Llamada a la calculadora dentro de los artículos ----- */
+.cta-calculadora {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 2rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--color-marca);
+  border-radius: 12px;
+  background: var(--color-fondo-alt);
+  color: var(--color-texto);
+  font-family: var(--fuente-ui);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.cta-calculadora:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.08);
+}
+.cta-calculadora strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--color-marca);
+}
+.cta-calculadora span span {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+.cta-ico {
+  font-size: 2rem;
+}
+.cta-flecha {
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--color-marca);
+}

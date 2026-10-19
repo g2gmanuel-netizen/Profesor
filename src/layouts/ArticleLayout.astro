@@ -18,6 +18,10 @@ const urlAbs = new URL(urlArticulo(articulo), SITIO.url).href;
 const tiempoLectura = Math.max(1, Math.round(palabras / 200));
 const rel = await relacionados(articulo, 4);
 const largo = palabras > 600;
+// Las noticias de impuestos o sueldos enlazan a la calculadora de IRPF.
+const sobreIrpf =
+  d.categoria === 'impuestos' ||
+  /irpf|renta|hacienda|n[oó]mina|sueldo|salari|retenci|tribut|deducci/i.test(`${d.titulo} ${d.etiquetas.join(' ')}`);
 
 const newsArticle = {
   '@context': 'https://schema.org',
@@ -174,6 +178,19 @@ const breadcrumb = {
             ))}
           </ul>
         </section>
+      )
+    }
+
+    {
+      sobreIrpf && (
+        <a class="cta-calculadora" href="/calculadoras/irpf/">
+          <span class="cta-ico" aria-hidden="true">🧮</span>
+          <span>
+            <strong>¿Cuánto te quita Hacienda a ti?</strong>
+            <span>Calcúlalo en 1 minuto con nuestra calculadora de IRPF 2026: sueldo neto, si te sale a pagar o a devolver y cómo pagar menos.</span>
+          </span>
+          <span class="cta-flecha" aria-hidden="true">→</span>
+        </a>
       )
     }
 

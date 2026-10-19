@@ -1,0 +1,206 @@
+---
+/**
+ * Página de cada comunidad: tabla de sueldo bruto a neto y escala autonómica,
+ * con acceso a la calculadora completa ya configurada para esa comunidad.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Anuncio from '../../../components/Anuncio.astro';
+import { COMUNIDADES, DATOS_VACIOS, EJERCICIO, MINIMOS_ESTATALES, calcular, type Comunidad } from '../../../lib/irpf';
+import { SITIO } from '../../../lib/sitio';
+
+export function getStaticPaths() {
+  return COMUNIDADES.filter((c) => !c.foral).map((c) => ({ params: { comunidad: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props as { c: Comunidad };
+const SUELDOS = [15000, 17094, 20000, 22000, 25000, 28000, 30000, 35000, 40000, 45000, 50000, 60000, 70000, 80000, 100000, 150000];
+const fmt = (n: number) => `${Math.round(n).toLocaleString('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions)} €`;
+const pct = (n: number) => `${n.toLocaleString('es-ES', { maximumFractionDigits: 1 })} %`;
+const filas = SUELDOS.map((s) => ({ s, r: calcular({ ...DATOS_VACIOS, comunidad: c.slug, salario: s }) }));
+const ref = filas.find((f) => f.s === 30000)!.r;
+const otras = COMUNIDADES.filter((x) => !x.foral)
+  .map((x) => ({ x, irpf: calcular({ ...DATOS_VACIOS, comunidad: x.slug, salario: 30000 }).irpfTotal }))
+  .sort((a, b) => a.irpf - b.irpf);
+const puesto = otras.findIndex((o) => o.x.slug === c.slug) + 1;
+const titulo = `Sueldo neto en ${c.nombre} ${EJERCICIO}: tabla de bruto a neto e IRPF`;
+const descripcion = `Cuánto cobras neto en ${c.nombre} en ${EJERCICIO} según tu sueldo bruto: IRPF, Seguridad Social, tipo medio y tramos autonómicos. Con 30.000 € brutos te quedan ${fmt(ref.netoAnual)}.`;
+const nombreCorto = c.nombre.replace(/^Comunidad de |^Región de /, '');
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <div class="ccaa">
+    <nav class="migas" aria-label="Ruta">
+      <a href="/calculadoras/">Calculadoras</a> › <a href="/calculadoras/irpf/">IRPF</a> › {c.nombre}
+    </nav>
+    <h1>Sueldo neto e IRPF en {c.nombre} ({EJERCICIO})</h1>
+    <p class="entradilla">
+      Con un sueldo bruto de 30.000 € al año en {nombreCorto} te quedan <strong>{fmt(ref.netoAnual)}</strong> netos:
+      {fmt(ref.netoAnual / 14)} al mes en 14 pagas. Pagas {fmt(ref.irpfTotal)} de IRPF (un {pct(ref.tipoMedio)} de tipo
+      medio) y {fmt(ref.ssTrabajador)} de Seguridad Social. Con ese sueldo, {c.nombre} es la comunidad número {puesto} de
+      {otras.length} donde menos IRPF se paga.
+    </p>
+
+    <a class="boton-calc" href={`/calculadoras/irpf/?ccaa=${c.slug}`}>Calcula tu caso exacto en {nombreCorto} →</a>
+
+    <Anuncio formato="horizontal" />
+
+    <h2>Tabla de sueldo bruto a neto en {nombreCorto}</h2>
+    <p class="nota">Contribuyente soltero, menor de 65 años, sin hijos, con contrato indefinido y solo rentas del trabajo.</p>
+    <div class="tabla-scroll">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Bruto anual</th>
+            <th>Neto anual</th>
+            <th>Neto al mes (14 pagas)</th>
+            <th>Neto al mes (12 pagas)</th>
+            <th>IRPF</th>
+            <th>Tipo medio</th>
+            <th>Tipo marginal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            filas.map(({ s, r }) => (
+              <tr>
+                <td><a href={`/calculadoras/irpf/?ccaa=${c.slug}&sueldo=${s}`}>{fmt(s)}</a></td>
+                <td><strong>{fmt(r.netoAnual)}</strong></td>
+                <td>{fmt(r.netoAnual / 14)}</td>
+                <td>{fmt(r.netoAnual / 12)}</td>
+                <td>{fmt(r.irpfTotal)}</td>
+                <td>{pct(r.tipoMedio)}</td>
+                <td>{pct(r.tipoMarginal)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Escala autonómica del IRPF en {nombreCorto}</h2>
+    <p>
+      La mitad de tu IRPF va al Estado y la otra mitad a {nombreCorto}. Esta es la parte autonómica de la escala que se
+      aplica a la base liquidable general en {EJERCICIO}; se suma a la estatal (del 9,5 % al 24,5 %).
+    </p>
+    <div class="tabla-scroll">
+      <table class="tabla">
+        <thead><tr><th>Base liquidable desde</th><th>Hasta</th><th>Tipo autonómico</th></tr></thead>
+        <tbody>
+          {
+            c.escala.map(([hasta, tipo], i) => (
+              <tr>
+                <td>{fmt(i === 0 ? 0 : c.escala[i - 1]![0])}</td>
+                <td>{Number.isFinite(hasta) ? fmt(hasta) : 'En adelante'}</td>
+                <td>{pct(tipo)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="nota">Fuente: {c.nota} Contrastado con «Tributación Autonómica. Medidas {EJERCICIO}» del Ministerio de Hacienda.</p>
+
+    {
+      c.minimos && (
+        <>
+          <h2>Mínimo personal y familiar propio</h2>
+          <p>
+            {c.nombre} aplica en su parte del impuesto un mínimo del contribuyente de {fmt(c.minimos.personal)} (el estatal
+            es de {fmt(MINIMOS_ESTATALES.personal)}) y {fmt(c.minimos.descendientes[0])} por el primer hijo (estatal:{' '}
+            {fmt(MINIMOS_ESTATALES.descendientes[0])}). Esa parte de tu renta no paga la cuota autonómica.
+          </p>
+        </>
+      )
+    }
+
+    {c.ceutaMelilla && <p>Los residentes en {c.nombre} se deducen el 60 % de la cuota por las rentas obtenidas allí.</p>}
+
+    <Anuncio formato="rectangulo" />
+
+    <h2>IRPF con 30.000 € brutos en cada comunidad</h2>
+    <div class="tabla-scroll">
+      <table class="tabla">
+        <thead><tr><th>Comunidad</th><th>IRPF</th><th>Neto anual</th></tr></thead>
+        <tbody>
+          {
+            otras.map((o) => (
+              <tr class={o.x.slug === c.slug ? 'actual' : ''}>
+                <td>{o.x.slug === c.slug ? <strong>{o.x.nombre}</strong> : <a href={`/calculadoras/irpf/${o.x.slug}/`}>{o.x.nombre}</a>}</td>
+                <td>{fmt(o.irpf)}</td>
+                <td>{fmt(30000 - ref.ssTrabajador - o.irpf)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <a class="boton-calc" href={`/calculadoras/irpf/?ccaa=${c.slug}`}>Añade hijos, alquileres, planes de pensiones y deducciones →</a>
+
+    <aside class="aviso">
+      <strong>Información meramente orientativa.</strong> Cálculo simplificado con fines informativos: no sustituye a la
+      declaración oficial ni al consejo de un asesor. No incluye deducciones autonómicas, que pueden rebajar el resultado.
+      {SITIO.nombre} no se hace responsable de las decisiones tomadas a partir de estos datos.
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .ccaa {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+  .migas,
+  .nota {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+  }
+  .boton-calc {
+    display: inline-block;
+    margin-block: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    background: var(--color-marca);
+    color: #fff;
+    font-family: var(--fuente-ui);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .tabla-scroll {
+    overflow-x: auto;
+  }
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .tabla th,
+  .tabla td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--color-borde);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .tabla th:first-child,
+  .tabla td:first-child {
+    text-align: left;
+  }
+  .tabla thead th {
+    background: var(--color-fondo-alt);
+    font-size: 0.8rem;
+  }
+  .tabla tr.actual td {
+    background: color-mix(in srgb, var(--color-marca) 10%, transparent);
+  }
+  .aviso {
+    font-family: var(--fuente-ui);
+    font-size: 0.88rem;
+    background: var(--color-fondo-alt);
+    border-left: 4px solid var(--color-destacado);
+    padding: 0.75rem 1rem;
+    margin-block: 2rem 1rem;
+  }
+</style>

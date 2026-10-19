@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { SITIO, slugAutor } from '../lib/sitio';
 import { todosLosArticulos, urlArticulo, categoriasConArticulos } from '../lib/articulos';
 import { construirSitemap, type UrlSitemap } from '../lib/sitemap';
+import { COMUNIDADES } from '../lib/irpf';
 
 export const GET: APIRoute = async () => {
   const arts = await todosLosArticulos();
@@ -12,6 +13,7 @@ export const GET: APIRoute = async () => {
     { loc: `${base}/buscar/` },
     { loc: `${base}/calculadoras/` },
     { loc: `${base}/calculadoras/irpf/` },
+    ...COMUNIDADES.filter((c) => !c.foral).map((c) => ({ loc: `${base}/calculadoras/irpf/${c.slug}/` })),
     { loc: `${base}/sobre-nosotros/` },
     { loc: `${base}/contacto/` },
     { loc: `${base}/politica-editorial/` },

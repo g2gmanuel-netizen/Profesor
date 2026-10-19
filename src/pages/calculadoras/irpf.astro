@@ -279,6 +279,15 @@ const esquema = {
       </details>
     </section>
 
+    <section class="bloque">
+      <h2>Sueldo neto por comunidad autónoma</h2>
+      <ul class="lista-ccaa">
+        {COMUNIDADES.filter((c) => !c.foral).map((c) => (
+          <li><a href={`/calculadoras/irpf/${c.slug}/`}>{c.nombre}</a></li>
+        ))}
+      </ul>
+    </section>
+
     <aside class="aviso">
       <strong>Información meramente orientativa.</strong> {SITIO.nombre} no se hace responsable de las decisiones que se
       tomen a partir de esta simulación. Los datos que introduces no se envían a ningún servidor: el cálculo se hace en
@@ -544,6 +553,13 @@ const esquema = {
   }
 
   restaurar();
+  // Enlaces desde las páginas de cada comunidad: ?ccaa=madrid&sueldo=30000
+  const params = new URLSearchParams(location.search);
+  const ccaa = params.get('ccaa');
+  const selCcaa = document.getElementById('c-comunidad') as HTMLSelectElement | null;
+  if (ccaa && selCcaa && Array.from(selCcaa.options).some((o) => o.value === ccaa)) selCcaa.value = ccaa;
+  const sueldoUrl = Number(params.get('sueldo'));
+  if (sueldoUrl > 0) salario.value = String(sueldoUrl);
   form.addEventListener('input', pintar);
   form.addEventListener('change', pintar);
   deslizador.addEventListener('input', () => {
@@ -1283,6 +1299,13 @@ const esquema = {
     border: 1px solid var(--color-borde);
     padding: 0.25rem 0.6rem;
     text-align: left;
+  }
+  .lista-ccaa {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 0.3rem 1rem;
+    padding-left: 1.1rem;
+    font-family: var(--fuente-ui);
   }
   .barra-movil {
     display: none;

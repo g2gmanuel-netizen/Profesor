@@ -65,3 +65,12 @@ jobs:
           for i in 1 2 3 4; do
             git pull --rebase origin main && git push && break || { echo "reintento $i"; sleep $((2**i)); }
           done
+
+      - name: Avisar a Bing y otros buscadores (IndexNow)
+        if: ${{ !inputs.prueba }}
+        env:
+          DOMINIO: ${{ vars.DOMINIO }}
+        run: |
+          # Damos tiempo a Cloudflare Pages a publicar la versión nueva antes de avisar.
+          sleep 240
+          npx tsx scripts/indexnow.mts || echo "IndexNow no respondió bien; se reintentará en la próxima edición"
