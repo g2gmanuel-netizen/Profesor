@@ -62,8 +62,17 @@ const CONCEPTOS: Concepto[] = [
     busqueda: { consultas: ['european central bank', 'euro banknotes', 'euro currency'] },
   },
   {
+    patron: /puigdemont|proc[eé]s|independentis|catalu[ñn]a|catalunya|generalitat|amnist[ií]a/i,
+    busqueda: {
+      consultas: ['catalonia spain flags', 'spanish catalan flag', 'spanish constitution', 'spain flag'],
+      requiere: /\b(flag|flags|bandera|constitution|constituci[oó]n|catalonia|catalan|spain|spanish)\b/i,
+    },
+  },
+  {
     patron: /elecci[oó]n|elecciones|votar|voto|votaci[oó]n|censo electoral|urnas?\b|29-n/i,
-    busqueda: { consultas: ['ballot box election', 'voting election ballot', 'vote polling station'] },
+    busqueda: {
+      consultas: ['ballot box spain flag', 'spain election ballot box', 'ballot box election', 'voting election ballot'],
+    },
   },
   {
     patron: /supremo|constitucional|tribunal|sentencia|juez|jueza|juzgado/i,
