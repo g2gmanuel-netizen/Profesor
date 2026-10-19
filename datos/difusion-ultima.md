@@ -6,125 +6,84 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
-**Enlace:** https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
+## 1. Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una cosa u otra
+**Enlace:** https://tubolsillodiario.com/articulo/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre/
 
 ### X / Twitter
 ```
-Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
+Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una cosa u otra
 
-👉 https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
-#Impuestos #Baja #Medica #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre/
+#Politica #Leydenietos #Eleccionesgenerales #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración*
+📰 *Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una cosa u otra*
 
-Hacienda distingue según quién te pague: cobrar del INSS o de una mutua te convierte en «segundo pagador». Te explicamos cómo ordenar tus ingresos antes de la renta.
+El Supremo mantiene suspendido el voto de los nacionalizados por la ley de nietos y el Defensor del Pueblo ha acudido al Constitucional. Te explicamos la ley, el pleito y los escenarios para las generales.
 
-• Lo que cobras en baja médica tributa en el IRPF.
-• Hacienda trata los ingresos de forma distinta según su fuente.
-• Solo eres «segundo pagador» si cobras del INSS o de una mutua.
+• La «ley de nietos» permitió obtener la nacionalidad española a descendientes de exiliados de la Guerra Civil y la dictadura.
+• El Supremo suspendió de forma cautelar el voto desde el extranjero de 163.020 nacionalizados por esta vía y el 12 de octubre lo mantuvo (5 votos a 1).
+• El tribunal teme irregularidades en el censo porque una instrucción administrativa de 2022 facilitó acreditar el exilio.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
-
-_Impuestos · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
-  • Gancho (0-3 s): "¿Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu decl…?"
-  • Desarrollo (3-25 s):
-  1. Lo que cobras en baja médica tributa en el IRPF.
-  2. Hacienda trata los ingresos de forma distinta según su fuente.
-  3. Solo eres «segundo pagador» si cobras del INSS o de una mutua.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Hacienda distingue según quién te pague: cobrar del INSS o de una mutua te convierte en «segundo pagador». Te explicamos cómo ordenar tus ingresos antes de la renta.
-  🔗 Enlace en la bio · #Impuestos #Baja #Medica #España #BolsilloDiario
-```
-
-## 2. Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
-**Enlace:** https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
-
-### X / Twitter
-```
-Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
-
-👉 https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
-#Actualidad #Cambio #Hora #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo*
-
-El reloj se atrasa una hora en España. Móvil y otros aparatos conectados pueden ajustarse solos, pero los relojes sin conexión hay que cambiarlos a mano.
-
-• Este fin de semana cambia la hora en España y el reloj se retrasa una hora.
-• Las fechas de los cambios de hora ya se conocen hasta 2031.
-• Comprueba que móvil, ordenador y reloj inteligente tengan la hora automática activada.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
-
-_Actualidad · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
-  • Gancho (0-3 s): "¿Cambio de hora este fin de semana: 4 comprobaciones para no liarte el…?"
-  • Desarrollo (3-25 s):
-  1. Este fin de semana cambia la hora en España y el reloj se retrasa una hora.
-  2. Las fechas de los cambios de hora ya se conocen hasta 2031.
-  3. Comprueba que móvil, ordenador y reloj inteligente tengan la hora automática activada.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  El reloj se atrasa una hora en España. Móvil y otros aparatos conectados pueden ajustarse solos, pero los relojes sin conexión hay que cambiarlos a mano.
-  🔗 Enlace en la bio · #Actualidad #Cambio #Hora #España #BolsilloDiario
-```
-
-## 3. Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
-**Enlace:** https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
-
-### X / Twitter
-```
-Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
-
-👉 https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
-#Politica #Martes #Sociales #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas*
-
-Viudedad, incapacidad permanente, víctimas del terrorismo y de violencia de género: según EL PAÍS, cada una tendrá su decreto. Te contamos qué mirar y dónde comprobarlo.
-
-• El Gobierno inicia una serie de decretos, los 'martes sociales', para mejorar prestaciones sociales.
-• Afectan a viudedad, incapacidad permanente, víctimas del terrorismo y víctimas de violencia de género.
-• Se plantean antes de las elecciones, según EL PAÍS.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre/
 
 _Política · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
-  • Gancho (0-3 s): "¿Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una cosa u otra
+  • Gancho (0-3 s): "¿Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin v…?"
   • Desarrollo (3-25 s):
-  1. El Gobierno inicia una serie de decretos, los 'martes sociales', para mejorar prestaciones sociales.
-  2. Afectan a viudedad, incapacidad permanente, víctimas del terrorismo y víctimas de violencia de género.
-  3. Se plantean antes de las elecciones, según EL PAÍS.
+  1. La «ley de nietos» permitió obtener la nacionalidad española a descendientes de exiliados de la Guerra Civil y la dictadura.
+  2. El Supremo suspendió de forma cautelar el voto desde el extranjero de 163.020 nacionalizados por esta vía y el 12 de octubre lo mantuvo (5 votos a 1).
+  3. El tribunal teme irregularidades en el censo porque una instrucción administrativa de 2022 facilitó acreditar el exilio.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Viudedad, incapacidad permanente, víctimas del terrorismo y de violencia de género: según EL PAÍS, cada una tendrá su decreto. Te contamos qué mirar y dónde comprobarlo.
-  🔗 Enlace en la bio · #Politica #Martes #Sociales #España #BolsilloDiario
+  El Supremo mantiene suspendido el voto de los nacionalizados por la ley de nietos y el Defensor del Pueblo ha acudido al Constitucional. Te explicamos la ley, el pleito y los escenarios para las gene…
+  🔗 Enlace en la bio · #Politica #Leydenietos #Eleccionesgenerales #España #BolsilloDiario
+```
+
+## 2. El Supremo levanta la orden de detención contra Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre
+**Enlace:** https://tubolsillodiario.com/articulo/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora/
+
+### X / Twitter
+```
+El Supremo levanta la orden de detención contra Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre
+
+👉 https://tubolsillodiario.com/articulo/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora/
+#Politica #Puigdemont #Amnistia #España #BolsilloDiario
+```
+
+### Telegram / Canal de WhatsApp
+```
+📰 *El Supremo levanta la orden de detención contra Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre*
+
+El juez Llarena aplica, sin compartirla, la doctrina del Constitucional que obliga a amnistiar la malversación del procés. Puigdemont ya no puede ser detenido en España, pero su causa sigue abierta.
+
+• El juez del Supremo Pablo Llarena ha confirmado que Puigdemont, Comín y Puig ya no tienen orden de detención en España.
+• Lo hace porque el Constitucional obligó a amnistiar la malversación del procés en el caso de Dolors Bassa (7 votos a 5).
+• Llarena aplica esa doctrina aunque no la comparte, y critica con dureza al Constitucional en su auto.
+
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora/
+
+_Política · Bolsillo Diario_
+```
+
+### Instagram / TikTok / YouTube Shorts
+```
+🎬 GUION VÍDEO CORTO (~30 s) — El Supremo levanta la orden de detención contra Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre
+  • Gancho (0-3 s): "¿El Supremo levanta la orden de detención contra Puigdemont: qué ha pa…?"
+  • Desarrollo (3-25 s):
+  1. El juez del Supremo Pablo Llarena ha confirmado que Puigdemont, Comín y Puig ya no tienen orden de detención en España.
+  2. Lo hace porque el Constitucional obligó a amnistiar la malversación del procés en el caso de Dolors Bassa (7 votos a 5).
+  3. Llarena aplica esa doctrina aunque no la comparte, y critica con dureza al Constitucional en su auto.
+  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
+
+📸 PIE PARA INSTAGRAM / TIKTOK:
+  El juez Llarena aplica, sin compartirla, la doctrina del Constitucional que obliga a amnistiar la malversación del procés. Puigdemont ya no puede ser detenido en España, pero su causa sigue abierta.
+  🔗 Enlace en la bio · #Politica #Puigdemont #Amnistia #España #BolsilloDiario
 ```
