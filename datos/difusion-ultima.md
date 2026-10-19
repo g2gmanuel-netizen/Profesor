@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-18
+# Kit de difusión — 2026-10-19
 
 
 
@@ -6,84 +6,125 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Alquiler: cómo saber si superas la referencia del 30 % de tus ingresos
-**Enlace:** https://tubolsillodiario.com/articulo/alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos/
+## 1. Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
+**Enlace:** https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
 
 ### X / Twitter
 ```
-Alquiler: cómo saber si superas la referencia del 30 % de tus ingresos
+Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
 
-👉 https://tubolsillodiario.com/articulo/alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos/
-#Alquiler #Saber #Superas #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
+#Impuestos #Baja #Medica #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Alquiler: cómo saber si superas la referencia del 30 % de tus ingresos*
+📰 *Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración*
 
-Un análisis económico habla de un desfase entre ingresos y vivienda. Así puedes medir cuánto pesa el alquiler en tu nómina y qué hacer con el resultado.
+Hacienda distingue según quién te pague: cobrar del INSS o de una mutua te convierte en «segundo pagador». Te explicamos cómo ordenar tus ingresos antes de la renta.
 
-• Un análisis económico señala un desfase entre los ingresos de los hogares y los costes de la vivienda, que dificulta el acceso al alquiler.
-• Su resumen: «Salarios del 2000 con precios de hoy no encajan».
-• Calcula tu porcentaje: alquiler dividido entre sueldo neto mensual, por 100.
+• Lo que cobras en baja médica tributa en el IRPF.
+• Hacienda trata los ingresos de forma distinta según su fuente.
+• Solo eres «segundo pagador» si cobras del INSS o de una mutua.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion/
 
-_Alquiler · Bolsillo Diario_
+_Impuestos · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Alquiler: cómo saber si superas la referencia del 30 % de tus ingresos
-  • Gancho (0-3 s): "¿Alquiler: cómo saber si superas la referencia del 30 % de tus ingresos?"
+🎬 GUION VÍDEO CORTO (~30 s) — Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu declaración
+  • Gancho (0-3 s): "¿Baja médica e IRPF: qué es el segundo pagador y cómo afecta a tu decl…?"
   • Desarrollo (3-25 s):
-  1. Un análisis económico señala un desfase entre los ingresos de los hogares y los costes de la vivienda, que dificulta el acceso al alquiler.
-  2. Su resumen: «Salarios del 2000 con precios de hoy no encajan».
-  3. Calcula tu porcentaje: alquiler dividido entre sueldo neto mensual, por 100.
+  1. Lo que cobras en baja médica tributa en el IRPF.
+  2. Hacienda trata los ingresos de forma distinta según su fuente.
+  3. Solo eres «segundo pagador» si cobras del INSS o de una mutua.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Un análisis económico habla de un desfase entre ingresos y vivienda. Así puedes medir cuánto pesa el alquiler en tu nómina y qué hacer con el resultado.
-  🔗 Enlace en la bio · #Alquiler #Saber #Superas #España #BolsilloDiario
+  Hacienda distingue según quién te pague: cobrar del INSS o de una mutua te convierte en «segundo pagador». Te explicamos cómo ordenar tus ingresos antes de la renta.
+  🔗 Enlace en la bio · #Impuestos #Baja #Medica #España #BolsilloDiario
 ```
 
-## 2. Ayuda al alquiler del Plan de Vivienda 2026-2030: se pide en tu comunidad autónoma
-**Enlace:** https://tubolsillodiario.com/articulo/ayuda-al-alquiler-del-plan-de-vivienda-2026-2030-se-pide-en-tu-comunidad-autonom/
+## 2. Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
+**Enlace:** https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
 
 ### X / Twitter
 ```
-Ayuda al alquiler del Plan de Vivienda 2026-2030: se pide en tu comunidad autónoma
+Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
 
-👉 https://tubolsillodiario.com/articulo/ayuda-al-alquiler-del-plan-de-vivienda-2026-2030-se-pide-en-tu-comunidad-autonom/
-#Vivienda #Ayuda #Alquiler #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
+#Actualidad #Cambio #Hora #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Ayuda al alquiler del Plan de Vivienda 2026-2030: se pide en tu comunidad autónoma*
+📰 *Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo*
 
-El plan es estatal, pero las solicitudes las gestiona tu comunidad autónoma. Qué mirar en la convocatoria y qué documentos tener listos antes de que se abra el plazo.
+El reloj se atrasa una hora en España. Móvil y otros aparatos conectados pueden ajustarse solos, pero los relojes sin conexión hay que cambiarlos a mano.
 
-• El Plan Estatal de Vivienda 2026-2030 incluye medidas de ayuda al alquiler.
-• Las solicitudes las gestiona cada comunidad autónoma, no una ventanilla estatal única.
-• Fuentes oficiales: BOE, Ministerio de Vivienda y Agenda Urbana y la web de vivienda de tu comunidad.
+• Este fin de semana cambia la hora en España y el reloj se retrasa una hora.
+• Las fechas de los cambios de hora ya se conocen hasta 2031.
+• Comprueba que móvil, ordenador y reloj inteligente tengan la hora automática activada.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/ayuda-al-alquiler-del-plan-de-vivienda-2026-2030-se-pide-en-tu-comunidad-autonom/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo/
 
-_Vivienda · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Ayuda al alquiler del Plan de Vivienda 2026-2030: se pide en tu comunidad autónoma
-  • Gancho (0-3 s): "¿Ayuda al alquiler del Plan de Vivienda 2026-2030: se pide en tu comun…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Cambio de hora este fin de semana: 4 comprobaciones para no liarte el domingo
+  • Gancho (0-3 s): "¿Cambio de hora este fin de semana: 4 comprobaciones para no liarte el…?"
   • Desarrollo (3-25 s):
-  1. El Plan Estatal de Vivienda 2026-2030 incluye medidas de ayuda al alquiler.
-  2. Las solicitudes las gestiona cada comunidad autónoma, no una ventanilla estatal única.
-  3. Fuentes oficiales: BOE, Ministerio de Vivienda y Agenda Urbana y la web de vivienda de tu comunidad.
+  1. Este fin de semana cambia la hora en España y el reloj se retrasa una hora.
+  2. Las fechas de los cambios de hora ya se conocen hasta 2031.
+  3. Comprueba que móvil, ordenador y reloj inteligente tengan la hora automática activada.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  El plan es estatal, pero las solicitudes las gestiona tu comunidad autónoma. Qué mirar en la convocatoria y qué documentos tener listos antes de que se abra el plazo.
-  🔗 Enlace en la bio · #Vivienda #Ayuda #Alquiler #España #BolsilloDiario
+  El reloj se atrasa una hora en España. Móvil y otros aparatos conectados pueden ajustarse solos, pero los relojes sin conexión hay que cambiarlos a mano.
+  🔗 Enlace en la bio · #Actualidad #Cambio #Hora #España #BolsilloDiario
+```
+
+## 3. Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
+**Enlace:** https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
+
+### X / Twitter
+```
+Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
+
+👉 https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
+#Politica #Martes #Sociales #España #BolsilloDiario
+```
+
+### Telegram / Canal de WhatsApp
+```
+📰 *Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas*
+
+Viudedad, incapacidad permanente, víctimas del terrorismo y de violencia de género: según EL PAÍS, cada una tendrá su decreto. Te contamos qué mirar y dónde comprobarlo.
+
+• El Gobierno inicia una serie de decretos, los 'martes sociales', para mejorar prestaciones sociales.
+• Afectan a viudedad, incapacidad permanente, víctimas del terrorismo y víctimas de violencia de género.
+• Se plantean antes de las elecciones, según EL PAÍS.
+
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir/
+
+_Política · Bolsillo Diario_
+```
+
+### Instagram / TikTok / YouTube Shorts
+```
+🎬 GUION VÍDEO CORTO (~30 s) — Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y dónde seguirlas
+  • Gancho (0-3 s): "¿Martes sociales: las 4 prestaciones que el Gobierno quiere mejorar y…?"
+  • Desarrollo (3-25 s):
+  1. El Gobierno inicia una serie de decretos, los 'martes sociales', para mejorar prestaciones sociales.
+  2. Afectan a viudedad, incapacidad permanente, víctimas del terrorismo y víctimas de violencia de género.
+  3. Se plantean antes de las elecciones, según EL PAÍS.
+  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
+
+📸 PIE PARA INSTAGRAM / TIKTOK:
+  Viudedad, incapacidad permanente, víctimas del terrorismo y de violencia de género: según EL PAÍS, cada una tendrá su decreto. Te contamos qué mirar y dónde comprobarlo.
+  🔗 Enlace en la bio · #Politica #Martes #Sociales #España #BolsilloDiario
 ```
