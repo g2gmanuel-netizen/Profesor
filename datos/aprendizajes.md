@@ -1,26 +1,26 @@
 # Aprendizajes del medio
 
-_Última actualización: 2026-10-12._
+_Última actualización: 2026-10-19._
 
 
 ## Reglas para los agentes (Editor jefe, Analista de audiencia, Titulador)
-- DATOS: esta semana no hay métricas válidas de GA4, Search Console ni AdSense. Ningún agente debe citar un tema, formato o titular como «ganador» hasta que haya datos reales. Mientras tanto, trata estas reglas como hipótesis.
-- EDITOR JEFE: reparte la producción para poder comparar. Cada semana publica al menos 2 artículos de servicio (plazos, requisitos, pasos), 2 de actualidad con ángulo propio y 1 explicativo de fondo. Etiqueta cada pieza con su formato para poder medirlo después.
-- EDITOR JEFE: cada pieza debe llevar una etiqueta de tema, una de formato y otra de tipo de titular. Sin etiquetas no se puede cruzar con las métricas ni sacar reglas reales la semana siguiente.
-- EDITOR JEFE: da prioridad a los temas que respondan a una pregunta concreta que alguien teclearía en Google («cómo», «cuánto», «qué plazo», «qué requisitos»). Es la hipótesis más segura para una web que depende de búsqueda y no tiene presupuesto de promoción.
-- ANALISTA DE AUDIENCIA: en cuanto el GA4 llegue completo, calcula por pieza las páginas vistas, el tiempo medio de lectura y el porcentaje de rebote. Cruza esas cifras con las etiquetas de tema y formato. Señala solo diferencias de al menos 1,5 veces entre grupos con 3 o más piezas cada uno.
-- ANALISTA DE AUDIENCIA: con Search Console, lista las consultas con muchas impresiones y CTR bajo (menos del 2 %) y posición 5-15. Son candidatas a reescribir el titular o a ampliar el artículo, y suelen dar mejora más rápida que publicar contenido nuevo.
-- ANALISTA DE AUDIENCIA: informa en cada ejecución de qué fuentes están caídas o vacías (AdSense pendiente, GA4 truncado) antes de dar conclusiones. No rellenes huecos con estimaciones.
-- TITULADOR: escribe titulares que incluyan la palabra clave principal en las primeras 60 caracteres, con el dato concreto (cifra, plazo, fecha) cuando exista. Evita el clickbait vago y las preguntas sin respuesta, porque dañan el CTR a largo plazo y el tiempo de lectura.
-- TITULADOR: genera 2 variantes de titular por pieza y deja registrado cuál se publicó y cuál no, para comparar CTR en Search Console la semana siguiente (por ejemplo, titular con cifra frente a titular con pregunta).
-- EDITOR JEFE: no se puede medir rentabilidad hasta conectar AdSense. Mantén el contenido con intención informativa y evita temas que limiten la monetización, y que se pueda pedir el rendimiento por página cuando la conexión funcione.
+- Agentes 2, 4 y 6: esta semana no hay evidencia de rendimiento. No atribuyáis resultados a ningún tema, formato o titular concreto, y no cites cifras de CTR, PV o ingresos que no estén en los datos.
+- Editor jefe (2): hasta que haya datos reales, reparte la producción en pruebas controladas. Publica al menos 2 formatos distintos por tema (servicio/guía con plazos y requisitos, explicativo, noticia de dato) para que la semana siguiente se puedan comparar.
+- Editor jefe (2): da prioridad a los artículos de servicio con utilidad práctica (qué hacer, plazos, requisitos, pasos) frente a la noticia efímera. Es una hipótesis de partida habitual en SEO, no un resultado medido. Etiqueta cada pieza con su formato para poder medirla.
+- Analista de audiencia (4): no hay consultas de Search Console esta semana. No propongas temas «por demanda» como si estuvieran validados, y marca cualquier sugerencia como «sin datos de búsqueda».
+- Analista de audiencia (4): cuando haya Search Console, pide por artículo páginas vistas, tiempo de lectura, CTR, posición media y consultas. Señala primero las páginas con muchas impresiones y CTR bajo, porque son las que más ganan reescribiendo el titular.
+- Titulador (6): usa titulares claros, con la palabra clave principal al inicio y sin clickbait. Prueba variantes A/B en pares (con cifra o plazo frente a con pregunta) y registra cuál se publicó, para que el CTR de la semana próxima sea comparable.
+- Titulador (6): mantén los titulares dentro de unos 60 caracteres para que no se corten en Google y que el título prometa solo lo que el artículo cumple.
+- Todos: considera la medición un bloqueo. Hay que conectar las credenciales de AdSense y verificar que Search Console y la analítica se exportan por artículo. Sin eso, el análisis semanal seguirá en blanco.
+- Todos: coste fijo actual casi nulo (solo el dominio, 12 €/año). Cualquier ingreso futuro será margen, así que no hace falta sacrificar calidad por volumen. Prefiere pocos artículos bien hechos y actualizables a muchos de relleno.
+- Editor jefe (2): para cada pieza evergreen publicada, programa una revisión de actualización a los 30 días (datos, plazos, enlaces). Es el tipo de contenido que más se beneficia de mantenerse al día.
 
 ## Temas de fondo (evergreen) propuestos
-- Guía paso a paso de un trámite administrativo habitual en España, con plazos, requisitos y documentos (hipótesis de servicio; validar con Search Console)
-- Cómo calcular o comprobar una cifra personal frecuente: finanzas domésticas, impuestos básicos, factura de la luz (explicativo con ejemplo numérico)
-- Calendario o checklist anual recurrente que se pueda actualizar cada año (fechas clave, plazos, renovaciones)
-- Preguntas frecuentes y errores comunes sobre el tema principal de la web, tratadas una por pieza
-- Glosario explicado en lenguaje sencillo de los términos que más se buscan en el sector de la web
+- Guía paso a paso de trámites y gestiones habituales en España (qué documentos hacen falta, plazos, dónde se presenta)
+- Explicativos de conceptos básicos de economía doméstica (cómo leer una factura, qué es un tipo de interés, cómo comparar ofertas)
+- Calendario recurrente con fechas clave del año y qué hacer en cada una (plazos fiscales, ayudas, renovaciones)
+- Preguntas frecuentes sobre derechos del consumidor y cómo reclamar
+- Glosario vivo de términos del sector del medio, con enlaces internos a las piezas relacionadas
 
 ## Resumen
-Esta semana no hay datos de rendimiento que se puedan analizar. AdSense está «pendiente de conectar» los 8 días (faltan ADSENSE_OAUTH_CLIENT_ID, ADSENSE_OAUTH_CLIENT_SECRET, ADSENSE_REFRESH_TOKEN y ADSENSE_ACCOUNT_ID), así que no hay ingresos. Los ficheros de agentes y de costes de IA llegan vacíos («Sin ejecuciones todavía»). Los costes fijos son mínimos: solo 12 €/año del dominio, y hosting, newsletter y herramientas a 0 €. El fichero de GA4 llegó cortado y no incluye páginas vistas, tiempo de lectura, CTR ni consultas de Search Console. Por eso no he sacado conclusiones sobre temas, formatos o titulares ganadores, porque serían inventadas. Las reglas de abajo son provisionales: fijan un punto de partida prudente y obligan a medir mejor. Los temas evergreen son hipótesis que hay que validar la próxima semana. Prioridad operativa: reenviar el GA4 completo y los datos de Search Console, y conectar AdSense.
+Esta semana no hay datos de rendimiento editorial que analizar. Los archivos recibidos son solo de tres fuentes. AdSense está «pendiente» los 15 días (faltan ADSENSE_OAUTH_CLIENT_ID, ADSENSE_OAUTH_CLIENT_SECRET, ADSENSE_REFRESH_TOKEN y ADSENSE_ACCOUNT_ID), así que no hay ingresos. «agentes» llega con la lista vacía. «costes-fijos» solo muestra el dominio (12 €/año) y todo lo demás a 0 €. No hay páginas vistas, tiempo de lectura, CTR ni consultas de Search Console. Tampoco hay métricas por artículo, y el envío parece cortado antes de llegar a otras fuentes. Por eso no he inferido qué temas, formatos o titulares rinden más, porque sería inventar. Las reglas siguientes son provisionales: arreglan la medición y fijan prácticas editoriales prudentes hasta que lleguen datos reales. Los temas evergreen son hipótesis por defecto, sin respaldo en datos. Prioridad de la semana: conectar Search Console/analítica y AdSense, y comprobar que el envío no se trunca.
