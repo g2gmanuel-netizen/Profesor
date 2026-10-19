@@ -64,14 +64,18 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /puigdemont|proc[eé]s|independentis|catalu[ñn]a|catalunya|generalitat|amnist[ií]a/i,
     busqueda: {
-      consultas: ['catalonia spain flags', 'spanish catalan flag', 'spanish constitution', 'spain flag'],
-      requiere: /\b(flag|flags|bandera|constitution|constituci[oó]n|catalonia|catalan|spain|spanish)\b/i,
+      consultas: ['catalonia spain flags', 'spanish catalan flag', 'spain flag', 'spanish flag', 'catalonia flag'],
+      // Una bandera (o la Constitución) y que sea de España o Cataluña.
+      requiere: /^(?=.*\b(flag|flags|bandera|constitution)\b)(?=.*\b(spain|spanish|catalonia|catalan|catalunya|españa)\b)/i,
+      evitar: /protest|demonstration|crowd|riot/i,
     },
   },
   {
     patron: /elecci[oó]n|elecciones|votar|voto|votaci[oó]n|censo electoral|urnas?\b|29-n/i,
     busqueda: {
       consultas: ['ballot box spain flag', 'spain election ballot box', 'ballot box election', 'voting election ballot'],
+      requiere: /\b(ballot|vote|voting|election|elections|urn|polling)\b/i,
+      evitar: /german|germany|bundestag|deutschland|usa|america|american|trump|biden|brexit|uk\b|india|africa/i,
     },
   },
   {
