@@ -67,7 +67,7 @@ const CONCEPTOS: Concepto[] = [
       consultas: ['catalonia spain flags', 'spanish catalan flag', 'spain flag', 'spanish flag', 'catalonia flag'],
       // Una bandera (o la Constitución) y que sea de España o Cataluña.
       requiere: /^(?=.*\b(flag|flags|bandera|constitution)\b)(?=.*\b(spain|spanish|catalonia|catalan|catalunya|españa)\b)/i,
-      evitar: /protest|demonstration|crowd|riot/i,
+      evitar: /protest|demonstration|crowd|riot|mallorca|majorca|balear|palma|aragon|valencia|valencian|roussillon|perpignan/i,
     },
   },
   {
