@@ -1,13 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Anuncio from '../../components/Anuncio.astro';
 import { SECCIONES } from '../../lib/irpf-campos';
 import { COMUNIDADES, DATOS_VACIOS, EJERCICIO } from '../../lib/irpf';
 import { SITIO } from '../../lib/sitio';
 
 const titulo = `Calculadora de IRPF ${EJERCICIO}: cuánto pagas a Hacienda y cuánto cobras neto`;
 const descripcion =
-  'La calculadora de IRPF más completa: sueldo, alquileres, autónomos, ahorro, hijos, planes de pensiones y deducciones por comunidad. Gratis y con consejos para pagar menos.';
+  'La calculadora de IRPF más completa: sueldo, alquileres, autónomos, ahorro, hijos, planes de pensiones y deducciones por comunidad. Gratis, con gráficos y consejos para pagar menos.';
 const valorInicial = (id: string) => (DATOS_VACIOS as unknown as Record<string, unknown>)[id];
+const ICONOS: Record<string, string> = {
+  personal: '👪',
+  trabajo: '💼',
+  ahorro: '🏦',
+  inmuebles: '🏠',
+  actividad: '🧾',
+  ganancias: '📈',
+  reducciones: '🐷',
+  deducciones: '✂️',
+};
+// Anuncio intercalado tras estas secciones del formulario (sin cortar la lectura de una sección).
+const ANUNCIO_TRAS = new Set(['trabajo', 'actividad']);
 const esquema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -25,77 +38,106 @@ const esquema = {
   <script type="application/ld+json" set:html={JSON.stringify(esquema)} />
   <div class="calc">
     <nav class="migas" aria-label="Ruta"><a href="/calculadoras/">Calculadoras</a> › IRPF</nav>
-    <h1>Calculadora de IRPF {EJERCICIO}</h1>
-    <p class="entradilla">
-      Rellena solo lo que te afecte y verás al momento cuánto pagas a Hacienda, cuánto cobras neto y si la declaración
-      te sale a pagar o a devolver. Cada casilla tiene una explicación con ejemplos: pulsa <strong>«¿Qué pongo aquí?»</strong>.
-    </p>
+
+    <header class="cabecera-calc">
+      <h1>Calculadora de IRPF {EJERCICIO}</h1>
+      <p class="entradilla">
+        Mueve la barra o escribe tu sueldo y mira al instante cuánto te queda, cuánto se lleva Hacienda y si la renta
+        te sale a pagar o a devolver. Después, afina con el resto de casillas: cada una explica qué poner.
+      </p>
+
+      <div class="rapido">
+        <label for="deslizador" class="rapido-etq">Tu sueldo bruto anual</label>
+        <div class="rapido-fila">
+          <input id="deslizador" type="range" min="0" max="150000" step="500" value="0" aria-describedby="deslizador-valor" />
+          <output id="deslizador-valor" class="rapido-valor">0 €</output>
+        </div>
+        <div class="chips" role="group" aria-label="Sueldos de ejemplo">
+          {[17094, 22000, 30000, 45000, 70000].map((v) => (
+            <button type="button" class="chip" data-sueldo={v}>{v.toLocaleString('es-ES')} €</button>
+          ))}
+        </div>
+      </div>
+    </header>
 
     <aside class="aviso" role="note">
-      <strong>Aviso importante:</strong> esta calculadora es una simulación con fines exclusivamente informativos y
-      divulgativos. No sustituye a la declaración oficial, al programa Renta Web de la Agencia Tributaria ni al consejo
-      de un asesor fiscal. Simplifica algunos supuestos (mínimos y deducciones propias de cada comunidad, compensaciones
-      de años anteriores, regímenes especiales) y la normativa puede cambiar. Comprueba siempre tus datos en la
+      <strong>Aviso:</strong> simulación con fines exclusivamente informativos. No sustituye a la declaración oficial,
+      a Renta Web ni al consejo de un asesor fiscal. Comprueba siempre tus datos en la
       <a href="https://sede.agenciatributaria.gob.es/" rel="noopener" target="_blank">Agencia Tributaria</a>.
     </aside>
 
+    <Anuncio formato="horizontal" />
+
     <div class="calc-rejilla">
       <form id="form-irpf" class="formulario" autocomplete="off" onsubmit="return false">
+        <ol class="pasos" aria-label="Secciones de la calculadora">
+          {SECCIONES.map((s, i) => (
+            <li><a href={`#sec-${s.id}`} data-paso={s.id}><span class="paso-num">{i + 1}</span><span class="paso-ico" aria-hidden="true">{ICONOS[s.id]}</span></a></li>
+          ))}
+        </ol>
         {
           SECCIONES.map((s) => (
-            <details class="seccion" open={s.abierta}>
-              <summary>
-                <span class="seccion-titulo">{s.titulo}</span>
-                <span class="seccion-intro">{s.intro}</span>
-              </summary>
-              <div class="campos">
-                {s.campos.map((c) => (
-                  <div class={`campo campo-${c.tipo}`} data-campo={c.id}>
-                    {c.tipo === 'check' ? (
-                      <label class="check">
-                        <input type="checkbox" name={c.id} checked={Boolean(valorInicial(c.id))} />
-                        <span>{c.etiqueta}</span>
-                      </label>
-                    ) : (
-                      <label for={`c-${c.id}`}>{c.etiqueta}</label>
-                    )}
-                    {c.tipo === 'numero' && (
-                      <div class="entrada">
-                        <input
-                          id={`c-${c.id}`}
-                          name={c.id}
-                          type="number"
-                          inputmode="decimal"
-                          step="any"
-                          min={c.id === 'gananciasAhorro' ? undefined : 0}
-                          placeholder={c.id === 'edad' ? '35' : '0'}
-                          value={c.id === 'edad' ? '35' : ''}
-                        />
-                        {c.sufijo && <span class="sufijo">{c.sufijo}</span>}
-                      </div>
-                    )}
-                    {c.tipo === 'select' && (
-                      <select id={`c-${c.id}`} name={c.id}>
-                        {c.opciones!.map(([v, t]) => (
-                          <option value={v} selected={String(valorInicial(c.id)) === v}>
-                            {t}
-                          </option>
-                        ))}
-                      </select>
-                    )}
-                    <details class="info">
-                      <summary>¿Qué pongo aquí?</summary>
-                      <p>{c.info}</p>
-                      {c.ejemplo && (
-                        <p class="ejemplo">
-                          <strong>Ejemplo:</strong> {c.ejemplo}
-                        </p>
+            <>
+              <details class="seccion" open={s.abierta} id={`sec-${s.id}`}>
+                <summary>
+                  <span class="seccion-ico" aria-hidden="true">{ICONOS[s.id]}</span>
+                  <span class="seccion-texto">
+                    <span class="seccion-titulo">{s.titulo.replace(/^\d+\.\s*/, '')}</span>
+                    <span class="seccion-intro">{s.intro}</span>
+                  </span>
+                  <span class="seccion-cuenta" data-cuenta={s.id}></span>
+                </summary>
+                <div class="campos">
+                  {s.campos.map((c) => (
+                    <div class={`campo campo-${c.tipo}`} data-campo={c.id}>
+                      {c.tipo === 'check' ? (
+                        <label class="check">
+                          <input type="checkbox" name={c.id} checked={Boolean(valorInicial(c.id))} />
+                          <span class="interruptor" aria-hidden="true" />
+                          <span>{c.etiqueta}</span>
+                        </label>
+                      ) : (
+                        <label for={`c-${c.id}`}>{c.etiqueta}</label>
                       )}
-                    </details>
-                  </div>
-                ))}
-              </div>
-            </details>
+                      {c.tipo === 'numero' && (
+                        <div class="entrada">
+                          <input
+                            id={`c-${c.id}`}
+                            name={c.id}
+                            type="number"
+                            inputmode="decimal"
+                            step="any"
+                            min={c.id === 'gananciasAhorro' ? undefined : 0}
+                            placeholder={c.id === 'edad' ? '35' : '0'}
+                            value={c.id === 'edad' ? '35' : ''}
+                          />
+                          {c.sufijo && <span class="sufijo">{c.sufijo}</span>}
+                        </div>
+                      )}
+                      {c.tipo === 'select' && (
+                        <select id={`c-${c.id}`} name={c.id}>
+                          {c.opciones!.map(([v, t]) => (
+                            <option value={v} selected={String(valorInicial(c.id)) === v}>
+                              {t}
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                      <details class="info">
+                        <summary>¿Qué pongo aquí?</summary>
+                        <p>{c.info}</p>
+                        {c.ejemplo && (
+                          <p class="ejemplo">
+                            <strong>Ejemplo:</strong> {c.ejemplo}
+                          </p>
+                        )}
+                      </details>
+                    </div>
+                  ))}
+                </div>
+              </details>
+              {ANUNCIO_TRAS.has(s.id) && <Anuncio formato="rectangulo" />}
+            </>
           ))
         }
         <div class="acciones-form">
@@ -104,53 +146,96 @@ const esquema = {
         </div>
       </form>
 
-      <section class="resultado" id="resultado" aria-live="polite">
-        <h2>Tu resultado</h2>
-        <div class="cifras">
-          <div class="cifra destacada">
+      <div class="columna-resultado">
+        <section class="resultado" id="resultado" aria-live="polite">
+          <h2>Tu resultado</h2>
+          <div class="neto">
             <span class="cifra-etq">Cobras neto al año</span>
-            <span class="cifra-valor" id="r-neto">0 €</span>
-            <span class="cifra-sub" id="r-neto-mes"></span>
+            <span class="cifra-valor grande" id="r-neto" data-valor="0">0 €</span>
+            <div class="mes">
+              <div><strong id="r-neto-12">0 €</strong><span>al mes (12 pagas)</span></div>
+              <div><strong id="r-neto-14">0 €</strong><span>al mes (14 pagas)</span></div>
+            </div>
           </div>
-          <div class="cifra">
-            <span class="cifra-etq">Pagas en total al Estado</span>
-            <span class="cifra-valor" id="r-estado">0 €</span>
-            <span class="cifra-sub" id="r-estado-desglose"></span>
+
+          <figure class="donut-fig">
+            <svg id="donut" viewBox="0 0 120 120" role="img" aria-labelledby="donut-titulo">
+              <title id="donut-titulo">Reparto de tus ingresos brutos</title>
+              <circle class="donut-fondo" cx="60" cy="60" r="46"></circle>
+              <g id="donut-seg"></g>
+              <text x="60" y="56" class="donut-pct" id="donut-pct">—</text>
+              <text x="60" y="71" class="donut-sub">te queda</text>
+            </svg>
+            <figcaption>
+              <ul class="leyenda" id="leyenda"></ul>
+            </figcaption>
+            <div class="tooltip" id="tooltip" hidden></div>
+          </figure>
+
+          <div class="tarjetas">
+            <div class="tarjeta">
+              <span class="cifra-etq">Pagas al Estado</span>
+              <strong id="r-estado">0 €</strong>
+              <span class="cifra-sub" id="r-estado-desglose"></span>
+            </div>
+            <div class="tarjeta" id="t-dif">
+              <span class="cifra-etq" id="r-dif-etq">Tu declaración</span>
+              <strong id="r-dif">0 €</strong>
+              <span class="cifra-sub">tras lo ya retenido</span>
+            </div>
           </div>
-          <div class="cifra">
-            <span class="cifra-etq" id="r-dif-etq">Tu declaración</span>
-            <span class="cifra-valor" id="r-dif">0 €</span>
-            <span class="cifra-sub">Tras restar lo que ya te han retenido</span>
+
+          <div class="medidores">
+            <div class="medidor">
+              <div class="medidor-cab"><span>Tipo medio de IRPF</span><strong id="r-medio">0 %</strong></div>
+              <div class="barra"><span id="b-medio"></span></div>
+            </div>
+            <div class="medidor">
+              <div class="medidor-cab"><span>Tipo marginal (por cada euro extra)</span><strong id="r-marginal">0 %</strong></div>
+              <div class="barra"><span id="b-marginal"></span></div>
+            </div>
           </div>
-          <div class="cifra-fila">
-            <div><span class="cifra-etq">Tipo medio de IRPF</span><strong id="r-medio">0 %</strong></div>
-            <div><span class="cifra-etq">Tipo marginal</span><strong id="r-marginal">0 %</strong></div>
-            <div><span class="cifra-etq">Ingresos brutos</span><strong id="r-bruto">0 €</strong></div>
-          </div>
-        </div>
-        <ul class="avisos" id="r-avisos"></ul>
-        <p class="nota-empresa" id="r-empresa"></p>
-      </section>
+          <ul class="avisos" id="r-avisos"></ul>
+          <p class="nota-empresa" id="r-empresa"></p>
+        </section>
+        <div class="solo-escritorio"><Anuncio formato="lateral" /></div>
+      </div>
     </div>
 
     <a href="#resultado" class="barra-movil" id="barra-movil">
       <span>Neto: <strong id="b-neto">0 €</strong></span>
       <span id="b-dif">—</span>
-      <span class="ver">Ver detalle ↓</span>
+      <span class="ver">Ver ↓</span>
     </a>
 
     <section class="bloque">
-      <h2>Desglose paso a paso (como en el modelo 100)</h2>
-      <table class="desglose">
-        <tbody id="r-desglose"></tbody>
-      </table>
-      <p class="fuente-escala" id="r-escala"></p>
+      <h2>Por qué tramos pasa tu sueldo</h2>
+      <p class="bloque-intro">Cada barra es la parte de tu base liquidable general que paga ese tipo (estatal más autonómico). Pasa el dedo o el ratón por encima para ver el detalle.</p>
+      <div class="tramos" id="tramos"></div>
     </section>
 
     <section class="bloque">
+      <h2>¿Y si vivieras en otra comunidad?</h2>
+      <p class="bloque-intro">El IRPF de tu mismo caso en cada comunidad de régimen común, de menos a más.</p>
+      <div class="ranking" id="ranking"></div>
+    </section>
+
+    <Anuncio formato="horizontal" />
+
+    <section class="bloque">
       <h2>Cómo podrías pagar menos (legalmente)</h2>
-      <p>Consejos calculados con tus datos. Ninguno es una recomendación personalizada: valora tu situación o consulta a un asesor.</p>
+      <p class="bloque-intro">Consejos calculados con tus datos. No son una recomendación personalizada: valora tu situación o consulta a un asesor.</p>
       <ol class="consejos" id="r-consejos"></ol>
+    </section>
+
+    <section class="bloque">
+      <details class="desplegable">
+        <summary>Ver el desglose completo paso a paso (como en el modelo 100)</summary>
+        <table class="desglose">
+          <tbody id="r-desglose"></tbody>
+        </table>
+        <p class="fuente-escala" id="r-escala"></p>
+      </details>
     </section>
 
     <section class="bloque explicacion">
@@ -162,12 +247,13 @@ const esquema = {
         <li><strong>Aplicas las escalas</strong> estatal y de tu comunidad. A la parte de renta que cubre tu mínimo personal y familiar no se le cobra impuesto.</li>
         <li><strong>Restas las deducciones</strong> y lo que ya te retuvieron: el resultado es lo que pagas o lo que te devuelven.</li>
       </ol>
-      <h3>Escalas de la base general en {EJERCICIO}</h3>
       <p>
         La escala estatal va del 9,5 % al 24,5 % y se suma a la autonómica. La base del ahorro tributa al 19 % hasta
-        6.000 €, 21 % hasta 50.000 €, 23 % hasta 200.000 €, 27 % hasta 300.000 € y 30 % a partir de ahí.
+        6.000 €, 21 % hasta 50.000 €, 23 % hasta 200.000 €, 27 % hasta 300.000 € y 30 % a partir de ahí. Las escalas y
+        mínimos autonómicos de esta calculadora están contrastados con el documento oficial <em>Tributación Autonómica.
+        Medidas 2026</em> del Ministerio de Hacienda.
       </p>
-      <details class="info tablas">
+      <details class="desplegable">
         <summary>Ver la escala autonómica de cada comunidad</summary>
         {
           COMUNIDADES.filter((c) => !c.foral && !c.ceutaMelilla).map((c) => (
@@ -202,13 +288,46 @@ const esquema = {
 </BaseLayout>
 
 <script>
-  import { calcular, consejos, DATOS_VACIOS, type Datos } from '../../lib/irpf';
+  import {
+    calcular,
+    compararComunidades,
+    consejos,
+    tramosCombinados,
+    DATOS_VACIOS,
+    type Datos,
+  } from '../../lib/irpf';
+  import { SECCIONES } from '../../lib/irpf-campos';
 
   const form = document.getElementById('form-irpf') as HTMLFormElement;
   const CLAVE = 'bd-irpf-v1';
-  const eur = (n: number) => `${Math.round(n).toLocaleString('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions)} €`;
-  const eur2 = (n: number) => `${n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' } as Intl.NumberFormatOptions)} €`;
+  const GRUPO = { useGrouping: 'always' } as Intl.NumberFormatOptions;
+  const eur = (n: number) => `${Math.round(n).toLocaleString('es-ES', GRUPO)} €`;
+  const eur2 = (n: number) =>
+    `${n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, ...GRUPO })} €`;
+  const pct = (n: number) => `${n.toLocaleString('es-ES', { maximumFractionDigits: 1 })} %`;
   const $ = (id: string) => document.getElementById(id)!;
+  const salario = document.getElementById('c-salario') as HTMLInputElement;
+  const deslizador = document.getElementById('deslizador') as HTMLInputElement;
+  const tooltip = $('tooltip');
+  const reducirMov = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /** Anima una cifra hasta su nuevo valor. */
+  function animar(el: HTMLElement, destino: number): void {
+    const origen = Number(el.dataset.valor ?? 0);
+    el.dataset.valor = String(destino);
+    if (reducirMov || origen === destino) {
+      el.textContent = eur(destino);
+      return;
+    }
+    const t0 = performance.now();
+    const paso = (t: number) => {
+      const k = Math.min(1, (t - t0) / 350);
+      const e = 1 - Math.pow(1 - k, 3);
+      el.textContent = eur(origen + (destino - origen) * e);
+      if (k < 1 && el.dataset.valor === String(destino)) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  }
 
   function leer(): Datos {
     const d = { ...DATOS_VACIOS } as Record<string, unknown>;
@@ -261,30 +380,150 @@ const esquema = {
     ocultar('conyugeDiscapacidad', d.tributacion !== 'conjunta');
   }
 
+  /** Cuántas casillas ha rellenado el lector en cada sección. */
+  function contarRellenos(d: Datos): void {
+    for (const s of SECCIONES) {
+      const n = s.campos.filter((c) => {
+        const v = (d as unknown as Record<string, unknown>)[c.id];
+        return c.tipo === 'numero' && c.id !== 'edad' && typeof v === 'number' && v !== 0;
+      }).length;
+      const el = document.querySelector<HTMLElement>(`[data-cuenta="${s.id}"]`);
+      if (el) el.textContent = n ? `${n} ${n === 1 ? 'dato' : 'datos'}` : '';
+      document.querySelector(`[data-paso="${s.id}"]`)?.classList.toggle('hecho', n > 0);
+    }
+  }
+
+  function mostrarTooltip(e: PointerEvent | FocusEvent, html: string): void {
+    tooltip.innerHTML = html;
+    tooltip.hidden = false;
+    const caja = (tooltip.parentElement as HTMLElement).getBoundingClientRect();
+    const objetivo = (e.target as Element).getBoundingClientRect();
+    const x = 'clientX' in e ? e.clientX : objetivo.left + objetivo.width / 2;
+    const y = 'clientY' in e ? e.clientY : objetivo.top;
+    tooltip.style.left = `${Math.min(Math.max(x - caja.left, 60), caja.width - 60)}px`;
+    tooltip.style.top = `${y - caja.top - 12}px`;
+  }
+
+  function donut(partes: { nombre: string; valor: number; clase: string }[], total: number): void {
+    const g = $('donut-seg');
+    const R = 46;
+    const C = 2 * Math.PI * R;
+    const hueco = 1.2; // separación entre segmentos
+    let acumulado = 0;
+    const visibles = partes.filter((p) => p.valor > 0);
+    g.innerHTML = visibles
+      .map((p) => {
+        const largo = Math.max(0, (p.valor / total) * C - (visibles.length > 1 ? hueco : 0));
+        const seg = `<circle class="seg ${p.clase}" cx="60" cy="60" r="${R}" stroke-dasharray="${largo} ${C - largo}" stroke-dashoffset="${-acumulado}" transform="rotate(-90 60 60)" tabindex="0" data-nombre="${p.nombre}" data-valor="${p.valor}"></circle>`;
+        acumulado += (p.valor / total) * C;
+        return seg;
+      })
+      .join('');
+    for (const s of Array.from(g.querySelectorAll<SVGCircleElement>('.seg'))) {
+      const html = () => `<strong>${s.dataset.nombre}</strong><br>${eur(Number(s.dataset.valor))} · ${pct((Number(s.dataset.valor) / total) * 100)}`;
+      s.addEventListener('pointermove', (e) => mostrarTooltip(e, html()));
+      s.addEventListener('focus', (e) => mostrarTooltip(e, html()));
+      s.addEventListener('pointerleave', () => (tooltip.hidden = true));
+      s.addEventListener('blur', () => (tooltip.hidden = true));
+    }
+    $('leyenda').innerHTML = partes
+      .filter((p) => p.valor > 0 || p.clase !== 'autonomos')
+      .map(
+        (p) =>
+          `<li><span class="muestra ${p.clase}"></span><span class="ley-nombre">${p.nombre}</span><span class="ley-valor">${eur(p.valor)}<small>${total ? pct((p.valor / total) * 100) : '0 %'}</small></span></li>`,
+      )
+      .join('');
+  }
+
+  function pintarTramos(d: Datos, base: number, escalaAuto: Parameters<typeof tramosCombinados>[1]): void {
+    const tramos = tramosCombinados(base, escalaAuto).filter((t) => t.base > 0);
+    const maxBase = Math.max(1, ...tramos.map((t) => t.base));
+    const maxTipo = Math.max(...tramos.map((t) => t.tipo), 1);
+    $('tramos').innerHTML = tramos.length
+      ? tramos
+          .map((t) => {
+            const intensidad = 0.35 + 0.65 * (t.tipo / Math.max(maxTipo, 50));
+            const hasta = Number.isFinite(t.hasta) ? eur(t.hasta) : 'en adelante';
+            return `<div class="tramo" tabindex="0" data-tip="De ${eur(t.desde)} a ${hasta}: ${eur(t.base)} al ${pct(t.tipo)} = ${eur(t.cuota)} (antes de restar el mínimo personal)">
+              <span class="tramo-tipo">${pct(t.tipo)}</span>
+              <span class="tramo-pista"><span class="tramo-barra" style="width:${(t.base / maxBase) * 100}%;opacity:${intensidad.toFixed(2)}"></span></span>
+              <span class="tramo-importe">${eur(t.base)}</span>
+            </div>`;
+          })
+          .join('')
+      : '<p class="vacio">Introduce tus ingresos para ver tus tramos.</p>';
+    for (const el of Array.from(document.querySelectorAll<HTMLElement>('#tramos .tramo'))) {
+      el.title = el.dataset.tip ?? '';
+    }
+  }
+
+  function pintarRanking(d: Datos, actual: string): void {
+    if (d.salario + d.pensiones + d.actIngresos + d.alquilerIngresos + d.intereses + d.dividendos <= 0) {
+      $('ranking').innerHTML = '<p class="vacio">Introduce tus ingresos para comparar.</p>';
+      return;
+    }
+    const filas = compararComunidades(d);
+    const max = Math.max(1, ...filas.map((f) => f.irpf));
+    const mio = filas.find((f) => f.comunidad.slug === actual)?.irpf;
+    $('ranking').innerHTML = filas
+      .map((f) => {
+        const dif = mio === undefined ? 0 : f.irpf - mio;
+        const difTxt = f.comunidad.slug === actual ? 'tu comunidad' : `${dif > 0 ? '+' : dif < 0 ? '−' : ''}${eur(Math.abs(dif))}`;
+        return `<div class="fila-rank ${f.comunidad.slug === actual ? 'actual' : ''}" title="${f.comunidad.nombre}: ${eur(f.irpf)} de IRPF">
+          <span class="rank-nombre">${f.comunidad.nombre}</span>
+          <span class="rank-pista"><span class="rank-barra" style="width:${(Math.max(0, f.irpf) / max) * 100}%"></span></span>
+          <span class="rank-valor">${eur(f.irpf)}<small>${difTxt}</small></span>
+        </div>`;
+      })
+      .join('');
+  }
+
   function pintar(): void {
     const d = leer();
     visibilidad(d);
-    const r = calcular(d);
+    contarRellenos(d);
+    if (document.activeElement !== deslizador) deslizador.value = String(Math.min(d.salario, 150000));
+    $('deslizador-valor').textContent = eur(d.salario);
 
-    $('r-neto').textContent = eur(r.netoAnual);
-    $('r-neto-mes').textContent = `${eur(r.netoAnual / 12)} al mes en 12 pagas · ${eur(r.netoAnual / 14)} en 14 pagas`;
+    const r = calcular(d);
+    animar($('r-neto'), r.netoAnual);
+    $('r-neto-12').textContent = eur(r.netoAnual / 12);
+    $('r-neto-14').textContent = eur(r.netoAnual / 14);
     $('r-estado').textContent = eur(r.totalEstado);
-    const partes = [`IRPF ${eur(r.irpfTotal)}`, `Seguridad Social ${eur(r.ssTrabajador)}`];
-    if (r.cuotaAutonomos) partes.push(`cuota de autónomos ${eur(r.cuotaAutonomos)}`);
+    const partes = [`IRPF ${eur(r.irpfTotal)}`, `S. Social ${eur(r.ssTrabajador)}`];
+    if (r.cuotaAutonomos) partes.push(`autónomos ${eur(r.cuotaAutonomos)}`);
     $('r-estado-desglose').textContent = partes.join(' · ');
     const aPagar = r.cuotaDiferencial >= 0;
-    $('r-dif-etq').textContent = aPagar ? 'Tu declaración sale a pagar' : 'Tu declaración sale a devolver';
+    $('r-dif-etq').textContent = aPagar ? 'Te sale a pagar' : 'Te devuelven';
     $('r-dif').textContent = eur(Math.abs(r.cuotaDiferencial));
-    $('r-dif').className = `cifra-valor ${aPagar ? 'pagar' : 'devolver'}`;
+    $('t-dif').className = `tarjeta ${aPagar ? 'pagar' : 'devolver'}`;
+    $('r-medio').textContent = pct(r.tipoMedio);
+    $('r-marginal').textContent = pct(r.tipoMarginal);
+    ($('b-medio') as HTMLElement).style.width = `${Math.min(100, (r.tipoMedio / 55) * 100)}%`;
+    ($('b-marginal') as HTMLElement).style.width = `${Math.min(100, (r.tipoMarginal / 55) * 100)}%`;
     $('b-neto').textContent = eur(r.netoAnual);
     $('b-dif').textContent = `${aPagar ? 'A pagar' : 'A devolver'}: ${eur(Math.abs(r.cuotaDiferencial))}`;
-    $('r-medio').textContent = `${r.tipoMedio.toLocaleString('es-ES')} %`;
-    $('r-marginal').textContent = `${r.tipoMarginal.toLocaleString('es-ES')} %`;
-    $('r-bruto').textContent = eur(r.ingresosBrutos);
     $('r-empresa').textContent = r.ssEmpresaAprox
       ? `Además, tu empresa paga por ti a la Seguridad Social unos ${eur(r.ssEmpresaAprox)} al año (estimación del ~32 % sobre tu base de cotización), que no ves en la nómina.`
       : '';
     $('r-avisos').innerHTML = r.avisos.map((a) => `<li>${a}</li>`).join('');
+
+    // Reparto del dinero bruto: lo que te queda y lo que se lleva cada parte.
+    const irpfPos = Math.max(0, r.irpfTotal);
+    const totalReparto = Math.max(0, r.netoAnual) + r.ssTrabajador + irpfPos + r.cuotaAutonomos;
+    donut(
+      [
+        { nombre: 'Te queda', valor: Math.max(0, r.netoAnual), clase: 'neto' },
+        { nombre: 'Seguridad Social', valor: r.ssTrabajador, clase: 'ss' },
+        { nombre: 'IRPF', valor: irpfPos, clase: 'irpf' },
+        { nombre: 'Cuota de autónomos', valor: r.cuotaAutonomos, clase: 'autonomos' },
+      ],
+      totalReparto || 1,
+    );
+    $('donut-pct').textContent = totalReparto ? pct((Math.max(0, r.netoAnual) / totalReparto) * 100) : '—';
+
+    pintarTramos(d, r.baseLiquidableGeneral, r.comunidad.escala);
+    pintarRanking(d, r.comunidad.slug);
 
     $('r-desglose').innerHTML = r.lineas
       .map((l) =>
@@ -296,7 +535,10 @@ const esquema = {
     $('r-escala').textContent = `Escala autonómica aplicada: ${r.comunidad.nombre}. ${r.comunidad.nota}`;
 
     $('r-consejos').innerHTML = consejos(d, r)
-      .map((c) => `<li><strong>${c.titulo}${c.ahorro ? ` (ahorro aprox. ${eur(c.ahorro)})` : ''}.</strong> ${c.texto}</li>`)
+      .map(
+        (c) =>
+          `<li><div class="consejo-cab"><strong>${c.titulo}</strong>${c.ahorro ? `<span class="ahorro">ahorras ~${eur(c.ahorro)}</span>` : ''}</div><p>${c.texto}</p></li>`,
+      )
       .join('');
     guardar();
   }
@@ -304,6 +546,16 @@ const esquema = {
   restaurar();
   form.addEventListener('input', pintar);
   form.addEventListener('change', pintar);
+  deslizador.addEventListener('input', () => {
+    salario.value = deslizador.value === '0' ? '' : deslizador.value;
+    pintar();
+  });
+  for (const b of Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'))) {
+    b.addEventListener('click', () => {
+      salario.value = b.dataset.sueldo ?? '';
+      pintar();
+    });
+  }
   $('btn-limpiar').addEventListener('click', () => {
     form.reset();
     try {
@@ -319,20 +571,90 @@ const esquema = {
 
 <style>
   .calc {
+    --c-neto: #0e7a4e;
+    --c-ss: #c98a12;
+    --c-irpf: #b23a2c;
+    --c-aut: #2f6bc4;
     max-width: 1100px;
     margin-inline: auto;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-tema='claro'])) .calc {
+      --c-neto: #2f9a68;
+      --c-ss: #bf8a1f;
+      --c-irpf: #d24a3a;
+      --c-aut: #5b87d6;
+    }
+  }
+  :global(:root[data-tema='oscuro']) .calc {
+    --c-neto: #2f9a68;
+    --c-ss: #bf8a1f;
+    --c-irpf: #d24a3a;
+    --c-aut: #5b87d6;
   }
   .migas {
     font-family: var(--fuente-ui);
     font-size: 0.85rem;
     color: var(--color-texto-suave);
   }
-  .calc h1 {
+  .cabecera-calc h1 {
     margin-top: 0.25rem;
+  }
+  .rapido {
+    font-family: var(--fuente-ui);
+    background: var(--color-fondo-alt);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+  }
+  .rapido-etq {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .rapido-fila {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .rapido-fila input[type='range'] {
+    flex: 1;
+    min-width: 0;
+    accent-color: var(--color-marca);
+    height: 2rem;
+  }
+  .rapido-valor {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    min-width: 8ch;
+    text-align: right;
+    color: var(--color-marca);
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+  .chip {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-borde-fuerte);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    cursor: pointer;
+  }
+  .chip:hover {
+    border-color: var(--color-marca);
+    color: var(--color-marca);
   }
   .aviso {
     font-family: var(--fuente-ui);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     background: var(--color-fondo-alt);
     border-left: 4px solid var(--color-destacado);
     padding: 0.75rem 1rem;
@@ -343,22 +665,72 @@ const esquema = {
     gap: 1.5rem;
     align-items: start;
   }
+  .calc-rejilla > * {
+    min-width: 0;
+  }
+  .solo-escritorio {
+    display: none;
+  }
   @media (min-width: 900px) {
     .calc-rejilla {
       grid-template-columns: minmax(0, 1fr) 340px;
     }
-    .resultado {
+    .columna-resultado {
       position: sticky;
       top: 1rem;
     }
   }
+  @media (min-width: 900px) and (min-height: 1100px) {
+    .solo-escritorio {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+  .pasos {
+    display: flex;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    overflow-x: auto;
+  }
+  .pasos a {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-borde);
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--color-texto-suave);
+    white-space: nowrap;
+  }
+  .pasos a.hecho {
+    border-color: var(--c-neto);
+    color: var(--c-neto);
+    background: color-mix(in srgb, var(--c-neto) 10%, transparent);
+  }
+  .paso-num {
+    font-weight: 700;
+  }
   .seccion {
     border: 1px solid var(--color-borde);
+    border-radius: 10px;
     margin-bottom: 0.75rem;
     background: var(--color-fondo);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .seccion[open] {
+    box-shadow: 0 4px 18px rgb(0 0 0 / 0.06);
   }
   .seccion > summary {
     position: relative;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
     cursor: pointer;
     padding: 0.9rem 2.5rem 0.9rem 1rem;
     list-style: none;
@@ -368,15 +740,27 @@ const esquema = {
     display: none;
   }
   .seccion > summary::after {
-    content: '＋';
+    content: '';
     position: absolute;
-    top: 0.9rem;
-    right: 1rem;
-    font-family: var(--fuente-ui);
-    color: var(--color-marca);
+    right: 1.1rem;
+    top: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid var(--color-marca);
+    border-bottom: 2px solid var(--color-marca);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s;
   }
   .seccion[open] > summary::after {
-    content: '－';
+    transform: translateY(-30%) rotate(-135deg);
+  }
+  .seccion-ico {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .seccion-texto {
+    flex: 1;
+    min-width: 0;
   }
   .seccion-titulo {
     display: block;
@@ -387,9 +771,16 @@ const esquema = {
   .seccion-intro {
     display: block;
     font-family: var(--fuente-ui);
-    font-size: 0.85rem;
+    font-size: 0.83rem;
     color: var(--color-texto-suave);
-    margin-top: 0.25rem;
+    margin-top: 0.2rem;
+  }
+  .seccion-cuenta {
+    font-family: var(--fuente-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--c-neto);
+    white-space: nowrap;
   }
   .campos {
     padding: 0.5rem 1rem 1rem;
@@ -410,28 +801,66 @@ const esquema = {
   }
   .campo .check {
     display: flex;
-    gap: 0.5rem;
-    align-items: flex-start;
+    gap: 0.6rem;
+    align-items: center;
     font-weight: 600;
     font-size: 0.95rem;
+    cursor: pointer;
   }
   .check input {
-    width: 1.15rem;
-    height: 1.15rem;
-    margin-top: 0.15rem;
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .interruptor {
     flex: none;
+    width: 2.4rem;
+    height: 1.35rem;
+    border-radius: 999px;
+    background: var(--color-borde-fuerte);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .interruptor::after {
+    content: '';
+    position: absolute;
+    top: 0.15rem;
+    left: 0.15rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.2s;
+  }
+  .check input:checked + .interruptor {
+    background: var(--color-marca);
+  }
+  .check input:checked + .interruptor::after {
+    transform: translateX(1.05rem);
+  }
+  .check input:focus-visible + .interruptor {
+    outline: 2px solid var(--color-marca);
+    outline-offset: 2px;
   }
   .entrada {
     display: flex;
     align-items: center;
     max-width: 260px;
     border: 1px solid var(--color-borde-fuerte);
+    border-radius: 8px;
     background: var(--color-fondo);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .entrada:focus-within {
+    border-color: var(--color-marca);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-marca) 20%, transparent);
   }
   .entrada input {
     flex: 1;
     min-width: 0;
     border: 0;
+    outline: 0;
     padding: 0.55rem 0.6rem;
     font-size: 1rem;
     background: transparent;
@@ -447,6 +876,7 @@ const esquema = {
     padding: 0.55rem;
     font-size: 0.95rem;
     border: 1px solid var(--color-borde-fuerte);
+    border-radius: 8px;
     background: var(--color-fondo);
     color: var(--color-texto);
   }
@@ -465,6 +895,7 @@ const esquema = {
   }
   .ejemplo {
     background: var(--color-fondo-alt);
+    border-radius: 6px;
     padding: 0.4rem 0.6rem;
   }
   .acciones-form {
@@ -477,6 +908,7 @@ const esquema = {
     font-family: var(--fuente-ui);
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
+    border-radius: 8px;
     border: 1px solid var(--color-borde-fuerte);
     background: var(--color-fondo-alt);
     color: var(--color-texto);
@@ -484,106 +916,356 @@ const esquema = {
   }
   .resultado {
     border: 2px solid var(--color-marca);
+    border-radius: 12px;
     padding: 1rem;
     background: var(--color-fondo);
     font-family: var(--fuente-ui);
   }
   .resultado h2 {
     margin-top: 0;
-    font-size: 1.2rem;
-  }
-  .cifra {
-    border-bottom: 1px solid var(--color-borde);
-    padding-block: 0.6rem;
+    font-size: 1.15rem;
   }
   .cifra-etq {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--color-texto-suave);
   }
-  .cifra-valor {
+  .cifra-valor.grande {
     display: block;
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--c-neto);
     font-variant-numeric: tabular-nums;
+    line-height: 1.15;
   }
-  .destacada .cifra-valor {
-    color: var(--color-marca);
-    font-size: 2rem;
-  }
-  .cifra-valor.pagar {
-    color: var(--color-destacado);
-  }
-  .cifra-valor.devolver {
-    color: var(--color-marca);
-  }
-  .cifra-sub {
-    display: block;
-    font-size: 0.82rem;
-    color: var(--color-texto-suave);
-  }
-  .cifra-fila {
+  .mes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-    padding-top: 0.6rem;
+    margin-top: 0.4rem;
   }
-  .cifra-fila strong {
+  .mes div {
+    background: var(--color-fondo-alt);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+  }
+  .mes strong {
+    display: block;
     font-size: 1.05rem;
     font-variant-numeric: tabular-nums;
   }
+  .mes span {
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+  }
+  .donut-fig {
+    position: relative;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  #donut {
+    width: 130px;
+    height: 130px;
+  }
+  .donut-fondo {
+    fill: none;
+    stroke: var(--color-borde);
+    stroke-width: 14;
+  }
+  #donut :global(.seg) {
+    fill: none;
+    stroke-width: 14;
+    transition: stroke-dasharray 0.35s ease, stroke-dashoffset 0.35s ease;
+    cursor: pointer;
+    outline: none;
+  }
+  #donut :global(.seg:hover),
+  #donut :global(.seg:focus) {
+    stroke-width: 17;
+  }
+  #donut :global(.neto),
+  .muestra.neto {
+    stroke: var(--c-neto);
+    background: var(--c-neto);
+  }
+  #donut :global(.ss),
+  .leyenda :global(.muestra.ss) {
+    stroke: var(--c-ss);
+    background: var(--c-ss);
+  }
+  #donut :global(.irpf),
+  .leyenda :global(.muestra.irpf) {
+    stroke: var(--c-irpf);
+    background: var(--c-irpf);
+  }
+  #donut :global(.autonomos),
+  .leyenda :global(.muestra.autonomos) {
+    stroke: var(--c-aut);
+    background: var(--c-aut);
+  }
+  .leyenda :global(.muestra.neto) {
+    background: var(--c-neto);
+  }
+  .donut-pct {
+    text-anchor: middle;
+    font-size: 17px;
+    font-weight: 800;
+    fill: var(--color-texto);
+    font-family: var(--fuente-ui);
+  }
+  .donut-sub {
+    text-anchor: middle;
+    font-size: 8.5px;
+    fill: var(--color-texto-suave);
+    font-family: var(--fuente-ui);
+  }
+  .leyenda {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.82rem;
+  }
+  .leyenda :global(li) {
+    display: grid;
+    grid-template-columns: 0.75rem 1fr auto;
+    gap: 0.4rem;
+    align-items: center;
+    padding-block: 0.2rem;
+  }
+  .leyenda :global(.muestra) {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 3px;
+  }
+  .leyenda :global(.ley-valor) {
+    text-align: right;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .leyenda :global(.ley-valor small) {
+    display: block;
+    font-weight: 400;
+    color: var(--color-texto-suave);
+  }
+  .tooltip {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    background: var(--color-texto);
+    color: var(--color-fondo);
+    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .tarjeta {
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 0.6rem;
+  }
+  .tarjeta strong {
+    display: block;
+    font-size: 1.3rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .tarjeta.pagar {
+    border-color: var(--c-irpf);
+  }
+  .tarjeta.pagar strong {
+    color: var(--c-irpf);
+  }
+  .tarjeta.devolver {
+    border-color: var(--c-neto);
+  }
+  .tarjeta.devolver strong {
+    color: var(--c-neto);
+  }
+  .cifra-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+  }
+  .medidores {
+    margin-top: 0.8rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .medidor-cab {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+  }
+  .barra {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-borde);
+    overflow: hidden;
+    margin-top: 0.25rem;
+  }
+  .barra span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: var(--c-irpf);
+    transition: width 0.35s ease;
+  }
   .avisos {
-    font-size: 0.85rem;
-    color: var(--color-destacado);
+    font-size: 0.82rem;
+    color: var(--c-irpf);
     padding-left: 1.1rem;
   }
   .nota-empresa {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--color-texto-suave);
+    margin-bottom: 0;
   }
   .bloque {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
+  }
+  .bloque-intro {
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+  }
+  .tramos,
+  .ranking {
+    font-family: var(--fuente-ui);
+    font-size: 0.88rem;
+  }
+  .tramos :global(.tramo),
+  .ranking :global(.fila-rank) {
+    display: grid;
+    align-items: center;
+    gap: 0.6rem;
+    padding-block: 0.25rem;
+  }
+  .tramos :global(.tramo) {
+    grid-template-columns: 4rem 1fr 6.5rem;
+  }
+  .tramos :global(.tramo-tipo) {
+    font-weight: 700;
+    text-align: right;
+  }
+  .tramos :global(.tramo-pista),
+  .ranking :global(.rank-pista) {
+    height: 18px;
+    background: var(--color-fondo-alt);
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+  }
+  .tramos :global(.tramo-barra) {
+    display: block;
+    height: 100%;
+    background: var(--c-irpf);
+    border-radius: 0 4px 4px 0;
+    transition: width 0.35s ease;
+  }
+  .tramos :global(.tramo-importe),
+  .ranking :global(.rank-valor) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .ranking :global(.fila-rank) {
+    grid-template-columns: minmax(7rem, 11rem) 1fr 7rem;
+  }
+  .ranking :global(.rank-barra) {
+    display: block;
+    height: 100%;
+    background: var(--color-borde-fuerte);
+    border-radius: 0 4px 4px 0;
+    transition: width 0.35s ease;
+  }
+  .ranking :global(.actual .rank-barra) {
+    background: var(--c-neto);
+  }
+  .ranking :global(.actual) {
+    font-weight: 700;
+  }
+  .ranking :global(.rank-valor small) {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+    font-weight: 400;
+  }
+  .tramos :global(.vacio),
+  .ranking :global(.vacio) {
+    color: var(--color-texto-suave);
+  }
+  .consejos {
+    padding-left: 1.2rem;
+  }
+  .consejos :global(li) {
+    margin-bottom: 0.9rem;
+    line-height: 1.55;
+  }
+  .consejos :global(.consejo-cab) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .consejos :global(.ahorro) {
+    font-family: var(--fuente-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--c-neto);
+    background: color-mix(in srgb, var(--c-neto) 12%, transparent);
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+  }
+  .consejos :global(p) {
+    margin: 0.2rem 0 0;
+  }
+  .desplegable > summary {
+    cursor: pointer;
+    font-family: var(--fuente-ui);
+    font-weight: 700;
+    color: var(--color-enlace);
+    padding-block: 0.5rem;
   }
   .desglose {
     width: 100%;
     border-collapse: collapse;
     font-family: var(--fuente-ui);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-variant-numeric: tabular-nums;
   }
-  .desglose td,
-  .desglose th {
+  .desglose :global(td),
+  .desglose :global(th) {
     padding: 0.4rem 0.5rem;
     border-bottom: 1px solid var(--color-borde);
     text-align: left;
   }
-  .desglose td:last-child {
+  .desglose :global(td:last-child) {
     text-align: right;
     white-space: nowrap;
   }
-  .desglose tr.n0 th {
+  .desglose :global(tr.n0 th) {
     background: var(--color-fondo-alt);
     padding-top: 0.8rem;
   }
-  .desglose tr.n0 th span {
+  .desglose :global(tr.n0 th span) {
     float: right;
   }
-  .desglose tr.n2 td {
+  .desglose :global(tr.n2 td) {
     font-weight: 700;
   }
   .fuente-escala {
     font-family: var(--fuente-ui);
     font-size: 0.8rem;
     color: var(--color-texto-suave);
-  }
-  .consejos li {
-    margin-bottom: 0.75rem;
-    line-height: 1.55;
-  }
-  .tablas {
-    margin-top: 1rem;
   }
   .tabla-ccaa {
     margin-top: 1rem;
@@ -631,14 +1313,25 @@ const esquema = {
     .calc {
       padding-bottom: 4rem;
     }
+    .ranking :global(.fila-rank) {
+      grid-template-columns: 6.5rem 1fr 5.5rem;
+      font-size: 0.8rem;
+    }
+    .rapido-valor {
+      font-size: 1.2rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .calc * {
+      transition: none !important;
+    }
   }
   @media print {
-    .barra-movil {
-      display: none;
-    }
     .formulario,
     .acciones-form,
-    .explicacion {
+    .explicacion,
+    .barra-movil,
+    .rapido {
       display: none;
     }
     .calc-rejilla {

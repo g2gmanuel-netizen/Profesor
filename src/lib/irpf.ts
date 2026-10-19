@@ -32,12 +32,57 @@ export const ESCALA_AHORRO_MITAD: Tramo[] = [
   [INF, 15],
 ];
 
+/** Importes del mínimo personal y familiar (estatales o propios de una comunidad). */
+export interface Minimos {
+  personal: number;
+  mayor65: number;
+  mayor75: number;
+  descendientes: [number, number, number, number];
+  menor3: number;
+  ascendiente65: number;
+  ascendiente75: number;
+  discapacidad33: number;
+  discapacidad65: number;
+  asistencia: number;
+  /** Discapacidad de descendientes, si la comunidad la fija distinta. */
+  descDisc33?: number;
+  descDisc65?: number;
+}
+
+export const MINIMOS_ESTATALES: Minimos = {
+  personal: 5550,
+  mayor65: 1150,
+  mayor75: 1400,
+  descendientes: [2400, 2700, 4000, 4500],
+  menor3: 2800,
+  ascendiente65: 1150,
+  ascendiente75: 1400,
+  discapacidad33: 3000,
+  discapacidad65: 9000,
+  asistencia: 3000,
+};
+
+const MIN_6105: Minimos = {
+  personal: 6105,
+  mayor65: 1265,
+  mayor75: 1540,
+  descendientes: [2640, 2970, 4400, 4950],
+  menor3: 3080,
+  ascendiente65: 1265,
+  ascendiente75: 1540,
+  discapacidad33: 3300,
+  discapacidad65: 9900,
+  asistencia: 3300,
+};
+
 export interface Comunidad {
   slug: string;
   nombre: string;
   escala: Tramo[];
   /** Norma o fuente de la escala, para mostrarla al usuario. */
   nota: string;
+  /** Mínimo personal y familiar para el cálculo autonómico, si difiere del estatal. */
+  minimos?: Minimos;
   foral?: boolean;
   ceutaMelilla?: boolean;
 }
@@ -49,6 +94,7 @@ export const COMUNIDADES: Comunidad[] = [
     nombre: 'Andalucía',
     escala: [[13000, 9.5], [21100, 12], [35200, 15], [60000, 18.5], [INF, 22.5]],
     nota: 'Ley 5/2021 de Tributos Cedidos de Andalucía.',
+    minimos: { personal: 5790, mayor65: 1200, mayor75: 1460, descendientes: [2510, 2820, 4170, 4700], menor3: 2920, ascendiente65: 1200, ascendiente75: 1460, discapacidad33: 3130, discapacidad65: 9390, asistencia: 3130 },
   },
   {
     slug: 'aragon',
@@ -61,18 +107,22 @@ export const COMUNIDADES: Comunidad[] = [
     nombre: 'Asturias',
     escala: [[12450, 9], [17707.2, 12], [33007.2, 14], [53407.2, 19.2], [70000, 21.5], [90000, 22.5], [175000, 25], [INF, 26]],
     nota: 'Ley 3/2025 de medidas fiscales del Principado de Asturias.',
+    minimos: MIN_6105,
   },
   {
     slug: 'baleares',
     nombre: 'Illes Balears',
     escala: [[10000, 9], [18000, 11.25], [30000, 14.25], [48000, 17.5], [70000, 19], [90000, 21.75], [120000, 22.75], [175000, 23.75], [INF, 24.75]],
     nota: 'Decreto Legislativo 1/2014 de Baleares y modificaciones posteriores.',
+    // +10 % sobre los importes estatales salvo el mínimo general y el del primer hijo.
+    minimos: { personal: 5550, mayor65: 1265, mayor75: 1540, descendientes: [2400, 2970, 4400, 4950], menor3: 2800, ascendiente65: 1265, ascendiente75: 1540, discapacidad33: 3300, discapacidad65: 9900, asistencia: 3300 },
   },
   {
     slug: 'canarias',
     nombre: 'Canarias',
     escala: [[13748, 9], [19422, 11.5], [35924, 14], [57566, 18.5], [93268, 23.5], [123745, 25], [INF, 26]],
     nota: 'Decreto Legislativo 1/2009 de Canarias, deflactada por la Ley 9/2025.',
+    minimos: { personal: 5606, mayor65: 1162, mayor75: 1414, descendientes: [2424, 2727, 4040, 4545], menor3: 2828, ascendiente65: 1162, ascendiente75: 1414, discapacidad33: 3030, discapacidad65: 9090, asistencia: 3030 },
   },
   {
     slug: 'cantabria',
@@ -89,7 +139,7 @@ export const COMUNIDADES: Comunidad[] = [
   {
     slug: 'castilla-y-leon',
     nombre: 'Castilla y León',
-    escala: [[12450, 9], [20200, 12], [35200, 14], [53407, 18.5], [INF, 21.5]],
+    escala: [[12450, 9], [20200, 12], [35200, 14], [53407.2, 18.5], [INF, 21.5]],
     nota: 'Decreto Legislativo 1/2013 de Castilla y León.',
   },
   {
@@ -103,6 +153,7 @@ export const COMUNIDADES: Comunidad[] = [
     nombre: 'Comunitat Valenciana',
     escala: [[12000, 8.8], [22000, 11.7], [32000, 14.6], [42000, 17], [52000, 19.4], [62000, 21.9], [72000, 24.4], [100000, 26.1], [150000, 27.35], [200000, 28.35], [INF, 29.35]],
     nota: 'Ley 13/1997, art. 2, en la redacción de la Ley 5/2026 (efectos desde el 1 de enero de 2026).',
+    minimos: MIN_6105,
   },
   {
     slug: 'extremadura',
@@ -113,14 +164,16 @@ export const COMUNIDADES: Comunidad[] = [
   {
     slug: 'galicia',
     nombre: 'Galicia',
-    escala: [[12985, 9], [21068, 11.65], [35200, 14.9], [60000, 18.4], [INF, 22.5]],
+    escala: [[12985.35, 9], [21068.6, 11.65], [35200, 14.9], [60000, 18.4], [INF, 22.5]],
     nota: 'Decreto Legislativo 1/2011 de Galicia y modificaciones posteriores.',
+    minimos: { personal: 5789, mayor65: 1199, mayor75: 1460, descendientes: [2503, 2816, 4172, 4694], menor3: 2920, ascendiente65: 1199, ascendiente75: 1460, discapacidad33: 3129, discapacidad65: 9387, asistencia: 3129 },
   },
   {
     slug: 'madrid',
     nombre: 'Comunidad de Madrid',
     escala: [[13362.22, 8.5], [19004.63, 10.7], [35425.68, 12.8], [57320.4, 17.4], [INF, 20.5]],
     nota: 'Decreto Legislativo 1/2010 de Madrid, modificado por la Ley 13/2023.',
+    minimos: { personal: 5956.65, mayor65: 1234.26, mayor75: 1502.58, descendientes: [2575.85, 2897.83, 4400, 4950], menor3: 3005.16, ascendiente65: 1234.26, ascendiente75: 1502.58, discapacidad33: 3219.81, discapacidad65: 9659.44, asistencia: 3219.81 },
   },
   {
     slug: 'murcia',
@@ -133,6 +186,7 @@ export const COMUNIDADES: Comunidad[] = [
     nombre: 'La Rioja',
     escala: [[12450, 8], [20200, 10.6], [35200, 13.6], [40000, 17.8], [50000, 18.3], [60000, 19], [120000, 24.5], [INF, 27]],
     nota: 'Ley 10/2017 de La Rioja y modificaciones posteriores.',
+    minimos: { ...MINIMOS_ESTATALES, descDisc33: 3300, descDisc65: 9900 },
   },
   {
     slug: 'ceuta',
@@ -451,18 +505,35 @@ function cotizacionesTrabajador(d: Datos, brutoTrabajo: number): number {
   return cuota;
 }
 
-function minimoDescendientes(d: Datos): number {
-  let m = 0;
-  for (let i = 0; i < d.hijos; i++) m += P.minimoDescendientes[Math.min(i, 3)]!;
-  m += Math.min(d.hijosMenores3, d.hijos) * P.minimoMenor3;
-  // Con custodia compartida, el mínimo por descendientes se prorratea a partes iguales.
-  return d.hijosCompartidos ? m / 2 : m;
+interface DesgloseMinimo {
+  contribuyente: number;
+  descendientes: number;
+  ascendientes: number;
+  discapacidad: number;
+  total: number;
 }
 
-function minimoDiscapacidad(grado: 'no' | '33' | '65', asistencia: boolean): number {
-  if (grado === 'no') return 0;
-  const base = grado === '65' ? P.discapacidad65 : P.discapacidad33;
-  return base + (asistencia || grado === '65' ? P.discapacidadAsistencia : 0);
+function calcularMinimo(d: Datos, M: Minimos): DesgloseMinimo {
+  let contribuyente = M.personal;
+  if (d.edad >= 65) contribuyente += M.mayor65;
+  if (d.edad >= 75) contribuyente += M.mayor75;
+  let descendientes = 0;
+  for (let i = 0; i < d.hijos; i++) descendientes += M.descendientes[Math.min(i, 3)]!;
+  descendientes += Math.min(d.hijosMenores3, d.hijos) * M.menor3;
+  // Con custodia compartida, el mínimo por descendientes se prorratea a partes iguales.
+  if (d.hijosCompartidos) descendientes /= 2;
+  const ascendientes = d.ascendientes65 * M.ascendiente65 + d.ascendientes75 * (M.ascendiente65 + M.ascendiente75);
+  const propia =
+    d.discapacidad === 'no'
+      ? 0
+      : (d.discapacidad === '65' ? M.discapacidad65 : M.discapacidad33) + (d.asistencia || d.discapacidad === '65' ? M.asistencia : 0);
+  const discapacidad =
+    propia +
+    d.hijosDiscapacidad * (M.descDisc33 ?? M.discapacidad33) +
+    d.hijosDiscapacidad65 * ((M.descDisc65 ?? M.discapacidad65) + M.asistencia) +
+    d.ascendientesDiscapacidad * M.discapacidad33 +
+    (d.conyugeDiscapacidad && d.tributacion === 'conjunta' ? M.discapacidad33 : 0);
+  return { contribuyente, descendientes, ascendientes, discapacidad, total: contribuyente + descendientes + ascendientes + discapacidad };
 }
 
 export function calcular(d: Datos): Resultado {
@@ -613,29 +684,22 @@ export function calcular(d: Datos): Resultado {
   L('Base liquidable del ahorro', baseLiquidableAhorro, 2);
 
   // ── 7. Mínimo personal y familiar ────────────────────────────────────────
-  let minimoContribuyente = P.minimoPersonal;
-  if (d.edad >= 65) minimoContribuyente += P.minimoMayor65;
-  if (d.edad >= 75) minimoContribuyente += P.minimoMayor75;
-  const minDesc = minimoDescendientes(d);
-  const minAsc = d.ascendientes65 * P.minimoAscendiente65 + d.ascendientes75 * (P.minimoAscendiente65 + P.minimoAscendiente75);
-  const minDisc =
-    minimoDiscapacidad(d.discapacidad, d.asistencia) +
-    d.hijosDiscapacidad * P.discapacidad33 +
-    d.hijosDiscapacidad65 * (P.discapacidad65 + P.discapacidadAsistencia) +
-    d.ascendientesDiscapacidad * P.discapacidad33 +
-    (d.conyugeDiscapacidad && d.tributacion === 'conjunta' ? P.discapacidad33 : 0);
-  const minimo = minimoContribuyente + minDesc + minAsc + minDisc;
+  const mEst = calcularMinimo(d, MINIMOS_ESTATALES);
+  const mAut = calcularMinimo(d, comunidad.minimos ?? MINIMOS_ESTATALES);
+  const minimo = mEst.total;
+  const minimoAuto = mAut.total;
   L('Mínimo personal y familiar', 0, 0);
-  L('Mínimo del contribuyente', minimoContribuyente);
-  if (minDesc) L('Mínimo por descendientes', minDesc);
-  if (minAsc) L('Mínimo por ascendientes', minAsc);
-  if (minDisc) L('Mínimo por discapacidad', minDisc);
-  L('Total mínimo personal y familiar', minimo, 2);
+  L('Mínimo del contribuyente', mEst.contribuyente);
+  if (mEst.descendientes) L('Mínimo por descendientes', mEst.descendientes);
+  if (mEst.ascendientes) L('Mínimo por ascendientes', mEst.ascendientes);
+  if (mEst.discapacidad) L('Mínimo por discapacidad', mEst.discapacidad);
+  L('Total mínimo personal y familiar (estatal)', minimo, 2);
+  if (comunidad.minimos) L(`Mínimo personal y familiar propio de ${comunidad.nombre} (para la cuota autonómica)`, minimoAuto, 2);
 
   // ── 8. Cuotas íntegras ───────────────────────────────────────────────────
   const escalaAuto = comunidad.escala;
   const anualidades = d.anualidadesHijos > 0 && d.anualidadesHijos < baseLiquidableGeneral ? d.anualidadesHijos : 0;
-  const cuotaGeneral = (escala: Tramo[]) => {
+  const cuotaGeneral = (escala: Tramo[], minimo: number) => {
     const minimoEnGeneral = Math.min(minimo, baseLiquidableGeneral);
     if (anualidades) {
       const c =
@@ -646,12 +710,12 @@ export function calcular(d: Datos): Resultado {
     }
     return pos(aplicarEscala(baseLiquidableGeneral, escala) - aplicarEscala(minimoEnGeneral, escala));
   };
-  const minimoRestante = pos(minimo - baseLiquidableGeneral);
-  const cuotaAhorroMitad = pos(
-    aplicarEscala(baseLiquidableAhorro, ESCALA_AHORRO_MITAD) - aplicarEscala(Math.min(minimoRestante, baseLiquidableAhorro), ESCALA_AHORRO_MITAD),
-  );
-  const cuotaIntegraEstatal = cuotaGeneral(ESCALA_ESTATAL) + cuotaAhorroMitad;
-  const cuotaIntegraAutonomica = cuotaGeneral(escalaAuto) + cuotaAhorroMitad;
+  const cuotaAhorroMitad = (minimo: number) => {
+    const restante = pos(minimo - baseLiquidableGeneral);
+    return pos(aplicarEscala(baseLiquidableAhorro, ESCALA_AHORRO_MITAD) - aplicarEscala(Math.min(restante, baseLiquidableAhorro), ESCALA_AHORRO_MITAD));
+  };
+  const cuotaIntegraEstatal = cuotaGeneral(ESCALA_ESTATAL, minimo) + cuotaAhorroMitad(minimo);
+  const cuotaIntegraAutonomica = cuotaGeneral(escalaAuto, minimoAuto) + cuotaAhorroMitad(minimoAuto);
   const cuotaIntegra = cuotaIntegraEstatal + cuotaIntegraAutonomica;
   L('Cuotas íntegras', 0, 0);
   L('Cuota íntegra estatal', cuotaIntegraEstatal);
@@ -866,4 +930,34 @@ export function consejos(d: Datos, r: Resultado): Consejo[] {
     });
   }
   return lista;
+}
+
+export interface TramoCombinado {
+  desde: number;
+  hasta: number;
+  tipo: number;
+  base: number;
+  cuota: number;
+}
+
+/** Reparte la base liquidable general entre los tramos combinados (estatal + autonómico). */
+export function tramosCombinados(base: number, escalaAuto: Tramo[]): TramoCombinado[] {
+  const cortes = [...new Set([...ESCALA_ESTATAL, ...escalaAuto].map(([h]) => h))].sort((a, b) => a - b);
+  const out: TramoCombinado[] = [];
+  let desde = 0;
+  for (const hasta of cortes) {
+    const tipo = tipoMarginal(desde, ESCALA_ESTATAL) + tipoMarginal(desde, escalaAuto);
+    const enTramo = Math.max(0, Math.min(base, hasta) - desde);
+    out.push({ desde, hasta, tipo, base: enTramo, cuota: (enTramo * tipo) / 100 });
+    if (base <= hasta) break;
+    desde = hasta;
+  }
+  return out;
+}
+
+/** IRPF del mismo contribuyente en cada comunidad de régimen común, de menor a mayor. */
+export function compararComunidades(d: Datos): { comunidad: Comunidad; irpf: number }[] {
+  return COMUNIDADES.filter((c) => !c.foral)
+    .map((c) => ({ comunidad: c, irpf: calcular({ ...d, comunidad: c.slug }).irpfTotal }))
+    .sort((a, b) => a.irpf - b.irpf);
 }
