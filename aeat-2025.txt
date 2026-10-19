@@ -1,0 +1,66 @@
+===== aeat-2025/introduccion/general.html
+
+
+
+
+   Saltar_al_contenido_principal
+Logotipo_del_Gobierno_de_EspañaLogotipo_Organismo
+
+Menú móvil
+    * Menu
+
+   1. Inicio
+   2. Ayuda
+   3. Manuales,_vídeos_y_folletos
+   4. Manuales_prácticos
+   5. Manual_práctico_de_Renta_2025._Parte_1.
+   6. Capítulo_15._Cálculo_del_impuesto:_determinación_de_las_cuotas_íntegras
+   7. Introducción
+  Índice  Manual_práctico_de_Renta_2025._Parte_1.
+****** En general ******
+La determinación de las cuotas íntegras del IRPF se realiza a partir de los dos componentes en los que se divide la base liquidable del contribuyente:
+    * Base liquidable general a la que se aplican los tipos progresivos de las escalas estatal y autonómica.
+    * Base liquidable del ahorro a la que se aplican los tipos de sus correspondientes escalas estatal y autonómica.
+      Sobre este esquema general se incorporan determinadas especialidades derivadas, por una parte, de la propia naturaleza del IRPF como tributo cedido parcialmente a las Comunidades Autónomas y,
+      por otra, del régimen liquidatorio específico asignado al mínimo personal y familiar, a las rentas exentas, excepto para determinar el tipo de gravamen aplicable a las restantes rentas, también
+      denominadas "rentas exentas con progresividad" y a las anualidades por alimentos en favor de los hijos satisfechas por decisión judicial.
+***** Gravamen estatal y gravamen autonómico *****
+El IRPF es un impuesto cedido con carácter parcial, con el límite del 50 por 100, en los términos establecidos en la Ley Orgánica 8/1980, de 22 de septiembre, de financiación de las Comunidades
+Autónomas, modificada, por última vez a efectos del IRPF, por la Ley Orgánica 3/2009, de 18 de diciembre (BOE de 19 de diciembre).
+Como consecuencia de la cesión del IRPF, dentro del procedimiento liquidatorio del impuesto se distinguen dos fases: una estatal y otra autonómica. Así, tanto la base liquidable general como la base
+liquidable del ahorro se someten a un gravamen estatal y a un gravamen autonómico, que dan lugar a una cuota estatal y otra autonómica. A partir de esta última, se determina la parte de deuda
+tributaria que se cede a cada Comunidad Autónoma de régimen común.
+En lo concerniente a la cuota autonómica, cabe destacar que las Comunidades Autónomas de régimen común pueden, de acuerdo con lo dispuesto en el artículo 46.1 de la Ley 22/2009, de 18 de diciembre
+(BOE de 19 de diciembre), asumir competencias normativas en la determinación del importe del mínimo personal y familiar aplicable para el cálculo del gravamen autonómico y sobre la escala autonómica
+aplicable a la base liquidable general.
+Respecto al importe del mínimo personal y familiar aplicable para el cálculo del gravamen autonómico, tanto las Comunidades Autónomas de Andalucía, de Galicia, de Illes Balears, de Canarias, de La
+Rioja como las Comunidades de Castilla y León, de Cataluña, de Madrid y la Comunitat Valenciana, han aprobado los importes del mínimo personal y familiar que deberán utilizar los contribuyentes
+residentes en 2025 en su territorio para el cálculo del gravamen autonómico. Dichos importes autonómicos se comentan en el Capítulo_14.
+A las Comunidades de Castilla y León, y Cataluña (porque sus importes no difieren) así como al resto de las Comunidades Autónomas que no han ejercido tal competencia normativa, se les aplican los
+importes del mínimo personal y familiar establecido en la Ley del IRPF.
+En cuanto a las escalas autonómicas, todas las Comunidades autónomas tienen aprobadas, de conformidad con lo previsto en el artículo 46 de la Ley 22/2009, por la que se regula el sistema de
+financiación de las Comunidades Autónomas de régimen común y Ciudades con Estatuto de Autonomía, y en el artículo 74 de la Ley del IRPF, las correspondientes escalas autonómicas aplicables en el
+ejercicio 2025 que más adelante se detallan.
+No obstante, a los contribuyentes con residencia habitual en Ceuta y Melilla les resulta aplicable la escala autonómica recogida en el artículo 65 de la Ley del IRPF (disposición adicional trigésima
+segunda Ley IRPF).
+Asimismo, en el caso de contribuyentes con residencia habitual en el extranjero por concurrir alguna de las circunstancias a las que se refiere los artículos 8.2 y 10.1 de la Ley del IRPF, la
+determinación de la cuota íntegra total presenta ciertas especialidades cuyo comentario se realiza en un apartado específico de este Capítulo ("Gravamen_aplicable_a_contribuyentes_del_IRPF_residentes
+en_el_extranjero").
+***** Aplicación del mínimo personal y familiar *****
+Normativa: Arts. 63.1.2º y 74.1.2º Ley IRPF
+Con objeto de asegurar un mismo ahorro fiscal para todos los contribuyentes con igual situación personal y familiar, cualquiera que sea su nivel de rentas, en la actual Ley del IRPF el mínimo personal
+y familiar no reduce la renta del período impositivo, sino que forma parte de la base liquidable general hasta el importe de esta última y, en su caso, de la base liquidable del ahorro por el resto.
+La aplicación del mínimo personal y familiar y la determinación de las cuotas íntegras del IRPF, se representan de forma gráfica en el esquema que figura en el siguiente apartado:
+Generar PDF
+Cerrar
+La generación del PDF puede tardar varios minutos dependiendo de la cantidad de información.
+Seleccione la información que desee incluir en el PDF:
+    * oPágina actual
+    * oApartado actual y subapartados
+    * oTodo el documento
+Puede cancelar la generación del PDF en cualquier momento.
+CancelarContinuar
+
+Accesibilidad
+Página actualizada: 17/marzo/2026
+
