@@ -1,14 +1,21 @@
 ---
-titulo: "El Supremo levanta la orden de detención contra Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre"
-subtitulo: El juez Llarena aplica, sin compartirla, la doctrina del Constitucional que obliga a amnistiar la malversación del procés. Puigdemont ya no puede ser detenido en España, pero su causa sigue abierta.
+titulo: "El Supremo levanta la orden de detención contra Puigdemont: qué ha
+  pasado, cómo se ha llegado aquí y qué falta para que la causa se cierre"
+subtitulo: El juez Llarena aplica, sin compartirla, la doctrina del
+  Constitucional que obliga a amnistiar la malversación del procés. Puigdemont
+  ya no puede ser detenido en España, pero su causa sigue abierta.
 tituloSeo: "Puigdemont, sin orden de detención: qué pasa ahora con su causa"
-descripcion: Llarena confirma el fin de la orden de detención contra Puigdemont tras el aval del Constitucional a amnistiar la malversación. Claves, cronología y qué falta.
+descripcion: Llarena confirma el fin de la orden de detención contra Puigdemont
+  tras el aval del Constitucional a amnistiar la malversación. Claves,
+  cronología y qué falta.
 categoria: politica
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora.jpg
-imagenAlt: "Portada: el Supremo levanta la orden de detención contra Puigdemont"
-imagenCredito: "Imagen: Bolsillo Diario"
+imagenAlt: "Imagen del artículo: El Supremo levanta la orden de detención contra
+  Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la
+  causa se cierre"
+imagenCredito: "Foto: Antonio_Cansino (Pixabay)"
 etiquetas:
   - Puigdemont
   - amnistía
@@ -17,38 +24,55 @@ etiquetas:
   - Junts
 destacado: true
 fuentes:
-  - titulo: "El juez Llarena levanta la orden de detención contra Puigdemont y afea al Constitucional que censure un criterio que ha «fracturado al tribunal» (Infobae)"
+  - titulo: El juez Llarena levanta la orden de detención contra Puigdemont y afea
+      al Constitucional que censure un criterio que ha «fracturado al tribunal»
+      (Infobae)
     url: https://www.infobae.com/espana/2026/10/19/el-juez-llarena-levanta-la-orden-de-detencion-contra-puigdemont-y-afea-al-constitucional-que-censure-un-criterio-que-ha-fracturado-al-tribunal/
-  - titulo: "El juez Llarena confirma la retirada de la orden de detención a Puigdemont (El Boletín)"
+  - titulo: El juez Llarena confirma la retirada de la orden de detención a
+      Puigdemont (El Boletín)
     url: https://www.elboletin.com/el-juez-llarena-confirma-la-retirada-de-la-orden-de-detencion-a-puigdemont/
-  - titulo: "El Supremo aplica la amnistía y confirma el fin de la orden de detención a Puigdemont (Naiz)"
+  - titulo: El Supremo aplica la amnistía y confirma el fin de la orden de detención
+      a Puigdemont (Naiz)
     url: https://naiz.eus/info/noticia/20261019/el-supremo-aplica-la-amnistia-y-confirma-el-fin-de-la-orden-de-detencion-a-puigdemont
-  - titulo: "El juez Llarena confirma el alzamiento de la orden de detención a Puigdemont (Moncloa.com)"
+  - titulo: El juez Llarena confirma el alzamiento de la orden de detención a
+      Puigdemont (Moncloa.com)
     url: https://www.moncloa.com/2026/10/19/llarena-detencio-puigdemont-3451318/
-  - titulo: "El Constitucional aplica la amnistía a la malversación del procés y abre la puerta al regreso de Puigdemont (elDiario.es)"
+  - titulo: El Constitucional aplica la amnistía a la malversación del procés y abre
+      la puerta al regreso de Puigdemont (elDiario.es)
     url: https://www.eldiario.es/catalunya/constitucional-aplica-amnistia-malversacion-proces-abre-puerta-regreso-puigdemont_1_13565198.html
-  - titulo: "El Constitucional corrige al Supremo por 7 votos a 5 y le obliga a amnistiar la malversación de Dolors Bassa (Economist & Jurist)"
+  - titulo: El Constitucional corrige al Supremo por 7 votos a 5 y le obliga a
+      amnistiar la malversación de Dolors Bassa (Economist & Jurist)
     url: https://www.economistjurist.es/actualidad-juridica/jurisprudencia/el-constitucional-corrige-al-supremo-por-7-votos-a-5-y-le-obliga-a-amnistiar-la-malversacion-de-dolors-bassa/
-  - titulo: "El juez rechaza aplicar la amnistía a Puigdemont por la malversación pese al aval del TJUE (The Objective)"
+  - titulo: El juez rechaza aplicar la amnistía a Puigdemont por la malversación
+      pese al aval del TJUE (The Objective)
     url: https://theobjective.com/espana/tribunales/2026-09-15/llarena-amnistia-puigdemont-malversacion-tjue/
-  - titulo: "Sentencia del TJUE sobre la ley de amnistía y Puigdemont (Público)"
+  - titulo: Sentencia del TJUE sobre la ley de amnistía y Puigdemont (Público)
     url: https://www.publico.es/politica/tribunales/sentencia-tjue-sobre-ley-amnistia-puigdemont-directo.html
-  - titulo: "Puigdemont se plantea no volver a Catalunya hasta que pase el 29N (elDiario.es)"
+  - titulo: Puigdemont se plantea no volver a Catalunya hasta que pase el 29N
+      (elDiario.es)
     url: https://www.eldiario.es/catalunya/puigdemont-no-aclara-regresara-catalunya-plantea-volver-29n_1_13566601.html
-  - titulo: "Gonzalo Boye: «Puigdemont will not return in the middle of the electoral campaign» (Ara)"
+  - titulo: "Gonzalo Boye: «Puigdemont will not return in the middle of the
+      electoral campaign» (Ara)"
     url: https://en.ara.cat/politics/gonzalo-boye-puigdemont-will-not-return-in-the-middle-of-the-electoral-campaign_1_5877452.html
-  - titulo: "Ley Orgánica 1/2024, de 10 de junio, de amnistía (BOE)"
+  - titulo: Ley Orgánica 1/2024, de 10 de junio, de amnistía (BOE)
     url: https://www.boe.es/buscar/act.php?id=BOE-A-2024-11776
     organismo: Boletín Oficial del Estado
 clavesRapidas:
-  - "El juez del Supremo Pablo Llarena ha confirmado que Puigdemont, Comín y Puig ya no tienen orden de detención en España."
-  - "Lo hace porque el Constitucional obligó a amnistiar la malversación del procés en el caso de Dolors Bassa (7 votos a 5)."
-  - "Llarena aplica esa doctrina aunque no la comparte, y critica con dureza al Constitucional en su auto."
-  - "La causa no está cerrada: la Sala de lo Penal del Supremo aún debe declarar extinguida la responsabilidad y archivar."
-  - "Su abogado da a entender que Puigdemont no volverá en plena campaña de las generales del 29 de noviembre."
+  - El juez del Supremo Pablo Llarena ha confirmado que Puigdemont, Comín y Puig
+    ya no tienen orden de detención en España.
+  - Lo hace porque el Constitucional obligó a amnistiar la malversación del
+    procés en el caso de Dolors Bassa (7 votos a 5).
+  - Llarena aplica esa doctrina aunque no la comparte, y critica con dureza al
+    Constitucional en su auto.
+  - "La causa no está cerrada: la Sala de lo Penal del Supremo aún debe declarar
+    extinguida la responsabilidad y archivar."
+  - Su abogado da a entender que Puigdemont no volverá en plena campaña de las
+    generales del 29 de noviembre.
 titularesAlternativos:
-  - "Puigdemont ya puede volver a España sin ser detenido: así ha cambiado su situación judicial"
-  - "Fin de la orden de detención de Puigdemont: el Supremo aplica la amnistía tras el golpe del Constitucional"
+  - "Puigdemont ya puede volver a España sin ser detenido: así ha cambiado su
+    situación judicial"
+  - "Fin de la orden de detención de Puigdemont: el Supremo aplica la amnistía
+    tras el golpe del Constitucional"
 ---
 
 Casi nueve años después de cruzar la frontera, **Carles Puigdemont ya no tiene una orden de detención en España**. El juez del Tribunal Supremo Pablo Llarena ha confirmado en un auto fechado el 16 de octubre, y conocido este lunes 19, que retira definitivamente las órdenes nacionales de busca, captura y detención contra el expresidente de la Generalitat y contra los exconsejeros **Antoni Comín y Lluís Puig**.
