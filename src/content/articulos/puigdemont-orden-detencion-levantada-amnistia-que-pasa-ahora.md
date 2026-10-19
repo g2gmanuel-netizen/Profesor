@@ -15,7 +15,7 @@ imagen: /imagenes/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora.j
 imagenAlt: "Imagen del artículo: El Supremo levanta la orden de detención contra
   Puigdemont: qué ha pasado, cómo se ha llegado aquí y qué falta para que la
   causa se cierre"
-imagenCredito: "Foto: KostkaCZ (Pixabay)"
+imagenCredito: "Foto: lecreusois (Pixabay)"
 etiquetas:
   - Puigdemont
   - amnistía
