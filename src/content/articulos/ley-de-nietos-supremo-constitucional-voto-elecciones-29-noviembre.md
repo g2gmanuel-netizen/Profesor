@@ -1,14 +1,21 @@
 ---
-titulo: "Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una cosa u otra"
-subtitulo: El Supremo mantiene suspendido el voto de los nacionalizados por la ley de nietos y el Defensor del Pueblo ha acudido al Constitucional. Te explicamos la ley, el pleito y los escenarios para las generales.
+titulo: "Ley de nietos: por qué 163.020 nuevos españoles pueden quedarse sin
+  votar el 29-N y qué pasa si el Constitucional decide una cosa u otra"
+subtitulo: El Supremo mantiene suspendido el voto de los nacionalizados por la
+  ley de nietos y el Defensor del Pueblo ha acudido al Constitucional. Te
+  explicamos la ley, el pleito y los escenarios para las generales.
 tituloSeo: "Ley de nietos y voto del 29-N: el Supremo, el TC y los escenarios"
-descripcion: Qué es la ley de nietos, por qué el Supremo ha suspendido el voto de 163.020 nacionalizados y qué pasará en las elecciones del 29-N según decida el Constitucional.
+descripcion: Qué es la ley de nietos, por qué el Supremo ha suspendido el voto
+  de 163.020 nacionalizados y qué pasará en las elecciones del 29-N según decida
+  el Constitucional.
 categoria: politica
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre.jpg
-imagenAlt: "Portada: ley de nietos, el Supremo, el Constitucional y el voto del 29-N"
-imagenCredito: "Imagen: Bolsillo Diario"
+imagenAlt: "Imagen del artículo: Ley de nietos: por qué 163.020 nuevos españoles
+  pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una
+  cosa u otra"
+imagenCredito: "Foto: stux (Pixabay)"
 etiquetas:
   - ley de nietos
   - elecciones generales
@@ -17,42 +24,62 @@ etiquetas:
   - CERA
 destacado: true
 fuentes:
-  - titulo: "Ley 20/2022, de 19 de octubre, de Memoria Democrática (BOE)"
+  - titulo: Ley 20/2022, de 19 de octubre, de Memoria Democrática (BOE)
     url: https://www.boe.es/buscar/act.php?id=BOE-A-2022-17099
     organismo: Boletín Oficial del Estado
-  - titulo: "El Supremo mantiene la suspensión del censo electoral de la 'ley de nietos': no podrán votar (The Objective)"
+  - titulo: "El Supremo mantiene la suspensión del censo electoral de la 'ley de
+      nietos': no podrán votar (The Objective)"
     url: https://theobjective.com/espana/tribunales/2026-10-12/tribunal-supremo-ley-de-nietos/
-  - titulo: "El Supremo rechaza el recurso del Gobierno y mantiene suspendido el voto por la ley de nietos (Capital)"
+  - titulo: El Supremo rechaza el recurso del Gobierno y mantiene suspendido el voto
+      por la ley de nietos (Capital)
     url: https://capital.es/actualidad/el-supremo-rechaza-el-recurso-del-gobierno-y-mantiene-suspendido-el-voto-por-la-ley-de-nietos/225655/
-  - titulo: "La ley de nietos: qué es, por qué se ha suspendido el voto y qué plazo tienen los afectados (La Región)"
+  - titulo: "La ley de nietos: qué es, por qué se ha suspendido el voto y qué plazo
+      tienen los afectados (La Región)"
     url: https://www.laregion.es/sociedad/ley-nietos-definicion-suspension-voto-supremo-plazo-alegaciones_1_20261013-4450136.html
-  - titulo: "Guía para no perderse con la 'ley de nietos': qué es la disposición octava, qué criterio fijó Sofía Puente y por qué afecta al voto (Infobae)"
+  - titulo: "Guía para no perderse con la 'ley de nietos': qué es la disposición
+      octava, qué criterio fijó Sofía Puente y por qué afecta al voto (Infobae)"
     url: https://www.infobae.com/espana/2026/10/17/guia-para-no-perderse-con-la-ley-de-nietos-que-es-la-disposicion-octava-que-criterio-fijo-sofia-puente-y-por-que-afecta-al-voto-en-las-elecciones/
-  - titulo: "El Tribunal Supremo fija una vista oral en septiembre por las medidas cautelares de la ley de nietos (Moncloa.com)"
+  - titulo: El Tribunal Supremo fija una vista oral en septiembre por las medidas
+      cautelares de la ley de nietos (Moncloa.com)
     url: https://www.moncloa.com/2026/07/30/tribunal-supremo-vista-oral-medidas-cautelares-ley-nietos-3407794/
-  - titulo: "El Defensor del Pueblo acude al Constitucional para que puedan votar los nacionalizados por la ley de nietos (El Debate)"
+  - titulo: El Defensor del Pueblo acude al Constitucional para que puedan votar los
+      nacionalizados por la ley de nietos (El Debate)
     url: https://www.eldebate.com/espana/20261016/defensor-pueblo-acude-constitucional-puedan-votar-nacionalizados-ley-nietos_470612.html
-  - titulo: "El Constitucional eleva al Pleno el recurso de Gabilondo contra la parálisis de la ley de nietos (El Debate)"
+  - titulo: El Constitucional eleva al Pleno el recurso de Gabilondo contra la
+      parálisis de la ley de nietos (El Debate)
     url: https://www.eldebate.com/espana/20261019/constitucional-eleva-pleno-doce-magistrados-recurso-gabilondo-contra-paralisis-ley-nietos_471109.html
-  - titulo: "El Constitucional decidirá sobre la 'ley de nietos' pese a que sus letrados dicen que es «prematuro» (Euronews)"
+  - titulo: El Constitucional decidirá sobre la 'ley de nietos' pese a que sus
+      letrados dicen que es «prematuro» (Euronews)
     url: https://es.euronews.com/2026/10/19/el-constitucional-decidira-sobre-la-ley-de-nietos-con-un-informe-en-contra-de-sus-letrados
-  - titulo: "El Constitucional, contra el calendario electoral: qué tendría que pasar para que los 163.020 afectados puedan votar el 29-N (Infobae)"
+  - titulo: "El Constitucional, contra el calendario electoral: qué tendría que
+      pasar para que los 163.020 afectados puedan votar el 29-N (Infobae)"
     url: https://www.infobae.com/espana/2026/10/18/el-constitucional-contra-el-calendario-electoral-que-tendria-que-pasar-para-que-los-163020-afectados-por-la-ley-de-nietos-puedan-votar-el-29-n/
-  - titulo: "Juristas cuestionan la legitimación del Defensor del Pueblo para recurrir la suspensión (El Debate)"
+  - titulo: Juristas cuestionan la legitimación del Defensor del Pueblo para
+      recurrir la suspensión (El Debate)
     url: https://www.eldebate.com/espana/20261018/juristas-cuestionan-legitimacion-defensor-pueblo-recurrir-suspension-ley-nietos_470821.html
-  - titulo: "Ley de Nietos: el Gobierno admite que será «muy difícil» que los nuevos españoles voten el 29N (CiberCuba)"
+  - titulo: "Ley de Nietos: el Gobierno admite que será «muy difícil» que los nuevos
+      españoles voten el 29N (CiberCuba)"
     url: https://www.cibercuba.com/noticias/2026-10-19-u1-e208512-s27061-nid343285-ley-nietos-gobierno-espanol-admite-sera-muy-dificil
-  - titulo: "La ley de nietos 'fabrica' otros 15.141 electores en septiembre (El Español)"
+  - titulo: La ley de nietos 'fabrica' otros 15.141 electores en septiembre (El
+      Español)
     url: https://www.elespanol.com/espana/politica/20261007/ley-nietos-fabrica-electores-septiembre-supremo-debate-mantiene-suspension-voto/1003744410075_0.html
 clavesRapidas:
-  - "La «ley de nietos» permitió obtener la nacionalidad española a descendientes de exiliados de la Guerra Civil y la dictadura."
-  - "El Supremo suspendió de forma cautelar el voto desde el extranjero de 163.020 nacionalizados por esta vía y el 12 de octubre lo mantuvo (5 votos a 1)."
-  - "El tribunal teme irregularidades en el censo porque una instrucción administrativa de 2022 facilitó acreditar el exilio."
-  - "El Defensor del Pueblo ha pedido amparo al Constitucional; su Pleno decide previsiblemente el miércoles 21 si lo admite."
-  - "Si el Constitucional no actúa ya, los afectados no votarán el 29-N, salvo quienes acrediten el exilio de su familiar."
+  - La «ley de nietos» permitió obtener la nacionalidad española a descendientes
+    de exiliados de la Guerra Civil y la dictadura.
+  - El Supremo suspendió de forma cautelar el voto desde el extranjero de
+    163.020 nacionalizados por esta vía y el 12 de octubre lo mantuvo (5 votos a
+    1).
+  - El tribunal teme irregularidades en el censo porque una instrucción
+    administrativa de 2022 facilitó acreditar el exilio.
+  - El Defensor del Pueblo ha pedido amparo al Constitucional; su Pleno decide
+    previsiblemente el miércoles 21 si lo admite.
+  - Si el Constitucional no actúa ya, los afectados no votarán el 29-N, salvo
+    quienes acrediten el exilio de su familiar.
 titularesAlternativos:
-  - "Ley de nietos y elecciones: los tres escenarios del Constitucional para el voto de 163.020 españoles"
-  - "¿Votarán los nietos de exiliados el 29-N? Lo que dijo el Supremo y lo que puede decidir el Constitucional"
+  - "Ley de nietos y elecciones: los tres escenarios del Constitucional para el
+    voto de 163.020 españoles"
+  - ¿Votarán los nietos de exiliados el 29-N? Lo que dijo el Supremo y lo que
+    puede decidir el Constitucional
 ---
 
 A seis semanas de las elecciones generales del **29 de noviembre**, unos **163.020 españoles** que viven fuera, la mayoría en América Latina, no saben si podrán votar. Obtuvieron la nacionalidad gracias a la llamada **«ley de nietos»**, pero el **Tribunal Supremo** ha suspendido de forma cautelar su voto, y ahora es el **Tribunal Constitucional** el que tiene la última palabra… si llega a tiempo.
