@@ -59,7 +59,7 @@ export const COMUNIDADES: Comunidad[] = [
   {
     slug: 'asturias',
     nombre: 'Asturias',
-    escala: [[12450, 9], [17707, 12], [33007, 14], [53407, 19.2], [70000, 21.5], [90000, 22.5], [175000, 25], [INF, 26]],
+    escala: [[12450, 9], [17707.2, 12], [33007.2, 14], [53407.2, 19.2], [70000, 21.5], [90000, 22.5], [175000, 25], [INF, 26]],
     nota: 'Ley 3/2025 de medidas fiscales del Principado de Asturias.',
   },
   {

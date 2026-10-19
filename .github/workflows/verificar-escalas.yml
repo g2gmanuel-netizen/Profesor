@@ -20,14 +20,17 @@ jobs:
         run: |
           mkdir -p out && cd out
           UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
-          for anio in 2026 2025; do
-            url="https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-ii-tributacion-autonomica-${anio}.pdf"
-            if curl -sSfL -A "$UA" -o "hacienda-${anio}.pdf" "$url"; then
-              pdftotext -layout "hacienda-${anio}.pdf" "hacienda-${anio}.txt"
-              echo "OK $url ($(wc -l < hacienda-${anio}.txt) líneas)"
-            else
-              echo "NO $url"; rm -f "hacienda-${anio}.pdf"
-            fi
+          for anio in 2026 2025 2024 2023 2022 2021; do
+            for cap in i ii iii iv v vi; do
+              url="https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-${cap}-tributacion-autonomica-${anio}.pdf"
+              f="hacienda-${anio}-${cap}"
+              if curl -sSfL -A "$UA" -o "$f.pdf" "$url"; then
+                pdftotext -layout "$f.pdf" "$f.txt"
+                echo "OK $url ($(wc -l < $f.txt) líneas)"
+              else
+                echo "NO $url"; rm -f "$f.pdf"
+              fi
+            done
           done
           for anio in 2025 2026; do
             base="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-${anio}/c15-calculo-impuesto-determinacion-cuotas-integras/"
