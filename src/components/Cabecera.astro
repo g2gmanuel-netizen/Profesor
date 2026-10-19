@@ -37,6 +37,7 @@ const secciones = await categoriasConArticulos();
     <div class="contenedor nav-principal-fila">
       <a href="/" class="nav-portada">Portada</a>
       {secciones.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+      <a href="/calculadoras/" class="nav-calculadoras">Calculadoras</a>
     </div>
   </nav>
 </header>

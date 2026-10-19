@@ -225,6 +225,9 @@ img {
   text-decoration: none;
   border-bottom-color: var(--color-marca);
 }
+.nav-calculadoras {
+  color: var(--color-marca) !important;
+}
 .nav-portada {
   color: var(--color-destacado) !important;
 }

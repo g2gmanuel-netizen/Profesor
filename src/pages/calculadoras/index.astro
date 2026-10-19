@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { EJERCICIO } from '../../lib/irpf';
+
+const calculadoras = [
+  {
+    url: '/calculadoras/irpf/',
+    titulo: `Calculadora de IRPF ${EJERCICIO}`,
+    texto:
+      'Cuánto pagas a Hacienda y cuánto cobras neto con sueldo, alquileres, autónomos, ahorro, hijos y deducciones. Con explicación de cada casilla y consejos para pagar menos.',
+  },
+];
+---
+
+<BaseLayout
+  titulo="Calculadoras de dinero gratis"
+  descripcion="Calculadoras gratuitas de Bolsillo Diario para hacer números con tu dinero: IRPF, sueldo neto y más, explicadas paso a paso."
+>
+  <section class="lectura" style="margin-inline:auto;">
+    <h1>Calculadoras</h1>
+    <p class="entradilla">Herramientas gratuitas para hacer números con tu dinero, explicadas para que cualquiera las entienda.</p>
+    {
+      calculadoras.map((c) => (
+        <article class="tarjeta-calc">
+          <h2>
+            <a href={c.url}>{c.titulo}</a>
+          </h2>
+          <p>{c.texto}</p>
+          <a class="ir" href={c.url}>Abrir la calculadora →</a>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .tarjeta-calc {
+    border: 1px solid var(--color-borde);
+    border-left: 4px solid var(--color-marca);
+    padding: 1rem 1.25rem;
+    margin-block: 1rem;
+  }
+  .tarjeta-calc h2 {
+    margin: 0 0 0.5rem;
+  }
+  .ir {
+    font-family: var(--fuente-ui);
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,648 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SECCIONES } from '../../lib/irpf-campos';
+import { COMUNIDADES, DATOS_VACIOS, EJERCICIO } from '../../lib/irpf';
+import { SITIO } from '../../lib/sitio';
+
+const titulo = `Calculadora de IRPF ${EJERCICIO}: cuánto pagas a Hacienda y cuánto cobras neto`;
+const descripcion =
+  'La calculadora de IRPF más completa: sueldo, alquileres, autónomos, ahorro, hijos, planes de pensiones y deducciones por comunidad. Gratis y con consejos para pagar menos.';
+const valorInicial = (id: string) => (DATOS_VACIOS as unknown as Record<string, unknown>)[id];
+const esquema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: `Calculadora de IRPF ${EJERCICIO}`,
+  url: `${SITIO.url}/calculadoras/irpf/`,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  inLanguage: 'es-ES',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  publisher: { '@type': 'Organization', name: SITIO.nombre },
+};
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <script type="application/ld+json" set:html={JSON.stringify(esquema)} />
+  <div class="calc">
+    <nav class="migas" aria-label="Ruta"><a href="/calculadoras/">Calculadoras</a> › IRPF</nav>
+    <h1>Calculadora de IRPF {EJERCICIO}</h1>
+    <p class="entradilla">
+      Rellena solo lo que te afecte y verás al momento cuánto pagas a Hacienda, cuánto cobras neto y si la declaración
+      te sale a pagar o a devolver. Cada casilla tiene una explicación con ejemplos: pulsa <strong>«¿Qué pongo aquí?»</strong>.
+    </p>
+
+    <aside class="aviso" role="note">
+      <strong>Aviso importante:</strong> esta calculadora es una simulación con fines exclusivamente informativos y
+      divulgativos. No sustituye a la declaración oficial, al programa Renta Web de la Agencia Tributaria ni al consejo
+      de un asesor fiscal. Simplifica algunos supuestos (mínimos y deducciones propias de cada comunidad, compensaciones
+      de años anteriores, regímenes especiales) y la normativa puede cambiar. Comprueba siempre tus datos en la
+      <a href="https://sede.agenciatributaria.gob.es/" rel="noopener" target="_blank">Agencia Tributaria</a>.
+    </aside>
+
+    <div class="calc-rejilla">
+      <form id="form-irpf" class="formulario" autocomplete="off" onsubmit="return false">
+        {
+          SECCIONES.map((s) => (
+            <details class="seccion" open={s.abierta}>
+              <summary>
+                <span class="seccion-titulo">{s.titulo}</span>
+                <span class="seccion-intro">{s.intro}</span>
+              </summary>
+              <div class="campos">
+                {s.campos.map((c) => (
+                  <div class={`campo campo-${c.tipo}`} data-campo={c.id}>
+                    {c.tipo === 'check' ? (
+                      <label class="check">
+                        <input type="checkbox" name={c.id} checked={Boolean(valorInicial(c.id))} />
+                        <span>{c.etiqueta}</span>
+                      </label>
+                    ) : (
+                      <label for={`c-${c.id}`}>{c.etiqueta}</label>
+                    )}
+                    {c.tipo === 'numero' && (
+                      <div class="entrada">
+                        <input
+                          id={`c-${c.id}`}
+                          name={c.id}
+                          type="number"
+                          inputmode="decimal"
+                          step="any"
+                          min={c.id === 'gananciasAhorro' ? undefined : 0}
+                          placeholder={c.id === 'edad' ? '35' : '0'}
+                          value={c.id === 'edad' ? '35' : ''}
+                        />
+                        {c.sufijo && <span class="sufijo">{c.sufijo}</span>}
+                      </div>
+                    )}
+                    {c.tipo === 'select' && (
+                      <select id={`c-${c.id}`} name={c.id}>
+                        {c.opciones!.map(([v, t]) => (
+                          <option value={v} selected={String(valorInicial(c.id)) === v}>
+                            {t}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                    <details class="info">
+                      <summary>¿Qué pongo aquí?</summary>
+                      <p>{c.info}</p>
+                      {c.ejemplo && (
+                        <p class="ejemplo">
+                          <strong>Ejemplo:</strong> {c.ejemplo}
+                        </p>
+                      )}
+                    </details>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))
+        }
+        <div class="acciones-form">
+          <button type="button" id="btn-limpiar" class="boton-secundario">Borrar todo</button>
+          <button type="button" id="btn-imprimir" class="boton-secundario">Imprimir o guardar en PDF</button>
+        </div>
+      </form>
+
+      <section class="resultado" id="resultado" aria-live="polite">
+        <h2>Tu resultado</h2>
+        <div class="cifras">
+          <div class="cifra destacada">
+            <span class="cifra-etq">Cobras neto al año</span>
+            <span class="cifra-valor" id="r-neto">0 €</span>
+            <span class="cifra-sub" id="r-neto-mes"></span>
+          </div>
+          <div class="cifra">
+            <span class="cifra-etq">Pagas en total al Estado</span>
+            <span class="cifra-valor" id="r-estado">0 €</span>
+            <span class="cifra-sub" id="r-estado-desglose"></span>
+          </div>
+          <div class="cifra">
+            <span class="cifra-etq" id="r-dif-etq">Tu declaración</span>
+            <span class="cifra-valor" id="r-dif">0 €</span>
+            <span class="cifra-sub">Tras restar lo que ya te han retenido</span>
+          </div>
+          <div class="cifra-fila">
+            <div><span class="cifra-etq">Tipo medio de IRPF</span><strong id="r-medio">0 %</strong></div>
+            <div><span class="cifra-etq">Tipo marginal</span><strong id="r-marginal">0 %</strong></div>
+            <div><span class="cifra-etq">Ingresos brutos</span><strong id="r-bruto">0 €</strong></div>
+          </div>
+        </div>
+        <ul class="avisos" id="r-avisos"></ul>
+        <p class="nota-empresa" id="r-empresa"></p>
+      </section>
+    </div>
+
+    <a href="#resultado" class="barra-movil" id="barra-movil">
+      <span>Neto: <strong id="b-neto">0 €</strong></span>
+      <span id="b-dif">—</span>
+      <span class="ver">Ver detalle ↓</span>
+    </a>
+
+    <section class="bloque">
+      <h2>Desglose paso a paso (como en el modelo 100)</h2>
+      <table class="desglose">
+        <tbody id="r-desglose"></tbody>
+      </table>
+      <p class="fuente-escala" id="r-escala"></p>
+    </section>
+
+    <section class="bloque">
+      <h2>Cómo podrías pagar menos (legalmente)</h2>
+      <p>Consejos calculados con tus datos. Ninguno es una recomendación personalizada: valora tu situación o consulta a un asesor.</p>
+      <ol class="consejos" id="r-consejos"></ol>
+    </section>
+
+    <section class="bloque explicacion">
+      <h2>Cómo funciona el IRPF, en cinco pasos</h2>
+      <ol>
+        <li><strong>Sumas tus rentas</strong> por tipo: trabajo, alquileres, actividades, ahorro y ganancias. Cada una con sus gastos deducibles y reducciones.</li>
+        <li><strong>Separas dos bases:</strong> la <em>general</em> (sueldo, alquileres, autónomos, premios) y la <em>del ahorro</em> (intereses, dividendos y ventas).</li>
+        <li><strong>Restas las reducciones</strong> (planes de pensiones, tributación conjunta…) y obtienes la base liquidable.</li>
+        <li><strong>Aplicas las escalas</strong> estatal y de tu comunidad. A la parte de renta que cubre tu mínimo personal y familiar no se le cobra impuesto.</li>
+        <li><strong>Restas las deducciones</strong> y lo que ya te retuvieron: el resultado es lo que pagas o lo que te devuelven.</li>
+      </ol>
+      <h3>Escalas de la base general en {EJERCICIO}</h3>
+      <p>
+        La escala estatal va del 9,5 % al 24,5 % y se suma a la autonómica. La base del ahorro tributa al 19 % hasta
+        6.000 €, 21 % hasta 50.000 €, 23 % hasta 200.000 €, 27 % hasta 300.000 € y 30 % a partir de ahí.
+      </p>
+      <details class="info tablas">
+        <summary>Ver la escala autonómica de cada comunidad</summary>
+        {
+          COMUNIDADES.filter((c) => !c.foral && !c.ceutaMelilla).map((c) => (
+            <div class="tabla-ccaa">
+              <h4>{c.nombre}</h4>
+              <p class="fuente-escala">{c.nota}</p>
+              <table>
+                <thead>
+                  <tr><th>Base liquidable hasta</th><th>Tipo autonómico</th></tr>
+                </thead>
+                <tbody>
+                  {c.escala.map(([hasta, tipo]) => (
+                    <tr>
+                      <td>{Number.isFinite(hasta) ? `${hasta.toLocaleString('es-ES')} €` : 'En adelante'}</td>
+                      <td>{tipo.toLocaleString('es-ES')} %</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))
+        }
+      </details>
+    </section>
+
+    <aside class="aviso">
+      <strong>Información meramente orientativa.</strong> {SITIO.nombre} no se hace responsable de las decisiones que se
+      tomen a partir de esta simulación. Los datos que introduces no se envían a ningún servidor: el cálculo se hace en
+      tu navegador.
+    </aside>
+  </div>
+</BaseLayout>
+
+<script>
+  import { calcular, consejos, DATOS_VACIOS, type Datos } from '../../lib/irpf';
+
+  const form = document.getElementById('form-irpf') as HTMLFormElement;
+  const CLAVE = 'bd-irpf-v1';
+  const eur = (n: number) => `${Math.round(n).toLocaleString('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions)} €`;
+  const eur2 = (n: number) => `${n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' } as Intl.NumberFormatOptions)} €`;
+  const $ = (id: string) => document.getElementById(id)!;
+
+  function leer(): Datos {
+    const d = { ...DATOS_VACIOS } as Record<string, unknown>;
+    for (const el of Array.from(form.elements) as (HTMLInputElement | HTMLSelectElement)[]) {
+      if (!el.name || !(el.name in d)) continue;
+      const actual = (DATOS_VACIOS as unknown as Record<string, unknown>)[el.name];
+      if (el instanceof HTMLInputElement && el.type === 'checkbox') d[el.name] = el.checked;
+      else if (typeof actual === 'number') {
+        const v = parseFloat(String(el.value).replace(',', '.'));
+        d[el.name] = Number.isFinite(v) ? v : el.name === 'edad' ? 35 : 0;
+      } else d[el.name] = el.value;
+    }
+    return d as unknown as Datos;
+  }
+
+  function guardar(): void {
+    try {
+      const v: Record<string, string | boolean> = {};
+      for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+        if (!el.name) continue;
+        v[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+      }
+      localStorage.setItem(CLAVE, JSON.stringify(v));
+    } catch {
+      /* sin almacenamiento: no pasa nada */
+    }
+  }
+
+  function restaurar(): void {
+    try {
+      const v = JSON.parse(localStorage.getItem(CLAVE) ?? 'null') as Record<string, string | boolean> | null;
+      if (!v) return;
+      for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+        if (!el.name || !(el.name in v)) continue;
+        if (el.type === 'checkbox') el.checked = Boolean(v[el.name]);
+        else el.value = String(v[el.name]);
+      }
+    } catch {
+      /* ignorar */
+    }
+  }
+
+  function visibilidad(d: Datos): void {
+    const ocultar = (id: string, oculto: boolean) =>
+      document.querySelector<HTMLElement>(`[data-campo="${id}"]`)?.toggleAttribute('hidden', oculto);
+    ocultar('ssManual', d.ssAutomatica);
+    ocultar('actModulosRendimiento', d.actMetodo !== 'modulos');
+    for (const id of ['actIngresos', 'actGastos']) ocultar(id, d.actMetodo === 'modulos');
+    ocultar('asistencia', d.discapacidad === 'no');
+    ocultar('conyugeDiscapacidad', d.tributacion !== 'conjunta');
+  }
+
+  function pintar(): void {
+    const d = leer();
+    visibilidad(d);
+    const r = calcular(d);
+
+    $('r-neto').textContent = eur(r.netoAnual);
+    $('r-neto-mes').textContent = `${eur(r.netoAnual / 12)} al mes en 12 pagas · ${eur(r.netoAnual / 14)} en 14 pagas`;
+    $('r-estado').textContent = eur(r.totalEstado);
+    const partes = [`IRPF ${eur(r.irpfTotal)}`, `Seguridad Social ${eur(r.ssTrabajador)}`];
+    if (r.cuotaAutonomos) partes.push(`cuota de autónomos ${eur(r.cuotaAutonomos)}`);
+    $('r-estado-desglose').textContent = partes.join(' · ');
+    const aPagar = r.cuotaDiferencial >= 0;
+    $('r-dif-etq').textContent = aPagar ? 'Tu declaración sale a pagar' : 'Tu declaración sale a devolver';
+    $('r-dif').textContent = eur(Math.abs(r.cuotaDiferencial));
+    $('r-dif').className = `cifra-valor ${aPagar ? 'pagar' : 'devolver'}`;
+    $('b-neto').textContent = eur(r.netoAnual);
+    $('b-dif').textContent = `${aPagar ? 'A pagar' : 'A devolver'}: ${eur(Math.abs(r.cuotaDiferencial))}`;
+    $('r-medio').textContent = `${r.tipoMedio.toLocaleString('es-ES')} %`;
+    $('r-marginal').textContent = `${r.tipoMarginal.toLocaleString('es-ES')} %`;
+    $('r-bruto').textContent = eur(r.ingresosBrutos);
+    $('r-empresa').textContent = r.ssEmpresaAprox
+      ? `Además, tu empresa paga por ti a la Seguridad Social unos ${eur(r.ssEmpresaAprox)} al año (estimación del ~32 % sobre tu base de cotización), que no ves en la nómina.`
+      : '';
+    $('r-avisos').innerHTML = r.avisos.map((a) => `<li>${a}</li>`).join('');
+
+    $('r-desglose').innerHTML = r.lineas
+      .map((l) =>
+        l.nivel === 0
+          ? `<tr class="n0"><th colspan="2">${l.concepto}${l.importe ? ` <span>${eur2(l.importe)}</span>` : ''}</th></tr>`
+          : `<tr class="n${l.nivel}"><td>${l.concepto}</td><td>${eur2(l.importe)}</td></tr>`,
+      )
+      .join('');
+    $('r-escala').textContent = `Escala autonómica aplicada: ${r.comunidad.nombre}. ${r.comunidad.nota}`;
+
+    $('r-consejos').innerHTML = consejos(d, r)
+      .map((c) => `<li><strong>${c.titulo}${c.ahorro ? ` (ahorro aprox. ${eur(c.ahorro)})` : ''}.</strong> ${c.texto}</li>`)
+      .join('');
+    guardar();
+  }
+
+  restaurar();
+  form.addEventListener('input', pintar);
+  form.addEventListener('change', pintar);
+  $('btn-limpiar').addEventListener('click', () => {
+    form.reset();
+    try {
+      localStorage.removeItem(CLAVE);
+    } catch {
+      /* ignorar */
+    }
+    pintar();
+  });
+  $('btn-imprimir').addEventListener('click', () => window.print());
+  pintar();
+</script>
+
+<style>
+  .calc {
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .migas {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+  }
+  .calc h1 {
+    margin-top: 0.25rem;
+  }
+  .aviso {
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    background: var(--color-fondo-alt);
+    border-left: 4px solid var(--color-destacado);
+    padding: 0.75rem 1rem;
+    margin-block: 1rem;
+  }
+  .calc-rejilla {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .calc-rejilla {
+      grid-template-columns: minmax(0, 1fr) 340px;
+    }
+    .resultado {
+      position: sticky;
+      top: 1rem;
+    }
+  }
+  .seccion {
+    border: 1px solid var(--color-borde);
+    margin-bottom: 0.75rem;
+    background: var(--color-fondo);
+  }
+  .seccion > summary {
+    position: relative;
+    cursor: pointer;
+    padding: 0.9rem 2.5rem 0.9rem 1rem;
+    list-style: none;
+    background: var(--color-fondo-alt);
+  }
+  .seccion > summary::-webkit-details-marker {
+    display: none;
+  }
+  .seccion > summary::after {
+    content: '＋';
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    font-family: var(--fuente-ui);
+    color: var(--color-marca);
+  }
+  .seccion[open] > summary::after {
+    content: '－';
+  }
+  .seccion-titulo {
+    display: block;
+    font-family: var(--fuente-titular);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .seccion-intro {
+    display: block;
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    margin-top: 0.25rem;
+  }
+  .campos {
+    padding: 0.5rem 1rem 1rem;
+  }
+  .campo {
+    padding-block: 0.6rem;
+    border-bottom: 1px dashed var(--color-borde);
+    font-family: var(--fuente-ui);
+  }
+  .campo[hidden] {
+    display: none;
+  }
+  .campo > label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+  .campo .check {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .check input {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.15rem;
+    flex: none;
+  }
+  .entrada {
+    display: flex;
+    align-items: center;
+    max-width: 260px;
+    border: 1px solid var(--color-borde-fuerte);
+    background: var(--color-fondo);
+  }
+  .entrada input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    padding: 0.55rem 0.6rem;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--color-texto);
+  }
+  .sufijo {
+    padding-inline: 0.6rem;
+    color: var(--color-texto-suave);
+  }
+  .campo select {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.55rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-borde-fuerte);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+  }
+  .info {
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+  }
+  .info > summary {
+    cursor: pointer;
+    color: var(--color-enlace);
+    font-weight: 600;
+  }
+  .info p {
+    margin: 0.4rem 0 0;
+    line-height: 1.5;
+  }
+  .ejemplo {
+    background: var(--color-fondo-alt);
+    padding: 0.4rem 0.6rem;
+  }
+  .acciones-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .boton-secundario {
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-borde-fuerte);
+    background: var(--color-fondo-alt);
+    color: var(--color-texto);
+    cursor: pointer;
+  }
+  .resultado {
+    border: 2px solid var(--color-marca);
+    padding: 1rem;
+    background: var(--color-fondo);
+    font-family: var(--fuente-ui);
+  }
+  .resultado h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  .cifra {
+    border-bottom: 1px solid var(--color-borde);
+    padding-block: 0.6rem;
+  }
+  .cifra-etq {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-texto-suave);
+  }
+  .cifra-valor {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .destacada .cifra-valor {
+    color: var(--color-marca);
+    font-size: 2rem;
+  }
+  .cifra-valor.pagar {
+    color: var(--color-destacado);
+  }
+  .cifra-valor.devolver {
+    color: var(--color-marca);
+  }
+  .cifra-sub {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--color-texto-suave);
+  }
+  .cifra-fila {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding-top: 0.6rem;
+  }
+  .cifra-fila strong {
+    font-size: 1.05rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .avisos {
+    font-size: 0.85rem;
+    color: var(--color-destacado);
+    padding-left: 1.1rem;
+  }
+  .nota-empresa {
+    font-size: 0.82rem;
+    color: var(--color-texto-suave);
+  }
+  .bloque {
+    margin-top: 2rem;
+  }
+  .desglose {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--fuente-ui);
+    font-size: 0.92rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .desglose td,
+  .desglose th {
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px solid var(--color-borde);
+    text-align: left;
+  }
+  .desglose td:last-child {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .desglose tr.n0 th {
+    background: var(--color-fondo-alt);
+    padding-top: 0.8rem;
+  }
+  .desglose tr.n0 th span {
+    float: right;
+  }
+  .desglose tr.n2 td {
+    font-weight: 700;
+  }
+  .fuente-escala {
+    font-family: var(--fuente-ui);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+  }
+  .consejos li {
+    margin-bottom: 0.75rem;
+    line-height: 1.55;
+  }
+  .tablas {
+    margin-top: 1rem;
+  }
+  .tabla-ccaa {
+    margin-top: 1rem;
+  }
+  .tabla-ccaa h4 {
+    margin: 0;
+  }
+  .tabla-ccaa table {
+    border-collapse: collapse;
+    font-family: var(--fuente-ui);
+    font-size: 0.88rem;
+  }
+  .tabla-ccaa td,
+  .tabla-ccaa th {
+    border: 1px solid var(--color-borde);
+    padding: 0.25rem 0.6rem;
+    text-align: left;
+  }
+  .barra-movil {
+    display: none;
+  }
+  @media (max-width: 899px) {
+    .barra-movil {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      background: var(--color-marca);
+      color: #fff;
+      font-family: var(--fuente-ui);
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 -2px 10px rgb(0 0 0 / 0.2);
+    }
+    .barra-movil .ver {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .calc {
+      padding-bottom: 4rem;
+    }
+  }
+  @media print {
+    .barra-movil {
+      display: none;
+    }
+    .formulario,
+    .acciones-form,
+    .explicacion {
+      display: none;
+    }
+    .calc-rejilla {
+      display: block;
+    }
+  }
+</style>

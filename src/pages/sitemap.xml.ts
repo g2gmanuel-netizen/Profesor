@@ -10,6 +10,8 @@ export const GET: APIRoute = async () => {
   const urls: UrlSitemap[] = [
     { loc: `${base}/` },
     { loc: `${base}/buscar/` },
+    { loc: `${base}/calculadoras/` },
+    { loc: `${base}/calculadoras/irpf/` },
     { loc: `${base}/sobre-nosotros/` },
     { loc: `${base}/contacto/` },
     { loc: `${base}/politica-editorial/` },
