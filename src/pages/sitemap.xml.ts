@@ -13,6 +13,8 @@ export const GET: APIRoute = async () => {
     { loc: `${base}/buscar/` },
     { loc: `${base}/calculadoras/` },
     { loc: `${base}/calculadoras/irpf/` },
+    { loc: `${base}/calculadoras/hipoteca/` },
+    { loc: `${base}/calculadoras/ahorro/` },
     ...COMUNIDADES.filter((c) => !c.foral).map((c) => ({ loc: `${base}/calculadoras/irpf/${c.slug}/` })),
     { loc: `${base}/sobre-nosotros/` },
     { loc: `${base}/contacto/` },

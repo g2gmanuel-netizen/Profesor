@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { SITIO } from '../../lib/sitio';
+
+const titulo = 'Calculadora de ahorro: cuánto tendrás con interés compuesto';
+const descripcion =
+  'Calcula cuánto dinero acumularás ahorrando cada mes con un depósito o cuenta remunerada, con interés compuesto. Gratis y sin registro.';
+const faq = [
+  {
+    p: '¿Qué es el interés compuesto?',
+    r: 'Es el interés que se calcula sobre el capital y también sobre los intereses ya generados. Cuanto más tiempo mantienes el dinero, más pesa el efecto.',
+  },
+  {
+    p: '¿Qué TAE debo poner?',
+    r: 'Usa la TAE que anuncie tu depósito o cuenta remunerada: ya incluye el efecto de la capitalización. Recuerda que los intereses tributan como rendimientos del capital en tu declaración de la renta.',
+  },
+  {
+    p: '¿Los intereses pagan impuestos?',
+    r: 'Sí. Los intereses de depósitos y cuentas tributan en la base del ahorro del IRPF. Esta calculadora muestra el resultado bruto, antes de impuestos.',
+  },
+];
+const esquema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Calculadora de ahorro',
+    url: `${SITIO.url}/calculadoras/ahorro/`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web',
+    inLanguage: 'es-ES',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    publisher: { '@type': 'Organization', name: SITIO.nombre },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.p,
+      acceptedAnswer: { '@type': 'Answer', text: f.r },
+    })),
+  },
+];
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <script type="application/ld+json" set:html={JSON.stringify(esquema)} />
+  <section class="lectura calc-simple">
+    <nav class="migas" aria-label="Ruta"><a href="/calculadoras/">Calculadoras</a> › Ahorro</nav>
+    <h1>Calculadora de ahorro</h1>
+    <p class="entradilla">
+      Mira cuánto tendrás dentro de unos años si ahorras una cantidad cada mes. Cambia los datos y el resultado se
+      actualiza al instante.
+    </p>
+
+    <form id="form-ahorro" class="panel-calc" onsubmit="return false">
+      <label>Capital inicial (€)
+        <input id="a-inicial" type="number" min="0" step="500" value="1000" inputmode="decimal" />
+      </label>
+      <label>Aportación mensual (€)
+        <input id="a-aporte" type="number" min="0" step="10" value="200" inputmode="decimal" />
+      </label>
+      <label>TAE anual (%)
+        <input id="a-tae" type="number" min="0" max="20" step="0.05" value="3" inputmode="decimal" />
+      </label>
+      <label>Plazo (años)
+        <input id="a-anios" type="number" min="1" max="50" step="1" value="10" inputmode="numeric" />
+      </label>
+    </form>
+
+    <div class="resultados" aria-live="polite">
+      <div class="res principal"><span>Capital final</span><strong id="r-final">—</strong></div>
+      <div class="res"><span>Aportado por ti</span><strong id="r-aportado">—</strong></div>
+      <div class="res"><span>Intereses ganados</span><strong id="r-intereses">—</strong></div>
+    </div>
+
+    <h2>Evolución año a año</h2>
+    <div class="tabla-envoltorio">
+      <table>
+        <thead><tr><th>Año</th><th>Aportado</th><th>Capital acumulado</th></tr></thead>
+        <tbody id="tabla-anios"></tbody>
+      </table>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    {faq.map((f) => (
+      <details>
+        <summary>{f.p}</summary>
+        <p>{f.r}</p>
+      </details>
+    ))}
+
+    <p class="descargo">
+      Cálculo orientativo, bruto y a tipo constante. No incluye impuestos ni inflación, y la rentabilidad pasada o
+      anunciada no garantiza la futura.
+    </p>
+    <p><a href="/categoria/ahorro/">Más artículos sobre ahorro →</a> · <a href="/calculadoras/hipoteca/">Calculadora de hipoteca →</a></p>
+    <Newsletter />
+  </section>
+</BaseLayout>
+
+<script>
+  import { calcularAhorro } from '../../lib/calculadoras-finanzas';
+
+  const $ = (id: string) => document.getElementById(id)!;
+  const num = (id: string) => Number((document.getElementById(id) as HTMLInputElement).value) || 0;
+  const eur = (n: number) =>
+    `${n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' })} €`;
+
+  function pintar(): void {
+    const r = calcularAhorro(num('a-inicial'), num('a-aporte'), num('a-tae'), num('a-anios'));
+    $('r-final').textContent = eur(r.capitalFinal);
+    $('r-aportado').textContent = eur(r.aportado);
+    $('r-intereses').textContent = eur(r.intereses);
+    $('tabla-anios').innerHTML = r.porAnio
+      .map((p) => `<tr><td>${p.anio}</td><td>${eur(p.aportado)}</td><td>${eur(p.capital)}</td></tr>`)
+      .join('');
+  }
+
+  document.getElementById('form-ahorro')!.addEventListener('input', pintar);
+  pintar();
+</script>
+
+<style>
+  .calc-simple { margin-inline: auto; }
+  .panel-calc { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-block: 1.5rem; }
+  .panel-calc label { display: grid; gap: 0.35rem; font-family: var(--fuente-ui); font-weight: 600; }
+  .panel-calc input { padding: 0.6rem; font-size: 1rem; border: 1px solid var(--color-borde); border-radius: 4px; }
+  .resultados { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .res { border: 1px solid var(--color-borde); padding: 0.9rem 1rem; display: grid; gap: 0.25rem; font-family: var(--fuente-ui); }
+  .res strong { font-size: 1.4rem; }
+  .res.principal { border-left: 4px solid var(--color-marca); }
+  .tabla-envoltorio { max-height: 20rem; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; font-family: var(--fuente-ui); }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--color-borde); }
+  details { margin-block: 0.5rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  .descargo { font-size: 0.85rem; opacity: 0.8; margin-top: 1.5rem; }
+</style>

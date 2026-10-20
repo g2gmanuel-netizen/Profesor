@@ -23,6 +23,10 @@ const sobreIrpf =
   d.categoria === 'impuestos' ||
   /irpf|renta|hacienda|n[oó]mina|sueldo|salari|retenci|tribut|deducci/i.test(`${d.titulo} ${d.etiquetas.join(' ')}`);
 
+const sobreHipoteca = /hipotec|euríbor|euribor|préstamo|prestamo/i.test(`${d.titulo} ${d.etiquetas.join(' ')}`);
+const sobreAhorro =
+  d.categoria === 'ahorro' || /dep[oó]sito|ahorr|cuenta remunerada|inter[eé]s/i.test(`${d.titulo} ${d.etiquetas.join(' ')}`);
+
 const newsArticle = {
   '@context': 'https://schema.org',
   '@type': 'NewsArticle',
@@ -188,6 +192,32 @@ const breadcrumb = {
           <span>
             <strong>¿Cuánto te quita Hacienda a ti?</strong>
             <span>Calcúlalo en 1 minuto con nuestra calculadora de IRPF 2026: sueldo neto, si te sale a pagar o a devolver y cómo pagar menos.</span>
+          </span>
+          <span class="cta-flecha" aria-hidden="true">→</span>
+        </a>
+      )
+    }
+
+    {
+      sobreHipoteca && (
+        <a class="cta-calculadora" href="/calculadoras/hipoteca/">
+          <span class="cta-ico" aria-hidden="true">🏠</span>
+          <span>
+            <strong>¿Cuánto pagarías de hipoteca?</strong>
+            <span>Calcula tu cuota mensual, los intereses totales y lo que debes cada año con nuestra calculadora de hipoteca.</span>
+          </span>
+          <span class="cta-flecha" aria-hidden="true">→</span>
+        </a>
+      )
+    }
+
+    {
+      sobreAhorro && !sobreHipoteca && (
+        <a class="cta-calculadora" href="/calculadoras/ahorro/">
+          <span class="cta-ico" aria-hidden="true">🐷</span>
+          <span>
+            <strong>¿Cuánto puedes ahorrar?</strong>
+            <span>Simula cuánto acumularás con aportaciones mensuales e interés compuesto con nuestra calculadora de ahorro.</span>
           </span>
           <span class="cta-flecha" aria-hidden="true">→</span>
         </a>

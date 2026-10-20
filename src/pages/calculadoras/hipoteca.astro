@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { SITIO } from '../../lib/sitio';
+
+const titulo = 'Calculadora de hipoteca: cuota mensual e intereses totales';
+const descripcion =
+  'Calcula la cuota mensual de tu hipoteca, los intereses que pagarás en total y cuánto te queda por devolver cada año. Gratis y sin registro.';
+const faq = [
+  {
+    p: '¿Cómo se calcula la cuota de una hipoteca?',
+    r: 'Con el sistema francés, la cuota mensual es constante: depende del capital prestado, del tipo de interés (TIN) y del plazo. Al principio la mayor parte de la cuota son intereses y, con los años, pasa a ser amortización de capital.',
+  },
+  {
+    p: '¿Qué cuota puedo permitirme?',
+    r: 'Los bancos y el Banco de España suelen recomendar que la cuota no supere el 35 % de tus ingresos netos mensuales. La calculadora te muestra esa referencia.',
+  },
+  {
+    p: '¿Qué diferencia hay entre TIN y TAE?',
+    r: 'El TIN es el interés puro del préstamo. La TAE añade comisiones y otros gastos vinculados, por lo que sirve para comparar ofertas. Esta calculadora usa el TIN para calcular la cuota.',
+  },
+];
+const esquema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Calculadora de hipoteca',
+    url: `${SITIO.url}/calculadoras/hipoteca/`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web',
+    inLanguage: 'es-ES',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    publisher: { '@type': 'Organization', name: SITIO.nombre },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.p,
+      acceptedAnswer: { '@type': 'Answer', text: f.r },
+    })),
+  },
+];
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <script type="application/ld+json" set:html={JSON.stringify(esquema)} />
+  <section class="lectura calc-simple">
+    <nav class="migas" aria-label="Ruta"><a href="/calculadoras/">Calculadoras</a> › Hipoteca</nav>
+    <h1>Calculadora de hipoteca</h1>
+    <p class="entradilla">
+      Descubre cuánto pagarás al mes y cuántos intereses te costará la hipoteca. Cambia los datos y el resultado se
+      actualiza al instante.
+    </p>
+
+    <form id="form-hipoteca" class="panel-calc" onsubmit="return false">
+      <label>Capital a financiar (€)
+        <input id="h-capital" type="number" min="0" step="1000" value="150000" inputmode="decimal" />
+      </label>
+      <label>Tipo de interés TIN anual (%)
+        <input id="h-tin" type="number" min="0" max="20" step="0.05" value="3" inputmode="decimal" />
+      </label>
+      <label>Plazo (años)
+        <input id="h-anios" type="number" min="1" max="40" step="1" value="25" inputmode="numeric" />
+      </label>
+      <label>Ingresos netos mensuales del hogar (€) <small>(opcional)</small>
+        <input id="h-ingresos" type="number" min="0" step="50" value="" inputmode="decimal" />
+      </label>
+    </form>
+
+    <div class="resultados" aria-live="polite">
+      <div class="res principal"><span>Cuota mensual</span><strong id="r-cuota">—</strong></div>
+      <div class="res"><span>Intereses totales</span><strong id="r-intereses">—</strong></div>
+      <div class="res"><span>Total a devolver</span><strong id="r-total">—</strong></div>
+    </div>
+    <p id="r-aviso" class="aviso" hidden></p>
+
+    <h2>Cuánto debes cada año</h2>
+    <div class="tabla-envoltorio">
+      <table>
+        <thead><tr><th>Año</th><th>Capital pendiente</th></tr></thead>
+        <tbody id="tabla-anios"></tbody>
+      </table>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    {faq.map((f) => (
+      <details>
+        <summary>{f.p}</summary>
+        <p>{f.r}</p>
+      </details>
+    ))}
+
+    <p class="descargo">
+      Cálculo orientativo con cuota constante (sistema francés) y tipo fijo. No incluye comisiones, seguros ni gastos
+      de formalización, y no sustituye a la oferta vinculante (FEIN) de tu banco.
+    </p>
+    <p><a href="/categoria/vivienda/">Más artículos sobre vivienda e hipotecas →</a> · <a href="/calculadoras/ahorro/">Calculadora de ahorro →</a></p>
+    <Newsletter />
+  </section>
+</BaseLayout>
+
+<script>
+  import { calcularHipoteca, cuotaMaximaRecomendable } from '../../lib/calculadoras-finanzas';
+
+  const $ = (id: string) => document.getElementById(id)!;
+  const num = (id: string) => Number((document.getElementById(id) as HTMLInputElement).value) || 0;
+  const eur = (n: number) =>
+    `${n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' })} €`;
+
+  function pintar(): void {
+    const r = calcularHipoteca(num('h-capital'), num('h-tin'), num('h-anios'));
+    $('r-cuota').textContent = r.cuota ? eur(r.cuota) : '—';
+    $('r-intereses').textContent = r.cuota ? eur(r.totalIntereses) : '—';
+    $('r-total').textContent = r.cuota ? eur(r.totalPagado) : '—';
+    $('tabla-anios').innerHTML = r.pendientePorAnio
+      .map((p, i) => `<tr><td>${i + 1}</td><td>${eur(p)}</td></tr>`)
+      .join('');
+    const aviso = $('r-aviso');
+    const ingresos = num('h-ingresos');
+    if (ingresos > 0 && r.cuota > 0) {
+      const max = cuotaMaximaRecomendable(ingresos);
+      const pct = (r.cuota / ingresos) * 100;
+      aviso.hidden = false;
+      aviso.textContent =
+        r.cuota <= max
+          ? `La cuota supone el ${pct.toFixed(1)} % de tus ingresos: dentro del 35 % recomendado.`
+          : `La cuota supone el ${pct.toFixed(1)} % de tus ingresos: supera el 35 % recomendado (${eur(max)}/mes).`;
+    } else {
+      aviso.hidden = true;
+    }
+  }
+
+  document.getElementById('form-hipoteca')!.addEventListener('input', pintar);
+  pintar();
+</script>
+
+<style>
+  .calc-simple { margin-inline: auto; }
+  .panel-calc { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-block: 1.5rem; }
+  .panel-calc label { display: grid; gap: 0.35rem; font-family: var(--fuente-ui); font-weight: 600; }
+  .panel-calc input { padding: 0.6rem; font-size: 1rem; border: 1px solid var(--color-borde); border-radius: 4px; }
+  .resultados { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .res { border: 1px solid var(--color-borde); padding: 0.9rem 1rem; display: grid; gap: 0.25rem; font-family: var(--fuente-ui); }
+  .res strong { font-size: 1.4rem; }
+  .res.principal { border-left: 4px solid var(--color-marca); }
+  .aviso { font-family: var(--fuente-ui); padding: 0.75rem 1rem; border-left: 4px solid var(--color-marca); background: rgba(0, 0, 0, 0.04); }
+  .tabla-envoltorio { max-height: 20rem; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; font-family: var(--fuente-ui); }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--color-borde); }
+  details { margin-block: 0.5rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  .descargo { font-size: 0.85rem; opacity: 0.8; margin-top: 1.5rem; }
+</style>
