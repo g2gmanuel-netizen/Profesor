@@ -73,9 +73,10 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /elecci[oó]n|elecciones|votar|voto|votaci[oó]n|censo electoral|urnas?\b|29-n/i,
     busqueda: {
-      consultas: ['ballot box spain flag', 'spain election ballot box', 'ballot box election', 'voting election ballot'],
+      consultas: ['person voting ballot box', 'hand ballot box vote', 'voting envelope ballot box', 'polling station voting', 'ballot box election'],
       requiere: /\b(ballot|vote|voting|election|elections|urn|polling)\b/i,
-      evitar: /german|germany|bundestag|deutschland|usa|america|american|trump|biden|brexit|uk\b|india|africa/i,
+      // Fotos reales de gente votando: fuera renders 3D, iconos y candados.
+      evitar: /german|germany|bundestag|deutschland|usa|america|american|trump|biden|brexit|uk\b|india|africa|3d|render|illustration|icon|padlock|lock\b|clipart/i,
     },
   },
   {
