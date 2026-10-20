@@ -12,9 +12,7 @@ categoria: politica
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre.jpg
-imagenAlt: "Imagen del artículo: Ley de nietos: por qué 163.020 nuevos españoles
-  pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una
-  cosa u otra"
+imagenAlt: "La bandera de España ondeando en un mástil"
 imagenCredito: "Foto: Efraimstochter (Pixabay)"
 etiquetas:
   - ley de nietos
