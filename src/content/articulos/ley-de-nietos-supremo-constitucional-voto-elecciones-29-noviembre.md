@@ -15,7 +15,7 @@ imagen: /imagenes/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviem
 imagenAlt: "Imagen del artículo: Ley de nietos: por qué 163.020 nuevos españoles
   pueden quedarse sin votar el 29-N y qué pasa si el Constitucional decide una
   cosa u otra"
-imagenCredito: "Foto: TheDigitalArtist (Pixabay)"
+imagenCredito: "Foto: Leonhard_Niederwimmer (Pixabay)"
 etiquetas:
   - ley de nietos
   - elecciones generales
