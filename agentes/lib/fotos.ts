@@ -73,9 +73,10 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /ley de nietos|nacionalidad|pasaporte|nacionalizad/i,
     busqueda: {
-      consultas: ['spanish passport', 'spain passport', 'passport spain flag', 'spanish flag'],
-      requiere: /^(?=.*\b(spain|spanish|españa|espana)\b)(?=.*\b(passport|pasaporte|flag|bandera)\b)/i,
-      evitar: /3d|render|illustration|icon|clipart/i,
+      consultas: ['spanish passport', 'spain passport', 'spain flag waving', 'spanish flag balcony', 'spain flag sky', 'spanish flag building'],
+      // Foto real: un pasaporte o la bandera ondeando (mástil, balcón, cielo, edificio).
+      requiere: /^(?=.*\b(spain|spanish|españa|espana|madrid)\b)(?=.*\b(passport|pasaporte|waving|wind|sky|pole|flagpole|balcony|building|street|city)\b)/i,
+      evitar: /3d|render|illustration|icon|clipart|button|badge|emblem|symbol|circle|round|sphere|heart|map|vector|graphic|digital/i,
     },
   },
   {
