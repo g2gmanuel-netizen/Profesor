@@ -71,12 +71,20 @@ const CONCEPTOS: Concepto[] = [
     },
   },
   {
+    patron: /ley de nietos|nacionalidad|pasaporte|nacionalizad/i,
+    busqueda: {
+      consultas: ['spanish passport', 'spain passport', 'passport spain flag', 'spanish flag'],
+      requiere: /^(?=.*\b(spain|spanish|españa|espana)\b)(?=.*\b(passport|pasaporte|flag|bandera)\b)/i,
+      evitar: /3d|render|illustration|icon|clipart/i,
+    },
+  },
+  {
     patron: /elecci[oó]n|elecciones|votar|voto|votaci[oó]n|censo electoral|urnas?\b|29-n/i,
     busqueda: {
       consultas: ['person voting ballot box', 'hand ballot box vote', 'voting envelope ballot box', 'polling station voting', 'ballot box election'],
       requiere: /\b(ballot|vote|voting|election|elections|urn|polling)\b/i,
       // Fotos reales de gente votando: fuera renders 3D, iconos y candados.
-      evitar: /german|germany|bundestag|deutschland|usa|america|american|trump|biden|brexit|uk\b|india|africa|3d|render|illustration|icon|padlock|lock\b|clipart/i,
+      evitar: /german|germany|bundestag|deutschland|usa|america|american|trump|biden|brexit|uk\b|india|africa|wahl|kommunal|3d|render|illustration|icon|padlock|lock\b|clipart/i,
     },
   },
   {
