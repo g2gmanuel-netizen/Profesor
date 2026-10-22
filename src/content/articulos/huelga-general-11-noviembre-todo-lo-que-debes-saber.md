@@ -85,7 +85,7 @@ titularesAlternativos:
     y calles cortadas"
   - ¿Hay huelga el 11-N? Todo lo que necesitas saber del primer paro general en
     14 años
-imagenCredito: "Foto: 19661338 (Pixabay)"
+imagenCredito: "Foto: Carlos_Bonilla_Miranda (Pixabay)"
 ---
 
 El **miércoles 11 de noviembre** España vive su primera huelga general en años. **CCOO y UGT**, de la mano del **Sindicato de Inquilinas** y de otra decena de sindicatos, llaman a un **paro de 24 horas** con un lema muy claro: la vivienda es impagable y los sueldos no llegan. Es la primera huelga general que convocan los dos grandes sindicatos desde la del 14 de noviembre de 2012, y cae a solo **18 días de las elecciones generales del 29 de noviembre**.
