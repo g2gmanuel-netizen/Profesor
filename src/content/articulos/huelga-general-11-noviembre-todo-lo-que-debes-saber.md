@@ -1,5 +1,6 @@
 ---
-titulo: "Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)"
+titulo: "Huelga general del 11-N: todo lo que debes saber antes del día en que
+  España se para (quién convoca, por qué y qué calles se cortan)"
 subtitulo: CCOO, UGT, el Sindicato de Inquilinas y otra decena de sindicatos
   llaman a un paro de 24 horas por la vivienda y los salarios. La patronal
   quiere impugnarla. Te contamos qué está confirmado y qué no.
@@ -10,8 +11,10 @@ descripcion: Huelga general del 11 de noviembre por la vivienda y los salarios.
 categoria: actualidad
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-22
-imagen: /imagenes/portada-generica.svg
-imagenAlt: "Manifestantes con pancartas en una calle durante una protesta"
+imagen: /imagenes/huelga-general-11-noviembre-todo-lo-que-debes-saber.jpg
+imagenAlt: "Imagen del artículo: Huelga general del 11-N: todo lo que debes
+  saber antes del día en que España se para (quién convoca, por qué y qué calles
+  se cortan)"
 etiquetas:
   - huelga general
   - 11-N
@@ -44,14 +47,14 @@ fuentes:
   - titulo: ELA y LAB se suman a la huelga general del 11-N por el derecho a la
       vivienda (Noticias de Álava)
     url: https://www.noticiasdealava.eus/politica/2026/10/07/ela-lab-suman-huelga-general-11628882.html
-  - titulo: La manifestación central de la huelga general del 11-N será en
-      Jardinets de Gràcia (Ara)
+  - titulo: La manifestación central de la huelga general del 11-N será en Jardinets
+      de Gràcia (Ara)
     url: https://es.ara.cat/economia/mercado-laboral/manifestacion-central-huelga-general-11-n-sera-jardinets-gracia_1_5883959.html
-  - titulo: CCOO, UGT y CGT convocan una huelga general en León el 11 de
-      noviembre (COPE)
+  - titulo: CCOO, UGT y CGT convocan una huelga general en León el 11 de noviembre
+      (COPE)
     url: https://www.cope.es/emisoras/castilla-y-leon/leon-provincia/leon/noticias/ccoo-ugt-cgt-convocan-huelga-general-leon-11-noviembre-crisis-salarios-vivienda-20261021_3459730.html
-  - titulo: Yolanda Díaz defiende que la huelga general ha sido convocada «con
-      mucho acierto» (Diario Siglo XXI)
+  - titulo: Yolanda Díaz defiende que la huelga general ha sido convocada «con mucho
+      acierto» (Diario Siglo XXI)
     url: https://www.diariosigloxxi.com/texto-s/mostrar/678932/yolanda-diaz-defiende-huelga-general-sido-convocada-mucho-acierto-apoyara-como-ciudadana
   - titulo: Huelga general del 11 de noviembre, pautas de actuación para las
       empresas (Cuatrecasas)
@@ -59,30 +62,30 @@ fuentes:
   - titulo: Guía de la huelga general del 11 de noviembre, derechos de los
       trabajadores y descuentos salariales (Infobae)
     url: https://www.infobae.com/espana/2026/10/08/guia-de-la-huelga-general-del-11-de-noviembre-derechos-de-los-trabajadores-avisos-a-la-empresa-y-descuentos-salariales/
-  - titulo: Huelga general en España, qué sectores están obligados a tener
-      servicios mínimos (elEconomista)
+  - titulo: Huelga general en España, qué sectores están obligados a tener servicios
+      mínimos (elEconomista)
     url: https://www.eleconomista.es/actualidad/noticias/14018236/10/26/huelga-general-en-espana-que-sectores-estan-obligados-a-tener-servicios-minimos-y-cuales-son.html
-  - titulo: Real Decreto-ley 17/1977, de 4 de marzo, sobre relaciones de trabajo
-      (BOE)
+  - titulo: Real Decreto-ley 17/1977, de 4 de marzo, sobre relaciones de trabajo (BOE)
     url: https://www.boe.es/buscar/act.php?id=BOE-A-1977-6061
     organismo: Boletín Oficial del Estado
 clavesRapidas:
   - "Miércoles 11 de noviembre: huelga general de 24 horas en toda España, la
     primera que convocan CCOO y UGT desde 2012."
   - "El motivo principal es la vivienda: tope al alquiler, más vivienda
-    asequible y fin de los desahucios. También piden subir salarios y reducir
-    la jornada."
-  - "Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE
-    dice que la impugnará, pero a día de hoy no consta ningún recurso."
-  - "En Barcelona la manifestación central sale a las 17:30 de los Jardinets de
-    Gràcia. En Madrid aún no se ha publicado el recorrido."
+    asequible y fin de los desahucios. También piden subir salarios y reducir la
+    jornada."
+  - Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE
+    dice que la impugnará, pero a día de hoy no consta ningún recurso.
+  - En Barcelona la manifestación central sale a las 17:30 de los Jardinets de
+    Gràcia. En Madrid aún no se ha publicado el recorrido.
   - "Los servicios mínimos (tren, metro, sanidad) todavía no están fijados: se
     conocerán en los días previos."
 titularesAlternativos:
   - "Huelga general del 11 de noviembre: motivos, convocantes, servicios mínimos
     y calles cortadas"
-  - "¿Hay huelga el 11-N? Todo lo que necesitas saber del primer paro general en
-    14 años"
+  - ¿Hay huelga el 11-N? Todo lo que necesitas saber del primer paro general en
+    14 años
+imagenCredito: "Foto: 19661338 (Pixabay)"
 ---
 
 El **miércoles 11 de noviembre** España vive su primera huelga general en años. **CCOO y UGT**, de la mano del **Sindicato de Inquilinas** y de otra decena de sindicatos, llaman a un **paro de 24 horas** con un lema muy claro: la vivienda es impagable y los sueldos no llegan. Es la primera huelga general que convocan los dos grandes sindicatos desde la del 14 de noviembre de 2012, y cae a solo **18 días de las elecciones generales del 29 de noviembre**.
