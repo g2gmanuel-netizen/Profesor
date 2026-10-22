@@ -12,9 +12,7 @@ categoria: actualidad
 autor: Redacción Bolsillo Diario
 fechaPublicacion: 2026-10-22
 imagen: /imagenes/huelga-general-11-noviembre-todo-lo-que-debes-saber.jpg
-imagenAlt: "Imagen del artículo: Huelga general del 11-N: todo lo que debes
-  saber antes del día en que España se para (quién convoca, por qué y qué calles
-  se cortan)"
+imagenAlt: "Edificio de viviendas con balcones en una avenida del centro de Madrid"
 etiquetas:
   - huelga general
   - 11-N
