@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-21
+# Kit de difusión — 2026-10-22
 
 
 
@@ -6,84 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Convenio especial de cuidadores: qué es y dónde consultar los requisitos
-**Enlace:** https://tubolsillodiario.com/articulo/convenio-especial-de-cuidadores-que-es-y-donde-consultar-los-requisitos/
+## 1. Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
+**Enlace:** https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
 
 ### X / Twitter
 ```
-Convenio especial de cuidadores: qué es y dónde consultar los requisitos
+Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
 
-👉 https://tubolsillodiario.com/articulo/convenio-especial-de-cuidadores-que-es-y-donde-consultar-los-requisitos/
-#Ahorro #Convenio #Especial #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
+#Actualidad #Huelgageneral #11N #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Convenio especial de cuidadores: qué es y dónde consultar los requisitos*
+📰 *Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)*
 
-Un convenio especial busca que los años de cuidados no dejen huecos en tu historial ni afecten a tus futuras prestaciones. Te explicamos qué es y dónde consultar requisitos y trámite.
+CCOO, UGT, el Sindicato de Inquilinas y otra decena de sindicatos llaman a un paro de 24 horas por la vivienda y los salarios. La patronal quiere impugnarla. Te contamos qué está confirmado y qué no.
 
-• Existe un convenio especial de la Seguridad Social para quien cuida de un familiar dependiente.
-• Permite seguir cotizando sin pagar cuotas.
-• Su finalidad es que los años de cuidados no perjudiquen tus futuras prestaciones.
+• Miércoles 11 de noviembre: huelga general de 24 horas en toda España, la primera que convocan CCOO y UGT desde 2012.
+• El motivo principal es la vivienda: tope al alquiler, más vivienda asequible y fin de los desahucios. También piden subir salarios y reducir la jornada.
+• Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE dice que la impugnará, pero a día de hoy no consta ningún recurso.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/convenio-especial-de-cuidadores-que-es-y-donde-consultar-los-requisitos/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
 
-_Ahorro · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Convenio especial de cuidadores: qué es y dónde consultar los requisitos
-  • Gancho (0-3 s): "¿Convenio especial de cuidadores: qué es y dónde consultar los requisi…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
+  • Gancho (0-3 s): "¿Huelga general del 11-N: todo lo que debes saber antes del día en que…?"
   • Desarrollo (3-25 s):
-  1. Existe un convenio especial de la Seguridad Social para quien cuida de un familiar dependiente.
-  2. Permite seguir cotizando sin pagar cuotas.
-  3. Su finalidad es que los años de cuidados no perjudiquen tus futuras prestaciones.
+  1. Miércoles 11 de noviembre: huelga general de 24 horas en toda España, la primera que convocan CCOO y UGT desde 2012.
+  2. El motivo principal es la vivienda: tope al alquiler, más vivienda asequible y fin de los desahucios. También piden subir salarios y reducir la jornada.
+  3. Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE dice que la impugnará, pero a día de hoy no consta ningún recurso.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Un convenio especial busca que los años de cuidados no dejen huecos en tu historial ni afecten a tus futuras prestaciones. Te explicamos qué es y dónde consultar requisitos y trámite.
-  🔗 Enlace en la bio · #Ahorro #Convenio #Especial #España #BolsilloDiario
-```
-
-## 2. Feijóo y el 29-N: las tres promesas del PP y cómo leerlas en clave de bolsillo
-**Enlace:** https://tubolsillodiario.com/articulo/feijoo-y-el-29-n-las-tres-promesas-del-pp-y-como-leerlas-en-clave-de-bolsillo/
-
-### X / Twitter
-```
-Feijóo y el 29-N: las tres promesas del PP y cómo leerlas en clave de bolsillo
-
-👉 https://tubolsillodiario.com/articulo/feijoo-y-el-29-n-las-tres-promesas-del-pp-y-como-leerlas-en-clave-de-bolsillo/
-#Politica #Feijoo #Tres #España #BolsilloDiario
-```
-
-### Telegram / Canal de WhatsApp
-```
-📰 *Feijóo y el 29-N: las tres promesas del PP y cómo leerlas en clave de bolsillo*
-
-Feijóo plantea de cara al 29-N bajar impuestos, revalorizar pensiones y construir vivienda. Qué preguntas hacerle a cada promesa para saber si tocaría tu bolsillo.
-
-• El PP presenta un programa centrado en bajar impuestos, revalorizar pensiones y construir vivienda.
-• Son las tres áreas que más preocupan en la calle, según la fuente.
-• Lo que importa para tu bolsillo es el detalle: qué impuestos y tramos, qué criterio de pensiones y qué vía para construir vivienda.
-
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/feijoo-y-el-29-n-las-tres-promesas-del-pp-y-como-leerlas-en-clave-de-bolsillo/
-
-_Política · Bolsillo Diario_
-```
-
-### Instagram / TikTok / YouTube Shorts
-```
-🎬 GUION VÍDEO CORTO (~30 s) — Feijóo y el 29-N: las tres promesas del PP y cómo leerlas en clave de bolsillo
-  • Gancho (0-3 s): "¿Feijóo y el 29-N: las tres promesas del PP y cómo leerlas en clave de…?"
-  • Desarrollo (3-25 s):
-  1. El PP presenta un programa centrado en bajar impuestos, revalorizar pensiones y construir vivienda.
-  2. Son las tres áreas que más preocupan en la calle, según la fuente.
-  3. Lo que importa para tu bolsillo es el detalle: qué impuestos y tramos, qué criterio de pensiones y qué vía para construir vivienda.
-  • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
-
-📸 PIE PARA INSTAGRAM / TIKTOK:
-  Feijóo plantea de cara al 29-N bajar impuestos, revalorizar pensiones y construir vivienda. Qué preguntas hacerle a cada promesa para saber si tocaría tu bolsillo.
-  🔗 Enlace en la bio · #Politica #Feijoo #Tres #España #BolsilloDiario
+  CCOO, UGT, el Sindicato de Inquilinas y otra decena de sindicatos llaman a un paro de 24 horas por la vivienda y los salarios. La patronal quiere impugnarla. Te contamos qué está confirmado y qué no.
+  🔗 Enlace en la bio · #Actualidad #Huelgageneral #11N #España #BolsilloDiario
 ```
