@@ -50,6 +50,15 @@ interface Concepto {
  */
 const CONCEPTOS: Concepto[] = [
   {
+    patron: /huelga|manifestaci[oó]n|11-n\b/i,
+    busqueda: {
+      consultas: ['general strike protest crowd', 'street demonstration banners crowd', 'protest march city street', 'workers strike demonstration'],
+      requiere: /\b(strike|protest|protests|demonstration|demonstrators|march|rally|crowd)\b/i,
+      // Fotos reales de gente en la calle: fuera renders, iconos y protestas de otros países reconocibles.
+      evitar: /3d|render|illustration|icon|vector|clipart|cartoon|usa|america|trump|hong kong|ukraine|russia|israel|palestin|police violence|fire|riot|blood|war/i,
+    },
+  },
+  {
     patron: /banco de espa[ñn]a/i,
     busqueda: {
       consultas: ['madrid cibeles', 'madrid gran via building', 'madrid architecture', 'bank of spain madrid'],
