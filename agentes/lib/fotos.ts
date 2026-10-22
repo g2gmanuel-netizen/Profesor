@@ -52,11 +52,11 @@ const CONCEPTOS: Concepto[] = [
   {
     patron: /huelga|manifestaci[oó]n|11-n\b/i,
     busqueda: {
-      consultas: ['madrid protest demonstration', 'barcelona demonstration protest', 'spain protest street', 'spain strike demonstration', 'madrid demonstration crowd street'],
-      // Solo manifestaciones en España, para que no salgan protestas de otros países.
-      requiere: /^(?=.*\b(spain|spanish|madrid|barcelona|valencia|seville|sevilla|bilbao|catalonia|españa)\b)(?=.*\b(strike|protest|protests|demonstration|demonstrators|march|rally|crowd|banner|manifestation)\b)/is,
-      // Fotos reales de gente en la calle: fuera renders, iconos y protestas de otros países reconocibles.
-      evitar: /3d|render|illustration|icon|vector|clipart|cartoon|usa|america|trump|hong kong|ukraine|russia|israel|palestin|bangladesh|india|dhaka|asia|africa|police violence|fire|riot|blood|war/i,
+      // La huelga es por la vivienda: bloques de pisos reales en España. Las fotos de
+      // protestas de bancos de imágenes suelen ser de otras causas y confunden.
+      consultas: ['apartment buildings balconies madrid', 'residential building balconies barcelona', 'spain apartment block facade', 'madrid residential street buildings'],
+      requiere: /^(?=.*\b(spain|spanish|madrid|barcelona|valencia|seville|sevilla|españa)\b)(?=.*\b(apartment|apartments|balcony|balconies|facade|residential|building|buildings|housing|flats)\b)/is,
+      evitar: /3d|render|illustration|icon|vector|clipart|cartoon|night|sagrada|cathedral|church|palace|museum|monument|statue|skyscraper|tower|interior|room|beach|hotel/i,
     },
   },
   {
