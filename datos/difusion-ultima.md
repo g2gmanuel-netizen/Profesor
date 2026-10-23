@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-10-22
+# Kit de difusión — 2026-10-23
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
-**Enlace:** https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
+## 1. Los 3.000 millones de fondos para vivienda social eran créditos: qué cambia para ti
+**Enlace:** https://tubolsillodiario.com/articulo/los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-/
 
 ### X / Twitter
 ```
-Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
+Los 3.000 millones de fondos para vivienda social eran créditos: qué cambia para ti
 
-👉 https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
-#Actualidad #Huelgageneral #11N #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-/
+#Vivienda #000 #Millones #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)*
+📰 *Los 3.000 millones de fondos para vivienda social eran créditos: qué cambia para ti*
 
-CCOO, UGT, el Sindicato de Inquilinas y otra decena de sindicatos llaman a un paro de 24 horas por la vivienda y los salarios. La patronal quiere impugnarla. Te contamos qué está confirmado y qué no.
+España renunció a una línea de financiación por falta de demanda. No te quita ninguna ayuda, pero conviene saber distinguir un préstamo de una subvención antes de pedir nada.
 
-• Miércoles 11 de noviembre: huelga general de 24 horas en toda España, la primera que convocan CCOO y UGT desde 2012.
-• El motivo principal es la vivienda: tope al alquiler, más vivienda asequible y fin de los desahucios. También piden subir salarios y reducir la jornada.
-• Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE dice que la impugnará, pero a día de hoy no consta ningún recurso.
+• Según Maldita.es, España rechazó fondos para créditos de vivienda social alegando falta de demanda.
+• La cifra difundida es de 3.000 millones de euros.
+• Eran créditos (dinero que se devuelve), no ayudas directas ni subvenciones al alquiler.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-/
 
-_Actualidad · Bolsillo Diario_
+_Vivienda · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Huelga general del 11-N: todo lo que debes saber antes del día en que España se para (quién convoca, por qué y qué calles se cortan)
-  • Gancho (0-3 s): "¿Huelga general del 11-N: todo lo que debes saber antes del día en que…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Los 3.000 millones de fondos para vivienda social eran créditos: qué cambia para ti
+  • Gancho (0-3 s): "¿Los 3.000 millones de fondos para vivienda social eran créditos: qué…?"
   • Desarrollo (3-25 s):
-  1. Miércoles 11 de noviembre: huelga general de 24 horas en toda España, la primera que convocan CCOO y UGT desde 2012.
-  2. El motivo principal es la vivienda: tope al alquiler, más vivienda asequible y fin de los desahucios. También piden subir salarios y reducir la jornada.
-  3. Está registrada en el Ministerio de Trabajo desde el 19 de octubre. La CEOE dice que la impugnará, pero a día de hoy no consta ningún recurso.
+  1. Según Maldita.es, España rechazó fondos para créditos de vivienda social alegando falta de demanda.
+  2. La cifra difundida es de 3.000 millones de euros.
+  3. Eran créditos (dinero que se devuelve), no ayudas directas ni subvenciones al alquiler.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  CCOO, UGT, el Sindicato de Inquilinas y otra decena de sindicatos llaman a un paro de 24 horas por la vivienda y los salarios. La patronal quiere impugnarla. Te contamos qué está confirmado y qué no.
-  🔗 Enlace en la bio · #Actualidad #Huelgageneral #11N #España #BolsilloDiario
+  España renunció a una línea de financiación por falta de demanda. No te quita ninguna ayuda, pero conviene saber distinguir un préstamo de una subvención antes de pedir nada.
+  🔗 Enlace en la bio · #Vivienda #000 #Millones #España #BolsilloDiario
 ```
