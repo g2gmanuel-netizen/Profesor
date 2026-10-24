@@ -901,18 +901,6 @@ export function consejos(d: Datos, r: Resultado): Consejo[] {
       texto: 'Si tienes hijos menores de 3 años en una guardería o centro de educación infantil autorizado, la deducción por maternidad se incrementa hasta 1.000 € por los gastos de custodia no subvencionados.',
     });
   }
-  if (r.baseImponibleAhorro > 0 || d.gananciasAhorro > 0) {
-    lista.push({
-      titulo: 'Compensa ganancias con pérdidas',
-      texto: 'Si tienes acciones o fondos con pérdidas latentes, venderlos antes del 31 de diciembre permite compensarlas con tus ganancias del año. No vuelvas a comprar los mismos valores en los dos meses siguientes o la pérdida no se computa. Y recuerda: cambiar de un fondo de inversión a otro no tributa (traspaso).',
-    });
-  }
-  if (d.salario > 0) {
-    lista.push({
-      titulo: 'Pide retribución flexible a tu empresa',
-      texto: 'Parte del sueldo puede cobrarse en especie sin tributar: seguro médico (hasta 500 € al año por persona), cheque guardería, tarjeta de transporte (hasta 1.500 € al año), formación y comida (hasta 11 € al día en tarjeta restaurante). Cobras lo mismo y pagas menos IRPF.',
-    });
-  }
   if (d.actIngresos > 0 && d.actMetodo !== 'modulos') {
     lista.push({
       titulo: 'Autónomo: aprovecha todos los gastos',
@@ -960,4 +948,26 @@ export function compararComunidades(d: Datos): { comunidad: Comunidad; irpf: num
   return COMUNIDADES.filter((c) => !c.foral)
     .map((c) => ({ comunidad: c, irpf: calcular({ ...d, comunidad: c.slug }).irpfTotal }))
     .sort((a, b) => a.irpf - b.irpf);
+}
+
+/**
+ * Convierte lo que escribe la gente en un número: admite «45.000», «45000»,
+ * «1.234,56», «1,234.56», «45 000 €» o «-1.200». Un único separador seguido de
+ * exactamente tres cifras se toma como separador de miles.
+ */
+export function leerImporte(texto: string): number {
+  let t = String(texto).trim().replace(/[^\d.,-]/g, '');
+  if (!t) return NaN;
+  const negativo = t.startsWith('-');
+  t = t.replace(/-/g, '');
+  const ultimo = Math.max(t.lastIndexOf(','), t.lastIndexOf('.'));
+  if (ultimo !== -1) {
+    const sep = t.charAt(ultimo);
+    const otro = sep === ',' ? '.' : ',';
+    if (t.includes(otro)) t = t.split(otro).join('').replace(sep, '.');
+    else if (t.split(sep).length > 2 || t.length - ultimo - 1 === 3) t = t.split(sep).join('');
+    else t = t.replace(sep, '.');
+  }
+  const n = Number(t);
+  return Number.isFinite(n) ? (negativo ? -n : n) : NaN;
 }

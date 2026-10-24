@@ -49,9 +49,21 @@ const esquema = {
       <div class="rapido">
         <label for="deslizador" class="rapido-etq">Tu sueldo bruto anual</label>
         <div class="rapido-fila">
-          <input id="deslizador" type="range" min="0" max="150000" step="500" value="0" aria-describedby="deslizador-valor" />
-          <output id="deslizador-valor" class="rapido-valor">0 €</output>
+          <input id="deslizador" type="range" min="0" max="150000" step="500" value="0" aria-label="Barra del sueldo bruto anual" />
+          <div class="rapido-cifra">
+            <input
+              id="sueldo-rapido"
+              class="rapido-valor"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="0"
+              aria-label="Escribe tu sueldo bruto anual en euros"
+            />
+            <span aria-hidden="true">€</span>
+          </div>
         </div>
+        <p class="rapido-pista">Escribe cualquier importe, con o sin puntos: 28.500, 250000 o 1.234,56.</p>
         <div class="chips" role="group" aria-label="Sueldos de ejemplo">
           {[17094, 22000, 30000, 45000, 70000].map((v) => (
             <button type="button" class="chip" data-sueldo={v}>{v.toLocaleString('es-ES')} €</button>
@@ -104,10 +116,9 @@ const esquema = {
                           <input
                             id={`c-${c.id}`}
                             name={c.id}
-                            type="number"
-                            inputmode="decimal"
-                            step="any"
-                            min={c.id === 'gananciasAhorro' ? undefined : 0}
+                            type="text"
+                            inputmode={c.id === 'gananciasAhorro' ? 'text' : 'decimal'}
+                            data-numero
                             placeholder={c.id === 'edad' ? '35' : '0'}
                             value={c.id === 'edad' ? '35' : ''}
                           />
@@ -228,6 +239,19 @@ const esquema = {
       <ol class="consejos" id="r-consejos"></ol>
     </section>
 
+    <section class="bloque" id="jugadas">
+      <h2>Jugadas estratégicas para pagar menos</h2>
+      <p class="bloque-intro">
+        Decisiones de planificación, todas legales, que usan asesores fiscales y que mucha gente no conoce. Arriba
+        aparecen las que encajan con tus datos, con el ahorro estimado. Antes de hacer ninguna, lee el «Ojo» y, si hay
+        mucho dinero en juego, consulta a un asesor.
+      </p>
+      <div class="filtros" role="group" aria-label="Filtrar jugadas por perfil" id="filtros-jugadas"></div>
+      <div class="jugadas" id="r-jugadas"></div>
+    </section>
+
+    <Anuncio formato="horizontal" />
+
     <section class="bloque">
       <details class="desplegable">
         <summary>Ver el desglose completo paso a paso (como en el modelo 100)</summary>
@@ -302,10 +326,12 @@ const esquema = {
     compararComunidades,
     consejos,
     tramosCombinados,
+    leerImporte,
     DATOS_VACIOS,
     type Datos,
   } from '../../lib/irpf';
   import { SECCIONES } from '../../lib/irpf-campos';
+  import { estrategias } from '../../lib/irpf-estrategias';
 
   const form = document.getElementById('form-irpf') as HTMLFormElement;
   const CLAVE = 'bd-irpf-v1';
@@ -317,6 +343,11 @@ const esquema = {
   const $ = (id: string) => document.getElementById(id)!;
   const salario = document.getElementById('c-salario') as HTMLInputElement;
   const deslizador = document.getElementById('deslizador') as HTMLInputElement;
+  const sueldoRapido = document.getElementById('sueldo-rapido') as HTMLInputElement;
+  const MAX_BARRA = 150000;
+  let filtroJugadas = 'Para ti';
+
+  const miles = (n: number) => n.toLocaleString('es-ES', { maximumFractionDigits: 2, ...GRUPO });
   const tooltip = $('tooltip');
   const reducirMov = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -345,7 +376,7 @@ const esquema = {
       const actual = (DATOS_VACIOS as unknown as Record<string, unknown>)[el.name];
       if (el instanceof HTMLInputElement && el.type === 'checkbox') d[el.name] = el.checked;
       else if (typeof actual === 'number') {
-        const v = parseFloat(String(el.value).replace(',', '.'));
+        const v = leerImporte(el.value);
         d[el.name] = Number.isFinite(v) ? v : el.name === 'edad' ? 35 : 0;
       } else d[el.name] = el.value;
     }
@@ -491,8 +522,11 @@ const esquema = {
     const d = leer();
     visibilidad(d);
     contarRellenos(d);
-    if (document.activeElement !== deslizador) deslizador.value = String(Math.min(d.salario, 150000));
-    $('deslizador-valor').textContent = eur(d.salario);
+    // La barra crece si el sueldo escrito supera su máximo.
+    const maxBarra = d.salario > MAX_BARRA ? Math.ceil(d.salario / 50000) * 50000 : MAX_BARRA;
+    if (Number(deslizador.max) !== maxBarra && document.activeElement !== deslizador) deslizador.max = String(maxBarra);
+    if (document.activeElement !== deslizador) deslizador.value = String(Math.max(0, d.salario));
+    if (document.activeElement !== sueldoRapido) sueldoRapido.value = d.salario > 0 ? miles(d.salario) : '';
 
     const r = calcular(d);
     animar($('r-neto'), r.netoAnual);
@@ -549,7 +583,30 @@ const esquema = {
           `<li><div class="consejo-cab"><strong>${c.titulo}</strong>${c.ahorro ? `<span class="ahorro">ahorras ~${eur(c.ahorro)}</span>` : ''}</div><p>${c.texto}</p></li>`,
       )
       .join('');
+    pintarJugadas(d, r);
     guardar();
+  }
+
+  function pintarJugadas(d: Datos, r: ReturnType<typeof calcular>): void {
+    const todas = estrategias(d, r);
+    const perfiles = ['Para ti', 'Todas', ...Array.from(new Set(todas.map((e) => e.perfil)))];
+    if (!todas.some((e) => e.paraTi) && filtroJugadas === 'Para ti') filtroJugadas = 'Todas';
+    $('filtros-jugadas').innerHTML = perfiles
+      .map((p) => `<button type="button" class="filtro" data-filtro="${p}" aria-pressed="${p === filtroJugadas}">${p}${p === 'Para ti' ? ` (${todas.filter((e) => e.paraTi).length})` : ''}</button>`)
+      .join('');
+    const visibles = todas.filter((e) => filtroJugadas === 'Todas' || (filtroJugadas === 'Para ti' ? e.paraTi : e.perfil === filtroJugadas));
+    $('r-jugadas').innerHTML = visibles
+      .map(
+        (e) => `<article class="jugada${e.paraTi ? ' jugada-tuya' : ''}">
+          <div class="jugada-etqs"><span class="etq-perfil">${e.perfil}</span>${e.paraTi ? '<span class="etq-tuya">Encaja contigo</span>' : ''}${e.cuando ? `<span class="etq-plazo">⏳ ${e.cuando}</span>` : ''}</div>
+          <h3>${e.titulo}</h3>
+          ${e.ahorro && e.ahorro >= 1 ? `<p class="jugada-ahorro">Ahorro estimado con tus datos: <strong>~${eur(e.ahorro)}</strong></p>` : ''}
+          <p>${e.texto}</p>
+          <p class="jugada-ojo"><strong>Ojo:</strong> ${e.ojo}</p>
+          <a class="jugada-fuente" href="${e.fuente.url}" target="_blank" rel="noopener">Fuente: ${e.fuente.titulo} ↗</a>
+        </article>`,
+      )
+      .join('');
   }
 
   restaurar();
@@ -564,6 +621,25 @@ const esquema = {
   form.addEventListener('change', pintar);
   deslizador.addEventListener('input', () => {
     salario.value = deslizador.value === '0' ? '' : deslizador.value;
+    pintar();
+  });
+  sueldoRapido.addEventListener('input', () => {
+    const v = leerImporte(sueldoRapido.value);
+    salario.value = Number.isFinite(v) && v > 0 ? String(v) : '';
+    pintar();
+  });
+  sueldoRapido.addEventListener('blur', pintar);
+  // Al salir de una casilla, se muestra la cifra con puntos de miles.
+  form.addEventListener('focusout', (ev) => {
+    const el = ev.target as HTMLInputElement;
+    if (!el.matches?.('input[data-numero]') || el.name === 'edad') return;
+    const v = leerImporte(el.value);
+    if (el.value.trim() && Number.isFinite(v)) el.value = miles(v);
+  });
+  $('filtros-jugadas').addEventListener('click', (ev) => {
+    const b = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-filtro]');
+    if (!b) return;
+    filtroJugadas = b.dataset.filtro ?? 'Para ti';
     pintar();
   });
   for (const b of Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'))) {
@@ -640,13 +716,115 @@ const esquema = {
     accent-color: var(--color-marca);
     height: 2rem;
   }
-  .rapido-valor {
+  .rapido-cifra {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    color: var(--color-marca);
     font-size: 1.5rem;
     font-weight: 800;
+  }
+  .rapido-valor {
+    font: inherit;
     font-variant-numeric: tabular-nums;
-    min-width: 8ch;
+    width: 10ch;
     text-align: right;
-    color: var(--color-marca);
+    color: inherit;
+    background: var(--color-fondo);
+    border: 2px solid color-mix(in srgb, var(--color-marca) 45%, transparent);
+    border-radius: 8px;
+    padding: 0.15rem 0.4rem;
+  }
+  .rapido-valor:focus {
+    outline: none;
+    border-color: var(--color-marca);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-marca) 20%, transparent);
+  }
+  .rapido-pista {
+    margin: 0.35rem 0 0;
+    font-family: var(--fuente-ui);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+  }
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .filtros :global(.filtro) {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-borde);
+    background: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+  }
+  .filtros :global(.filtro[aria-pressed='true']) {
+    background: var(--color-marca);
+    border-color: var(--color-marca);
+    color: #fff;
+  }
+  .jugadas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: 1rem;
+  }
+  .jugadas :global(.jugada) {
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    line-height: 1.55;
+    font-size: 0.95rem;
+    min-width: 0;
+  }
+  .jugadas :global(.jugada-tuya) {
+    border-color: color-mix(in srgb, var(--c-neto) 55%, transparent);
+    box-shadow: inset 4px 0 0 var(--c-neto);
+  }
+  .jugadas :global(h3) {
+    margin: 0.4rem 0 0.4rem;
+    font-size: 1.05rem;
+  }
+  .jugadas :global(p) {
+    margin: 0.4rem 0;
+  }
+  .jugadas :global(.jugada-etqs) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-family: var(--fuente-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+  .jugadas :global(.jugada-etqs span) {
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    background: color-mix(in srgb, var(--color-texto) 8%, transparent);
+  }
+  .jugadas :global(.etq-tuya) {
+    color: var(--c-neto);
+    background: color-mix(in srgb, var(--c-neto) 14%, transparent) !important;
+  }
+  .jugadas :global(.etq-plazo) {
+    color: var(--c-ss);
+    background: color-mix(in srgb, var(--c-ss) 14%, transparent) !important;
+  }
+  .jugadas :global(.jugada-ahorro) {
+    font-family: var(--fuente-ui);
+    color: var(--c-neto);
+  }
+  .jugadas :global(.jugada-ojo) {
+    font-size: 0.88rem;
+    background: color-mix(in srgb, var(--c-ss) 9%, transparent);
+    border-radius: 8px;
+    padding: 0.5rem 0.7rem;
+  }
+  .jugadas :global(.jugada-fuente) {
+    font-family: var(--fuente-ui);
+    font-size: 0.8rem;
   }
   .chips {
     display: flex;
@@ -1340,7 +1518,7 @@ const esquema = {
       grid-template-columns: 6.5rem 1fr 5.5rem;
       font-size: 0.8rem;
     }
-    .rapido-valor {
+    .rapido-cifra {
       font-size: 1.2rem;
     }
   }
