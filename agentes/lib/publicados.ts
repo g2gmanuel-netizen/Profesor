@@ -61,8 +61,13 @@ const PLANTILLA = new Set([
   'espana', 'espanol', 'espanola', 'hoy', 'ahora', 'mas', 'menos', 'segun', 'dato', 'datos',
 ]);
 
+/** Singular aproximado para que «pensión» y «pensiones» cuenten como la misma palabra. */
+const raiz = (t: string) => (t.length > 4 ? t.replace(/(es|s)$/, '') : t);
+
 function tokensTema(s: string): string[] {
-  return tokens(s).filter((t) => !PLANTILLA.has(t));
+  // Las cifras cortas (65 %, 1.700 €) identifican mucho la noticia: se conservan aparte.
+  const cifras = (s.replace(/(\d)[.,](\d{3})/g, '$1$2').match(/\d{2,}/g) ?? []).map((n) => `#${n}`);
+  return [...new Set([...tokens(s).filter((t) => !PLANTILLA.has(t) && !/^\d+$/.test(t)).map(raiz), ...cifras])];
 }
 
 /** URLs genéricas (portadas de medios) que no identifican una noticia concreta. */
@@ -115,7 +120,7 @@ export function cargarHistorial(): TemaPublicado[] {
  *  1. Comparte URL de fuente concreta (no una portada genérica de un medio).
  *  2. Títulos muy parecidos (Jaccard ≥ 0,45).
  *  3. Mismos conceptos clave aunque el titular esté reformulado
- *     (≥ 3 palabras clave en común y solapamiento ≥ 0,5).
+ *     (≥ 3 palabras clave en común y solapamiento ≥ 0,5, o ≥ 0,3 si comparten una cifra).
  */
 export function esDuplicado(
   titulo: string,
@@ -131,7 +136,10 @@ export function esDuplicado(
     const b = tb.join(' ');
     if (similitud(a, b) >= 0.45) return true;
     const comunes = new Set(tb.filter((t) => ta.includes(t)));
-    return comunes.size >= 3 && solapamiento(a, b) >= 0.5;
+    if (comunes.size >= 3 && solapamiento(a, b) >= 0.5) return true;
+    // Misma cifra concreta (65 %, 2027, 1.700 €…) y el mismo tema: es la misma noticia contada de otra forma.
+    const cifra = [...comunes].some((t) => t.startsWith('#'));
+    return cifra && comunes.size >= 3 && comunes.size / Math.min(ta.length, tb.length) >= 0.3;
   });
 }
 

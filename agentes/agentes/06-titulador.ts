@@ -57,7 +57,11 @@ export async function titulador(
   });
 
   // Reforzamos la elección con la rúbrica determinista sobre los candidatos propuestos.
-  const candidatos = Array.from(new Set([res.elegido, ...res.alternativos])).filter(Boolean);
+  // Fuera los titulares que empiezan con el nombre de otro medio («El Confidencial: …»):
+  // parecen una copia y Google los valora como contenido de poco valor.
+  const todos = Array.from(new Set([res.elegido, ...res.alternativos])).filter(Boolean);
+  const propios = todos.filter((t) => !empiezaPorMedio(t, ficha.fuentes.map((f) => f.titulo)));
+  const candidatos = propios.length ? propios : todos;
   const { elegido, puntuaciones } = elegirMejorTitular(candidatos, entidades, true);
   return {
     ...res,
@@ -72,4 +76,22 @@ export async function titulador(
 function acortar(texto: string, max: number): string {
   if (texto.length <= max) return texto;
   return texto.slice(0, max - 1).trimEnd() + '…';
+}
+
+const LISTA_MEDIOS =
+  '(el pa[ií]s|el mundo|abc|la vanguardia|el confidencial|el economista|expansi[oó]n|cinco d[ií]as|rtve(\\.es)?|20 ?minutos|infobae|el espa[nñ]ol|p[uú]blico|eldiario(\\.es)?|europa press|efe|la raz[oó]n|cope|cadena ser|onda cero|negocios\\.com|idealista|el peri[oó]dico|ara|naiz|moncloa\\.com)';
+/** El texto es, entero, el nombre de un medio. */
+const MEDIO_EXACTO = new RegExp(`^${LISTA_MEDIOS}$`, 'i');
+const MEDIO_AL_INICIO = new RegExp(`^${LISTA_MEDIOS}\\b`, 'i');
+
+/** ¿El titular arranca con el nombre de un medio («El Economista: …», «Qué explica RTVE…»)? */
+export function empiezaPorMedio(titular: string, titulosFuentes: string[] = []): boolean {
+  const t = titular.trim();
+  const antesDosPuntos = t.includes(':') ? t.slice(0, t.indexOf(':')).trim() : '';
+  if (antesDosPuntos && MEDIO_EXACTO.test(antesDosPuntos)) return true;
+  const citado = t.match(/\bqu[eé] (?:explica|dice|cuenta) (.+)$/i)?.[1];
+  if (citado && MEDIO_AL_INICIO.test(citado)) return true;
+  // Nombres de medio que vienen entre paréntesis al final del título de una fuente: «… (Infobae)».
+  const medios = titulosFuentes.map((f) => f.match(/\(([^()]+)\)\s*$/)?.[1]?.trim()).filter(Boolean) as string[];
+  return Boolean(antesDosPuntos) && medios.some((m) => antesDosPuntos.toLowerCase() === m.toLowerCase());
 }

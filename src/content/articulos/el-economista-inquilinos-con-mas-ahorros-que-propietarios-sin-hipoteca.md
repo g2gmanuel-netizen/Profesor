@@ -1,5 +1,5 @@
 ---
-titulo: "El Economista: inquilinos con más ahorros que propietarios sin hipoteca"
+titulo: "Inquilinos con más ahorros que propietarios sin hipoteca: qué dicen los datos"
 subtitulo: Un estudio recogido por El Economista concluye que los inquilinos
   acumulan más ahorros que los propietarios sin deuda. Todo depende de si
   cuentas dinero disponible o patrimonio total.

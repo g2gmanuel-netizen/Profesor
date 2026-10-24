@@ -1,6 +1,5 @@
 ---
-titulo: "El Confidencial: Francia anticipa el dilema de pensiones, salarios e
-  impuestos en España"
+titulo: "Pensiones, salarios e impuestos: el dilema que Francia anticipa para España"
 subtitulo: "El análisis plantea que los tres asuntos forman un triángulo: tocar
   uno mueve los otros. Repasamos las palancas habituales y cómo las notaría un
   asalariado, un autónomo o un jubilado."

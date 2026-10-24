@@ -51,6 +51,13 @@ describe('detección de noticias repetidas', () => {
   it('titulares de temas distintos con plantilla común no son duplicados', () => {
     expect(esDuplicado('Pagas más del 40 % de tu sueldo en alquiler: qué significa y qué puedes hacer', undefined, historial)).toBeUndefined();
   });
+  it('misma cifra y mismo tema con titular reformulado = duplicado', () => {
+    const previos = [{ id: 'a', slug: 'a', titulo: 'Esfuerzo hipotecario al 65%: qué significa y cómo saber si tu caso es tan grave', categoria: 'vivienda', fecha: '2026-10-05', urls: [] }];
+    expect(esDuplicado('Esfuerzo hipotecario del 65%: qué mide la cifra y cómo calcular el tuyo', undefined, previos)).toBeTruthy();
+    const pensiones = [{ id: 'b', slug: 'b', titulo: 'Nuevas pensiones de 2027: cuánto cobrarás de media y cómo estimar tu caso real', categoria: 'pensiones', fecha: '2026-10-05', urls: [] }];
+    expect(esDuplicado('Pensión de 1.700 euros en 2027: por qué la media no sirve para calcular tu jubilación', undefined, pensiones)).toBeTruthy();
+    expect(esDuplicado('La pensión mínima sube en 2027: quién la cobra', undefined, pensiones)).toBeUndefined();
+  });
   it('normaliza URLs normales', () => {
     expect(normalizarUrl('https://www.ine.es/prensa/ipc.htm?x=1')).toBe('ine.es/prensa/ipc.htm');
   });

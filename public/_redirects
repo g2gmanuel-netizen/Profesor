@@ -7,3 +7,7 @@
 # Categoría Hipotecas fusionada en Vivienda
 /categoria/hipotecas/ /categoria/vivienda/ 301
 /categoria/hipotecas /categoria/vivienda/ 301
+
+# Duplicados fusionados (24-10-2026)
+/articulo/esfuerzo-hipotecario-del-65-que-mide-la-cifra-y-como-calcular-el-tuyo/ /articulo/esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave/ 301
+/articulo/pension-de-1-700-euros-en-2027-por-que-la-media-no-sirve-para-calcular-tu-jubila/ /articulo/nuevas-pensiones-de-2027-cuanto-cobraras-de-media-y-como-estimar-tu-caso-real/ 301

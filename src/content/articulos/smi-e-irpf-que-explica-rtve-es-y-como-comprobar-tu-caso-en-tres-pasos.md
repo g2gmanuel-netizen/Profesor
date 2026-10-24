@@ -1,5 +1,5 @@
 ---
-titulo: "SMI e IRPF: qué explica RTVE.es y cómo comprobar tu caso en tres pasos"
+titulo: "SMI e IRPF: cómo comprobar en tres pasos si tienes que pagar o declarar"
 subtitulo: "No pagar IRPF no es lo mismo que no tener que mirar tu declaración:
   así puedes revisar tus ingresos, consultar la AEAT y qué documentos guardar."
 tituloSeo: "SMI e IRPF: cómo comprobar tu caso en 3 pasos"

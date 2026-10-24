@@ -43,3 +43,17 @@ describe('rúbrica de titulares', () => {
     expect(elegido).toContain('Euríbor');
   });
 });
+
+import { empiezaPorMedio } from '../agentes/agentes/06-titulador';
+describe('titulares con nombre de otro medio', () => {
+  it('descarta los que empiezan por un medio', () => {
+    expect(empiezaPorMedio('El Confidencial: Francia anticipa el dilema de pensiones')).toBe(true);
+    expect(empiezaPorMedio('El Economista: inquilinos con más ahorros que propietarios')).toBe(true);
+    expect(empiezaPorMedio('SMI e IRPF: qué explica RTVE.es y cómo comprobar tu caso')).toBe(true);
+    expect(empiezaPorMedio('Lo que dice El Diario: algo', ['Noticia (El Diario)'])).toBe(false);
+  });
+  it('acepta titulares propios', () => {
+    expect(empiezaPorMedio('Huelga general del 11-N: todo lo que debes saber')).toBe(false);
+    expect(empiezaPorMedio('Abc del IRPF: guía rápida')).toBe(false);
+  });
+});

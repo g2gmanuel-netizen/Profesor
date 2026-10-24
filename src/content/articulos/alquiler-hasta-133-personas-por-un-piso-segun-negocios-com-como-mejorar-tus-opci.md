@@ -50,7 +50,7 @@ titularesAlternativos:
 enlacesInternos:
   - ayuda-al-alquiler-del-plan-de-vivienda-2026-2030-se-pide-en-tu-comunidad-autonom
   - los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-
-  - esfuerzo-hipotecario-del-65-que-mide-la-cifra-y-como-calcular-el-tuyo
+  - esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave
   - el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7-preguntas-clave
 elaboradoConIA: true
 destacado: false
