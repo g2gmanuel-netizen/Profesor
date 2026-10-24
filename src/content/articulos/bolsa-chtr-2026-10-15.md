@@ -4,7 +4,7 @@ subtitulo: "Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no ll
 tituloSeo: "Charter (CHTR): análisis a fondo tras la fusión con Cox"
 descripcion: "Análisis exhaustivo de Charter Communications (CHTR): banda ancha, Cox, deuda, flujo de caja, analistas, escenarios y rango de entrada divulgativo."
 categoria: bolsa
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-15
 imagen: /imagenes/bolsa/bolsa-chtr-2026-10-15.jpg
 imagenAlt: Portada del análisis de Charter Communications (CHTR) en el sector Telecomunicaciones y banda ancha.

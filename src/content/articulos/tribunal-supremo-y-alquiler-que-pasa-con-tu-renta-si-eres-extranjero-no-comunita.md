@@ -9,7 +9,7 @@ descripcion: "Es la primera vez que el alto tribunal aborda la cuestión, pero n
   hay sentencia ni cambio normativo: así queda tu declaración de la renta
   mientras tanto."
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-14
 imagen: /imagenes/tribunal-supremo-y-alquiler-que-pasa-con-tu-renta-si-eres-extranjero-no-comunita.jpg
 imagenAlt: "Imagen del artículo: Tribunal Supremo y alquiler: qué pasa con tu

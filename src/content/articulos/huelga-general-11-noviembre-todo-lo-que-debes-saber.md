@@ -9,7 +9,7 @@ descripcion: Huelga general del 11 de noviembre por la vivienda y los salarios.
   Quién la convoca, por qué, si es seguro que se hace, servicios mínimos y
   calles cortadas.
 categoria: actualidad
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-22
 imagen: /imagenes/huelga-general-11-noviembre-todo-lo-que-debes-saber.jpg
 imagenAlt: "Edificio de viviendas con balcones en una avenida del centro de Madrid"

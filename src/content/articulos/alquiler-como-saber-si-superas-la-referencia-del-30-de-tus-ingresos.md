@@ -8,7 +8,7 @@ descripcion: Un análisis económico habla de un desfase entre ingresos y
   vivienda. Así puedes medir cuánto pesa el alquiler en tu nómina y qué hacer
   con el resultado.
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-16
 imagen: /imagenes/alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos.jpg
 imagenAlt: "Imagen del artículo: Alquiler: cómo saber si superas la referencia

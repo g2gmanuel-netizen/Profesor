@@ -7,7 +7,7 @@ tituloSeo: "Cuenta remunerada o depósito: cuál te conviene"
 descripcion: "Diferencias entre cuenta remunerada y depósito a plazo: liquidez, TAE,
   impuestos, Fondo de Garantía y un ejemplo con 10.000 €. Cómo elegir según tu caso."
 categoria: ahorro
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-12
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/cuenta-remunerada-o-deposito-a-plazo.jpg

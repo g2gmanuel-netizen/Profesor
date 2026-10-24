@@ -50,7 +50,7 @@ export const CONFIG = {
   revisionHumana: str('REVISION_HUMANA', 'true') !== 'false',
   articulosMinDia: num('ARTICULOS_MIN_DIA', 2),
   articulosMaxDia: num('ARTICULOS_MAX_DIA', 4),
-  autor: str('AUTOR_FIRMA', 'Redacción Bolsillo Diario'),
+  autor: str('AUTOR_FIRMA', 'Daniel Arcos'),
 } as const;
 
 /**

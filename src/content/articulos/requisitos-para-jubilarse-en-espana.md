@@ -7,7 +7,7 @@ tituloSeo: "Requisitos para jubilarse en 2026: edad y años cotizados"
 descripcion: Edad de jubilación en 2026 según los años cotizados, mínimo de 15 años,
   jubilación anticipada y demorada, cómo se calcula la pensión y dónde ver tu caso.
 categoria: pensiones
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-08
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/requisitos-para-jubilarse-en-espana.jpg

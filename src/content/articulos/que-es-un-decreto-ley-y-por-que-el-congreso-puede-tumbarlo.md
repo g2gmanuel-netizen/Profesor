@@ -7,7 +7,7 @@ tituloSeo: "Qué es un decreto ley y por qué el Congreso puede tumbarlo"
 descripcion: "Qué es un real decreto-ley, qué no puede regular, cómo se convalida en 30
   días y qué pasa con las ayudas o rebajas ya aplicadas si el Congreso lo deroga."
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-02
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg

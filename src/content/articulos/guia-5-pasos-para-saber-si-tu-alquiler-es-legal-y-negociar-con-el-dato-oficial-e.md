@@ -9,7 +9,7 @@ descripcion: El SERPAVI del Ministerio de Vivienda y la estadística del INE te
   permiten consultar gratis el precio de referencia de tu calle; si vives en
   zona tensionada, la…
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/guia-5-pasos-para-saber-si-tu-alquiler-es-legal-y-negociar-con-el-dato-oficial-e.jpg
 imagenAlt: "Imagen del artículo: Guía: 5 pasos para saber si tu alquiler es

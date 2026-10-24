@@ -7,7 +7,7 @@ tituloSeo: "PVPC o mercado libre: cómo leer la factura de la luz"
 descripcion: "Qué es el PVPC, en qué se diferencia del mercado libre, cómo leer la factura
   de la luz (potencia, energía, impuestos), los tramos horarios y cómo ahorrar."
 categoria: precios
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-10
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-el-pvpc-factura-de-la-luz.jpg

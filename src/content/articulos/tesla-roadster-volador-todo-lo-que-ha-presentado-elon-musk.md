@@ -4,7 +4,7 @@ subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre 
 tituloSeo: "Nuevo Tesla Roadster que vuela: precio, reserva y requisitos"
 descripcion: "Elon Musk presenta el Tesla Roadster que salta y gira en el aire con propulsores de SpaceX: versiones, cuánto cuesta reservarlo y lo que puede hacer."
 categoria: actualidad
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-17
 imagen: /imagenes/tesla/tesla-roadster-ia-puertas.jpg
 imagenAlt: Recreación generada con IA de un deportivo eléctrico blanco con las puertas abiertas hacia arriba, de noche, frente a un edificio con el logotipo de SpaceX.

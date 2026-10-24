@@ -9,7 +9,7 @@ descripcion: Qué es la ley de nietos, por qué el Supremo ha suspendido el voto
   de 163.020 nacionalizados y qué pasará en las elecciones del 29-N según decida
   el Constitucional.
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre.jpg
 imagenAlt: "La bandera de España ondeando en un mástil"

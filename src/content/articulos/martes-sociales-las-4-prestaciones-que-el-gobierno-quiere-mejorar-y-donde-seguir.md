@@ -9,7 +9,7 @@ descripcion: "Viudedad, incapacidad permanente, víctimas del terrorismo y de
   violencia de género: según EL PAÍS, cada una tendrá su decreto. Te contamos
   qué mirar y dónde…"
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir.jpg
 imagenAlt: "Imagen del artículo: Martes sociales: las 4 prestaciones que el

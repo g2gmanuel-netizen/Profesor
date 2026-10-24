@@ -8,7 +8,7 @@ descripcion: Un convenio especial busca que los años de cuidados no dejen hueco
   en tu historial ni afecten a tus futuras prestaciones. Te explicamos qué es y
   dónde consultar…
 categoria: ahorro
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-20
 imagen: /imagenes/convenio-especial-de-cuidadores-que-es-y-donde-consultar-los-requisitos.jpg
 imagenAlt: "Imagen del artículo: Convenio especial de cuidadores: qué es y dónde

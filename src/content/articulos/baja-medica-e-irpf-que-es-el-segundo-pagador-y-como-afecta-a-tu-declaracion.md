@@ -8,7 +8,7 @@ descripcion: "Hacienda distingue según quién te pague: cobrar del INSS o de un
   mutua te convierte en segundo pagador. Te explicamos cómo ordenar tus ingresos
   antes de la renta."
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion.jpg
 imagenAlt: "Imagen del artículo: Baja médica e IRPF: qué es el segundo pagador y

@@ -9,7 +9,7 @@ descripcion: La información publicada no detalla cobertura, requisitos ni
   plazos. Te explicamos qué está confirmado y qué debes preguntar antes de
   alquilar tu piso.
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-13
 imagen: /imagenes/el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7-preguntas-clave.jpg
 imagenAlt: "Imagen del artículo: El Gobierno Vasco presenta un seguro gratuito

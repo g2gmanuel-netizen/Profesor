@@ -9,7 +9,7 @@ descripcion: Con los mismos ingresos brutos por tu vivienda, tu rendimiento neto
   tiende a ser menor aquí que en la media europea. Te explicamos qué significa
   para tu bolsillo…
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/espana-grava-el-alquiler-13-puntos-mas-que-la-ue-que-significa-y-que-puedes-hace.jpg
 imagenAlt: "Imagen del artículo: España grava el alquiler 13 puntos más que la

@@ -9,7 +9,7 @@ descripcion: Según el análisis consultado, los tramos del IRPF no se ajustan a
   la inflación real y las rentas medias son las más expuestas. Aún no hay cifra
   verificada para…
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/irpf-2027-por-que-una-subida-de-sueldo-puede-no-dejarte-mas-dinero-en-el-bolsill.jpg
 imagenAlt: "Imagen del artículo: IRPF 2027: por qué una subida de sueldo puede

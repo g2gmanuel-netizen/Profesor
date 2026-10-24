@@ -9,7 +9,7 @@ descripcion: Hacienda analiza la viabilidad de reformas fiscales radicales,
   según Europa Press. Sin IRPF, el dinero saldría de otros impuestos, de
   recortes o de más deuda, y…
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-15
 imagen: /imagenes/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas.jpg
 imagenAlt: "Imagen del artículo: Sin IRPF, ¿quién cubre 85.000 millones?

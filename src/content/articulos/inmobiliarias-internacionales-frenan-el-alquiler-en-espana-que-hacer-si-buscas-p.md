@@ -9,7 +9,7 @@ descripcion: Varias empresas cancelan contratos y suspenden operaciones alegando
   incompatibilidad con la nueva normativa. Qué cambia para ti como inquilino y
   cinco pautas…
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-14
 imagen: /imagenes/inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p.jpg
 imagenAlt: "Imagen del artículo: Inmobiliarias internacionales frenan el

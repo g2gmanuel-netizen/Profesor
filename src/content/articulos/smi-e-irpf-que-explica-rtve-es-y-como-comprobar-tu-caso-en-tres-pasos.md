@@ -7,7 +7,7 @@ descripcion: "No pagar IRPF no es lo mismo que no tener que mirar tu
   declaración: así puedes revisar tus ingresos, consultar la AEAT y qué
   documentos guardar."
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-24
 imagen: /imagenes/smi-e-irpf-que-explica-rtve-es-y-como-comprobar-tu-caso-en-tres-pasos.jpg
 imagenAlt: "Imagen del artículo: SMI e IRPF: qué explica RTVE.es y cómo

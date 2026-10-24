@@ -9,7 +9,7 @@ descripcion: El pago de la hipoteca no debería superar el 30-35% de los ingreso
   netos del hogar. Te explicamos cómo calcular tu esfuerzo real y qué opciones
   tienes…
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave.jpg
 imagenAlt: "Imagen del artículo: Esfuerzo hipotecario al 65%: qué significa y

@@ -9,7 +9,7 @@ descripcion: "La cifra es un máximo, no una media: describe un mercado con much
   más demanda que oferta y explica qué documentos, mensajes y rapidez ayudan a
   que el…"
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-24
 imagen: /imagenes/alquiler-hasta-133-personas-por-un-piso-segun-negocios-com-como-mejorar-tus-opci.jpg
 imagenAlt: "Imagen del artículo: Alquiler: hasta 133 personas por un piso, según

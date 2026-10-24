@@ -9,7 +9,7 @@ descripcion: Inmobiliarias internacionales cancelan firmas y visitas en España 
   lo atribuyen a una nueva normativa. Separamos lo confirmado de lo que aún no
   se sabe y qué…
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones.jpg
 imagenAlt: "Imagen del artículo: Banco de España avisa contra topar el alquiler:

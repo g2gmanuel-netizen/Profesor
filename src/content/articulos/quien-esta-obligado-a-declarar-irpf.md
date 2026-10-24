@@ -7,7 +7,7 @@ tituloSeo: "Quién está obligado a hacer la renta: todos los límites"
 descripcion: "Límites para declarar el IRPF: 22.000 € con un pagador, 15.876 € con dos,
   1.600 € de capital, quién debe declarar siempre y cuándo te conviene hacerlo."
 categoria: impuestos
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-15
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/quien-esta-obligado-a-declarar-irpf.jpg

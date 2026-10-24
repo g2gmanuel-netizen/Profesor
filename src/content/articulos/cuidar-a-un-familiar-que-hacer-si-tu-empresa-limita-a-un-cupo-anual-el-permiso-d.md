@@ -9,7 +9,7 @@ descripcion: Según la sentencia, recogida por El Economista (vía Menéame), el
   permiso retribuido no tiene cupo anual y se renueva con cada familiar
   afectado. Qué hacer si tu…
 categoria: actualidad
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-15
 imagen: /imagenes/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d.jpg
 imagenAlt: "Imagen del artículo: Cuidar a un familiar: qué hacer si tu empresa

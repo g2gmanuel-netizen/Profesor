@@ -9,7 +9,7 @@ descripcion: Feijóo plantea de cara al 29-N bajar impuestos, revalorizar
   pensiones y construir vivienda. Qué preguntas hacerle a cada promesa para
   saber si tocaría tu bolsillo.
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-20
 imagen: /imagenes/feijoo-y-el-29-n-las-tres-promesas-del-pp-y-como-leerlas-en-clave-de-bolsillo.jpg
 imagenAlt: "Imagen del artículo: Feijóo y el 29-N: las tres promesas del PP y

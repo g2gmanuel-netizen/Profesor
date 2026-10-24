@@ -8,7 +8,7 @@ descripcion: El reloj se atrasa una hora en España. Móvil y otros aparatos
   conectados pueden ajustarse solos, pero los relojes sin conexión hay que
   cambiarlos a mano.
 categoria: actualidad
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo.jpg
 imagenAlt: "Imagen del artículo: Cambio de hora este fin de semana: 4

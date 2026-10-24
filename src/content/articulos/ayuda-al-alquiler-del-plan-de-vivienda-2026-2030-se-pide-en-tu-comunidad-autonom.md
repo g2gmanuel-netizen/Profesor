@@ -9,7 +9,7 @@ descripcion: El plan es estatal, pero las solicitudes las gestiona tu comunidad
   autónoma. Qué mirar en la convocatoria y qué documentos tener listos antes de
   que se abra el…
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-16
 imagen: /imagenes/ayuda-al-alquiler-del-plan-de-vivienda-2026-2030-se-pide-en-tu-comunidad-autonom.jpg
 imagenAlt: "Imagen del artículo: Ayuda al alquiler del Plan de Vivienda

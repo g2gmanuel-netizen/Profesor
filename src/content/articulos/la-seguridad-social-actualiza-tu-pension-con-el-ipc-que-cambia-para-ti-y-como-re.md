@@ -9,7 +9,7 @@ descripcion: La Seguridad Social actualiza las pensiones cada año conforme al
   IPC del INE de forma automática. Te explicamos cómo verificar tú mismo la
   subida con tu…
 categoria: pensiones
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/la-seguridad-social-actualiza-tu-pension-con-el-ipc-que-cambia-para-ti-y-como-re.jpg
 imagenAlt: "Imagen del artículo: La Seguridad Social actualiza tu pensión con el

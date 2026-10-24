@@ -7,7 +7,7 @@ tituloSeo: "Euríbor: qué es y cómo afecta a tu hipoteca"
 descripcion: "Qué es el Euríbor, cómo se calcula el interés de tu hipoteca variable, cuánto
   cambia la cuota por cada punto, cuándo se revisa y qué hacer: fija, mixta o amortizar."
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-20
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/euribor-que-es-y-como-afecta-a-tu-hipoteca.jpg

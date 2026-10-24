@@ -9,7 +9,7 @@ descripcion: La media del país parece moderada porque la marcan los
   propietarios, mayoría frente a los inquilinos. Si pagas más del 40 % de tu
   renta en vivienda, estás en…
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-05
 imagen: /imagenes/pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer.jpg
 imagenAlt: "Imagen del artículo: Pagas más del 40 % de tu sueldo en alquiler:

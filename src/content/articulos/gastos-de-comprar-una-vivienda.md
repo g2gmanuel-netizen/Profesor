@@ -6,7 +6,7 @@ tituloSeo: "Gastos de comprar una vivienda en 2026: guía con ejemplo"
 descripcion: "Todos los gastos de comprar casa: ITP o IVA y AJD, notaría, registro,
   gestoría y tasación. Quién paga qué, ejemplo con números y cuánto ahorro necesitas."
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-05
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/gastos-de-comprar-una-vivienda.jpg

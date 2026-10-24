@@ -7,7 +7,7 @@ tituloSeo: "Subida del alquiler: cómo se actualiza la renta"
 descripcion: "Cuándo y cuánto te pueden subir el alquiler: cláusula del contrato, IPC o
   índice del INE según la fecha de firma, cómo calcularlo y qué hacer si te suben de más."
 categoria: alquiler
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-09-18
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/como-se-actualiza-la-renta-del-alquiler.jpg

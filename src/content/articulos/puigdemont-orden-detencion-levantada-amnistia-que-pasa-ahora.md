@@ -9,7 +9,7 @@ descripcion: Llarena confirma el fin de la orden de detención contra Puigdemont
   tras el aval del Constitucional a amnistiar la malversación. Claves,
   cronología y qué falta.
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-19
 imagen: /imagenes/puigdemont-orden-detencion-levantada-amnistia-que-pasa-ahora.jpg
 imagenAlt: "La bandera de España junto a la senyera de Cataluña"

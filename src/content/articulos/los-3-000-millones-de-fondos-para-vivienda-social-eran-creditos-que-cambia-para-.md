@@ -9,7 +9,7 @@ descripcion: España renunció a una línea de financiación por falta de demand
   No te quita ninguna ayuda, pero conviene saber distinguir un préstamo de una
   subvención antes…
 categoria: vivienda
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-23
 imagen: /imagenes/los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-.jpg
 imagenAlt: "Imagen del artículo: Los 3.000 millones de fondos para vivienda

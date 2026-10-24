@@ -9,7 +9,7 @@ descripcion: El tribunal justifica la suspensión por los riesgos en la
   constitución del censo electoral; quedan sin aclarar el número de afectados,
   la fecha y los posibles…
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-12
 imagen: /imagenes/podras-votar-el-29-n-si-te-nacionalizaste-por-la-ley-de-nietos-el-supremo-mantie.jpg
 imagenAlt: "Imagen del artículo: ¿Podrás votar el 29-N si te nacionalizaste por

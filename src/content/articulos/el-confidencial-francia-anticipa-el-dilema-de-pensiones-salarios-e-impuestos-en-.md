@@ -8,7 +8,7 @@ descripcion: "El análisis plantea que los tres asuntos forman un triángulo:
   tocar uno mueve los otros. Repasamos las palancas habituales y cómo las
   notaría un asalariado, un…"
 categoria: politica
-autor: Redacción Bolsillo Diario
+autor: Daniel Arcos
 fechaPublicacion: 2026-10-24
 imagen: /imagenes/el-confidencial-francia-anticipa-el-dilema-de-pensiones-salarios-e-impuestos-en-.jpg
 imagenAlt: "Imagen del artículo: El Confidencial: Francia anticipa el dilema de
