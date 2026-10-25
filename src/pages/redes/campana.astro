@@ -1,0 +1,412 @@
+---
+/**
+ * Plan de lanzamiento en redes con todos los textos listos para copiar (LinkedIn,
+ * Facebook Ads, Menéame, Reddit y foros). Página de trabajo: no se indexa.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITIO } from '../../lib/sitio';
+
+/** Enlace con etiquetas UTM para ver en Analytics de dónde vienen las visitas. */
+const enlace = (ruta: string, fuente: string, medio = 'social') =>
+  `${SITIO.url}${ruta}?utm_source=${fuente}&utm_medium=${medio}&utm_campaign=lanzamiento`;
+
+interface Texto {
+  id: string;
+  titulo: string;
+  nota?: string;
+  texto: string;
+}
+
+const perfil: Texto[] = [
+  {
+    id: 'li-titular',
+    titulo: 'LinkedIn · Titular de tu perfil',
+    nota: 'Perfil > editar la cabecera > «Titular».',
+    texto: 'Editor de Bolsillo Diario | Impuestos, vivienda, ahorro y pensiones explicados claro y con datos oficiales',
+  },
+  {
+    id: 'li-acerca',
+    titulo: 'LinkedIn · «Acerca de» de tu perfil',
+    texto: `Dirijo Bolsillo Diario, un medio digital sobre economía doméstica en España.
+
+Cada día explicamos lo que de verdad afecta a tu bolsillo: IRPF, nómina, alquiler, hipotecas, ahorro y pensiones. Sin jerga, con cifras y siempre con la fuente oficial (BOE, Agencia Tributaria, INE, Banco de España, Seguridad Social).
+
+Herramientas gratuitas:
+• Calculadora de IRPF ${new Date().getFullYear()}: cuánto te queda neto y cómo pagar menos legalmente.
+
+👉 ${SITIO.url}`,
+  },
+  {
+    id: 'li-pagina',
+    titulo: 'LinkedIn · Descripción de la página de empresa «Bolsillo Diario»',
+    nota: 'Inicio > «Para empresas» > «Crear una página de empresa». Sector: Periódicos en línea. Tamaño: 0-1 empleados.',
+    texto: `Bolsillo Diario es un medio digital independiente de economía doméstica en España. Explicamos con datos oficiales y sin jerga lo que afecta a tu dinero: impuestos, nómina, vivienda, alquiler, hipotecas, ahorro y pensiones. Y te decimos qué puedes hacer en cada caso.
+
+Calculadora de IRPF gratuita, guías prácticas y noticias cada día en ${SITIO.url}`,
+  },
+  {
+    id: 'fb-pagina',
+    titulo: 'Facebook · Descripción de la página «Bolsillo Diario»',
+    nota: 'Hace falta una página de Facebook para poder anunciarte. Categoría: «Sitio web de noticias y medios de comunicación».',
+    texto: 'Noticias de dinero que te afectan, explicadas claro: impuestos, vivienda, ahorro y pensiones en España. Con datos oficiales y herramientas gratis como la calculadora de IRPF.',
+  },
+];
+
+const postsLinkedIn: Texto[] = [
+  {
+    id: 'post-1',
+    titulo: 'Post 1 · Presentación (el primer día)',
+    nota: 'Adjunta la imagen del anuncio de abajo. El enlace va en el primer comentario.',
+    texto: `He lanzado Bolsillo Diario: un medio para entender el dinero del día a día en España.
+
+La idea es simple. Cada vez que sale una noticia sobre IRPF, alquiler, hipotecas o pensiones, la explico con tres preguntas:
+1. ¿Qué ha pasado de verdad?
+2. ¿Cuánto me afecta a mí, con números?
+3. ¿Qué puedo hacer?
+
+Siempre con la fuente oficial (BOE, Agencia Tributaria, INE, Banco de España).
+
+Y la primera herramienta ya está: una calculadora de IRPF que te dice cuánto te queda neto, cuánto pagas a Hacienda y 20 formas legales de pagar menos.
+
+¿Qué tema de dinero te gustaría que explicase? Te leo 👇`,
+  },
+  {
+    id: 'post-1c',
+    titulo: 'Post 1 · Primer comentario',
+    texto: `Calculadora gratis aquí 👉 ${enlace('/calculadoras/irpf/', 'linkedin')}`,
+  },
+  {
+    id: 'post-2',
+    titulo: 'Post 2 · El mito del tramo',
+    texto: `«Si me suben el sueldo, salto de tramo y cobro menos.»
+
+Es uno de los mitos más repetidos sobre el IRPF, y es falso.
+
+El IRPF funciona por tramos: cada tipo solo se aplica a la parte del sueldo que cae dentro de ese tramo. Si una subida te mete en el tramo siguiente, solo los euros que lo superan pagan el tipo más alto. El resto sigue igual.
+
+Ejemplo: si pasas de 34.000 a 36.000 €, esos 2.000 € extra tributan más, pero los otros 34.000 € pagan exactamente lo mismo que antes. Tu neto siempre sube.
+
+(Sí hay un caso real en el que ganar un poco más puede dejarte casi igual: cuando pierdes una deducción o una ayuda con límite de renta. Pero eso no es «saltar de tramo».)
+
+Nunca rechaces una subida por miedo al tramo.
+
+#IRPF #Nómina #FinanzasPersonales`,
+  },
+  {
+    id: 'post-3',
+    titulo: 'Post 3 · Retribución flexible',
+    texto: `Dos personas con el mismo sueldo bruto pueden cobrar netos distintos. Y es totalmente legal.
+
+La diferencia está en la retribución flexible: cobrar parte del sueldo en productos que no pagan IRPF.
+
+• Seguro médico: hasta 500 € al año por persona (cónyuge e hijos incluidos).
+• Tarjeta restaurante: hasta 11 € por día laborable.
+• Abono de transporte público: hasta 1.500 € al año.
+• Guardería de 0 a 3 años y formación ligada al puesto.
+
+Con 45.000 € brutos, llevar unos 4.400 € a especie exenta puede ahorrar más de 1.200 € de IRPF al año.
+
+Ojo: tu empresa tiene que ofrecerlo, el total no puede pasar del 30 % del salario y sigue cotizando a la Seguridad Social.
+
+¿Tu empresa lo ofrece? En comentarios dejo la calculadora para ver cuánto ahorrarías tú.
+
+#Nómina #IRPF #RecursosHumanos`,
+  },
+  {
+    id: 'post-4',
+    titulo: 'Post 4 · Fin de año: lo que hay que hacer antes del 31 de diciembre',
+    texto: `Quedan pocas semanas para cerrar el año fiscal. Después, ya no hay marcha atrás para tu declaración de la renta de 2026.
+
+5 cosas que solo puedes hacer antes del 31 de diciembre:
+
+1. Aportar al plan de pensiones (hasta 1.500 €, o más con el de tu empresa).
+2. Vender inversiones en pérdidas para compensar las ganancias del año (cuidado con la regla de los dos meses).
+3. Donar: el 80 % de los primeros 250 € te lo devuelve Hacienda.
+4. Terminar las obras de eficiencia energética en casa: deducción del 20 % al 40 % (las del edificio, del 60 %).
+5. Autónomos: adelantar gastos e inversiones que ibas a hacer igualmente.
+
+¿Cuál de estas te sirve? En el primer comentario, la calculadora que te dice cuánto ahorrarías con cada una.
+
+#IRPF #Ahorro #Impuestos`,
+  },
+  {
+    id: 'post-5',
+    titulo: 'Post 5 · Comprar casa: los gastos que nadie te cuenta',
+    texto: `Un piso de 200.000 € no cuesta 200.000 €.
+
+En Madrid, de segunda mano y con hipoteca:
+• ITP (6 %): 12.000 €
+• Notaría: unos 900 €
+• Registro: unos 500 €
+• Gestoría: unos 400 €
+• Tasación: unos 350 €
+
+Total: unos 14.150 € de gastos. Más la entrada del 20 %: 40.000 €.
+
+Necesitas ahorrados unos 54.000 € para comprar un piso de 200.000 €. En una comunidad con ITP del 10 %, unos 62.000 €.
+
+Y un detalle que mucha gente no sabe: desde 2022, si el valor de referencia del Catastro es mayor que el precio, pagas el impuesto sobre ese valor.
+
+Guía completa con todo lo que paga el banco y lo que pagas tú, en el primer comentario.
+
+#Vivienda #Hipoteca #Ahorro`,
+  },
+];
+
+const meneame: Texto[] = [
+  {
+    id: 'men-1',
+    titulo: 'Menéame · Envío 1: huelga general del 11-N',
+    nota: 'meneame.net › «Enviar historia». Pega el enlace, usa este título y esta entradilla. Categoría: Actualidad.',
+    texto: `Título: Huelga general del 11-N: quién la convoca, por qué y qué se sabe de servicios mínimos y cortes
+
+Entradilla: CCOO, UGT, el Sindicato de Inquilinas y una decena de sindicatos convocan un paro de 24 horas por la vivienda y los salarios, el primero de CCOO y UGT desde 2012. La convocatoria está registrada desde el 19 de octubre y la CEOE ha anunciado que la impugnará por considerarla «electoral». Repaso de reivindicaciones, convocantes, derechos de los trabajadores y lo que aún falta por conocer.
+
+Enlace: ${enlace('/articulo/huelga-general-11-noviembre-todo-lo-que-debes-saber/', 'meneame', 'agregador')}`,
+  },
+  {
+    id: 'men-2',
+    titulo: 'Menéame · Envío 2: ley de nietos y el voto del 29-N',
+    texto: `Título: Ley de nietos y voto del 29-N: qué ha dicho el Supremo y qué puede decidir el Constitucional
+
+Entradilla: Miles de personas que obtuvieron la nacionalidad por la ley de memoria democrática están pendientes de si podrán votar en las generales. El Supremo ya se ha pronunciado y ahora el caso está en el Tribunal Constitucional. Explicación de los autos, los escenarios posibles y su impacto electoral.
+
+Enlace: ${enlace('/articulo/ley-de-nietos-supremo-constitucional-voto-elecciones-29-noviembre/', 'meneame', 'agregador')}`,
+  },
+  {
+    id: 'men-3',
+    titulo: 'Menéame · Envío 3: cuánto cuesta de verdad comprar una casa',
+    texto: `Título: Lo que cuesta comprar una casa más allá del precio: entre un 8 % y un 12 % en impuestos y gastos
+
+Entradilla: Para un piso de segunda mano de 200.000 € en Madrid, los gastos rondan los 14.000 € y el ahorro necesario, contando la entrada del 20 %, supera los 54.000 €. Desglose de ITP, IVA y AJD por comunidades, notaría, registro, tasación y qué gastos de la hipoteca paga el banco desde la Ley 5/2019.
+
+Enlace: ${enlace('/articulo/gastos-de-comprar-una-vivienda/', 'meneame', 'agregador')}`,
+  },
+];
+
+const foros: Texto[] = [
+  {
+    id: 'foro-neto',
+    titulo: 'Respuesta modelo · «¿Cuánto me queda neto con X € brutos?»',
+    nota: 'Para r/askspain, r/SpainFIRE, Rankia o Burbuja.info. Responde primero la duda con números; el enlace, al final y como complemento.',
+    texto: `Depende sobre todo de la comunidad autónoma, de si tienes hijos y de tu edad. Como referencia, con 30.000 € brutos, soltero y sin hijos, en Madrid te quedan unos 23.450 € netos al año (unos 1.955 € en 12 pagas o 1.675 € en 14). De la diferencia, unos 1.950 € son Seguridad Social y unos 4.600 € de IRPF. En Cataluña o Andalucía serían entre 250 y 400 € menos al año.
+
+Si quieres tu caso exacto (hijos, alquiler, plan de pensiones…), hice una calculadora gratuita que lo desglosa por comunidad: ${enlace('/calculadoras/irpf/', 'foros', 'foro')}`,
+  },
+  {
+    id: 'foro-declarar',
+    titulo: 'Respuesta modelo · «¿Tengo que hacer la declaración de la renta?»',
+    texto: `Con un solo pagador no estás obligado si no pasas de 22.000 € brutos de trabajo. Si tienes dos o más y el segundo te pagó más de 1.500 €, el límite baja a 15.876 €. Intereses, dividendos y ganancias con retención: hasta 1.600 €.
+
+Aun así, abre el borrador en Renta WEB: si trabajaste solo parte del año o tienes hijos, muchas veces sale a devolver y solo te lo devuelven si lo presentas.
+
+Lo explico con ejemplos aquí, por si te sirve: ${enlace('/articulo/quien-esta-obligado-a-declarar-irpf/', 'foros', 'foro')}`,
+  },
+  {
+    id: 'foro-casa',
+    titulo: 'Respuesta modelo · «¿Cuánto necesito ahorrado para comprar piso?»',
+    texto: `Regla rápida: el 20 % de entrada más entre un 8 % y un 12 % de gastos (sobre todo el ITP, que va del 4 % al 11 % según la comunidad). Para 200.000 € en Madrid (ITP del 6 %), unos 54.000 € en total. En Cataluña (10 %), unos 62.000 €.
+
+Ojo con el valor de referencia del Catastro: si es más alto que el precio, pagas el ITP sobre ese valor. Consúltalo antes de firmar arras.
+
+Desglose completo de gastos, aquí: ${enlace('/articulo/gastos-de-comprar-una-vivienda/', 'foros', 'foro')}`,
+  },
+];
+
+const anuncio: Texto[] = [
+  {
+    id: 'ad-texto',
+    titulo: 'Facebook Ads · Texto principal',
+    texto: `¿Sabes cuánto te quita Hacienda de tu sueldo? 💶
+
+Pon tu sueldo bruto y tu comunidad y en 1 minuto ves tu neto mensual, cuánto pagas de IRPF y de Seguridad Social, y si la renta te saldrá a pagar o a devolver.
+
+Además, te enseña 20 formas legales de pagar menos según tu caso. Gratis y sin registrarte.`,
+  },
+  { id: 'ad-titular', titulo: 'Facebook Ads · Titular', texto: 'Calculadora de IRPF 2026: tu sueldo neto en 1 minuto' },
+  { id: 'ad-desc', titulo: 'Facebook Ads · Descripción', texto: 'Gratis, por comunidad autónoma y con consejos para pagar menos' },
+  { id: 'ad-url', titulo: 'Facebook Ads · URL del sitio web', texto: enlace('/calculadoras/irpf/', 'facebook', 'cpc') },
+];
+
+const plan = [
+  ['Día 1 (1 h)', 'Crear la página de empresa de LinkedIn y la página de Facebook (textos abajo). Poner el titular y el «Acerca de» en tu perfil de LinkedIn. Publicar el post 1.'],
+  ['Día 1', 'Lanzar el anuncio de Facebook e Instagram: 2 € al día durante 5 días (10 € en total).'],
+  ['Día 2', 'Publicar en LinkedIn el carrusel PDF de la noticia más reciente (página /redes). Enviar a Menéame el envío 1.'],
+  ['Días 3 a 7', 'Un post al día en LinkedIn, alternando carruseles PDF y los posts 2 a 5. Dedicar 10 minutos a comentar publicaciones de otros (asesores fiscales, economistas, periodistas) sin poner enlaces.'],
+  ['Días 3 a 7', 'Responder 1 o 2 dudas al día en foros (r/askspain, r/SpainFIRE, Rankia, Burbuja.info) con las respuestas modelo, adaptándolas a cada pregunta.'],
+  ['Día 4 y día 7', 'Menéame: envíos 2 y 3. Vota y comenta también noticias de otros: Menéame penaliza las cuentas que solo envían su propia web.'],
+  ['Día 6', 'Revisar el anuncio: si el coste por clic pasa de 0,15 €, cambiar a la imagen vertical o al otro texto.'],
+  ['Día 8 en adelante', 'Rutina: 1 carrusel de LinkedIn al día de lunes a viernes, 2 envíos a Menéame por semana y respuestas en foros cuando haya preguntas.'],
+];
+---
+
+<BaseLayout titulo="Plan de campaña" noindex>
+  <section class="campana">
+    <p class="volver"><a href="/redes/">← Carruseles</a></p>
+    <h1>Plan de campaña: lanzamiento con 10 €</h1>
+    <p class="entradilla">
+      Todo listo para copiar y pegar. Los enlaces llevan etiquetas para que en Google Analytics (Adquisición › Tráfico)
+      veas cuántas visitas trae cada red.
+    </p>
+
+    <h2>Presupuesto</h2>
+    <table>
+      <tbody>
+        <tr><td>LinkedIn, Menéame, Reddit y foros</td><td>0 €</td></tr>
+        <tr><td>Anuncio en Facebook e Instagram de la calculadora de IRPF (2 €/día × 5 días)</td><td>10 €</td></tr>
+        <tr><th>Total</th><th>10 €</th></tr>
+      </tbody>
+    </table>
+    <p class="nota">
+      Con 10 € en Meta, en España se suelen conseguir entre 100 y 300 clics a la calculadora. Es la página que mejor convierte
+      visitas en lectores que vuelven.
+    </p>
+
+    <h2>Plan día a día</h2>
+    <ol class="plan">
+      {plan.map(([dia, tarea]) => <li><strong>{dia}:</strong> {tarea}</li>)}
+    </ol>
+
+    <h2>1. Perfiles</h2>
+    {perfil.map((t) => <div class="texto"><h3>{t.titulo}</h3>{t.nota && <p class="nota">{t.nota}</p>}<textarea id={t.id} readonly rows="5">{t.texto}</textarea><button type="button" data-copiar={`#${t.id}`}>Copiar</button></div>)}
+
+    <h2>2. Posts de LinkedIn</h2>
+    <p class="nota">
+      Publica entre las 8:00 y las 9:00, de martes a jueves si puedes. Nunca pongas el enlace en el texto: va en el primer
+      comentario. Además, cada noticia tiene su carrusel PDF en <a href="/redes/">/redes</a>.
+    </p>
+    {postsLinkedIn.map((t) => <div class="texto"><h3>{t.titulo}</h3>{t.nota && <p class="nota">{t.nota}</p>}<textarea id={t.id} readonly rows="8">{t.texto}</textarea><button type="button" data-copiar={`#${t.id}`}>Copiar</button></div>)}
+
+    <h2>3. Anuncio de Facebook e Instagram (10 €)</h2>
+    <div class="imagenes">
+      <a href="/redes/campana/anuncio-irpf-cuadrado.jpg" download><img src="/redes/campana/anuncio-irpf-cuadrado.jpg" alt="Anuncio cuadrado de la calculadora de IRPF" width="200" height="200" /></a>
+      <a href="/redes/campana/anuncio-irpf-vertical.jpg" download><img src="/redes/campana/anuncio-irpf-vertical.jpg" alt="Anuncio vertical de la calculadora de IRPF" width="160" height="200" /></a>
+    </div>
+    <ol class="pasos">
+      <li>Entra en <strong>business.facebook.com</strong> › Administrador de anuncios › <strong>Crear</strong>.</li>
+      <li>Objetivo: <strong>Tráfico</strong>. Destino: <strong>Sitio web</strong>.</li>
+      <li>Presupuesto: <strong>2 € diarios</strong>, con fecha de fin a los <strong>5 días</strong>.</li>
+      <li>Público: <strong>España</strong>, de <strong>25 a 60 años</strong>. Intereses: «Finanzas personales», «Ahorro», «Impuesto sobre la renta», «Agencia Tributaria».</li>
+      <li>Ubicaciones: elige <strong>manuales</strong> y deja solo Feed y Stories de Facebook e Instagram. <strong>Quita «Audience Network»</strong>: trae clics de poca calidad y, cuando tengas AdSense, Google no los quiere.</li>
+      <li>Sube la imagen cuadrada (y la vertical para Stories) y pega los textos de abajo. Botón: <strong>«Más información»</strong>.</li>
+      <li>No anuncies noticias de política, de la huelga ni de las elecciones: Meta exige una verificación especial para anuncios políticos. La calculadora no tiene ese problema.</li>
+    </ol>
+    {anuncio.map((t) => <div class="texto"><h3>{t.titulo}</h3><textarea id={t.id} readonly rows={t.texto.length > 120 ? 6 : 2}>{t.texto}</textarea><button type="button" data-copiar={`#${t.id}`}>Copiar</button></div>)}
+
+    <h2>4. Menéame</h2>
+    <p class="nota">
+      Es el agregador de noticias más grande en español: una noticia en portada puede traer miles de visitas en un día.
+      Envía solo las piezas más fuertes, máximo 2 o 3 por semana, y participa también votando y comentando otras.
+    </p>
+    {meneame.map((t) => <div class="texto"><h3>{t.titulo}</h3>{t.nota && <p class="nota">{t.nota}</p>}<textarea id={t.id} readonly rows="8">{t.texto}</textarea><button type="button" data-copiar={`#${t.id}`}>Copiar</button></div>)}
+
+    <h2>5. Foros y Reddit</h2>
+    <p class="nota">
+      Regla de oro: primero ayuda, después enlaza. Lee las normas de cada comunidad: en r/spain la autopromoción está muy
+      limitada, en r/askspain y r/SpainFIRE se admite si la respuesta es útil. Nunca pegues el mismo texto en varios hilos.
+    </p>
+    {foros.map((t) => <div class="texto"><h3>{t.titulo}</h3>{t.nota && <p class="nota">{t.nota}</p>}<textarea id={t.id} readonly rows="7">{t.texto}</textarea><button type="button" data-copiar={`#${t.id}`}>Copiar</button></div>)}
+
+    <h2>6. Altas gratuitas (una sola vez)</h2>
+    <ul class="pasos">
+      <li><strong>Google Search Console</strong>: Sitemaps › añade <code>sitemap.xml</code> y <code>sitemap-news.xml</code>.</li>
+      <li><strong>Google News Publisher Center</strong>: da de alta la publicación con el logo y las secciones.</li>
+      <li><strong>Bing Webmaster Tools</strong>: «Importar desde Google Search Console» (un clic).</li>
+      <li><strong>Flipboard</strong>: crea una revista «Bolsillo Diario» y añade los artículos según se publiquen.</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copiar]').forEach((b) => {
+    b.addEventListener('click', async () => {
+      const caja = document.querySelector<HTMLTextAreaElement>(b.dataset.copiar!);
+      if (!caja) return;
+      try {
+        await navigator.clipboard.writeText(caja.value);
+      } catch {
+        caja.select();
+        document.execCommand('copy');
+      }
+      b.textContent = '¡Copiado!';
+      setTimeout(() => (b.textContent = 'Copiar'), 2000);
+    });
+  });
+</script>
+
+<style>
+  .campana {
+    max-width: var(--ancho-lectura);
+    margin-inline: auto;
+    font-family: var(--fuente-ui);
+  }
+  .volver {
+    margin: 0;
+  }
+  h2 {
+    margin-top: 2.25rem;
+    border-top: 1px solid var(--color-borde);
+    padding-top: 1.25rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: 1.25rem 0 0.25rem;
+  }
+  .nota {
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td,
+  th {
+    border-bottom: 1px solid var(--color-borde);
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+  td:last-child,
+  th:last-child {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .plan li,
+  .pasos li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+    background: var(--color-fondo-alt);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    padding: 0.75rem;
+  }
+  .texto button {
+    margin-top: 0.4rem;
+    font-family: var(--fuente-ui);
+    font-weight: 600;
+    padding: 0.55rem 1.2rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--color-marca);
+    color: #fff;
+    cursor: pointer;
+  }
+  .imagenes {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .imagenes img {
+    display: block;
+    height: 200px;
+    width: auto;
+    border: 1px solid var(--color-borde);
+  }
+</style>

@@ -13,6 +13,9 @@ interface Carrusel {
   fecha: string;
   imagenes: number;
   texto: string;
+  textoLinkedIn: string;
+  enlaceLinkedIn: string;
+  pdf: boolean;
 }
 
 const dir = resolve(process.cwd(), 'public/redes');
@@ -20,8 +23,11 @@ const carruseles: Carrusel[] = existsSync(dir)
   ? readdirSync(dir)
       .filter((d) => existsSync(resolve(dir, d, 'info.json')))
       .map((d) => ({
-        ...(JSON.parse(readFileSync(resolve(dir, d, 'info.json'), 'utf8')) as Omit<Carrusel, 'texto'>),
+        enlaceLinkedIn: '',
+        ...(JSON.parse(readFileSync(resolve(dir, d, 'info.json'), 'utf8')) as Omit<Carrusel, 'texto' | 'textoLinkedIn' | 'pdf'>),
         texto: readFileSync(resolve(dir, d, 'texto.txt'), 'utf8'),
+        textoLinkedIn: existsSync(resolve(dir, d, 'linkedin.txt')) ? readFileSync(resolve(dir, d, 'linkedin.txt'), 'utf8') : '',
+        pdf: existsSync(resolve(dir, d, 'linkedin.pdf')),
       }))
       .sort((a, b) => b.fecha.localeCompare(a.fecha))
   : [];
@@ -32,9 +38,10 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
   <section class="redes">
     <h1>Carruseles para redes</h1>
     <p class="entradilla">
-      Uno por noticia, listos para Instagram y TikTok (modo foto). Pulsa «Guardar imágenes» desde el
-      móvil, copia el texto y publícalo.
+      Uno por noticia, listos para Instagram, TikTok (modo foto) y LinkedIn. Pulsa «Guardar imágenes» desde el
+      móvil, copia el texto y publícalo. Para LinkedIn, descarga el PDF y súbelo como «documento».
     </p>
+    <p><a class="ir-campana" href="/redes/campana/">📣 Ver el plan de campaña con todos los textos listos →</a></p>
 
     {carruseles.length === 0 && <p>Todavía no hay carruseles generados.</p>}
 
@@ -50,11 +57,23 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
               </a>
             ))}
           </div>
+          <h3>Instagram y TikTok</h3>
           <div class="acciones">
             <button type="button" class="guardar">Guardar imágenes</button>
-            <button type="button" class="copiar">Copiar texto</button>
+            <button type="button" class="copiar" data-copiar={`#ig-${c.slug}`}>Copiar texto</button>
           </div>
-          <textarea readonly rows="8">{c.texto}</textarea>
+          <textarea id={`ig-${c.slug}`} readonly rows="6">{c.texto}</textarea>
+          {c.pdf && (
+            <>
+              <h3>LinkedIn</h3>
+              <div class="acciones">
+                <a class="boton" href={`/redes/${c.slug}/linkedin.pdf`} download={`${c.slug}.pdf`}>Descargar PDF</a>
+                <button type="button" class="copiar" data-copiar={`#li-${c.slug}`}>Copiar texto</button>
+                <button type="button" class="copiar" data-texto={`Noticia completa 👉 ${c.enlaceLinkedIn}`}>Copiar 1.er comentario</button>
+              </div>
+              <textarea id={`li-${c.slug}`} readonly rows="6">{c.textoLinkedIn}</textarea>
+            </>
+          )}
         </article>
       ))
     }
@@ -89,17 +108,21 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
 
   document.querySelectorAll<HTMLElement>('.carrusel').forEach((art) => {
     art.querySelector('.guardar')?.addEventListener('click', () => void guardar(art));
-    const copiar = art.querySelector<HTMLButtonElement>('.copiar')!;
-    copiar.addEventListener('click', async () => {
-      const texto = art.querySelector('textarea')!.value;
+  });
+  // Botones «Copiar»: copian el texto de la caja indicada (data-copiar) o el de data-texto.
+  document.querySelectorAll<HTMLButtonElement>('[data-copiar], [data-texto]').forEach((b) => {
+    const original = b.textContent;
+    b.addEventListener('click', async () => {
+      const caja = b.dataset.copiar ? document.querySelector<HTMLTextAreaElement>(b.dataset.copiar) : null;
+      const texto = caja?.value ?? b.dataset.texto ?? '';
       try {
         await navigator.clipboard.writeText(texto);
       } catch {
-        art.querySelector('textarea')!.select();
+        caja?.select();
         document.execCommand('copy');
       }
-      copiar.textContent = '¡Copiado!';
-      setTimeout(() => (copiar.textContent = 'Copiar texto'), 2000);
+      b.textContent = '¡Copiado!';
+      setTimeout(() => (b.textContent = original), 2000);
     });
   });
 </script>
@@ -146,6 +169,16 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
     gap: 0.5rem;
     margin-block: 0.75rem;
   }
+  .carrusel h3 {
+    font-family: var(--fuente-ui);
+    font-size: 0.95rem;
+    margin: 1rem 0 0;
+  }
+  .ir-campana {
+    font-family: var(--fuente-ui);
+    font-weight: 700;
+  }
+  .acciones .boton,
   .acciones button {
     flex: 1;
     font-family: var(--fuente-ui);
@@ -157,6 +190,8 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
     cursor: pointer;
     background: var(--color-marca);
     color: #fff;
+    text-align: center;
+    text-decoration: none;
   }
   .acciones .copiar {
     background: var(--color-fondo-alt);

@@ -4,6 +4,9 @@
  * artículo, una diapositiva por clave rápida y cierre con llamada a la acción) más
  * el texto de la publicación con hashtags.
  *
+ * Para LinkedIn genera además el mismo carrusel en un PDF (linkedin.pdf), que es el
+ * formato «documento» que más alcance tiene allí, y un texto propio (linkedin.txt).
+ *
  * Se escriben en public/redes/<slug>/ y la página /redes los lista para descargarlos
  * desde el móvil. Solo se conservan los MAX_CARRUSELES más recientes.
  *
@@ -165,6 +168,75 @@ function hashtags(a: Articulo): string {
   return [...propios.slice(0, 3), ...fijos].join(' ');
 }
 
+/** Enlace al artículo con etiquetas UTM para saber en Analytics qué red trae visitas. */
+export function enlaceMedido(slug: string, red: string): string {
+  return `${SITIO.url}/articulo/${slug}/?utm_source=${red}&utm_medium=social&utm_campaign=carrusel`;
+}
+
+/** Texto para LinkedIn: gancho, claves y pregunta; el enlace va en el primer comentario. */
+function textoLinkedIn(a: Articulo, claves: string[]): string {
+  const etiquetas = hashtags(a).split(' ').slice(0, 3).join(' ');
+  return [
+    a.titulo,
+    '',
+    a.subtitulo,
+    '',
+    ...claves.map((c, i) => `${i + 1}. ${c}`),
+    '',
+    'Te lo dejo en el carrusel para que lo guardes 👇',
+    '',
+    '¿Te afecta de alguna forma? Te leo en comentarios.',
+    '',
+    etiquetas,
+  ].join('\n');
+}
+
+/**
+ * PDF mínimo con una página por imagen JPEG (las imágenes van tal cual, con DCTDecode),
+ * suficiente para subirlo a LinkedIn como documento sin depender de otra librería.
+ */
+export function pdfDeJpegs(jpegs: Buffer[], ancho: number, alto: number): Buffer {
+  const partes: Buffer[] = [];
+  const offsets: number[] = [];
+  let pos = 0;
+  const escribir = (b: Buffer | string) => {
+    const buf = typeof b === 'string' ? Buffer.from(b, 'latin1') : b;
+    partes.push(buf);
+    pos += buf.length;
+  };
+  const objeto = (n: number, cuerpo: (Buffer | string)[]) => {
+    offsets[n] = pos;
+    escribir(`${n} 0 obj\n`);
+    for (const c of cuerpo) escribir(c);
+    escribir('\nendobj\n');
+  };
+  const n = jpegs.length;
+  // 1: catálogo, 2: árbol de páginas, y por cada página: página, contenido e imagen.
+  const pagina = (i: number) => 3 + i * 3;
+  escribir('%PDF-1.4\n%\xe2\xe3\xcf\xd3\n');
+  objeto(1, ['<< /Type /Catalog /Pages 2 0 R >>']);
+  objeto(2, [`<< /Type /Pages /Count ${n} /Kids [${jpegs.map((_, i) => `${pagina(i)} 0 R`).join(' ')}] >>`]);
+  jpegs.forEach((jpg, i) => {
+    const p = pagina(i);
+    const dibujo = `q ${ancho} 0 0 ${alto} 0 0 cm /Im0 Do Q`;
+    objeto(p, [
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${ancho} ${alto}] /Resources << /XObject << /Im0 ${p + 2} 0 R >> >> /Contents ${p + 1} 0 R >>`,
+    ]);
+    objeto(p + 1, [`<< /Length ${dibujo.length} >>\nstream\n${dibujo}\nendstream`]);
+    objeto(p + 2, [
+      `<< /Type /XObject /Subtype /Image /Width ${ancho} /Height ${alto} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`,
+      jpg,
+      '\nendstream',
+    ]);
+  });
+  const total = 3 + n * 3;
+  const xref = pos;
+  escribir(`xref\n0 ${total}\n0000000000 65535 f \n`);
+  for (let i = 1; i < total; i++) escribir(`${String(offsets[i]).padStart(10, '0')} 00000 n \n`);
+  escribir(`trailer\n<< /Size ${total} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`);
+  return Buffer.concat(partes);
+}
+
 function textoPublicacion(a: Articulo, claves: string[]): string {
   return [
     a.titulo,
@@ -230,9 +302,16 @@ async function generar(a: Articulo): Promise<number> {
   await sharp(Buffer.from(cierreSVG(total))).jpeg({ quality: 90 }).toFile(resolve(dir, `${total}.jpg`));
 
   writeFileSync(resolve(dir, 'texto.txt'), textoPublicacion(a, claves) + '\n', 'utf8');
+  const jpegs = Array.from({ length: total }, (_, i) => readFileSync(resolve(dir, `${i + 1}.jpg`)));
+  writeFileSync(resolve(dir, 'linkedin.pdf'), pdfDeJpegs(jpegs, W, H));
+  writeFileSync(resolve(dir, 'linkedin.txt'), textoLinkedIn(a, claves) + '\n', 'utf8');
   writeFileSync(
     resolve(dir, 'info.json'),
-    JSON.stringify({ slug: a.slug, titulo: a.titulo, fecha: a.fecha, imagenes: total }, null, 2) + '\n',
+    JSON.stringify(
+      { slug: a.slug, titulo: a.titulo, fecha: a.fecha, imagenes: total, enlaceLinkedIn: enlaceMedido(a.slug, 'linkedin') },
+      null,
+      2,
+    ) + '\n',
     'utf8',
   );
   return total;
@@ -251,7 +330,8 @@ async function main(): Promise<void> {
   }
 
   for (const a of recientes) {
-    if (!forzar && existsSync(resolve(DIR_REDES, a.slug, 'info.json'))) continue;
+    const hecho = existsSync(resolve(DIR_REDES, a.slug, 'linkedin.pdf'));
+    if (!forzar && hecho && JSON.parse(readFileSync(resolve(DIR_REDES, a.slug, 'info.json'), 'utf8')).titulo === a.titulo) continue;
     const n = await generar(a);
     // eslint-disable-next-line no-console
     console.log(`  ✓ ${a.slug} (${n} imágenes)`);
