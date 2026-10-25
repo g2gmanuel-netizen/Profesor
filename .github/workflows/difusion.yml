@@ -2,7 +2,8 @@ name: Difusión en redes
 
 # Cuando se publican artículos nuevos en main (al fusionar la edición del día),
 # genera el "kit de posts" para copiar y pegar y, si hay bot de Telegram
-# configurado, publica en el canal. También se puede lanzar a mano.
+# configurado, publica en el canal. Después publica solo en Facebook, Instagram
+# y Bluesky si sus claves están en los secretos. También se puede lanzar a mano.
 on:
   push:
     branches: [main]
@@ -74,3 +75,24 @@ jobs:
           # Damos tiempo a Cloudflare Pages a publicar la versión nueva antes de avisar.
           sleep 240
           npx tsx scripts/indexnow.mts || echo "IndexNow no respondió bien; se reintentará en la próxima edición"
+
+      - name: Publicar en Facebook, Instagram y Bluesky (si están configurados)
+        if: ${{ !inputs.prueba }}
+        env:
+          DOMINIO: ${{ vars.DOMINIO }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        # Va después de la espera de IndexNow: así las imágenes nuevas ya están publicadas en la web.
+        run: npx tsx scripts/redes-auto.ts
+
+      - name: Guardar el registro de publicaciones en redes
+        if: ${{ !inputs.prueba }}
+        run: |
+          git add datos/redes-publicados.json
+          git commit -m "Registro de publicaciones en redes" || { echo "Sin cambios"; exit 0; }
+          for i in 1 2 3 4; do
+            git pull --rebase origin main && git push && break || { echo "reintento $i"; sleep $((2**i)); }
+          done
