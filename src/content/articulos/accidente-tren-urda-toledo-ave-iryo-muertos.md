@@ -1,14 +1,15 @@
 ---
-titulo: "Tragedia ferroviaria en Toledo: el choque entre un AVE y un Iryo en Urda deja hasta 39 muertos, según Emergencias"
-subtitulo: Un AVE de Renfe alcanzó por detrás a un tren de Iryo en la línea Madrid-Andalucía y dos
-  vagones cayeron por un terraplén. El balance sigue abierto. Esto es lo que se sabe y qué
-  derechos tienen los viajeros.
+titulo: "Tragedia ferroviaria en Toledo: el choque entre un AVE y un Iryo en Urda deja hasta 50 muertos y 179 heridos"
+subtitulo: Protección Civil eleva a 46 los fallecidos y algunos medios hablan ya de 50. Sería el peor
+  accidente ferroviario en España desde Angrois. Qué se sabe, la hipótesis del error humano y los
+  derechos de las víctimas.
 tituloSeo: "Accidente de tren en Urda (Toledo): muertos, heridos y causas"
-descripcion: Choque entre un AVE y un Iryo en Urda (Toledo). Emergencias eleva a 39 los muertos,
-  según varios medios. Qué se sabe, cronología, causas y derechos de los viajeros.
+descripcion: Choque entre un AVE y un Iryo en Urda (Toledo). Protección Civil eleva a 46 los muertos
+  y hay medios que hablan de 50 y 179 heridos. Cronología, causas y derechos.
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-28
+fechaActualizacion: 2026-10-28
 imagen: /imagenes/accidente-tren-urda-toledo.jpg
 imagenAlt: "Pasajeros caminan junto a la vía tras el accidente, con un vagón destrozado al fondo del terraplén"
 imagenCredito: "Imagen difundida en redes sociales"
@@ -20,6 +21,18 @@ etiquetas:
   - Adif
 destacado: true
 fuentes:
+  - titulo: "Dos trenes chocan en la localidad toledana de Urda: se eleva a 50 la cifra de fallecidos y 179 heridos (La Gaceta de Salamanca)"
+    url: https://www.lagacetadesalamanca.es/nacional/dos-trenes-chocan-localidad-toledana-urda-eleva-20261028101720-di.html
+  - titulo: Última hora del accidente ferroviario en Urda (Toledo), en directo (The Objective)
+    url: https://theobjective.com/economia/transporte/2026-10-28/accidente-ferroviario-urda-toledo/directo/
+  - titulo: Accidente de tren en Toledo, última hora en directo (elDiario.es)
+    url: https://www.eldiario.es/castilla-la-mancha/accidente-tren-toledo-suspendida-alta-velocidad-madrid-andalucia_133_13620647.html
+  - titulo: Colisionan dos trenes de pasajeros en Urda (Toledo), minuto a minuto (RTVC)
+    url: https://rtvc.es/colision-dos-trenes-toledo-28-octubre-2026/
+  - titulo: Decenas de fallecidos en un accidente ferroviario entre un AVE y un Iryo en Urda (Qué!)
+    url: https://www.que.es/2026/10/28/accidente-ferroviario-ave-iryo-toledo/
+  - titulo: Última hora del accidente de tren AVE con Iryo, en directo (elEconomista)
+    url: https://www.eleconomista.es/transportes-turismo/noticias/d8429/10/26/ultima-hora-del-accidente-de-tren-ave-con-iryo-hoy-en-directo-urda-toledo-heridos-y-comunicados.html
   - titulo: Última hora del accidente entre un tren Iryo y un AVE a la altura de Urda, Toledo (Telecinco)
     url: https://www.telecinco.es/noticias/sociedad/20261028/accidente-trenes-iryo-ave-yebenes-toledo-renfe_18_020556424.html
   - titulo: Última hora del accidente de tren en Toledo (El Plural)
@@ -44,19 +57,21 @@ fuentes:
 clavesRapidas:
   - "Un AVE de Renfe y un tren de Iryo chocaron a las 8:54 de este miércoles entre Mora y Urda
     (Toledo), en la línea de alta velocidad Madrid-Andalucía."
-  - "Emergencias de Castilla-La Mancha eleva a 39 los fallecidos, según varios medios. La Junta
-    había confirmado antes al menos 10. El balance no es definitivo."
-  - "Según los primeros indicios, el AVE alcanzó por detrás al Iryo y dos vagones cayeron por un
-    terraplén. Las causas aún no están determinadas."
+  - "Protección Civil de Castilla-La Mancha eleva a 46 los fallecidos y algunos medios hablan ya
+    de 50 muertos y 179 heridos. El balance no es definitivo."
+  - "El AVE alcanzó por detrás al Iryo y dos vagones cayeron por un terraplén. El Gobierno apunta a
+    un posible error humano; Adif dice que la causa aún no está identificada."
   - "La línea de alta velocidad entre Madrid y Andalucía está cortada. El PP y el Gobierno han
     suspendido su agenda de campaña."
-  - "Es el segundo gran accidente de la alta velocidad este año, tras el de Adamuz (Córdoba) en
-    enero, con 41 muertos."
+  - "Supera al accidente de Adamuz de enero (41 muertos) y sería el más grave en España desde el de
+    Angrois en 2013."
 ---
 
-España vive su segunda gran tragedia ferroviaria del año. Un **AVE de Renfe** y un **tren de Iryo** chocaron a las **8:54 de la mañana de este miércoles 28 de octubre** entre las localidades de **Mora y Urda (Toledo)**, cerca de Los Yébenes, en la línea de alta velocidad que une Madrid con Andalucía. El servicio de **Emergencias de Castilla-La Mancha eleva a 39 el número de fallecidos**, según recogen Telecinco y El Plural. Hay además numerosos heridos.
+España vive su segunda gran tragedia ferroviaria del año. Un **AVE de Renfe** y un **tren de Iryo** chocaron a las **8:54 de la mañana de este miércoles 28 de octubre** entre las localidades de **Mora y Urda (Toledo)**, cerca de Los Yébenes, en la línea de alta velocidad que une Madrid con Andalucía. **Protección Civil de Castilla-La Mancha eleva a 46 el número de fallecidos**, según recoge The Objective, y otros medios, como La Gaceta de Salamanca, hablan ya de **50 muertos y 179 heridos**.
 
-**El balance todavía no es definitivo.** Las cifras han ido subiendo a lo largo de la mañana y ninguna fuente oficial ha dado aún un recuento cerrado. Actualizaremos esta noticia según se conozcan nuevos datos.
+Si se confirman esas cifras, sería el **accidente ferroviario más grave en España desde el del Alvia en Angrois (Santiago de Compostela) en 2013**, en el que murieron 80 personas, y superaría al de Adamuz (Córdoba) del pasado enero.
+
+**El balance todavía no es definitivo.** Las cifras no han dejado de subir a lo largo del día y las autoridades advierten de que pueden aumentar. Actualizaremos esta noticia según se conozcan nuevos datos.
 
 ![Un vagón del AVE queda sobre los restos del tren tras el choque, junto a un vehículo de emergencias y varias personas en un campo de olivos](/imagenes/accidente-tren-urda-toledo-2.jpg)
 
@@ -77,27 +92,38 @@ Las cifras han cambiado mucho desde las primeras horas. Este es el recorrido de 
 | Primeros minutos | «Número indeterminado» | Testigos y medios locales |
 | Media mañana | Al menos 2 | Fuentes ferroviarias citadas por infoLibre |
 | Media mañana | Al menos 10 | Gobierno de España y la portavoz de la Junta de Castilla-La Mancha, Esther Padilla |
-| Última actualización | **Hasta 39** | **Emergencias de Castilla-La Mancha**, según Telecinco y El Plural |
+| Mediodía | Al menos 30 | Gobierno de Castilla-La Mancha, según EFE |
+| Mediodía | 39 | Emergencias de Castilla-La Mancha, según Telecinco y El Plural |
+| Tarde | Alrededor de 40 | Guardia Civil, según The Objective |
+| Tarde | 46 | Protección Civil de Castilla-La Mancha, según The Objective |
+| Última actualización | **Hasta 50, y 179 heridos** | La Gaceta de Salamanca |
 
-Sobre los **heridos**, todavía no hay una cifra oficial. El alcalde de Urda ha confirmado que hay personas heridas y que el Ayuntamiento ha **habilitado un pabellón** para atenderlas. La Junta ha activado el **Plan Territorial de Emergencia de Castilla-La Mancha**.
+Sobre los **heridos**, se cuentan por decenas: la cifra más alta publicada es de **179**, de diversa gravedad. **Tres helicópteros medicalizados** se han desplazado a la zona y el alcalde de Urda ha **habilitado un pabellón** para atender a los heridos. La Junta ha activado el **Plan Territorial de Emergencia (PLATECAM) en situación operativa 1**, y los **hospitales de Toledo, Alcázar de San Juan y Ciudad Real han suspendido las operaciones no urgentes** para atender a las víctimas.
 
 ## Por qué ha ocurrido: lo que se sabe y lo que no
 
-**Las causas no están determinadas.** Un choque por alcance entre dos trenes de alta velocidad es muy poco habitual, porque las líneas cuentan con sistemas de señalización y frenado automático, como el ERTMS y el ASFA, pensados precisamente para mantener la distancia entre convoyes. Un portavoz del Sindicato Ferroviario lo ha calificado de **«muy raro»**.
+**Las causas no están determinadas oficialmente**, pero ya hay una primera hipótesis:
 
-La investigación técnica corresponde a la **Comisión de Investigación de Accidentes Ferroviarios (CIAF)**, que es independiente de la investigación judicial. Sus conclusiones suelen tardar meses. Hasta entonces, cualquier atribución de la causa (fallo técnico, de señalización o humano) es una hipótesis.
+- **Posible error humano.** Fuentes del Gobierno citadas por El País apuntan a que **ocho trenes habían quedado detenidos en la zona** y que el maquinista del AVE de Renfe **recibió la orden de reanudar la marcha**. Esa es, por ahora, la línea principal de la investigación.
+- **Adif, prudente.** Fuentes de Adif han explicado a EFE que, por el momento, **no se ha identificado la causa** del accidente.
+- **El tiempo, descartado.** Meteored ha descartado «totalmente» que la meteorología influyera: la mañana era despejada, como se ve en las imágenes.
+- **El ministro, en el centro de control.** El ministro de Transportes, **Óscar Puente**, se ha desplazado al centro de control de la red ferroviaria para «obtener toda la información posible», según Europa Press.
+
+Un choque por alcance entre dos trenes de alta velocidad es muy poco habitual, porque las líneas cuentan con sistemas de señalización y frenado automático, como el ERTMS y el ASFA, pensados precisamente para mantener la distancia entre convoyes. Un portavoz del Sindicato Ferroviario lo ha calificado de **«muy raro»**.
+
+La investigación técnica corresponde a la **Comisión de Investigación de Accidentes Ferroviarios (CIAF)**, que es independiente de la investigación judicial. Sus conclusiones suelen tardar meses. Hasta entonces, cualquier atribución de la causa, sea un fallo técnico, de señalización o humano, es una hipótesis.
 
 ![Un vagón del AVE inclinado sobre la vía, con restos del choque y pasajeros caminando entre las vías](/imagenes/accidente-tren-urda-toledo-4.jpg)
 
 ## Consecuencias: la alta velocidad con Andalucía, cortada
 
-- **La circulación de alta velocidad entre Madrid y Andalucía está interrumpida.** Adif ha suspendido el tráfico en la línea mientras trabajan los equipos de emergencia y los investigadores.
+- **La circulación de alta velocidad entre Madrid y Andalucía está interrumpida.** Adif ha cortado la línea entre Urda y Los Yébenes mientras trabajan los equipos de emergencia y los investigadores.
 - **Si tenías billete** para hoy o los próximos días en trenes entre Madrid, Córdoba, Sevilla, Málaga o Granada, consulta la web o la app de tu operadora (Renfe, Iryo u Ouigo). Lo habitual en estos casos es ofrecer **cambio gratuito o devolución íntegra** del billete.
 - **Campaña electoral:** a un mes de las elecciones generales del 29 de noviembre, el **PP ha cancelado toda la agenda de campaña** de sus líderes y el **Gobierno ha suspendido la suya**.
 
-## El segundo gran accidente del año
+## El peor accidente desde Angrois
 
-El choque de Urda llega nueve meses después de la tragedia de **Adamuz (Córdoba)**. El **18 de enero de 2026**, un Iryo que viajaba de Málaga a Madrid descarriló e invadió la vía contigua, donde chocó con un Alvia de Renfe. Aquel accidente, en el que según RTVC murieron **41 personas**, fue el más grave de la red ferroviaria española desde el del Alvia en Angrois (Santiago de Compostela) en 2013.
+El choque de Urda llega nueve meses después de la tragedia de **Adamuz (Córdoba)**. El **18 de enero de 2026**, un Iryo que viajaba de Málaga a Madrid descarriló e invadió la vía contigua, donde chocó con un Alvia de Renfe. Aquel accidente, en el que según RTVC murieron **41 personas**, era hasta hoy el más grave desde Angrois. Con las cifras que se manejan, el de Urda lo supera. En los dos estuvo implicado un tren de Iryo y los dos ocurrieron en la línea Madrid-Andalucía.
 
 Que dos accidentes graves afecten en el mismo año a la misma línea Madrid-Andalucía abre de nuevo el debate sobre el estado y el mantenimiento de la red de alta velocidad. Será uno de los asuntos que tendrán que aclarar las investigaciones.
 
@@ -112,4 +138,4 @@ La normativa europea sobre derechos de los viajeros de ferrocarril (Reglamento U
 
 Si tienes un familiar o conocido que viajaba en alguno de los dos trenes, sigue las indicaciones de Emergencias 112 de Castilla-La Mancha y de los canales oficiales de Renfe e Iryo, que suelen habilitar teléfonos de atención a familiares en este tipo de sucesos.
 
-*Información en desarrollo, actualizada el 28 de octubre de 2026 con los datos publicados hasta ese momento. Las cifras de víctimas no son definitivas. Desde Bolsillo Diario trasladamos nuestras condolencias a las familias de las víctimas y nuestro deseo de una pronta recuperación a los heridos.*
+*Información en desarrollo, actualizada por última vez la tarde del 28 de octubre de 2026 con los datos publicados hasta ese momento. Las cifras de víctimas no son definitivas. Desde Bolsillo Diario trasladamos nuestras condolencias a las familias de las víctimas y nuestro deseo de una pronta recuperación a los heridos.*
