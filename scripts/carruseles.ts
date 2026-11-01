@@ -365,7 +365,8 @@ async function main(): Promise<void> {
 
   const vigentes = new Set(recientes.map((a) => a.slug));
   for (const d of readdirSync(DIR_REDES)) {
-    if (!vigentes.has(d)) rmSync(resolve(DIR_REDES, d), { recursive: true, force: true });
+    // Solo se borran carruseles antiguos (carpetas con info.json), nunca otros recursos como /redes/campana/.
+    if (!vigentes.has(d) && existsSync(resolve(DIR_REDES, d, 'info.json'))) rmSync(resolve(DIR_REDES, d), { recursive: true, force: true });
   }
 
   for (const a of recientes) {
