@@ -1,0 +1,25 @@
+Actúa como editor de redes sociales de «Bolsillo Diario», un medio digital español de economía doméstica y actualidad (tubolsillodiario.com). Tono: claro, cercano y riguroso, sin sensacionalismo.
+
+Crea un CARRUSEL DE 5 IMÁGENES para TikTok (modo foto, formato vertical 1080×1920) sobre esta noticia, para que la gente quiera leerla entera en la web.
+
+DATOS DE LA NOTICIA (usa SOLO estos datos; no inventes cifras, nombres ni hechos):
+- Titular: Pisos de la Sareb: por qué solo 638 van a alquiler público frente a 3.000 en venta
+- Entradilla: Según OKDiario, el Gobierno vende unos 3.000 pisos de la Sareb y cede solo 638 para alquiler público. Qué puedes hacer si buscas vivienda asequible.
+- Dato: Según OKDiario, el Gobierno vende unos 3.000 pisos de la Sareb que el medio califica de lujo.
+- Dato: Solo 638 viviendas se ceden para alquiler público, menos de una de cada cinco si se suman ambas cifras.
+- Dato: 'De lujo' es la calificación del medio; lo sólido es el contraste entre las dos cantidades.
+- Dato: Si buscas alquiler público, consulta el organismo de vivienda de tu comunidad o ayuntamiento y apúntate a los registros oficiales.
+
+ESTRUCTURA (texto que irá escrito en cada imagen):
+1. PORTADA: un titular gancho de máximo 10 palabras, que despierte curiosidad sin engañar, y una línea de apoyo de máximo 12 palabras.
+2. DATO 1: lo más llamativo o útil de la noticia, en máximo 25 palabras, con una cifra destacada en grande si la hay.
+3. DATO 2: otro dato o consecuencia práctica (qué cambia para quien lo lee), en máximo 25 palabras.
+4. DATO 3: un dato que deje con ganas de más (una pregunta abierta o un «pero…»), en máximo 25 palabras, sin revelar todo.
+5. CIERRE (texto fijo): «Para saber más, accede a la web» · «Enlace en el perfil» · «tubolsillodiario.com».
+
+DISEÑO DE CADA IMAGEN: fondo verde oscuro #0a5234 o blanco hueso #faf7f1, texto grande y legible en el tercio central (deja libres los bordes superior e inferior, que TikTok tapa con botones), tipografía serif para los titulares y sans para el resto, y la marca «BOLSILLO DIARIO» pequeña arriba. Describe para cada imagen el fondo o la ilustración que la acompaña.
+Si generas ilustraciones, que sean simples y claramente ilustrativas (iconos, objetos, gráficos), nunca fotos realistas de personas reales ni de hechos concretos.
+
+DEVUELVE:
+- Para cada una de las 5 imágenes: el texto exacto que va escrito y una descripción breve del diseño.
+- El texto de la publicación de TikTok: 2 o 3 frases que inviten a entrar en el perfil, terminando con «👉 Noticia completa en el enlace del perfil», y 5 hashtags en español relevantes (incluye #BolsilloDiario).

@@ -22,7 +22,8 @@ const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 const DIR_PUBLIC = resolve(process.cwd(), 'public');
 const DIR_REDES = resolve(DIR_PUBLIC, 'redes');
 const MAX_CARRUSELES = 10;
-const MAX_CLAVES = 4;
+/** 5 imágenes en total: portada, 3 claves y cierre con «accede a la web». */
+const MAX_CLAVES = 3;
 const W = 1080;
 const H = 1350;
 
@@ -141,13 +142,14 @@ function cierreSVG(total: number): string {
   <rect width="${W}" height="${H}" fill="${VERDE}"/>
   ${marca('#ffffff')}
   <text x="${W - 80}" y="92" font-family="${SANS}" font-size="28" fill="#fff" opacity="0.8" text-anchor="end">${total}/${total}</text>
-  <text x="${centro}" y="470" font-family="${SERIF}" font-size="80" font-weight="700" fill="#fff" text-anchor="middle">¿Te ha servido?</text>
-  <text font-family="${SANS}" font-size="44" fill="#fff" text-anchor="middle">
-    <tspan x="${centro}" y="600">Guárdalo para tenerlo a mano</tspan>
-    <tspan x="${centro}" y="665">y compártelo con quien lo necesite.</tspan>
+  <text x="${centro}" y="440" font-family="${SERIF}" font-size="76" font-weight="700" fill="#fff" text-anchor="middle">Para saber más,</text>
+  <text x="${centro}" y="530" font-family="${SERIF}" font-size="76" font-weight="700" fill="#fff" text-anchor="middle">accede a la web</text>
+  <text font-family="${SANS}" font-size="42" fill="#fff" text-anchor="middle">
+    <tspan x="${centro}" y="650">Toda la noticia, con los datos</tspan>
+    <tspan x="${centro}" y="712">y lo que puedes hacer tú.</tspan>
   </text>
   <rect x="140" y="790" width="${W - 280}" height="150" rx="75" fill="#fff"/>
-  <text x="${centro}" y="850" font-family="${SANS}" font-size="30" fill="${VERDE}" text-anchor="middle">La noticia completa en</text>
+  <text x="${centro}" y="850" font-family="${SANS}" font-size="30" fill="${VERDE}" text-anchor="middle">Enlace en el perfil</text>
   <text x="${centro}" y="905" font-family="${SANS}" font-size="44" font-weight="700" fill="${VERDE}" text-anchor="middle">tubolsillodiario.com</text>
   <text x="${centro}" y="1090" font-family="${SANS}" font-size="34" fill="#fff" opacity="0.85" text-anchor="middle">Síguenos: @tubolsillodiario</text>
   <text x="${centro}" y="${H - 90}" font-family="${SANS}" font-size="26" fill="#fff" opacity="0.6" text-anchor="middle">Noticias de dinero que te afectan, explicadas claro</text>
@@ -166,6 +168,40 @@ function hashtags(a: Articulo): string {
     propios.push(`#${t.charAt(0).toUpperCase()}${t.slice(1)}`);
   }
   return [...propios.slice(0, 3), ...fijos].join(' ');
+}
+
+/**
+ * Prompt para que Gemini redacte (y, si se quiere, ilustre) un carrusel de 5 imágenes para
+ * TikTok a partir de los datos del artículo. Pide no inventar nada fuera de esos datos.
+ */
+export function promptGemini(a: Articulo, claves: string[]): string {
+  const sensible = /muert|fallec|víctim|accidente|tragedia|atentado|asesin|herid/i.test(`${a.titulo} ${a.subtitulo}`);
+  return [
+    'Actúa como editor de redes sociales de «Bolsillo Diario», un medio digital español de economía doméstica y actualidad (tubolsillodiario.com). Tono: claro, cercano y riguroso, sin sensacionalismo.',
+    '',
+    'Crea un CARRUSEL DE 5 IMÁGENES para TikTok (modo foto, formato vertical 1080×1920) sobre esta noticia, para que la gente quiera leerla entera en la web.',
+    '',
+    'DATOS DE LA NOTICIA (usa SOLO estos datos; no inventes cifras, nombres ni hechos):',
+    `- Titular: ${a.titulo}`,
+    `- Entradilla: ${a.subtitulo}`,
+    ...a.claves.map((c) => `- Dato: ${c}`),
+    '',
+    'ESTRUCTURA (texto que irá escrito en cada imagen):',
+    '1. PORTADA: un titular gancho de máximo 10 palabras, que despierte curiosidad sin engañar, y una línea de apoyo de máximo 12 palabras.',
+    '2. DATO 1: lo más llamativo o útil de la noticia, en máximo 25 palabras, con una cifra destacada en grande si la hay.',
+    '3. DATO 2: otro dato o consecuencia práctica (qué cambia para quien lo lee), en máximo 25 palabras.',
+    '4. DATO 3: un dato que deje con ganas de más (una pregunta abierta o un «pero…»), en máximo 25 palabras, sin revelar todo.',
+    '5. CIERRE (texto fijo): «Para saber más, accede a la web» · «Enlace en el perfil» · «tubolsillodiario.com».',
+    '',
+    'DISEÑO DE CADA IMAGEN: fondo verde oscuro #0a5234 o blanco hueso #faf7f1, texto grande y legible en el tercio central (deja libres los bordes superior e inferior, que TikTok tapa con botones), tipografía serif para los titulares y sans para el resto, y la marca «BOLSILLO DIARIO» pequeña arriba. Describe para cada imagen el fondo o la ilustración que la acompaña.',
+    sensible
+      ? 'IMPORTANTE: es una noticia con víctimas. Nada de imágenes realistas del suceso ni de personas heridas: usa fondos sobrios (un color plano, un icono, un mapa esquemático). Tono respetuoso, sin dramatizar las cifras, y cita siempre la fuente de las cifras de víctimas.'
+      : 'Si generas ilustraciones, que sean simples y claramente ilustrativas (iconos, objetos, gráficos), nunca fotos realistas de personas reales ni de hechos concretos.',
+    '',
+    'DEVUELVE:',
+    '- Para cada una de las 5 imágenes: el texto exacto que va escrito y una descripción breve del diseño.',
+    '- El texto de la publicación de TikTok: 2 o 3 frases que inviten a entrar en el perfil, terminando con «👉 Noticia completa en el enlace del perfil», y 5 hashtags en español relevantes (incluye #BolsilloDiario).',
+  ].join('\n');
 }
 
 /** Enlace al artículo con etiquetas UTM para saber en Analytics qué red trae visitas. */
@@ -287,6 +323,8 @@ async function fotoDeFondo(imagen: string): Promise<Buffer | null> {
 
 async function generar(a: Articulo): Promise<number> {
   const dir = resolve(DIR_REDES, a.slug);
+  // Se borra lo anterior para no dejar imágenes sueltas si el carrusel tiene menos que antes.
+  rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
   const claves = a.claves.slice(0, MAX_CLAVES);
   const total = claves.length + 2;
@@ -305,6 +343,7 @@ async function generar(a: Articulo): Promise<number> {
   const jpegs = Array.from({ length: total }, (_, i) => readFileSync(resolve(dir, `${i + 1}.jpg`)));
   writeFileSync(resolve(dir, 'linkedin.pdf'), pdfDeJpegs(jpegs, W, H));
   writeFileSync(resolve(dir, 'linkedin.txt'), textoLinkedIn(a, claves) + '\n', 'utf8');
+  writeFileSync(resolve(dir, 'gemini.txt'), promptGemini(a, claves) + '\n', 'utf8');
   writeFileSync(
     resolve(dir, 'info.json'),
     JSON.stringify(
@@ -330,7 +369,7 @@ async function main(): Promise<void> {
   }
 
   for (const a of recientes) {
-    const hecho = existsSync(resolve(DIR_REDES, a.slug, 'linkedin.pdf'));
+    const hecho = existsSync(resolve(DIR_REDES, a.slug, 'gemini.txt'));
     if (!forzar && hecho && JSON.parse(readFileSync(resolve(DIR_REDES, a.slug, 'info.json'), 'utf8')).titulo === a.titulo) continue;
     const n = await generar(a);
     // eslint-disable-next-line no-console
