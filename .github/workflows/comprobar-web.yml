@@ -1,0 +1,18 @@
+name: Comprobar que la web responde
+
+# Prueba desde fuera (servidores de GitHub) que tubolsillodiario.com carga, para
+# distinguir una caída de la web de un bloqueo en la conexión de quien la visita.
+on:
+  workflow_dispatch:
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pedir las páginas principales
+        run: |
+          for ruta in / /ads.txt /calculadoras/irpf/ /redes/; do
+            curl -sS -o /dev/null -m 20 -w "%{http_code} %{time_total}s https://tubolsillodiario.com$ruta (IP %{remote_ip})\n" "https://tubolsillodiario.com$ruta" || echo "FALLO https://tubolsillodiario.com$ruta"
+          done
+          echo "--- ads.txt:"; curl -sS -m 20 https://tubolsillodiario.com/ads.txt || true
+          echo "--- DNS:"; dig +short tubolsillodiario.com || true
