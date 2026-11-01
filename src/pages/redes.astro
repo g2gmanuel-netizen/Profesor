@@ -15,7 +15,6 @@ interface Carrusel {
   texto: string;
   textoLinkedIn: string;
   enlaceLinkedIn: string;
-  gemini: string;
   pdf: boolean;
 }
 
@@ -25,11 +24,10 @@ const carruseles: Carrusel[] = existsSync(dir)
       .filter((d) => existsSync(resolve(dir, d, 'info.json')))
       .map((d) => ({
         enlaceLinkedIn: '',
-        ...(JSON.parse(readFileSync(resolve(dir, d, 'info.json'), 'utf8')) as Omit<Carrusel, 'texto' | 'textoLinkedIn' | 'pdf' | 'gemini'>),
+        ...(JSON.parse(readFileSync(resolve(dir, d, 'info.json'), 'utf8')) as Omit<Carrusel, 'texto' | 'textoLinkedIn' | 'pdf'>),
         texto: readFileSync(resolve(dir, d, 'texto.txt'), 'utf8'),
         textoLinkedIn: existsSync(resolve(dir, d, 'linkedin.txt')) ? readFileSync(resolve(dir, d, 'linkedin.txt'), 'utf8') : '',
         pdf: existsSync(resolve(dir, d, 'linkedin.pdf')),
-        gemini: existsSync(resolve(dir, d, 'gemini.txt')) ? readFileSync(resolve(dir, d, 'gemini.txt'), 'utf8') : '',
       }))
       .sort((a, b) => b.fecha.localeCompare(a.fecha))
   : [];
@@ -65,15 +63,6 @@ const formatoFecha = (f: string) => f.split('-').reverse().join('/');
             <button type="button" class="copiar" data-copiar={`#ig-${c.slug}`}>Copiar texto</button>
           </div>
           <textarea id={`ig-${c.slug}`} readonly rows="6">{c.texto}</textarea>
-          {c.gemini && (
-            <>
-              <h3>Prompt para Gemini (carrusel de TikTok)</h3>
-              <div class="acciones">
-                <button type="button" class="copiar" data-copiar={`#ge-${c.slug}`}>Copiar prompt para Gemini</button>
-              </div>
-              <textarea id={`ge-${c.slug}`} readonly rows="5">{c.gemini}</textarea>
-            </>
-          )}
           {c.pdf && (
             <>
               <h3>LinkedIn</h3>

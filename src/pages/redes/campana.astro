@@ -237,33 +237,6 @@ const tiktok: Texto[] = [
 Impuestos · vivienda · ahorro · pensiones
 👇 Noticias completas y calculadora de IRPF gratis`,
   },
-  {
-    id: 'tt-irpf',
-    titulo: 'Gemini · Prompt del carrusel de la calculadora de IRPF',
-    nota: 'Los prompts de cada noticia están en /redes, debajo de cada carrusel («Copiar prompt para Gemini»).',
-    texto: `Actúa como editor de redes sociales de «Bolsillo Diario», un medio digital español de economía doméstica (tubolsillodiario.com). Tono: claro, cercano y riguroso, sin sensacionalismo.
-
-Crea un CARRUSEL DE 5 IMÁGENES para TikTok (modo foto, formato vertical 1080×1920) para promocionar nuestra calculadora gratuita de IRPF 2026, para que la gente entre a la web a calcular su caso.
-
-DATOS (usa SOLO estos; no inventes cifras):
-- La calculadora dice en 1 minuto cuánto te queda neto al mes (en 12 o 14 pagas), cuánto pagas de IRPF y de Seguridad Social, y si la renta te sale a pagar o a devolver.
-- Funciona para todas las comunidades autónomas y tiene en cuenta hijos, alquiler, plan de pensiones, autónomos, inversiones y deducciones.
-- Ejemplo real: con 30.000 € brutos, soltero y sin hijos, en Madrid te quedan unos 23.450 € netos al año; en Cataluña o Andalucía, entre 250 y 400 € menos.
-- Incluye 20 jugadas legales para pagar menos, como la retribución flexible (tarjeta restaurante, transporte, seguro médico) o el plan de pensiones de empresa.
-- Desmiente el mito de «si me suben el sueldo, salto de tramo y cobro menos»: es falso, solo tributa más la parte que supera el tramo.
-- Es gratis y no hace falta registrarse.
-
-ESTRUCTURA:
-1. PORTADA: un gancho de máximo 10 palabras (por ejemplo, una pregunta sobre cuánto te quita Hacienda) y una línea de apoyo.
-2. El ejemplo de los 30.000 € con la cifra en grande.
-3. Lo de que según tu comunidad pagas distinto.
-4. El mito del tramo o una de las jugadas para pagar menos, dejando con ganas de ver las demás.
-5. CIERRE (texto fijo): «Para saber más, accede a la web» · «Calcula tu sueldo neto gratis» · «Enlace en el perfil» · «tubolsillodiario.com».
-
-DISEÑO: fondo verde oscuro #0a5234 o blanco hueso #faf7f1, texto grande en el tercio central (deja libres los bordes superior e inferior), titulares en serif, la marca «BOLSILLO DIARIO» pequeña arriba. Ilustraciones simples (iconos de nómina, monedas, calculadora), nunca fotos realistas de personas.
-
-DEVUELVE: el texto exacto y una descripción breve del diseño de cada una de las 5 imágenes, y el texto de la publicación de TikTok (2 o 3 frases que terminen con «👉 Calculadora gratis en el enlace del perfil» y 5 hashtags en español, incluido #BolsilloDiario).`,
-  },
 ];
 
 const plan = [
@@ -313,8 +286,7 @@ const plan = [
       <a href="/redes/campana/foto-perfil.png" download="bolsillo-diario-perfil.png"><img src="/redes/campana/foto-perfil.png" alt="Logo de Bolsillo Diario: un cerebro blanco sobre fondo verde" width="200" height="200" /></a>
     </div>
     <ol class="pasos">
-      <li>Abre <a href="/redes/">/redes</a> y, en la noticia que quieras, pulsa <strong>«Copiar prompt para Gemini»</strong>.</li>
-      <li>Pégalo en Gemini. Te devuelve el texto de las 5 imágenes, su diseño y el texto de la publicación.</li>
+      <li>Pega en Gemini el prompt de la noticia (te los paso por el chat). Te devuelve el texto de las 5 imágenes, su diseño y el texto de la publicación.</li>
       <li>Crea las imágenes (con Gemini, Canva o CapCut) o usa directamente las 5 que ya genera la web con «Guardar imágenes».</li>
       <li>En TikTok: <strong>+ › Foto</strong> › elige las 5 imágenes en orden › pega el texto › publica. Añade un sonido en tendencia con el volumen bajo: los carruseles con música llegan a más gente.</li>
       <li>Ritmo recomendado: 1 o 2 carruseles al día, entre las 13:00 y las 15:00 o entre las 20:00 y las 22:00.</li>

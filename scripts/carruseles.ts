@@ -343,7 +343,6 @@ async function generar(a: Articulo): Promise<number> {
   const jpegs = Array.from({ length: total }, (_, i) => readFileSync(resolve(dir, `${i + 1}.jpg`)));
   writeFileSync(resolve(dir, 'linkedin.pdf'), pdfDeJpegs(jpegs, W, H));
   writeFileSync(resolve(dir, 'linkedin.txt'), textoLinkedIn(a, claves) + '\n', 'utf8');
-  writeFileSync(resolve(dir, 'gemini.txt'), promptGemini(a, claves) + '\n', 'utf8');
   writeFileSync(
     resolve(dir, 'info.json'),
     JSON.stringify(
@@ -370,7 +369,7 @@ async function main(): Promise<void> {
   }
 
   for (const a of recientes) {
-    const hecho = existsSync(resolve(DIR_REDES, a.slug, 'gemini.txt'));
+    const hecho = existsSync(resolve(DIR_REDES, a.slug, 'linkedin.pdf'));
     if (!forzar && hecho && JSON.parse(readFileSync(resolve(DIR_REDES, a.slug, 'info.json'), 'utf8')).titulo === a.titulo) continue;
     const n = await generar(a);
     // eslint-disable-next-line no-console
