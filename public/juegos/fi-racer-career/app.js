@@ -8,6 +8,7 @@
   let form = { name: '', country: 'GBR', alloc: { def: 25, att: 25, tyre: 25, quali: 25 } };
   let draft = null; // reparto de puntos de experiencia
 
+  const track = (n, p) => { try { if (window.sm) window.sm.track(n, Object.assign({ juego: 'fi_racer_career' }, p || {})); } catch (e) { /* */ } };
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fl = (c) => (COUNTRIES[c] ? COUNTRIES[c].f : '🏳️');
   const r0 = Math.round;
@@ -41,11 +42,7 @@
       '<h3>Referentes de tu país</h3>' + c.legends.slice(0, 4).map((l) => '<div class="note"><b>' + esc(l[0]) + '</b> — ' + esc(l[1]) + '</div>').join('') + '</div>' +
       '<div class="card"><h2>Reparte 100 puntos</h2><p class="note" style="margin-top:-6px">Te quedan <span class="left">' + left + '</span> puntos. Máximo 60 por categoría.</p><div id="alloc">' + allocHTML(form.alloc, left, 60) + '</div></div></div>' +
       '<button class="btn block" data-act="start"' + (left === 0 ? '' : ' disabled') + ' style="font-size:1.05rem">🏁 Empezar en F3 con 14 años</button>' +
-      '<div class="card" style="margin-top:16px"><h2>Cómo funciona</h2><ul style="margin:0;padding-left:20px;color:var(--mut)">' +
-      '<li>Cada ciclo dura <b>2 años</b> (2 temporadas) con el mismo equipo. De los 14 a los 40 años.</li>' +
-      '<li>Subes de <b>F3 → F2 → F1</b> si consigues suficientes <b>trofeos</b> (victorias, podios, títulos y poles). Tu patrocinio nacional baja el listón.</li>' +
-      '<li>Los mejores equipos exigen <b>reputación</b>; tu nacionalidad te abre las puertas de algunos equipos.</li>' +
-      '<li>Cada temporada ganas puntos de experiencia según tus resultados (máximo 20 a los 14 años, hasta 32 con los años) para reforzar defensa, ataque, neumáticos o clasificación. Pasados los 36 empiezas a perder facultades.</li></ul></div>';
+      '<p class="note" style="text-align:center;margin-top:12px">¿Llegarás de la F3 a campeón del mundo? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>';
   }
 
   /* ---------- cabecera ---------- */
@@ -118,6 +115,7 @@
   }
   function renderFinal() {
     const c = S.career, cmp = F.compare(S);
+    if (!S.tracked) { S.tracked = true; save(); track('fin_carrera', { titulos_f1: c.f1Titles }); }
     const verdict = c.f1Titles >= 7 ? 'El mejor de todos los tiempos.' : c.f1Titles >= 3 ? 'Una leyenda inmortal de la F1.' : c.f1Titles >= 1 ? 'Campeón del mundo: tu nombre está en la historia.' : c.f1Wins > 0 ? 'Ganador de Grandes Premios.' : c.f1Races > 0 ? 'Llegaste a la F1: solo 20 pilotos lo consiguen.' : 'Te quedaste a las puertas de la F1.';
     $app.innerHTML = '<div class="champ"><div class="note" style="color:#2b1d00">CARRERA TERMINADA</div><div class="big">' + fl(S.p.country) + ' ' + esc(S.p.name) + '</div><div>' + verdict + '</div></div>' +
       '<div class="card" style="margin-top:16px"><div class="stats"><div class="st"><span>Títulos F1</span><b>' + c.f1Titles + '</b></div><div class="st"><span>Victorias F1</span><b>' + c.f1Wins + '</b></div><div class="st"><span>Podios F1</span><b>' + c.f1Podiums + '</b></div><div class="st"><span>Mejor puesto F1</span><b>' + (c.bestF1 ? 'P' + c.bestF1 : '—') + '</b></div></div>' +
@@ -165,13 +163,13 @@
     } else if (a === 'auto') { autoSpend(draft, b.dataset.m); renderTeam();
     } else if (a === 'start') {
       form.name = document.getElementById('name').value;
-      S = F.newGame(form); draft = null; save(); render(); top();
+      S = F.newGame(form); draft = null; save(); render(); top(); track('inicio_partida', { pais: form.country });
     } else if (a === 'continue') { S = load(); S.team = S.team || null; render(); top(); }
     else if (a === 'confirmalloc') { STATS.forEach((x) => { S.p.stats[x] = draft.vals[x]; }); S.pending = 0; draft = null; S.phase = 'team'; save(); render(); top(); }
     else if (a === 'team') {
       const o = F.offers(S)[Number(b.dataset.i)];
       if (draft) { autoSpend(draft, 'high'); STATS.forEach((x) => { S.p.stats[x] = draft.vals[x]; }); S.pending = 0; draft = null; }
-      S.team = o.team; F.simSeason(S); F.simSeason(S); F.finishBlock(S); S.nextPhase = S.phase; S.phase = 'block_end'; save(); render(); top();
+      S.team = o.team; F.simSeason(S); F.simSeason(S); F.finishBlock(S); S.nextPhase = S.phase; S.phase = 'block_end'; save(); render(); top(); track('fin_ciclo', { categoria: S.hist[S.hist.length - 1].cat });
     }
     else if (a === 'after') { S.phase = S.nextPhase; S.nextPhase = null; draft = null; save(); render(); top(); }
     else if (a === 'menu') { menuOpen = true; render(); }
@@ -179,7 +177,7 @@
     else if (a === 'retire') { menuOpen = false; S.phase = 'final'; save(); render(); top(); }
     else if (a === 'newgame') { if (confirm('¿Empezar una carrera nueva? Perderás la actual.')) { try { localStorage.removeItem(KEY); } catch (er) { /* */ } S = null; menuOpen = false; draft = null; render(); top(); } }
     else if (a === 'copy') {
-      const t = summary(), done = () => { const el = document.getElementById('copied'); if (el) el.textContent = 'Resumen copiado ✔'; };
+      track('copiar_resumen'); const t = summary(), done = () => { const el = document.getElementById('copied'); if (el) el.textContent = 'Resumen copiado ✔'; };
       if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, () => window.prompt('Copia tu resumen:', t)); else window.prompt('Copia tu resumen:', t);
     }
   });

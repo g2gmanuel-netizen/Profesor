@@ -11,6 +11,7 @@
   let form = { name: '', country: 'ESP', height: 185, build: 0, hand: 'D', backhand: 0, difficulty: 0 };
 
   /* ---------- utilidades ---------- */
+  const track = (n, p) => { try { if (window.sm) window.sm.track(n, Object.assign({ juego: 'tenismania' }, p || {})); } catch (e) { /* */ } };
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const flag = (c) => (COUNTRIES[c] ? COUNTRIES[c].f : '🏳️');
   const cname = (c) => (COUNTRIES[c] ? COUNTRIES[c].n : c);
@@ -82,12 +83,7 @@
       '<label class="f">Dificultad del circuito</label>' + segBtns('difficulty', [[-1, '🌱 Fácil'], [0, '🎾 Normal'], [1, '🔥 Difícil'], [2, '👑 Leyenda']], form.difficulty) +
       '</div><div class="card" id="preview">' + previewHTML() + '</div></div>' +
       '<button class="btn block" data-act="start" style="font-size:1.05rem">🎾 Empezar mi carrera (17 años)</button>' +
-      '<div class="card" style="margin-top:16px"><h2>Cómo funciona</h2><ul style="margin:0;padding-left:20px;color:var(--mut)">' +
-      '<li>Cada paso son <b>2 temporadas</b> seguidas con los <b>4 Grand Slams</b> y los <b>9 Masters 1000</b>. Solo ellos dan puntos ATP.</li>' +
-      '<li>No eliges torneos: juegas los que te permita tu ranking. Cada partido gasta <b>energía</b>: con poco aguante rindes menos y te lesionas más.</li>' +
-      '<li>El ranking suma los puntos de los últimos 12 meses: los de cada torneo caducan cuando vuelve a jugarse.</li>' +
-      '<li>Con ranking bajo accedes por clasificación o invitaciones; en tu país juegas con ventaja de invitación.</li>' +
-      '<li>Un clic en un atributo = foco de entrenamiento de 2 años. Tu físico y tu país marcan en qué superficie brillas.</li></ul></div>';
+      '<p class="note" style="text-align:center;margin-top:12px">¿Aguantarás 20 años en el circuito? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>';
     document.getElementById('hval').textContent = form.height + ' cm · ' + T.heightWord(form.height);
   }
 
@@ -197,6 +193,7 @@
   }
   function renderFinal() {
     const c = S.career, p = S.p, cmp = T.compareLegend(S);
+    if (!S.tracked) { S.tracked = true; save(); track('fin_carrera', { mejor_rank: c.bestRank, slams: c.slams }); }
     const pct = c.w + c.l ? Math.round(c.w / (c.w + c.l) * 100) : 0;
     const badges = [];
     if (c.bestRank === 1) badges.push('👑 Fue nº1 del mundo');
@@ -253,11 +250,11 @@
       form[k] = v; renderCreate();
     } else if (a === 'start') {
       form.name = (document.getElementById('name').value || '').trim();
-      S = T.newGame(form); V = null; save(); render(); top();
+      S = T.newGame(form); V = null; save(); render(); top(); track('inicio_partida', { pais: form.country });
     } else if (a === 'continue') {
       S = load(); V = null; if (S && S.phase === 'random') V = null; render(); top();
     } else if (a === 'focus') {
-      V = null; autoCycle(b.dataset.k); save(); render(); top();
+      V = null; autoCycle(b.dataset.k); save(); render(); top(); track('fin_ciclo', { ciclo: S.hist.length / 2, rank: S.hist[S.hist.length - 1].rank });
     } else if (a === 'rchoice') {
       const c = V.ev.choices[Number(b.dataset.i)];
       S.msg = c.run(S, Math.random); S.phase = 'plan'; V = null; save(); render(); top();
@@ -268,7 +265,7 @@
     else if (a === 'menu') { V = Object.assign({}, V || {}, { menu: true }); render(); }
     else if (a === 'back') { if (V) V.menu = false; render(); }
     else if (a === 'copy') {
-      const t = summaryText();
+      track('copiar_resumen'); const t = summaryText();
       const done = () => { const el = document.getElementById('copied'); if (el) el.textContent = 'Resumen copiado ✔'; };
       if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, () => window.prompt('Copia tu resumen:', t)); else window.prompt('Copia tu resumen:', t);
     }

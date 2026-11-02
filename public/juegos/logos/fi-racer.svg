@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo de FI Racer Career: una F y un 1 en forma de I">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo de FI Racer Career: las letras F e I con una franja de meta">
 <rect width="64" height="64" rx="8" fill="#e5322d"/>
-<g transform="skewX(-10) translate(7 0)" fill="#fff"><path d="M12 14h22v7H20v7h12v7H20v15h-8z"/><path d="M41 14h8v36h-8V25l-6 4v-8z"/></g>
-<path d="M6 55h52" stroke="#0a0a0b" stroke-width="2.5" stroke-dasharray="5 4"/>
+<g transform="skewX(-10) translate(8 0)" fill="#fff">
+<path d="M10 13h24v7.5H18.5V28H31v7.5H18.5V51H10z"/>
+<path d="M38 13h18v6.5h-5.2v25H56V51H38v-6.5h5.2v-25H38z"/>
+</g>
+<g fill="#0a0a0b"><rect x="6" y="55" width="5" height="3"/><rect x="16" y="55" width="5" height="3"/><rect x="26" y="55" width="5" height="3"/><rect x="36" y="55" width="5" height="3"/><rect x="46" y="55" width="5" height="3"/><rect x="11" y="58" width="5" height="3"/><rect x="21" y="58" width="5" height="3"/><rect x="31" y="58" width="5" height="3"/><rect x="41" y="58" width="5" height="3"/><rect x="51" y="58" width="5" height="3"/></g>
 </svg>
