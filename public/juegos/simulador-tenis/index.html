@@ -99,6 +99,22 @@ input[type=range]{width:100%;accent-color:var(--court2)}
 .badge{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 12px;margin:0 6px 8px 0;font-size:.88rem}
 .note{font-size:.84rem;color:var(--mut)}
 .warnbox{border-left:4px solid var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--card));padding:10px 12px;border-radius:8px;font-size:.9rem}
+
+.card.compact{padding:12px 14px;margin-bottom:10px}
+.card.compact h2{font-size:1rem;margin:0 0 8px}
+.badge{display:inline-flex;gap:4px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:3px 10px;font-size:.84rem;font-weight:700}
+.evgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:6px}
+.chip2{display:grid;gap:1px;border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:.78rem;background:var(--bg);line-height:1.25}
+.chip2 b{font-size:.82rem}.chip2 small{color:var(--mut)}
+.chip2.good{border-color:var(--court2)}.chip2.win{border-color:#b8860b;background:color-mix(in srgb,#b8860b 16%,var(--card))}
+.chip2.off{opacity:.6}
+.growgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+@media(max-width:640px){.growgrid{grid-template-columns:1fr}}
+header.top{padding:12px 0 10px;margin-bottom:12px}
+header.top h1{font-size:1.15rem}header.top p{margin:2px 0 0;font-size:.85rem}
+.bars{gap:4px}.bar{font-size:.82rem}.track{height:7px}
+.seg button{padding:6px 11px;font-size:.84rem}
+label.f{margin:8px 0 4px}
 footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px}
 svg text{fill:var(--mut);font-size:11px}
 </style>
