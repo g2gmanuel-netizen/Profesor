@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Sueldo neto 2026: cuánto te queda de cada sueldo bruto, de 15.000 a 100.000 €, y en qué comunidad pagas menos
-**Enlace:** https://tubolsillodiario.com/articulo/sueldo-neto-2026-cuanto-te-queda-de-cada-sueldo-bruto/
+## 1. Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto cambiaría tu IRPF
+**Enlace:** https://tubolsillodiario.com/articulo/elecciones-29-n-que-propone-cada-partido-para-tu-bolsillo/
 
 ### X / Twitter
 ```
-Sueldo neto 2026: cuánto te queda de cada sueldo bruto, de 15.000 a 100.000 €, y en qué comunidad pagas menos
+Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto cambiaría tu IRPF
 
-👉 https://tubolsillodiario.com/articulo/sueldo-neto-2026-cuanto-te-queda-de-cada-sueldo-bruto/
-#Impuestos #Irpf #Sueldoneto #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/elecciones-29-n-que-propone-cada-partido-para-tu-bolsillo/
+#Actualidad #Elecciones29N #IRPF #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Sueldo neto 2026: cuánto te queda de cada sueldo bruto, de 15.000 a 100.000 €, y en qué comunidad pagas menos*
+📰 *Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto cambiaría tu IRPF*
 
-Hemos pasado 15 sueldos por nuestra calculadora de IRPF 2026 y comparado las 17 comunidades del régimen común. Tabla completa, cuánto cobras al mes en 12 o 14 pagas y por qué subir 2.000 € no siempre se nota igual.
+Impuestos, vivienda, pensiones y trabajo: lo que han presentado PP, PSOE, Vox y Sumar, dónde chocan si pactan y una tabla con lo que pagarías de IRPF con la propuesta de dos tipos de Vox frente al sistema actual.
 
-• Con 30.000 € brutos en Madrid te quedan unos 23.452 € netos al año: 1.954 € al mes en 12 pagas o 1.675 € en 14.
-• Hasta unos 18.000 € brutos la cuota de IRPF sale a cero para un trabajador sin hijos; solo pagas Seguridad Social (6,5 %).
-• Por el mismo sueldo de 40.000 €, Cataluña cobra unos 730 € más de IRPF al año que Madrid.
+• A principios de noviembre ningún gran partido había publicado su programa completo: lo que hay son compromisos y propuestas anunciadas.
+• El PP presentó el 19 de octubre su «Contrato con España»: un millón de viviendas, bajada de impuestos y pensiones ligadas al IPC.
+• Vox plantea un IRPF de dos tipos (15 % y 25 %): con 40.000 € brutos pagarías unos 2.000 € en vez de unos 7.200 €, según nuestro cálculo.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/sueldo-neto-2026-cuanto-te-queda-de-cada-sueldo-bruto/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/elecciones-29-n-que-propone-cada-partido-para-tu-bolsillo/
 
-_Impuestos · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Sueldo neto 2026: cuánto te queda de cada sueldo bruto, de 15.000 a 100.000 €, y en qué comunidad pagas menos
-  • Gancho (0-3 s): "¿Sueldo neto 2026: cuánto te queda de cada sueldo bruto, de 15.000 a 1…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto cambiaría tu IRPF
+  • Gancho (0-3 s): "¿Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto c…?"
   • Desarrollo (3-25 s):
-  1. Con 30.000 € brutos en Madrid te quedan unos 23.452 € netos al año: 1.954 € al mes en 12 pagas o 1.675 € en 14.
-  2. Hasta unos 18.000 € brutos la cuota de IRPF sale a cero para un trabajador sin hijos; solo pagas Seguridad Social (6,5 %).
-  3. Por el mismo sueldo de 40.000 €, Cataluña cobra unos 730 € más de IRPF al año que Madrid.
+  1. A principios de noviembre ningún gran partido había publicado su programa completo: lo que hay son compromisos y propuestas anunciadas.
+  2. El PP presentó el 19 de octubre su «Contrato con España»: un millón de viviendas, bajada de impuestos y pensiones ligadas al IPC.
+  3. Vox plantea un IRPF de dos tipos (15 % y 25 %): con 40.000 € brutos pagarías unos 2.000 € en vez de unos 7.200 €, según nuestro cálculo.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Hemos pasado 15 sueldos por nuestra calculadora de IRPF 2026 y comparado las 17 comunidades del régimen común. Tabla completa, cuánto cobras al mes en 12 o 14 pagas y por qué subir 2.000 € no siempre…
-  🔗 Enlace en la bio · #Impuestos #Irpf #Sueldoneto #España #BolsilloDiario
+  Impuestos, vivienda, pensiones y trabajo: lo que han presentado PP, PSOE, Vox y Sumar, dónde chocan si pactan y una tabla con lo que pagarías de IRPF con la propuesta de dos tipos de Vox frente al si…
+  🔗 Enlace en la bio · #Actualidad #Elecciones29N #IRPF #España #BolsilloDiario
 ```
