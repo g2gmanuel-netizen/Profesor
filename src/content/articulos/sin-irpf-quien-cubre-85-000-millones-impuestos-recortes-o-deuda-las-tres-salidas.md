@@ -15,6 +15,10 @@ imagen: /imagenes/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deud
 imagenAlt: "Imagen del artículo: Sin IRPF, ¿quién cubre 85.000 millones?
   Impuestos, recortes o deuda: las tres salidas posibles"
 imagenCredito: "Foto: Bru-nO (Pixabay)"
+imagenBusqueda:
+  - "hospital corridor"
+  - "public school classroom"
+  - "ambulance emergency"
 etiquetas:
   - impuestos
   - sin

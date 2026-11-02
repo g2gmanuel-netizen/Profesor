@@ -13,6 +13,10 @@ fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg
 imagenAlt: "Hemiciclo de un parlamento durante una votación"
 imagenCredito: "Foto: TGG23 (Pixabay)"
+imagenBusqueda:
+  - "congreso de los diputados"
+  - "spanish parliament madrid"
+  - "parliament chamber seats"
 etiquetas:
   - decreto ley
   - Congreso

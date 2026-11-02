@@ -174,11 +174,12 @@ const POR_SECCION: Record<string, string[]> = {
  * Qué buscar para la foto de una noticia: el concepto del titular y, como red de
  * seguridad, el de su sección.
  */
-export function busquedaParaArticulo(categoria: string, titulo = ''): Busqueda {
+export function busquedaParaArticulo(categoria: string, titulo = '', literales: string[] = []): Busqueda {
   const concepto = CONCEPTOS.find((c) => c.patron.test(titulo));
   const seccion = POR_SECCION[categoria] ?? ['spain city', 'euro money'];
   return {
-    consultas: concepto?.busqueda.consultas ?? [],
+    // Primero lo que dice literalmente la noticia (p. ej. "olive oil bottle"); luego el concepto.
+    consultas: [...literales, ...(concepto?.busqueda.consultas ?? [])],
     respaldo: seccion,
     evitar: concepto?.busqueda.evitar,
     requiere: concepto?.busqueda.requiere,
@@ -216,6 +217,51 @@ export function huellasEnUso(dirImagenes: string, excluirSlug?: string): Set<str
   return out;
 }
 
+// ── Registro de fotos usadas ─────────────────────────────────────────────────
+// Comparar archivos no basta: el banco tiene muchas fotos distintas del MISMO motivo
+// (la misma calculadora con monedas, la misma casita de juguete…). Guardamos el id y
+// las etiquetas de cada foto usada y rechazamos las que repiten foto o motivo.
+const REGISTRO = resolve(process.cwd(), 'datos/fotos-usadas.json');
+export interface FotoUsada {
+  id: string;
+  tags: string;
+}
+let registro: Record<string, FotoUsada> | null = null;
+function leerRegistro(): Record<string, FotoUsada> {
+  if (registro) return registro;
+  try {
+    registro = JSON.parse(readFileSync(REGISTRO, 'utf8')) as Record<string, FotoUsada>;
+  } catch {
+    registro = {};
+  }
+  return registro;
+}
+function apuntarFoto(slug: string, foto: FotoUsada): void {
+  const r = leerRegistro();
+  r[slug] = foto;
+  try {
+    writeFileSync(REGISTRO, JSON.stringify(r, null, 2) + '\n', 'utf8');
+  } catch {
+    // sin disco escribible (simulación): basta con el registro en memoria
+  }
+}
+const conjuntoTags = (t: string): Set<string> =>
+  new Set(t.toLowerCase().split(/\s*,\s*/).map((x) => x.trim()).filter(Boolean));
+
+/** ¿Es la misma foto o el mismo motivo (≥50 % de etiquetas en común) que otra ya usada? */
+export function motivoRepetido(id: string, tags: string, usadas: Record<string, FotoUsada>, slug: string): boolean {
+  const a = conjuntoTags(tags);
+  for (const [otro, u] of Object.entries(usadas)) {
+    if (otro === slug) continue;
+    if (u.id === id) return true;
+    const b = conjuntoTags(u.tags);
+    if (a.size === 0 || b.size === 0) continue;
+    const comunes = [...a].filter((x) => b.has(x)).length;
+    if (comunes / Math.min(a.size, b.size) >= 0.5) return true;
+  }
+  return false;
+}
+
 /** ¿Encajan las etiquetas/descripción de la foto con lo que buscamos? */
 export function fotoAdmisible(etiquetas: string, b: Pick<Busqueda, 'evitar' | 'requiere'>): boolean {
   if (EVITAR_SIEMPRE.test(etiquetas)) return false;
@@ -248,13 +294,16 @@ async function pixabay(query: string, opts: Opts): Promise<FotoDescargada | null
   const r = await fetch(url);
   if (!r.ok) return null;
   const data = (await r.json()) as {
-    hits?: { largeImageURL?: string; webformatURL?: string; user?: string; tags?: string }[];
+    hits?: { id?: number; largeImageURL?: string; webformatURL?: string; user?: string; tags?: string }[];
   };
   // Primera foto admisible que NO esté ya usada en otro artículo.
   for (const hit of data.hits ?? []) {
     const img = hit.largeImageURL ?? hit.webformatURL;
     if (!img || !fotoAdmisible(hit.tags ?? '', opts.busqueda)) continue;
+    const id = `pixabay:${hit.id ?? img}`;
+    if (motivoRepetido(id, hit.tags ?? '', leerRegistro(), opts.slug)) continue;
     if (!(await guardarSiNueva(img, opts))) continue;
+    apuntarFoto(opts.slug, { id, tags: hit.tags ?? '' });
     return {
       rutaPublica: `/imagenes/${opts.slug}.jpg`,
       credito: `Foto: ${hit.user ?? 'Pixabay'} (Pixabay)`,
@@ -272,12 +321,15 @@ async function pexels(query: string, opts: Opts): Promise<FotoDescargada | null>
   const r = await fetch(url, { headers: { Authorization: key } });
   if (!r.ok) return null;
   const data = (await r.json()) as {
-    photos?: { src?: { landscape?: string; large?: string }; photographer?: string; alt?: string }[];
+    photos?: { id?: number; src?: { landscape?: string; large?: string }; photographer?: string; alt?: string }[];
   };
   for (const foto of data.photos ?? []) {
     const img = foto.src?.landscape ?? foto.src?.large;
     if (!img || !fotoAdmisible(foto.alt ?? '', opts.busqueda)) continue;
+    const id = `pexels:${foto.id ?? img}`;
+    if (motivoRepetido(id, '', leerRegistro(), opts.slug)) continue;
     if (!(await guardarSiNueva(img, opts))) continue;
+    apuntarFoto(opts.slug, { id, tags: (foto.alt ?? '').split(/\s+/).join(', ') });
     return {
       rutaPublica: `/imagenes/${opts.slug}.jpg`,
       credito: `Foto: ${foto.photographer ?? 'Pexels'} (Pexels)`,

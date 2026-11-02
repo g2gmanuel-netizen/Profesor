@@ -201,7 +201,7 @@ async function miniatura(imagen: string, s: SesionBsky): Promise<unknown | undef
   const r = await pedir(`${BSKY}/com.atproto.repo.uploadBlob`, {
     method: 'POST',
     headers: { 'Content-Type': 'image/jpeg', Authorization: `Bearer ${s.accessJwt}` },
-    body: jpg,
+    body: new Uint8Array(jpg),
   });
   return r.blob;
 }

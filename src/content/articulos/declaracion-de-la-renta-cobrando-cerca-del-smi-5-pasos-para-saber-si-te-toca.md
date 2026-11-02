@@ -14,6 +14,10 @@ imagen: /imagenes/declaracion-de-la-renta-cobrando-cerca-del-smi-5-pasos-para-sa
 imagenAlt: "Imagen del artículo: Declaración de la renta cobrando cerca del SMI:
   5 pasos para saber si te toca"
 imagenCredito: "Foto: Bru-nO (Pixabay)"
+imagenBusqueda:
+  - "woman laptop tax form"
+  - "person filling form desk"
+  - "paperwork laptop home"
 etiquetas:
   - impuestos
   - declaracion

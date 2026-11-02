@@ -23,6 +23,8 @@ const articulos = defineCollection({
     imagen: z.string().default('/imagenes/portada-generica.svg'),
     imagenAlt: z.string().min(5),
     imagenCredito: z.string().optional(),
+    // Búsquedas (en inglés) para la foto de portada, literales al contenido.
+    imagenBusqueda: z.array(z.string()).optional(),
     etiquetas: z.array(z.string()).default([]),
     fuentes: z
       .array(

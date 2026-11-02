@@ -15,6 +15,10 @@ imagen: /imagenes/cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-
 imagenAlt: "Imagen del artículo: Cuidar a un familiar: qué hacer si tu empresa
   limita a un cupo anual el permiso de 5 días"
 imagenCredito: "Foto: sweetlouise (Pixabay)"
+imagenBusqueda:
+  - "caregiver elderly woman"
+  - "daughter caring elderly mother"
+  - "holding elderly hand"
 etiquetas:
   - actualidad
   - cuidar

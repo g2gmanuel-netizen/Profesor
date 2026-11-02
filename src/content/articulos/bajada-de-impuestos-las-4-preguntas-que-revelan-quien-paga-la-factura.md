@@ -14,6 +14,10 @@ imagen: /imagenes/bajada-de-impuestos-las-4-preguntas-que-revelan-quien-paga-la-
 imagenAlt: "Imagen del artículo: Bajada de impuestos: las 4 preguntas que
   revelan quién paga la factura"
 imagenCredito: "Foto: Bru-nO (Pixabay)"
+imagenBusqueda:
+  - "restaurant bill paying"
+  - "paying the bill receipt"
+  - "receipt hand payment"
 etiquetas:
   - impuestos
   - bajada

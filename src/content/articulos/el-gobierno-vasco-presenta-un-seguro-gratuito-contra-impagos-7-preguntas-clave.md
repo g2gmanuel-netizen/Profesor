@@ -15,6 +15,10 @@ imagen: /imagenes/el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7
 imagenAlt: "Imagen del artículo: El Gobierno Vasco presenta un seguro gratuito
   contra impagos: 7 preguntas clave (navidad)"
 imagenCredito: "Foto: Ylanite (Pixabay)"
+imagenBusqueda:
+  - "bilbao buildings"
+  - "bilbao"
+  - "basque country city"
 etiquetas:
   - vivienda
   - gobierno

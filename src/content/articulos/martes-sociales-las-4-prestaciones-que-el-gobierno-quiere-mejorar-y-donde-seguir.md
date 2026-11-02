@@ -15,6 +15,10 @@ imagen: /imagenes/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejo
 imagenAlt: "Imagen del artículo: Martes sociales: las 4 prestaciones que el
   Gobierno quiere mejorar y dónde seguirlas"
 imagenCredito: "Foto: ddzphoto (Pixabay)"
+imagenBusqueda:
+  - "mother baby father family"
+  - "family with baby"
+  - "parents child walking"
 etiquetas:
   - politica
   - martes

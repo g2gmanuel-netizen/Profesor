@@ -93,7 +93,11 @@ async function main(): Promise<void> {
     } else if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
 
     const foto = await descargarFoto({
-      busqueda: busquedaParaArticulo(categoria, titulo),
+      busqueda: busquedaParaArticulo(
+        categoria,
+        titulo,
+        Array.isArray(fm.imagenBusqueda) ? fm.imagenBusqueda.map(String) : [],
+      ),
       // Al refrescar, la foto actual del artículo también cuenta como "usada":
       // así siempre se elige una distinta.
       usadas: huellasEnUso(DIR_IMG),

@@ -14,6 +14,10 @@ imagen: /imagenes/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-lia
 imagenAlt: "Imagen del artículo: Cambio de hora este fin de semana: 4
   comprobaciones para no liarte el domingo"
 imagenCredito: "Foto: ChristopherPluta (Pixabay)"
+imagenBusqueda:
+  - "wall clock"
+  - "alarm clock bedside"
+  - "clock time change"
 etiquetas:
   - actualidad
   - cambio

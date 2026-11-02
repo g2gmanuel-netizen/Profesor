@@ -14,6 +14,10 @@ imagen: /imagenes/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-t
 imagenAlt: "Imagen del artículo: Baja médica e IRPF: qué es el segundo pagador y
   cómo afecta a tu declaración"
 imagenCredito: "Foto: Bru-nO (Pixabay)"
+imagenBusqueda:
+  - "doctor writing prescription"
+  - "sick man bed thermometer"
+  - "doctor consultation patient"
 etiquetas:
   - impuestos
   - baja
