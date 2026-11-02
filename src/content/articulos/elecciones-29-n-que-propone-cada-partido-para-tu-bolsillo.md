@@ -1,6 +1,6 @@
 ---
 titulo: "29-N: cuánto dinero te juegas según gane PP, PSOE, Vox o Sumar (con tu IRPF calculado)"
-subtitulo: "Hemos puesto lado a lado lo que promete cada partido en impuestos, vivienda, pensiones y trabajo, y hemos calculado cuánto pagarías de IRPF con la rebaja de Vox: con 40.000 € brutos, unos 5.200 € menos al año. También, qué saldría de cada pacto posible."
+subtitulo: "Lo que promete cada partido en impuestos, vivienda, pensiones y trabajo, qué saldría de cada pacto y cuánto pagarías de IRPF con la rebaja de Vox: con 40.000 €, unos 5.200 € menos al año."
 tituloSeo: "29-N: cuánto te juegas según gane PP, PSOE, Vox o Sumar"
 descripcion: "Qué promete cada partido para tu bolsillo el 29-N en impuestos, vivienda, pensiones y trabajo, qué pasaría con cada pacto y cuánto cambiaría tu IRPF."
 categoria: actualidad
