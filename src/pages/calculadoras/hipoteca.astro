@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Anuncio from '../../components/Anuncio.astro';
+import { SITIO } from '../../lib/sitio';
+
+const titulo = 'Calculadora de hipoteca 2026: cuota mensual, intereses y qué pasa si sube el Euríbor';
+const descripcion =
+  'Calcula gratis la cuota de tu hipoteca fija o variable, cuántos intereses pagarás en total, cómo cambia la cuota si el Euríbor sube o baja y qué parte de tu sueldo se lleva.';
+const esquema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Calculadora de hipoteca',
+  url: `${SITIO.url}/calculadoras/hipoteca/`,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+};
+---
+
+<BaseLayout titulo={titulo} descripcion={descripcion}>
+  <script type="application/ld+json" set:html={JSON.stringify(esquema)} />
+  <div class="hipo">
+    <nav class="migas" aria-label="Ruta"><a href="/calculadoras/">Calculadoras</a> › Hipoteca</nav>
+    <h1>Calculadora de hipoteca</h1>
+    <p class="entradilla">
+      Cuánto pagarás cada mes, cuántos intereses en total y qué te pasaría si el Euríbor se mueve. Sin registrarte y
+      sin que tus datos salgan de tu móvil.
+    </p>
+
+    <form id="form-hipo" class="panel" autocomplete="off">
+      <div class="tipo-hipo" role="radiogroup" aria-label="Tipo de hipoteca">
+        <label><input type="radio" name="tipo" value="variable" checked /> Variable (Euríbor + diferencial)</label>
+        <label><input type="radio" name="tipo" value="fija" /> Fija</label>
+      </div>
+      <div class="campos">
+        <label>Precio de la vivienda (€)<input id="precio" type="text" inputmode="decimal" value="250.000" /></label>
+        <label>Ahorro que aportas (€)<input id="ahorro" type="text" inputmode="decimal" value="50.000" /></label>
+        <label>Plazo (años)<input id="anos" type="number" min="1" max="40" value="30" /></label>
+        <label class="solo-variable">Euríbor (%)<input id="euribor" type="text" inputmode="decimal" value="2,2" /></label>
+        <label class="solo-variable">Diferencial (%)<input id="diferencial" type="text" inputmode="decimal" value="0,7" /></label>
+        <label class="solo-fija" hidden>Tipo fijo (TIN, %)<input id="fijo" type="text" inputmode="decimal" value="2,6" /></label>
+        <label>Ingresos netos al mes del hogar (€)<input id="ingresos" type="text" inputmode="decimal" value="3.000" /></label>
+      </div>
+      <p class="pista">Los valores que aparecen son un ejemplo: cámbialos por los tuyos. El Euríbor de referencia lo publica cada mes el Banco de España.</p>
+    </form>
+
+    <section class="resultado" aria-live="polite">
+      <div class="cifra-grande">
+        <span class="etq">Cuota mensual</span>
+        <strong id="r-cuota">—</strong>
+      </div>
+      <dl class="cifras">
+        <div><dt>Importe del préstamo</dt><dd id="r-capital">—</dd></div>
+        <div><dt>Tipo de interés aplicado</dt><dd id="r-tipo">—</dd></div>
+        <div><dt>Intereses en toda la vida del préstamo</dt><dd id="r-intereses">—</dd></div>
+        <div><dt>Total que devolverás</dt><dd id="r-total">—</dd></div>
+        <div><dt>Financiación sobre el precio</dt><dd id="r-ltv">—</dd></div>
+        <div><dt>Parte de tus ingresos que se lleva la cuota</dt><dd id="r-esfuerzo">—</dd></div>
+      </dl>
+      <p id="r-aviso" class="aviso" hidden></p>
+    </section>
+
+    <Anuncio formato="horizontal" />
+
+    <section class="bloque solo-variable-bloque">
+      <h2>¿Y si el Euríbor sube o baja?</h2>
+      <p>Tu cuota con el mismo diferencial y el mismo plazo, según el Euríbor de la próxima revisión:</p>
+      <table class="tabla">
+        <thead><tr><th>Euríbor</th><th>Tipo</th><th>Cuota</th><th>Diferencia al mes</th></tr></thead>
+        <tbody id="r-escenarios"></tbody>
+      </table>
+    </section>
+
+    <section class="bloque">
+      <h2>Cómo se reparte tu cuota, año a año</h2>
+      <p>Al principio casi toda la cuota son intereses; con los años, cada vez amortizas más capital.</p>
+      <div class="tabla-scroll">
+        <table class="tabla">
+          <thead><tr><th>Año</th><th>Intereses</th><th>Capital amortizado</th><th>Deuda pendiente</th></tr></thead>
+          <tbody id="r-anos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <article class="lectura explicacion">
+      <h2>Cómo calcula la cuota esta calculadora</h2>
+      <p>
+        Usa el <strong>sistema francés</strong>, el de casi todas las hipotecas en España: pagas la misma cuota cada mes
+        (mientras no cambie el tipo) y cada cuota mezcla intereses y devolución de capital. La fórmula es
+        <em>cuota = C · i / (1 − (1 + i)<sup>−n</sup>)</em>, donde C es el capital prestado, i el tipo mensual (TIN / 12) y
+        n el número de cuotas.
+      </p>
+      <p>
+        En una hipoteca <strong>variable</strong>, el tipo es el <strong>Euríbor más el diferencial</strong> que pactas con
+        el banco, y la cuota se recalcula en cada revisión (normalmente cada 6 o 12 meses). Te lo explicamos con ejemplos
+        en <a href="/articulo/euribor-que-es-y-como-afecta-a-tu-hipoteca/">qué es el Euríbor y cómo afecta a tu hipoteca</a>.
+      </p>
+
+      <h2>Tres cifras que miran los bancos</h2>
+      <ol>
+        <li>
+          <strong>Cuánto financias.</strong> Los bancos suelen prestar como máximo el 80 % del valor de tasación de una
+          vivienda habitual. El resto, más los gastos, sale de tus ahorros.
+        </li>
+        <li>
+          <strong>Qué parte de tus ingresos se lleva la cuota.</strong> La recomendación habitual es que no supere el 30-35 %
+          de los ingresos netos del hogar. Por encima, el banco puede pedirte avales o rechazar la operación. Si ya estás muy
+          por encima, lee <a href="/articulo/esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave/">qué significa un esfuerzo hipotecario alto</a>.
+        </li>
+        <li>
+          <strong>El plazo y tu edad.</strong> Muchos bancos limitan que la hipoteca termine antes de los 70-75 años.
+          Alargar el plazo baja la cuota, pero dispara los intereses totales: compruébalo cambiando el plazo arriba.
+        </li>
+      </ol>
+
+      <h2>Lo que la cuota no incluye</h2>
+      <p>
+        Además del préstamo tendrás que pagar los <strong>impuestos y gastos de la compra</strong> (ITP o IVA, notaría,
+        registro…), que suelen sumar entre el 8 % y el 12 % del precio. Los tienes desglosados en
+        <a href="/articulo/gastos-de-comprar-una-vivienda/">gastos de comprar una vivienda</a>. Desde la Ley 5/2019, la
+        tasación la paga el cliente, pero la notaría, el registro y la gestoría del préstamo corren a cargo del banco.
+        También conviene contar con los seguros que te ofrezca el banco para bonificar el diferencial: comprueba si lo que
+        ahorras en tipo compensa lo que pagas en seguros.
+      </p>
+
+      <h2>Variable, fija o mixta</h2>
+      <p>
+        Con la tabla de escenarios puedes hacerte la pregunta clave: <strong>¿podrías pagar la cuota si el Euríbor subiera
+        dos puntos?</strong> Si la respuesta es no, la seguridad de una hipoteca fija o mixta tiene mucho valor. Y si ya
+        tienes una variable, la Ley 5/2019 limita la comisión por pasarte a fija (0,15 % los tres primeros años y cero
+        después).
+      </p>
+      <p class="nota">
+        Resultados orientativos. La cuota real depende de la oferta vinculante de tu banco (FEIN), que debe indicar la TAE
+        y el coste total del préstamo. Fuentes: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" rel="noopener">Ley 5/2019 de crédito inmobiliario (BOE)</a>
+        y <a href="https://clientebancario.bde.es/" rel="noopener">Portal del Cliente Bancario del Banco de España</a>.
+      </p>
+    </article>
+  </div>
+</BaseLayout>
+
+<script>
+  import { calcularHipoteca, cuotaMensual, esfuerzo } from '../../lib/hipoteca';
+  import { leerImporte } from '../../lib/irpf';
+
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const eur = (n: number, dec = 0) =>
+    n.toLocaleString('es-ES', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' } as Intl.NumberFormatOptions) + ' €';
+  const pct = (n: number) => n.toLocaleString('es-ES', { maximumFractionDigits: 2 }) + ' %';
+  const form = document.getElementById('form-hipo') as HTMLFormElement;
+
+  function tipoElegido(): 'fija' | 'variable' {
+    return (form.querySelector('input[name="tipo"]:checked') as HTMLInputElement).value as 'fija' | 'variable';
+  }
+
+  function pintar(): void {
+    const variable = tipoElegido() === 'variable';
+    document.querySelectorAll<HTMLElement>('.solo-variable').forEach((e) => (e.hidden = !variable));
+    document.querySelectorAll<HTMLElement>('.solo-fija').forEach((e) => (e.hidden = variable));
+    document.querySelectorAll<HTMLElement>('.solo-variable-bloque').forEach((e) => (e.hidden = !variable));
+
+    const precio = leerImporte($('precio').value);
+    const ahorro = leerImporte($('ahorro').value);
+    const anos = Math.min(40, Math.max(1, Number($('anos').value) || 30));
+    const euribor = leerImporte($('euribor').value);
+    const diferencial = leerImporte($('diferencial').value);
+    const tipo = variable ? euribor + diferencial : leerImporte($('fijo').value);
+    const ingresos = leerImporte($('ingresos').value);
+    const capital = Math.max(0, precio - ahorro);
+
+    const r = calcularHipoteca({ capital, anos, tipoAnual: tipo });
+    const esf = esfuerzo(r.cuota, ingresos);
+    const ltv = precio > 0 ? (capital / precio) * 100 : 0;
+
+    document.getElementById('r-cuota')!.textContent = eur(r.cuota, 2);
+    document.getElementById('r-capital')!.textContent = eur(capital);
+    document.getElementById('r-tipo')!.textContent = pct(tipo) + (variable ? ` (Euríbor ${pct(euribor)} + ${pct(diferencial)})` : ' fijo');
+    document.getElementById('r-intereses')!.textContent = eur(r.totalIntereses);
+    document.getElementById('r-total')!.textContent = eur(r.totalPagado);
+    document.getElementById('r-ltv')!.textContent = pct(ltv);
+    document.getElementById('r-esfuerzo')!.textContent = ingresos > 0 ? pct(esf) : '—';
+
+    const avisos: string[] = [];
+    if (ltv > 80) avisos.push('Pides más del 80 % del precio: muchos bancos no lo financian sin avales o garantías extra.');
+    if (esf > 35) avisos.push('La cuota supera el 35 % de tus ingresos netos: es más de lo que suelen aceptar los bancos.');
+    const aviso = document.getElementById('r-aviso')!;
+    aviso.hidden = avisos.length === 0;
+    aviso.textContent = avisos.join(' ');
+
+    const filas = [-1, -0.5, 0, 0.5, 1, 2]
+      .map((d) => {
+        const e = Math.max(-1, euribor + d);
+        const c = cuotaMensual(capital, anos, e + diferencial);
+        const dif = c - r.cuota;
+        const signo = dif > 0.5 ? '+' : '';
+        return `<tr${d === 0 ? ' class="actual"' : ''}><td>${pct(e)}</td><td>${pct(e + diferencial)}</td><td>${eur(c, 0)}</td><td>${d === 0 ? 'tu cuota' : signo + eur(dif, 0)}</td></tr>`;
+      })
+      .join('');
+    document.getElementById('r-escenarios')!.innerHTML = filas;
+
+    document.getElementById('r-anos')!.innerHTML = r.porAno
+      .map((f) => `<tr><td>${f.ano}</td><td>${eur(f.intereses)}</td><td>${eur(f.amortizado)}</td><td>${eur(f.pendiente)}</td></tr>`)
+      .join('');
+  }
+
+  form.addEventListener('input', pintar);
+  form.addEventListener('submit', (e) => e.preventDefault());
+  pintar();
+</script>
+
+<style>
+  .hipo {
+    max-width: 900px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  .migas {
+    font-family: var(--fuente-ui);
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+  }
+  .panel {
+    border: 1px solid var(--color-borde);
+    background: var(--color-fondo-alt);
+    padding: 1rem 1.25rem;
+    margin-block: 1rem;
+  }
+  .tipo-hipo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: var(--fuente-ui);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .campos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.75rem 1rem;
+  }
+  .campos label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+  }
+  .campos label[hidden] {
+    display: none;
+  }
+  .campos input {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--color-borde-fuerte);
+    border-radius: 4px;
+    background: #fff;
+  }
+  .pista,
+  .nota {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+  }
+  .resultado {
+    border-left: 4px solid var(--color-marca);
+    padding: 0.5rem 1.25rem;
+    margin-block: 1.5rem;
+  }
+  .cifra-grande .etq {
+    display: block;
+    font-family: var(--fuente-ui);
+    color: var(--color-texto-suave);
+  }
+  .cifra-grande strong {
+    font-size: clamp(2.2rem, 7vw, 3.2rem);
+    color: var(--color-marca);
+  }
+  .cifras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.5rem 1.5rem;
+    font-family: var(--fuente-ui);
+  }
+  .cifras dt {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+  }
+  .cifras dd {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .aviso {
+    background: #fff4e5;
+    border: 1px solid #e0b46a;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--fuente-ui);
+    font-size: 0.9rem;
+  }
+  .bloque[hidden] {
+    display: none;
+  }
+  .tabla-scroll {
+    max-height: 420px;
+    overflow: auto;
+  }
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--fuente-ui);
+    font-size: 0.95rem;
+  }
+  .tabla th,
+  .tabla td {
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px solid var(--color-borde);
+    text-align: right;
+  }
+  .tabla th:first-child,
+  .tabla td:first-child {
+    text-align: left;
+  }
+  .tabla :global(tr.actual) {
+    background: var(--color-fondo-alt);
+    font-weight: 700;
+  }
+  .explicacion {
+    margin-top: 2rem;
+  }
+</style>
