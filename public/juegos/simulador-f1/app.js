@@ -45,7 +45,7 @@
       '<li>Cada ciclo dura <b>2 años</b> (2 temporadas) con el mismo equipo. De los 14 a los 40 años.</li>' +
       '<li>Subes de <b>F3 → F2 → F1</b> si consigues suficientes <b>trofeos</b> (victorias, podios, títulos y poles). Tu patrocinio nacional baja el listón.</li>' +
       '<li>Los mejores equipos exigen <b>reputación</b>; tu nacionalidad te abre las puertas de algunos equipos.</li>' +
-      '<li>Cada ciclo ganas puntos de experiencia para reforzar defensa, ataque, neumáticos o clasificación. Pasados los 36 empiezas a perder facultades.</li></ul></div>';
+      '<li>Cada temporada ganas puntos de experiencia según tus resultados (máximo 20 a los 14 años, hasta 32 con los años) para reforzar defensa, ataque, neumáticos o clasificación. Pasados los 36 empiezas a perder facultades.</li></ul></div>';
   }
 
   /* ---------- cabecera ---------- */
@@ -60,10 +60,10 @@
   function renderAlloc() {
     if (!draft) draft = { vals: Object.assign({}, S.p.stats), left: S.pending };
     $app.innerHTML = header() + '<div class="card"><h2>Experiencia acumulada</h2>' +
-      '<p class="note" style="margin-top:-6px">Ahora tienes <b>' + S.p.age + ' años</b>. Reparte <span class="left">' + draft.left + '</span> puntos nuevos (máx. 90 por categoría).</p>' +
+      '<p class="note" style="margin-top:-6px">Ahora tienes <b>' + S.p.age + ' años</b>. Reparte <span class="left">' + draft.left + '</span> puntos nuevos (máx. 100 por categoría).</p>' +
       (S.hist.length && S.hist[S.hist.length - 1].decline ? '<div class="warnbox" style="margin-bottom:10px">Con la edad has perdido ' + S.hist[S.hist.length - 1].decline + ' puntos de facultades.</div>' : '') +
       '<div id="alloc">' + allocHTML(draft.vals, draft.left, 90) + '</div></div>' +
-      '<button class="btn block" data-act="confirmalloc"' + (draft.left === 0 ? '' : ' disabled') + '>Confirmar y elegir equipo</button>';
+      '<button class="btn block" data-act="confirmalloc"' + (draft.left === 0 || STATS.every((k) => draft.vals[k] >= 100) ? '' : ' disabled') + '>Confirmar y elegir equipo</button>';
   }
 
   /* ---------- equipos ---------- */
@@ -89,7 +89,7 @@
       '<div class="stats" style="margin:8px 0"><div class="st"><span>Puesto</span><b>P' + s.pos + '</b></div><div class="st"><span>Puntos</span><b>' + s.pts + '</b></div><div class="st"><span>Victorias</span><b>' + s.wins + '</b></div><div class="st"><span>Podios · Poles</span><b>' + s.podiums + ' · ' + s.poles + '</b></div></div>' +
       '<div class="strip">' + s.races.map((r) => '<span class="rc ' + (r.dnf ? 'dnf' : r.pos === 1 ? 'w' : r.pos <= 3 ? 'p' : r.pos <= 10 ? 'pt' : '') + '" title="' + esc(r.gp) + ' · parrilla P' + r.grid + '">' + (r.pos ? r.pos : '✕') + '</span>').join('') + '</div>' +
       '<table style="margin-top:8px"><tbody>' + s.table.slice(0, 3).map((x, i) => '<tr class="' + (x.you ? 'you' : '') + '"><td>' + (i + 1) + '</td><td>' + fl(x.country) + ' ' + esc(x.name) + '</td><td><span class="dot" style="background:' + x.color + '"></span>' + esc(x.team) + '</td><td>' + x.pts + '</td></tr>').join('') + '</tbody></table>' +
-      '<p class="note" style="margin:6px 0 0">Compañero: ' + esc(s.mate.name) + ' (' + s.mate.pts + ' pts) · Abandonos: ' + s.dnfs + (s.pos > 3 ? ' · Tú: P' + s.pos + ' de ' + s.total : '') + '</p></div>';
+      '<p class="note" style="margin:6px 0 0">Compañero: ' + esc(s.mate.name) + ' (' + s.mate.pts + ' pts) · Abandonos: ' + s.dnfs + (s.pos > 3 ? ' · Tú: P' + s.pos + ' de ' + s.total : '') + '</p><p style="margin:6px 0 0"><span class="badge">⚙️ Experiencia +' + s.xp + ' / ' + s.xpMax + '</span></p></div>';
   }
   function renderBlockEnd() {
     const h = S.hist[S.hist.length - 1];
@@ -98,7 +98,7 @@
     $app.innerHTML = '<div class="card compact"><div class="row sp"><h2 style="margin:0">' + CAT_NAMES[h.cat] + ' · años ' + h.age + '-' + (h.age + 1) + '</h2>' +
       '<div class="row"><span class="badge">Trofeos: ' + h.score + (h.need ? ' / ' + h.need : '') + '</span><span class="trophies">' + (stars || '—') + '</span></div></div></div>' +
       '<div class="grid2" style="margin-bottom:10px">' + miniSeason(two[0], 'Año ' + h.age) + miniSeason(two[1], 'Año ' + (h.age + 1)) + '</div>' +
-      '<div class="' + (h.promoted ? 'okbox' : 'warnbox') + '" style="margin-bottom:10px">' + (h.promoted ? '⬆️ ' : '') + esc(h.note) + (h.gain ? ' Ganas ' + h.gain + ' puntos de experiencia.' : '') + '</div>' +
+      '<div class="' + (h.promoted ? 'okbox' : 'warnbox') + '" style="margin-bottom:10px">' + (h.promoted ? '⬆️ ' : '') + esc(h.note) + (h.gain ? ' Ganas ' + h.gain + ' puntos de experiencia en total (máx. ' + (two[0].xpMax + two[1].xpMax) + ').' : '') + '</div>' +
       '<button class="btn block" data-act="after">' + (S.nextPhase === 'final' ? 'Colgar el casco' : 'Continuar (' + S.p.age + ' años)') + '</button>';
   }
 
@@ -138,7 +138,7 @@
     if (!b || b.disabled) return;
     const a = b.dataset.act, k = b.dataset.k;
     if (a === 'inc' || a === 'dec') {
-      const cap = S ? 90 : 60, d = S ? draft : null;
+      const cap = S ? 100 : 60, d = S ? draft : null;
       const vals = d ? d.vals : form.alloc, base = S ? S.p.stats : null;
       if (a === 'inc') { if ((d ? d.left : 100 - sum(vals)) > 0 && vals[k] < cap) { vals[k]++; if (d) d.left--; } }
       else if (vals[k] > (base ? base[k] : 0)) { vals[k]--; if (d) d.left++; }

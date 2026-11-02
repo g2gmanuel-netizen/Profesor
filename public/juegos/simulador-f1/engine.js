@@ -134,7 +134,7 @@
   /* ------------------------------------------------------------------ */
   /* Creación y estado                                                   */
   /* ------------------------------------------------------------------ */
-  const effStat = (S, k) => clamp(38 + 0.75 * S.p.stats[k] + (COUNTRIES[S.p.country].bonus[k] || 0), 20, 100);
+  const effStat = (S, k) => clamp(45 + 0.45 * S.p.stats[k] + (COUNTRIES[S.p.country].bonus[k] || 0), 20, 100);
 
   function newGame(form) {
     const c = COUNTRIES[form.country];
@@ -167,6 +167,7 @@
   /* ------------------------------------------------------------------ */
   /* Simulación de una temporada                                         */
   /* ------------------------------------------------------------------ */
+  const xpCap = (age) => Math.round(20 + 12 * clamp((age - 14) / 26, 0, 1));
   function simSeason(S, R) {
     R = R || Math.random;
     const cat = S.cat, yourTeam = S.team;
@@ -225,6 +226,12 @@
       mate: { name: entries.find((e) => e.id === 'mate').name, pts: entries.find((e) => e.id === 'mate').pts },
       yourPts: me.pts, total: N,
     };
+    // puntos de experiencia: según la temporada, con tope que sube con la edad (20 → 32)
+    const ageNow = S.p.age + (S.seasons.length % 2);
+    res.age = ageNow;
+    res.xpMax = xpCap(ageNow);
+    const pf = pos === 1 ? 1 : pos === 2 ? 0.85 : pos === 3 ? 0.75 : pos <= 5 ? 0.6 : pos <= 10 ? 0.45 : 0.25;
+    res.xp = Math.max(1, Math.round(res.xpMax * Math.min(1, pf + Math.min(0.1, me.wins * 0.02))));
     // reputación
     const rg = pos === 1 ? 16 : pos === 2 ? 11 : pos === 3 ? 8 : pos <= 5 ? 5 : pos <= 10 ? 2 : -1.5;
     res.repGain = rg + Math.min(3, me.wins * 0.4);
@@ -277,7 +284,7 @@
     S.hist.push(info);
     // envejecimiento y puntos de experiencia
     S.p.age += 2;
-    let gain = S.p.age <= 28 ? 14 : S.p.age <= 34 ? 8 : 0;
+    let gain = last2.reduce((a, s) => a + s.xp, 0);
     if (S.p.age >= 36) {
       const loss = S.p.age >= 38 ? 6 : 3;
       let left = loss;
@@ -312,7 +319,7 @@
     return { n: lg[lg.length - 1][0], why: 'piloto de tu país' };
   }
 
-  const API = { STATS, STAT_NAMES, STAT_SHORT, STAT_HELP, CATS, CAT_NAMES, CAT_RACES, MIN_AGE, COUNTRIES, TEAMS, teamById, offers, newGame, simSeason, finishBlock, effStat, trophyScore, compare, NEED, CIRC, affMatch };
+  const API = { STATS, STAT_NAMES, STAT_SHORT, STAT_HELP, CATS, CAT_NAMES, CAT_RACES, MIN_AGE, COUNTRIES, TEAMS, teamById, offers, newGame, simSeason, finishBlock, effStat, xpCap, trophyScore, compare, NEED, CIRC, affMatch };
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
   else root.F1 = API;
 })(typeof window !== 'undefined' ? window : globalThis);
