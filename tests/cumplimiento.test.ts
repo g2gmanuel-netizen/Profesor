@@ -1,11 +1,35 @@
 import { describe, it, expect } from 'vitest';
-import { revisarCumplimiento } from '../agentes/agentes/08-cumplimiento';
+import { revisarCumplimiento, revisarValorAnadido } from '../agentes/agentes/08-cumplimiento';
+
+const RELLENO = Array.from({ length: 140 }, () => 'El Euríbor marca la cuota de muchas hipotecas.').join(' ');
+const CUERPO_UTIL = [
+  'El Euríbor bajó en septiembre. Esto abarata las hipotecas variables para muchas familias.',
+  RELLENO,
+  '## Qué significa para ti',
+  '1. Mira la fecha de revisión en tu escritura.',
+  '2. Comprueba el diferencial de tu préstamo.',
+  '3. Pide al banco el cuadro de amortización nuevo.',
+].join('\n\n');
+
+describe('valor añadido (AdSense)', () => {
+  it('acepta un artículo largo con sección práctica y pasos', () => {
+    expect(revisarValorAnadido(CUERPO_UTIL)).toEqual([]);
+  });
+  it('rechaza un resumen corto sin parte práctica', () => {
+    const m = revisarValorAnadido('El Euríbor bajó en septiembre, según un medio.');
+    expect(m.length).toBe(3);
+  });
+  it('acepta una tabla como elemento propio', () => {
+    const t = `${RELLENO}\n\n## Cómo calcular tu cuota\n\n| Euríbor | Cuota |\n|---|---|\n| 2 % | 711 € |`;
+    expect(revisarValorAnadido(t)).toEqual([]);
+  });
+});
 
 describe('revisor de cumplimiento', () => {
   it('aprueba un texto limpio con titular coherente', () => {
     const r = revisarCumplimiento(
       'El Euríbor baja y abarata las hipotecas',
-      'El Euríbor bajó en septiembre. Esto abarata las hipotecas variables para muchas familias.',
+      CUERPO_UTIL,
       ['El índice interbancario registró un descenso el mes pasado.'],
     );
     expect(r.aprobado).toBe(true);

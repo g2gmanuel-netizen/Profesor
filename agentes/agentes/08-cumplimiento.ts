@@ -20,6 +20,27 @@ export interface ResultadoCumplimiento {
   motivos: string[];
 }
 
+/**
+ * Valor añadido mínimo que pide AdSense («contenido de poco valor»): el artículo debe ser
+ * algo más que el resumen de otra noticia. Exige cuerpo suficiente, una parte práctica
+ * para el lector y al menos un elemento propio de servicio (tabla, pasos o lista de comprobación).
+ */
+export function revisarValorAnadido(cuerpo: string): string[] {
+  const motivos: string[] = [];
+  const palabras = cuerpo.split(/\s+/).filter(Boolean).length;
+  if (palabras < 700) motivos.push(`Poco valor añadido: solo ${palabras} palabras (mínimo 700).`);
+  if (!/^##\s+.*(para ti|qué (puedes|debes) hacer|cómo (saber|comprobar|calcular|pedir|reclamar)|paso)/im.test(cuerpo)) {
+    motivos.push('Poco valor añadido: falta una sección práctica («Qué significa para ti», «Qué puedes hacer», pasos…).');
+  }
+  const tabla = /^\|.*\|\s*$\n^\|\s*:?-{3,}/m.test(cuerpo);
+  const pasos = (cuerpo.match(/^\s*\d+\.\s+\S/gm) ?? []).length >= 3;
+  const lista = (cuerpo.match(/^\s*[-*]\s+\S/gm) ?? []).length >= 4;
+  if (!tabla && !pasos && !lista) {
+    motivos.push('Poco valor añadido: falta una tabla, unos pasos numerados o una lista de comprobación propia.');
+  }
+  return motivos;
+}
+
 /** Revisión de cumplimiento determinista y testeable. */
 export function revisarCumplimiento(
   titulo: string,
@@ -64,6 +85,9 @@ export function revisarCumplimiento(
   if (tokensTitulo.length > 0 && comunes === 0) {
     motivos.push('El titular parece no corresponderse con el contenido (posible clickbait).');
   }
+
+  // 6. Valor añadido mínimo (AdSense).
+  motivos.push(...revisarValorAnadido(cuerpo));
 
   return { aprobado: motivos.length === 0, motivos };
 }
