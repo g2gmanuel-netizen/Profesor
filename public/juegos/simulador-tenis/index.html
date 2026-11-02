@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de carrera de tenis · Grand Slams y Masters 1000</title>
+<meta name="description" content="Crea tu tenista, elige país, estatura, físico y mano, decide qué Grand Slams y Masters 1000 juegas y gestiona tu aguante para llegar a nº1 del ranking ATP.">
+<meta name="theme-color" content="#1f6f4a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23d7e34a'/%3E%3Cpath d='M14 28c24 8 24 36 0 44M86 28c-24 8-24 36 0 44' fill='none' stroke='%23fff' stroke-width='5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f3f6f1; --card:#ffffff; --ink:#15221b; --mut:#5d6b62; --line:#dde6dc;
+  --court:#1f6f4a; --court2:#2f9467; --ball:#d7e34a; --ballink:#2b3300;
+  --clay:#c4562a; --hard:#2d6fb8; --grass:#3c9a3e;
+  --good:#1c8a4e; --bad:#c23b32; --warn:#c98a0a; --shadow:0 1px 2px rgba(10,30,20,.08),0 6px 18px rgba(10,30,20,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1612;--card:#16211b;--ink:#e9f1ea;--mut:#98a89d;--line:#25332b;--court:#2f9467;--court2:#3fb37e;--shadow:none;--ballink:#2b3300}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 56px}
+header.top{background:linear-gradient(135deg,#1f6f4a,#17543a);color:#fff;padding:22px 0 20px;margin-bottom:18px}
+header.top .wrap{padding-bottom:0}
+header.top h1{margin:0;font-size:1.45rem;line-height:1.2;display:flex;gap:10px;align-items:center}
+header.top p{margin:6px 0 0;opacity:.88;font-size:.95rem}
+.ball{width:26px;height:26px;border-radius:50%;background:var(--ball);display:inline-block;position:relative;flex:none}
+.ball:before,.ball:after{content:"";position:absolute;inset:3px;border:2px solid #fff;border-radius:50%;clip-path:inset(0 60% 0 0)}
+.ball:after{transform:scaleX(-1)}
+h2{font-size:1.2rem;margin:0 0 12px}
+h3{font-size:1rem;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px}
+label.f:first-child{margin-top:0}
+input[type=text],select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+input[type=range]{width:100%;accent-color:var(--court2)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button,.chip{border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:9px 14px;border-radius:999px;font:inherit;font-size:.92rem;cursor:pointer}
+.seg button.on{background:var(--court);border-color:var(--court);color:#fff}
+.hint{color:var(--mut);font-size:.86rem;margin:6px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:700;background:var(--ball);color:var(--ballink);cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.btn:active{transform:translateY(1px)}
+.btn.sec{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.dark{background:var(--court);color:#fff}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sp{justify-content:space-between}
+.bars{display:grid;gap:7px}
+.bar{display:grid;grid-template-columns:96px 1fr 38px;gap:8px;align-items:center;font-size:.88rem}
+.track{height:9px;background:var(--line);border-radius:6px;overflow:hidden}
+.fill{height:100%;background:var(--court2);border-radius:6px;transition:width .4s}
+.fill.hi{background:var(--ball)} .fill.warn{background:var(--warn)} .fill.bad{background:var(--bad)}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.leg{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-top:1px solid var(--line)}
+.leg:first-of-type{border-top:0}
+.leg b{font-size:.98rem}.leg small{color:var(--mut)}
+.sim{font-weight:800;color:var(--court);font-size:1.05rem;text-align:right}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:6px;padding:2px 7px;color:#fff;vertical-align:middle}
+.tag.clay{background:var(--clay)}.tag.hard{background:var(--hard)}.tag.grass{background:var(--grass)}
+.tag.gs{background:#b8860b}.tag.m{background:#5a6a7a}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+.st{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.st span{display:block;color:var(--mut);font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}
+.st b{font-size:1.4rem;font-variant-numeric:tabular-nums}
+.st small{color:var(--mut);font-size:.8rem}
+.up{color:var(--good)}.down{color:var(--bad)}
+.ev{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--card)}
+.ev.next{border-color:var(--court2);box-shadow:0 0 0 2px color-mix(in srgb,var(--court2) 35%,transparent)}
+.ev.done{opacity:.92}
+.ev .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:.8rem}
+.ev .ic.gs{background:#b8860b}.ev .ic.m{background:#5a6a7a}
+.ev .nm{font-weight:700;line-height:1.25}
+.ev .sub{font-size:.82rem;color:var(--mut);grid-column:2}
+.ev .rt{text-align:right;font-size:.86rem}
+.ev .rt b{display:block}
+.chk{display:flex;gap:6px;align-items:center;font-size:.84rem;color:var(--mut);cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--court2)}
+.slams{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:520px){.slams{grid-template-columns:1fr}}
+.slamcard{border:2px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;background:var(--bg)}
+.slamcard.on{border-color:#b8860b;background:color-mix(in srgb,#b8860b 10%,var(--card))}
+.slamcard b{display:block}
+.meter{height:14px;border-radius:8px;background:var(--line);overflow:hidden}
+.match{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;background:var(--card);animation:pop .3s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.match.w{border-left:5px solid var(--good)}.match.l{border-left:5px solid var(--bad)}
+.match .hd{display:flex;justify-content:space-between;gap:8px;font-size:.82rem;color:var(--mut)}
+.match .vs{font-weight:700;margin:2px 0}
+.match .sc{font-variant-numeric:tabular-nums;font-size:1.1rem;font-weight:800}
+.rival{background:#8b2a2a;color:#fff;border-radius:6px;font-size:.7rem;padding:2px 6px;margin-left:6px;font-weight:700}
+.big{font-size:1.9rem;font-weight:800;line-height:1.15}
+.champ{background:linear-gradient(135deg,#b8860b,#e3b73c);color:#2b1d00;border-radius:14px;padding:18px;text-align:center}
+.gain{display:grid;grid-template-columns:1fr auto auto auto;gap:6px 14px;font-size:.92rem;align-items:center}
+.badge{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 12px;margin:0 6px 8px 0;font-size:.88rem}
+.note{font-size:.84rem;color:var(--mut)}
+.warnbox{border-left:4px solid var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--card));padding:10px 12px;border-radius:8px;font-size:.9rem}
+footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px}
+svg text{fill:var(--mut);font-size:11px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1><span class="ball"></span> Simulador de carrera de tenis</h1>
+  <p>Solo cuentan los 4 Grand Slams y los 9 Masters 1000. Tú decides dónde juegas… y cuánto aguantas.</p>
+</div></header>
+<main class="wrap" id="app" aria-live="polite"></main>
+<footer>Juego de ficción con fines de entretenimiento. Los rivales de cada torneo son inventados; los jugadores citados como referencia son personajes reales retirados o en activo.</footer>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
