@@ -13,12 +13,12 @@ fechaPublicacion: 2026-10-27
 imagen: /imagenes/declaracion-de-la-renta-cobrando-cerca-del-smi-5-pasos-para-saber-si-te-toca.jpg
 imagenAlt: "Imagen del artículo: Declaración de la renta cobrando cerca del SMI:
   5 pasos para saber si te toca"
-imagenCredito: "Foto: Snatali (Pixabay)"
+imagenCredito: "Foto: 089photoshootings (Pixabay)"
 imagenBusqueda:
   - woman laptop home
   - young woman laptop paperwork
   - man laptop documents desk
-imagenRequiere: 'laptop'
+imagenRequiere: laptop
 etiquetas:
   - impuestos
   - declaracion

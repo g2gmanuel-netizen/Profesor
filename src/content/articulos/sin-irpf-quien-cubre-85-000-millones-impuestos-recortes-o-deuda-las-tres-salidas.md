@@ -14,12 +14,12 @@ fechaPublicacion: 2026-10-15
 imagen: /imagenes/sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas.jpg
 imagenAlt: "Imagen del artículo: Sin IRPF, ¿quién cubre 85.000 millones?
   Impuestos, recortes o deuda: las tres salidas posibles"
-imagenCredito: "Foto: lewickistudio (Pixabay)"
+imagenCredito: "Foto: mspark0 (Pixabay)"
 imagenBusqueda:
   - hospital corridor
   - hospital
   - ambulance
-imagenRequiere: 'hospital|ambulance|clinic'
+imagenRequiere: hospital|ambulance|clinic
 etiquetas:
   - impuestos
   - sin

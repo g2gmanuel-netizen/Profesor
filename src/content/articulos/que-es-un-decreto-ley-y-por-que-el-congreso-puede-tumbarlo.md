@@ -15,12 +15,12 @@ fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg
 imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
   puede tumbarlo: guía para entender las noticias"
-imagenCredito: "Foto: jorono (Pixabay)"
+imagenCredito: "Foto: renatolaky (Pixabay)"
 imagenBusqueda:
   - congreso de los diputados
   - madrid congress
   - madrid parliament
-imagenRequiere: 'congress|congreso|parliament|parlamento'
+imagenRequiere: congress|congreso|parliament|parlamento
 etiquetas:
   - decreto ley
   - Congreso

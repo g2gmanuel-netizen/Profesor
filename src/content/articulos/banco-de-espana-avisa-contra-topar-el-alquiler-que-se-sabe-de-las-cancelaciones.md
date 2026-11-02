@@ -14,12 +14,12 @@ fechaPublicacion: 2026-10-12
 imagen: /imagenes/banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones.jpg
 imagenAlt: "Imagen del artículo: Banco de España avisa contra topar el alquiler:
   qué se sabe de las cancelaciones"
-imagenCredito: "Foto: Makalu (Pixabay)"
+imagenCredito: "Foto: jelices (Pixabay)"
 imagenBusqueda:
   - madrid cibeles
   - madrid alcala street
   - madrid city center
-imagenRequiere: 'madrid'
+imagenRequiere: madrid
 etiquetas:
   - alquiler
   - banco

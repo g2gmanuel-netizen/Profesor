@@ -13,12 +13,12 @@ fechaPublicacion: 2026-10-19
 imagen: /imagenes/baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion.jpg
 imagenAlt: "Imagen del artículo: Baja médica e IRPF: qué es el segundo pagador y
   cómo afecta a tu declaración"
-imagenCredito: "Foto: angelolucas (Pixabay)"
+imagenCredito: "Foto: DarkoStojanovic (Pixabay)"
 imagenBusqueda:
   - doctor stethoscope patient
   - sick woman bed
   - medical consultation
-imagenRequiere: 'doctor|sick|patient|medical|stethoscope|illness|ill\b'
+imagenRequiere: doctor|sick|patient|medical|stethoscope|illness|ill\b
 etiquetas:
   - impuestos
   - baja
