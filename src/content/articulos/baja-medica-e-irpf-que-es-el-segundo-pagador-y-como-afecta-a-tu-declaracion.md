@@ -15,9 +15,10 @@ imagenAlt: "Imagen del artículo: Baja médica e IRPF: qué es el segundo pagado
   cómo afecta a tu declaración"
 imagenCredito: "Foto: angelolucas (Pixabay)"
 imagenBusqueda:
-  - doctor writing prescription
-  - sick man bed thermometer
-  - doctor consultation patient
+  - doctor stethoscope patient
+  - sick woman bed
+  - medical consultation
+imagenRequiere: 'doctor|sick|patient|medical|stethoscope|illness|ill\b'
 etiquetas:
   - impuestos
   - baja

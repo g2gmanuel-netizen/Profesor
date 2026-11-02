@@ -18,8 +18,9 @@ imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
 imagenCredito: "Foto: jorono (Pixabay)"
 imagenBusqueda:
   - congreso de los diputados
-  - spanish parliament madrid
-  - parliament chamber seats
+  - madrid congress
+  - madrid parliament
+imagenRequiere: 'congress|congreso|parliament|parlamento'
 etiquetas:
   - decreto ley
   - Congreso

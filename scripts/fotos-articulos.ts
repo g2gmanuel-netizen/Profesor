@@ -92,12 +92,15 @@ async function main(): Promise<void> {
       if (!SOLO.has(slug)) continue;
     } else if (imagen.endsWith('.jpg') && !REEMPLAZAR && !repetidos.has(slug)) continue;
 
+    const literales = Array.isArray(fm.imagenBusqueda) ? fm.imagenBusqueda.map(String) : [];
+    // Con imagenRequiere la foto DEBE tener esas etiquetas y no hay búsqueda genérica de
+    // respaldo: si no aparece nada que encaje, se mantiene la portada actual.
+    const busqueda =
+      typeof fm.imagenRequiere === 'string' && literales.length > 0
+        ? { consultas: literales, respaldo: [], requiere: new RegExp(fm.imagenRequiere, 'i') }
+        : busquedaParaArticulo(categoria, titulo, literales);
     const foto = await descargarFoto({
-      busqueda: busquedaParaArticulo(
-        categoria,
-        titulo,
-        Array.isArray(fm.imagenBusqueda) ? fm.imagenBusqueda.map(String) : [],
-      ),
+      busqueda,
       // Al refrescar, la foto actual del artículo también cuenta como "usada":
       // así siempre se elige una distinta.
       usadas: huellasEnUso(DIR_IMG),

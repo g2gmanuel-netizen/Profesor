@@ -25,6 +25,7 @@ const articulos = defineCollection({
     imagenCredito: z.string().optional(),
     // Búsquedas (en inglés) para la foto de portada, literales al contenido.
     imagenBusqueda: z.array(z.string()).optional(),
+    imagenRequiere: z.string().optional(),
     etiquetas: z.array(z.string()).default([]),
     fuentes: z
       .array(

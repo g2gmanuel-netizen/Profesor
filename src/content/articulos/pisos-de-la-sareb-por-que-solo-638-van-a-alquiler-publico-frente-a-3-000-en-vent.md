@@ -15,9 +15,10 @@ imagenAlt: "Imagen del artículo: Pisos de la Sareb: por qué solo 638 van a
   alquiler público frente a 3.000 en venta"
 imagenCredito: "Foto: donterase (Pixabay)"
 imagenBusqueda:
-  - empty apartment building
-  - new residential building construction
-  - apartment block balconies
+  - apartment building facade
+  - residential building balconies
+  - housing block
+imagenRequiere: 'apartment|residential|housing|facade|balcon'
 etiquetas:
   - vivienda
   - pisos

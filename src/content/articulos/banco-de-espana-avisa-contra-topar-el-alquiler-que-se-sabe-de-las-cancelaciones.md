@@ -16,9 +16,10 @@ imagenAlt: "Imagen del artículo: Banco de España avisa contra topar el alquile
   qué se sabe de las cancelaciones"
 imagenCredito: "Foto: Makalu (Pixabay)"
 imagenBusqueda:
-  - banco de espana madrid
-  - bank of spain building
+  - madrid cibeles
   - madrid alcala street
+  - madrid city center
+imagenRequiere: 'madrid'
 etiquetas:
   - alquiler
   - banco

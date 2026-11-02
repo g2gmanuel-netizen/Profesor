@@ -15,9 +15,10 @@ imagenAlt: "Imagen del artículo: Declaración de la renta cobrando cerca del SM
   5 pasos para saber si te toca"
 imagenCredito: "Foto: Snatali (Pixabay)"
 imagenBusqueda:
-  - woman laptop tax form
-  - person filling form desk
-  - paperwork laptop home
+  - woman laptop home
+  - young woman laptop paperwork
+  - man laptop documents desk
+imagenRequiere: 'laptop'
 etiquetas:
   - impuestos
   - declaracion

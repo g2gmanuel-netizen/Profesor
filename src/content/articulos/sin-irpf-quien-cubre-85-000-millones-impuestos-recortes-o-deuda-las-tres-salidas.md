@@ -17,8 +17,9 @@ imagenAlt: "Imagen del artículo: Sin IRPF, ¿quién cubre 85.000 millones?
 imagenCredito: "Foto: lewickistudio (Pixabay)"
 imagenBusqueda:
   - hospital corridor
-  - public school classroom
-  - ambulance emergency
+  - hospital
+  - ambulance
+imagenRequiere: 'hospital|ambulance|clinic'
 etiquetas:
   - impuestos
   - sin
