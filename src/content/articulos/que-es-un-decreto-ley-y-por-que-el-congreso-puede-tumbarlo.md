@@ -17,10 +17,10 @@ imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
   puede tumbarlo: guía para entender las noticias"
 imagenCredito: "Foto: renatolaky (Pixabay)"
 imagenBusqueda:
-  - congreso de los diputados
-  - madrid congress
-  - madrid parliament
-imagenRequiere: congress|congreso|parliament|parlamento
+  - law books
+  - legal documents signing
+  - law book library
+imagenRequiere: '\blaw\b|legal|justice'
 etiquetas:
   - decreto ley
   - Congreso
