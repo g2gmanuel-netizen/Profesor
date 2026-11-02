@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simulador de carrera de F1 · De la F3 a campeón del mundo</title>
+<title>FI Racer Career · Simulador de carrera de F1</title>
 <meta name="description" content="Elige país, reparte 100 puntos entre defensa, ataque, neumáticos y clasificación, ficha por equipos y sube de la F3 a la F1 cada dos años.">
 <meta name="theme-color" content="#d62b1f">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23d62b1f'/%3E%3Cpath d='M20 70L45 25h12L36 70zM50 70l25-45h10L62 70z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="../logos/fi-racer.svg">
+<link rel="stylesheet" href="../shared.css">
 <style>
 :root{--bg:#f5f5f3;--card:#fff;--ink:#16181a;--mut:#62686d;--line:#e1e3e0;--red:#d62b1f;--red2:#ef4b3d;--gold:#c99a1b;--good:#1c8a4e;--bad:#c23b32;--warn:#c98a0a;--shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.05)}
 @media(prefers-color-scheme:dark){:root{--bg:#0f1112;--card:#181b1d;--ink:#eceeef;--mut:#9aa1a6;--line:#2a2e31;--shadow:none}}
@@ -30,7 +31,7 @@ input[type=text],select{width:100%;padding:11px 12px;border:1px solid var(--line
 .alloc{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-top:1px solid var(--line)}
 .alloc:first-of-type{border-top:0}
 .alloc .ctl{display:flex;gap:8px;align-items:center;grid-row:span 2}
-.alloc .ctl button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.2rem;cursor:pointer}
+.alloc .ctl button{min-width:34px;height:34px;padding:0 6px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:.95rem;cursor:pointer}.alloc .ctl button[disabled]{opacity:.4}
 .alloc .ctl b{min-width:34px;text-align:center;font-size:1.15rem;font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:4px}
 .fill{height:100%;background:var(--red2);border-radius:6px;transition:width .3s}.fill.g{background:var(--good)}.fill.w{background:var(--warn)}
@@ -69,11 +70,8 @@ footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <h1>🏁 Simulador de carrera de F1</h1>
-  <p>De los 14 a los 40 años, de dos en dos: F3 → F2 → F1. Reparte tus 100 puntos y elige bien tus equipos.</p>
-</div></header>
-<main class="wrap" id="app" aria-live="polite"></main>
+<header class="site-top"><div class="in"><a class="brand" href="../index.html"><img src="../logos/sportmania.svg" alt="">Sportmanía</a><nav aria-label="Juegos"><a href="../tenismania/index.html"><img src="../logos/tenismania.svg" alt="">TenisManía</a><a href="../fi-racer-career/index.html" aria-current="page"><img src="../logos/fi-racer.svg" alt="">FI Racer Career</a></nav></div></header>
+<div class="shell"><aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (160x600) -->Publicidad<br>160 × 600</div></aside><div class="center"><div class="gamehead"><img src="../logos/fi-racer.svg" alt=""><div><h1>FI Racer Career</h1><p>De la F3 a la F1 en ciclos de dos años: reparte tus puntos y elige equipo.</p></div></div><main class="wrap" id="app" aria-live="polite"></main></div><aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Segundo bloque lateral (160x600) -->Publicidad<br>160 × 600</div></aside></div><div class="ad-bottom" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (728x90 / adaptable) -->Publicidad · 728 × 90</div></div>
 <footer>Juego de ficción. Los equipos se representan con su color pero con un apodo propio; no hay vinculación con ninguna escudería ni competición. Los pilotos rivales son inventados.</footer>
 <script src="engine.js"></script>
 <script src="app.js"></script>

@@ -75,19 +75,19 @@
       '<label class="f" for="country">País</label><select id="country">' + opts + '</select>' +
       '<label class="f">Estatura: <span id="hval"></span></label><input id="height" type="range" min="165" max="210" step="1" value="' + form.height + '">' +
       '<div class="note">Más alto = más saque y alcance, pero menos movilidad. Más bajo = más velocidad y suelo.</div>' +
-      '<label class="f">Físico</label>' + segBtns('build', [[-1, 'Esbelto'], [0, 'Equilibrado'], [1, 'Fuerte']], form.build) +
+      '<label class="f">Físico</label>' + segBtns('build', [[-1, '🪶 Esbelto'], [0, '⚖️ Equilibrado'], [1, '💪 Fuerte']], form.build) +
       '<div class="note">Fuerte = más pegada y aguante. Esbelto = más agilidad y tacto.</div>' +
-      '<label class="f">Mano buena</label>' + segBtns('hand', [['D', 'Diestro'], ['Z', 'Zurdo']], form.hand) +
-      '<label class="f">Revés</label>' + segBtns('backhand', [[0, 'A dos manos'], [1, 'A una mano']], form.backhand) +
-      '<label class="f">Dificultad del circuito</label>' + segBtns('difficulty', [[-1, 'Fácil'], [0, 'Normal'], [1, 'Difícil'], [2, 'Leyenda']], form.difficulty) +
+      '<label class="f">Mano buena</label>' + segBtns('hand', [['D', '🫱 Diestro'], ['Z', '🫲 Zurdo']], form.hand) +
+      '<label class="f">Revés</label>' + segBtns('backhand', [[0, '🙌 A dos manos'], [1, '☝️ A una mano']], form.backhand) +
+      '<label class="f">Dificultad del circuito</label>' + segBtns('difficulty', [[-1, '🌱 Fácil'], [0, '🎾 Normal'], [1, '🔥 Difícil'], [2, '👑 Leyenda']], form.difficulty) +
       '</div><div class="card" id="preview">' + previewHTML() + '</div></div>' +
       '<button class="btn block" data-act="start" style="font-size:1.05rem">🎾 Empezar mi carrera (17 años)</button>' +
       '<div class="card" style="margin-top:16px"><h2>Cómo funciona</h2><ul style="margin:0;padding-left:20px;color:var(--mut)">' +
-      '<li>Cada temporada tiene <b>4 Grand Slams</b> y <b>9 Masters 1000</b>. Solo ellos dan puntos ATP.</li>' +
-      '<li>Tú eliges cuáles juegas. Cada partido gasta <b>energía</b>: con poco aguante rindes menos y te lesionas más.</li>' +
+      '<li>Cada paso son <b>2 temporadas</b> seguidas con los <b>4 Grand Slams</b> y los <b>9 Masters 1000</b>. Solo ellos dan puntos ATP.</li>' +
+      '<li>No eliges torneos: juegas los que te permita tu ranking. Cada partido gasta <b>energía</b>: con poco aguante rindes menos y te lesionas más.</li>' +
       '<li>El ranking suma los puntos de los últimos 12 meses: los de cada torneo caducan cuando vuelve a jugarse.</li>' +
       '<li>Con ranking bajo accedes por clasificación o invitaciones; en tu país juegas con ventaja de invitación.</li>' +
-      '<li>Entrenas dos atributos por temporada. Tu físico y tu país marcan en qué superficie brillas.</li></ul></div>';
+      '<li>Un clic en un atributo = foco de entrenamiento de 2 años. Tu físico y tu país marcan en qué superficie brillas.</li></ul></div>';
     document.getElementById('hval').textContent = form.height + ' cm · ' + T.heightWord(form.height);
   }
 
@@ -96,8 +96,7 @@
     if (!V || !V.ev) { V = { ev: T.drawRandomEvent(S), out: null }; save(); }
     const e = V.ev;
     $app.innerHTML = headerStats() + '<div class="card"><h2>🗞️ ' + esc(e.title) + '</h2><p>' + esc(e.text) + '</p>' +
-      (V.out ? '<div class="warnbox" style="margin:12px 0">' + esc(V.out) + '</div><button class="btn dark" data-act="toplan">Preparar la temporada</button>'
-        : '<div class="row">' + e.choices.map((c, i) => '<button class="btn sec" data-act="rchoice" data-i="' + i + '">' + esc(c.label) + '</button>').join('') + '</div>') + '</div>';
+      '<div class="choices">' + e.choices.map((c, i) => '<button class="choice" data-act="rchoice" data-i="' + i + '"><span class="ic2">' + c.icon + '</span><b>' + esc(c.label) + '</b></button>').join('') + '</div></div>';
   }
 
   /* ---------- cabecera compacta ---------- */
@@ -110,16 +109,18 @@
       '<div class="row"><span class="badge">Ranking #' + rank + '</span><span class="badge">' + pts + ' pts</span><button class="btn sec" data-act="menu" style="padding:6px 10px;font-size:.85rem">Menú</button></div></div></div>';
   }
 
-  /* ---------- pantalla: preparación de temporada (sin elegir torneos) ---------- */
+  /* ---------- pantalla: elegir foco (1 clic = 2 temporadas) ---------- */
+  const ICON = { saque: '🚀', derecha: '💥', reves: '🎯', volea: '🕸️', mov: '👟', aguante: '🫁', mental: '🧠' };
+  const HELP = { saque: 'Aces y puntos gratis', derecha: 'Pegada desde el fondo', reves: 'Solidez al otro lado', volea: 'Juego en la red', mov: 'Llegas a todas', aguante: 'Más torneos sin fundirte', mental: 'Ganas los puntos clave' };
   function renderPlan() {
-    const se = S.season, p = S.p;
-    const focusBtns = (slot) => '<div class="seg">' + STATS.map((k) => '<button type="button" data-act="focus" data-slot="' + slot + '" data-k="' + k + '" class="' + (se.focus[slot] === k ? 'on' : '') + '">' + STAT_NAMES[k] + '</button>').join('') + '</div>';
-    const canStart = se.focus[0] && se.focus[1] && se.focus[0] !== se.focus[1];
-    $app.innerHTML = headerStats() +
-      '<div class="grid2"><div class="card compact"><h2>Tus atributos</h2>' + bars(p.stats, 100) + (p.injPen > 0.5 ? '<p class="warnbox" style="margin-top:8px">Molestias: rindes ' + fmt1(p.injPen) + ' puntos menos.</p>' : '') + '</div>' +
-      '<div class="card compact"><h2>Entrenamiento</h2><label class="f">Foco principal</label>' + focusBtns(0) + '<label class="f">Foco secundario</label>' + focusBtns(1) +
-      '<p class="hint">La temporada incluye los 4 Grand Slams y los 9 Masters 1000 a los que te dé acceso tu ranking. Tu aguante marcará cómo llegas a cada torneo.</p></div></div>' +
-      '<button class="btn block" data-act="startseason"' + (canStart ? '' : ' disabled') + '>' + (canStart ? '▶ Simular la temporada' : 'Elige dos focos de entrenamiento distintos') + '</button>';
+    const p = S.p;
+    const banner = S.msg ? '<div class="warnbox" style="margin-bottom:10px">' + esc(S.msg) + '</div>' : '';
+    S.msg = null;
+    $app.innerHTML = headerStats() + banner +
+      '<div class="card compact"><h2>¿En qué trabajas estos 2 años?</h2><div class="choices four">' + STATS.map((k) =>
+        '<button class="choice" data-act="focus" data-k="' + k + '"><span class="ic2">' + ICON[k] + '</span><b>' + STAT_NAMES[k] + '</b><small>' + HELP[k] + '</small><span class="val">' + r0(p.stats[k]) + '</span></button>').join('') + '</div>' +
+      '<p class="hint">Se juegan 2 temporadas completas (4 Grand Slams + 9 Masters 1000 cada una). Además del foco que elijas, trabajarás tu punto más débil.' +
+      (p.injPen > 0.5 ? ' Arrastras molestias: rindes ' + fmt1(p.injPen) + ' puntos menos.' : '') + '</p></div>';
   }
 
   /* ---------- simulación de la temporada completa ---------- */
@@ -135,32 +136,46 @@
     save();
   }
 
-  /* ---------- pantalla: resultado de la temporada ---------- */
-  const SHORT = { ao: 'Australia', iw: 'Indian Wells', mi: 'Miami', mc: 'Montecarlo', ma: 'Madrid', ro: 'Roma', rg: 'Roland Garros', wi: 'Wimbledon', ca: 'Canadá', ci: 'Cincinnati', us: 'US Open', sh: 'Shanghái', pa: 'París' };
-  function chip(ev, i) {
-    const r = S.season.results.find((x) => x.i === i);
-    let t = '—', cls = 'off';
-    if (r && r.status === 'played') { t = r.champion ? '🏆 Campeón' : (r.res || 'Previa').replace(' de final', '').replace('Eliminado en la fase previa', 'Previa'); cls = r.champion ? 'win' : r.pts >= 360 ? 'good' : ''; }
-    else if (r && r.status === 'injured') { t = '🩹 Lesión'; }
-    else if (r && r.status === 'noaccess') { t = 'Sin acceso'; }
-    return '<div class="chip2 ' + cls + '"><span class="tag ' + (ev.type === 'GS' ? 'gs' : 'm') + '">' + (ev.type === 'GS' ? 'GS' : '1000') + '</span><b>' + SHORT[ev.id] + '</b><span>' + t + '</span>' + (r && r.pts ? '<small>' + r.pts + ' pts</small>' : '') + '</div>';
-  }
-  function renderSeasonEnd() {
-    const sum = S.hist[S.hist.length - 1];
-    const retireForced = S.p.age + 1 > 38;
-    const canRetire = sum.n >= 3;
-    $app.innerHTML = '<div class="card compact"><div class="row sp"><h2 style="margin:0">Temporada ' + sum.n + ' · ' + sum.age + ' años</h2>' +
-      '<div class="row"><span class="badge">Ranking #' + sum.rank + ' <small>(antes #' + sum.rank0 + ')</small></span><span class="badge">' + sum.pts + ' pts</span><span class="badge">' + sum.w + '-' + sum.l + '</span><span class="badge">🏆 ' + sum.titles + (sum.slams ? ' · ' + sum.slams + ' GS' : '') + '</span></div></div></div>' +
-      '<div class="card compact"><div class="evgrid">' + EVENTS.map(chip).join('') + '</div></div>' +
-      '<div class="card compact"><div class="growgrid">' + sum.growth.map((g) => {
-        const d = Math.round((g.to - g.from) * 10) / 10;
-        return '<div class="bar" style="grid-template-columns:78px 1fr 62px"><span>' + STAT_NAMES[g.k] + '</span><div class="track"><div class="fill" style="width:' + g.to + '%"></div></div><span class="num">' + r0(g.to) + ' <small class="' + (d >= 0 ? 'up' : 'down') + '">' + (d >= 0 ? '+' : '') + fmt1(d) + '</small></span></div>';
-      }).join('') + '</div></div>' +
-      '<div class="row">' + (retireForced ? '' : '<button class="btn" data-act="nextseason">Siguiente temporada (' + (S.p.age + 1) + ' años)</button>') +
-      (canRetire || retireForced ? '<button class="btn ' + (retireForced ? '' : 'sec') + '" data-act="retire">' + (retireForced ? 'Colgar la raqueta' : 'Retirarme ahora') + '</button>' : '') + '</div>';
+  function autoCycle(main) {
+    const weakest = STATS.filter((k) => k !== main).sort((x, y) => S.p.stats[x] - S.p.stats[y])[0];
+    S.season.focus = [main, weakest];
+    autoSeason();
+    T.newSeason(S, null, false);
+    S.season.focus = [main, weakest];
+    autoSeason();
   }
 
-/* ---------- pantalla: final ---------- */
+  /* ---------- pantalla: resultado de la temporada ---------- */
+  const SHORT = { ao: 'AO', iw: 'IW', mi: 'MIA', mc: 'MC', ma: 'MAD', ro: 'ROM', rg: 'RG', wi: 'WIM', ca: 'CAN', ci: 'CIN', us: 'USO', sh: 'SHA', pa: 'PAR' };
+  const RSHORT = { '1ª ronda': 'R1', '2ª ronda': 'R2', '3ª ronda': 'R3', 'Octavos': 'R16', 'Cuartos': 'QF', 'Semifinales': 'SF', 'Finalista': 'F' };
+  function chip(ev, i, results) {
+    const r = results.find((x) => x.i === i);
+    let t = '—', cls = 'off';
+    if (r && r.status === 'played') {
+      const rs = (r.res || 'Previa').replace(' de final', '').replace('Eliminado en la fase previa', 'Previa');
+      t = r.champion ? '🏆' : (RSHORT[rs] || rs); cls = r.champion ? 'win' : r.pts >= 360 ? 'good' : '';
+    } else if (r && r.status === 'injured') t = '🩹';
+    else if (r && r.status === 'noaccess') t = '✕';
+    return '<div class="chip2 ' + cls + (ev.type === 'GS' ? ' gsb' : '') + '" title="' + esc(ev.n) + (r && r.pts ? ' · ' + r.pts + ' pts' : '') + '"><b>' + SHORT[ev.id] + '</b><span>' + t + '</span></div>';
+  }
+  function renderSeasonEnd() {
+    const hs = S.hist.slice(-2);
+    const first = hs[0], last = hs[hs.length - 1];
+    const retireForced = S.p.age + 1 > 36;
+    const canRetire = last.n >= 4;
+    const line = (h) => '<div class="card compact" style="margin:0"><div class="row sp"><b>Temporada ' + h.n + ' · ' + h.age + ' años</b><div class="row"><span class="badge">#' + h.rank + '</span><span class="badge">' + h.pts + ' pts</span><span class="badge">' + h.w + '-' + h.l + '</span><span class="badge">🏆 ' + h.titles + (h.slams ? ' · ' + h.slams + ' GS' : '') + '</span></div></div>' +
+      '<div class="evgrid" style="margin-top:8px">' + EVENTS.map((ev, i) => chip(ev, i, h.results)).join('') + '</div></div>';
+    $app.innerHTML = '<div class="grid2" style="margin-bottom:10px">' + hs.map(line).join('') + '</div>' +
+      '<div class="card compact"><div class="growgrid">' + STATS.map((k) => {
+        const from = first.growth.find((g) => g.k === k).from, to = last.growth.find((g) => g.k === k).to;
+        const d = Math.round((to - from) * 10) / 10;
+        return '<div class="bar" style="grid-template-columns:96px 1fr 62px"><span>' + ICON[k] + ' ' + STAT_NAMES[k] + '</span><div class="track"><div class="fill" style="width:' + to + '%"></div></div><span class="num">' + r0(to) + ' <small class="' + (d >= 0 ? 'up' : 'down') + '">' + (d >= 0 ? '+' : '') + fmt1(d) + '</small></span></div>';
+      }).join('') + '</div></div>' +
+      '<div class="row">' + (retireForced ? '' : '<button class="btn" data-act="nextseason">▶️ Seguir (' + (S.p.age + 1) + ' años)</button>') +
+      (canRetire || retireForced ? '<button class="btn ' + (retireForced ? '' : 'sec') + '" data-act="retire">🏁 ' + (retireForced ? 'Colgar la raqueta' : 'Retirarme') + '</button>' : '') + '</div>';
+  }
+
+  /* ---------- pantalla: final ---------- */
   function rankChart() {
     const h = S.hist;
     if (h.length < 2) return '';
@@ -242,18 +257,12 @@
     } else if (a === 'continue') {
       S = load(); V = null; if (S && S.phase === 'random') V = null; render(); top();
     } else if (a === 'focus') {
-      const slot = Number(b.dataset.slot), k = b.dataset.k, f = S.season.focus;
-      f[slot] = k; if (slot === 0 && f[1] === k) f[1] = undefined; if (slot === 1 && f[0] === k) f[0] = undefined;
-      save(); renderPlan();
-    } else if (a === 'startseason') {
-      V = null; autoSeason(); render(); top();
+      V = null; autoCycle(b.dataset.k); save(); render(); top();
     } else if (a === 'rchoice') {
       const c = V.ev.choices[Number(b.dataset.i)];
-      V.out = c.run(S, Math.random); save(); render();
-    } else if (a === 'toplan') {
-      S.phase = 'plan'; V = null; save(); render(); top();
+      S.msg = c.run(S, Math.random); S.phase = 'plan'; V = null; save(); render(); top();
     }
-    else if (a === 'nextseason') { T.newSeason(S, null, false); V = null; save(); render(); top(); }
+    else if (a === 'nextseason') { T.newSeason(S, null, false); if (Math.random() < 0.5) S.phase = 'plan'; V = null; save(); render(); top(); }
     else if (a === 'retire') { V = null; S.phase = 'final'; if (S.season.results.length && S.phase !== 'season_end' && !S.hist.some((h) => h.n === S.season.n)) { try { T.closeSeason(S); } catch (err) { /* ignore */ } S.phase = 'final'; } save(); render(); top(); }
     else if (a === 'newgame') { if (confirm('¿Empezar una carrera nueva? Perderás la actual.')) { clearSave(); S = null; V = null; render(); top(); } }
     else if (a === 'menu') { V = Object.assign({}, V || {}, { menu: true }); render(); }

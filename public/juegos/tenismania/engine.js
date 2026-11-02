@@ -596,6 +596,7 @@
       n: se.n, age: p.age, rank, rank0: se.rank0, pts: pointsAt(S, se.n, EVENTS.length - 1, 'post'),
       w: se.w, l: se.l, titles: se.titles, slams: se.slams, played: se.results.filter((r) => r.status === 'played').length,
       growth: STATS.map((k) => ({ k, from: before[k], to: p.stats[k] })),
+      results: se.results.slice(),
     };
     if (se.w > S.career.bestSeasonW) S.career.bestSeasonW = se.w;
     S.hist.push(summary);
@@ -673,6 +674,8 @@
       ],
     },
   ];
+  const REV_ICONS = { coach: ['🧑‍🏫', '👥'], racket: ['🎾', '🔒'], nutri: ['🫁', '⚡'], davis: ['🏆', '🛋️'], sponsor: ['✍️', '🎯'], muscle: ['⏸️', '💪'], rival: ['🔥', '🧘'], academy: ['🕸️', '🚀'] };
+  RANDOM_EVENTS.forEach((ev) => ev.choices.forEach((c, i) => { c.icon = (REV_ICONS[ev.id] || [])[i] || '➡️'; }));
   function drawRandomEvent(S, R) {
     R = R || Math.random;
     const pool = RANDOM_EVENTS.filter((e) => e.id !== S.lastRandom);

@@ -294,7 +294,7 @@
     S.pending = gain;
     info.gain = gain;
     S.team = null;
-    S.phase = S.p.age > 40 ? 'final' : (gain > 0 ? 'alloc' : 'team');
+    S.phase = S.p.age > 40 ? 'final' : 'team';
     return info;
   }
 

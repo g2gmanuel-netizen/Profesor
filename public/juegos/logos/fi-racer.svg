@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo de FI Racer Career: una F y un 1 en forma de I">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef4b3d"/><stop offset="1" stop-color="#a81810"/></linearGradient></defs>
+<rect width="64" height="64" rx="14" fill="url(#bg)"/>
+<g transform="skewX(-10) translate(7 0)" fill="#fff">
+<path d="M12 14h22v7H20v7h12v7H20v15h-8z"/>
+<path d="M41 14h8v36h-8V25l-6 4v-8z"/>
+</g>
+<path d="M6 54h52" stroke="#fff" stroke-width="2" stroke-dasharray="4 3" opacity=".7"/>
+<path d="M44 8h14M48 4h10" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+</svg>

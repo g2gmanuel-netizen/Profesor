@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sportmanía · Juegos de carrera deportiva</title>
+<meta name="description" content="Dos simuladores de carrera para jugar en el navegador: TenisManía (Grand Slams y Masters 1000) y FI Racer Career (de la F3 a la F1).">
+<meta name="theme-color" content="#0f1a14">
+<link rel="icon" type="image/svg+xml" href="logos/sportmania.svg">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--bg:#f3f6f1;--card:#fff;--ink:#15221b;--mut:#5d6b62;--line:#dde6dc;--ball:#d7e34a;--ballink:#2b3300;--court:#1f6f4a;--red:#d62b1f;--shadow:0 1px 2px rgba(10,30,20,.08),0 8px 24px rgba(10,30,20,.07)}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16211b;--ink:#e9f1ea;--mut:#98a89d;--line:#25332b;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.site-top .brand{font-size:1.25rem}
+.hero{max-width:900px;margin:0 auto;padding:18px 16px 8px;text-align:center}
+.hero h1{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;margin:0 0 8px}
+.hero p{margin:0 auto;max-width:560px;color:var(--mut)}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:900px;margin:18px auto;padding:0 16px}
+@media(max-width:700px){.games{grid-template-columns:1fr}}
+.game{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.game:hover{transform:translateY(-3px)}
+.game img{width:96px;height:96px;display:block}
+.game h2{margin:0;font-size:1.5rem;line-height:1.1}
+.game p{margin:0;color:var(--mut);font-size:.95rem}
+.game ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.game li{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--bg)}
+.play{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;border-radius:12px;padding:12px 20px;font-weight:800;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.g-t .play{background:var(--ball);color:var(--ballink)}
+.g-t:hover{border-color:#2f9467}
+.g-f .play{background:var(--red);color:#fff}
+.g-f:hover{border-color:var(--red)}
+.how{max-width:900px;margin:0 auto 24px;padding:0 16px;color:var(--mut);font-size:.9rem;text-align:center}
+footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px}
+</style>
+</head>
+<body>
+<header class="site-top"><div class="in"><a class="brand" href="index.html"><img src="logos/sportmania.svg" alt="">Sportmanía</a>
+<nav aria-label="Juegos"><a href="tenismania/index.html"><img src="logos/tenismania.svg" alt="">TenisManía</a><a href="fi-racer-career/index.html"><img src="logos/fi-racer.svg" alt="">FI Racer Career</a></nav></div></header>
+<div class="shell">
+<aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (160x600) -->Publicidad<br>160 × 600</div></aside>
+<main class="center">
+  <section class="hero"><h1>Elige tu carrera</h1><p>Crea a tu deportista, toma decisiones cada dos años y llega a lo más alto. Cada partida dura unos minutos.</p></section>
+  <section class="games" aria-label="Juegos disponibles">
+    <a class="game g-t" href="tenismania/index.html">
+      <img src="logos/tenismania.svg" alt="Logo de TenisManía">
+      <h2>TenisManía</h2>
+      <p>Elige país, estatura, físico y mano. Juega los 4 Grand Slams y los 9 Masters 1000, cuida tu aguante y sube al nº1 del ranking.</p>
+      <ul><li>🎾 17-36 años</li><li>🏆 Ranking ATP</li><li>⏱️ ~5 min</li></ul>
+      <span class="play">▶ Jugar</span>
+    </a>
+    <a class="game g-f" href="fi-racer-career/index.html">
+      <img src="logos/fi-racer.svg" alt="Logo de FI Racer Career">
+      <h2>FI Racer Career</h2>
+      <p>Reparte 100 puntos entre defensa, ataque, neumáticos y clasificación. Ficha por equipos y asciende de la F3 a la F1 cada dos años.</p>
+      <ul><li>🏎️ 14-40 años</li><li>🏁 F3 → F2 → F1</li><li>⏱️ ~5 min</li></ul>
+      <span class="play">▶ Jugar</span>
+    </a>
+  </section>
+  <p class="how">Tu partida se guarda en tu navegador. Juegos de ficción; los equipos usan apodos propios.</p>
+</main>
+<aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Segundo bloque lateral (160x600) -->Publicidad<br>160 × 600</div></aside>
+</div>
+<div class="ad-bottom" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (728x90 / adaptable) -->Publicidad · 728 × 90</div></div>
+<footer>© Sportmanía · Juegos de ficción con fines de entretenimiento.</footer>
+</body>
+</html>

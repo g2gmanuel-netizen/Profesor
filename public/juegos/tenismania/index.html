@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simulador de carrera de tenis · Grand Slams y Masters 1000</title>
+<title>TenisManía · Simulador de carrera de tenis</title>
 <meta name="description" content="Crea tu tenista, elige país, estatura, físico y mano, decide qué Grand Slams y Masters 1000 juegas y gestiona tu aguante para llegar a nº1 del ranking ATP.">
 <meta name="theme-color" content="#1f6f4a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23d7e34a'/%3E%3Cpath d='M14 28c24 8 24 36 0 44M86 28c-24 8-24 36 0 44' fill='none' stroke='%23fff' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="../logos/tenismania.svg">
+<link rel="stylesheet" href="../shared.css">
 <style>
 :root{
   --bg:#f3f6f1; --card:#ffffff; --ink:#15221b; --mut:#5d6b62; --line:#dde6dc;
@@ -103,9 +104,9 @@ input[type=range]{width:100%;accent-color:var(--court2)}
 .card.compact{padding:12px 14px;margin-bottom:10px}
 .card.compact h2{font-size:1rem;margin:0 0 8px}
 .badge{display:inline-flex;gap:4px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:3px 10px;font-size:.84rem;font-weight:700}
-.evgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:6px}
-.chip2{display:grid;gap:1px;border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:.78rem;background:var(--bg);line-height:1.25}
-.chip2 b{font-size:.82rem}.chip2 small{color:var(--mut)}
+.evgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:5px}
+.chip2{display:flex;justify-content:space-between;gap:6px;border:1px solid var(--line);border-radius:8px;padding:4px 7px;font-size:.78rem;background:var(--bg)}
+.chip2 b{font-size:.76rem;color:var(--mut)}.chip2.gsb b{color:#b8860b}.chip2 span{font-weight:700}
 .chip2.good{border-color:var(--court2)}.chip2.win{border-color:#b8860b;background:color-mix(in srgb,#b8860b 16%,var(--card))}
 .chip2.off{opacity:.6}
 .growgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
@@ -115,17 +116,21 @@ header.top h1{font-size:1.15rem}header.top p{margin:2px 0 0;font-size:.85rem}
 .bars{gap:4px}.bar{font-size:.82rem}.track{height:7px}
 .seg button{padding:6px 11px;font-size:.84rem}
 label.f{margin:8px 0 4px}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.choices.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:640px){.choices.four{grid-template-columns:repeat(2,1fr)}}
+.choice{position:relative;display:grid;gap:2px;justify-items:center;text-align:center;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:12px 8px;font:inherit;cursor:pointer;transition:transform .12s,border-color .12s}
+.choice:hover{border-color:var(--court2);transform:translateY(-2px)}
+.choice .ic2{font-size:1.9rem;line-height:1.1}.choice small{color:var(--mut);font-size:.76rem;line-height:1.2}
+.choice .val{position:absolute;top:6px;right:8px;font-weight:800;font-size:.8rem;color:var(--court)}
 footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px}
 svg text{fill:var(--mut);font-size:11px}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <h1><span class="ball"></span> Simulador de carrera de tenis</h1>
-  <p>Solo cuentan los 4 Grand Slams y los 9 Masters 1000. Tú decides dónde juegas… y cuánto aguantas.</p>
-</div></header>
-<main class="wrap" id="app" aria-live="polite"></main>
-<footer>Juego de ficción con fines de entretenimiento. Los rivales de cada torneo son inventados; los jugadores citados como referencia son personajes reales retirados o en activo.</footer>
+<header class="site-top"><div class="in"><a class="brand" href="../index.html"><img src="../logos/sportmania.svg" alt="">Sportmanía</a><nav aria-label="Juegos"><a href="../tenismania/index.html" aria-current="page"><img src="../logos/tenismania.svg" alt="">TenisManía</a><a href="../fi-racer-career/index.html"><img src="../logos/fi-racer.svg" alt="">FI Racer Career</a></nav></div></header>
+<div class="shell"><aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (160x600) -->Publicidad<br>160 × 600</div></aside><div class="center"><div class="gamehead"><img src="../logos/tenismania.svg" alt=""><div><h1>TenisManía</h1><p>Carrera de tenista: Grand Slams y Masters 1000, de los 17 a los 36 años.</p></div></div><main class="wrap" id="app" aria-live="polite"></main></div><aside class="ad" aria-label="Publicidad"><div class="slot"><!-- Segundo bloque lateral (160x600) -->Publicidad<br>160 × 600</div></aside></div><div class="ad-bottom" aria-label="Publicidad"><div class="slot"><!-- Pega aquí el bloque de AdSense (728x90 / adaptable) -->Publicidad · 728 × 90</div></div>
+<footer>© Sportmanía · Juego de ficción con fines de entretenimiento. Los rivales de cada torneo son inventados; los jugadores citados como referencia son personajes reales retirados o en activo.</footer>
 <script src="engine.js"></script>
 <script src="app.js"></script>
 </body>

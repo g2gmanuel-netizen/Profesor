@@ -14,14 +14,14 @@
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* */ } };
   const load = () => { try { const j = localStorage.getItem(KEY); return j ? JSON.parse(j) : null; } catch (e) { return null; } };
   const top = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const SICON = { def: '🛡️', att: '⚔️', tyre: '🛞', quali: '⏱️' };
   const posTxt = (p) => (p ? 'P' + p : 'DNF');
 
   function allocHTML(vals, left, cap) {
     const c = COUNTRIES[S ? S.p.country : form.country];
-    return STATS.map((k) => '<div class="alloc"><div><b>' + STAT_NAMES[k] + '</b><div class="note">' + STAT_HELP[k] + '</div>' +
-      '<div class="track"><div class="fill" style="width:' + Math.min(100, vals[k]) + '%"></div></div>' +
-      (c.bonus[k] ? '<div class="note">Bonus de ' + esc(c.n) + ': +' + c.bonus[k] + '</div>' : '') + '</div>' +
-      '<div class="ctl"><button data-act="dec" data-k="' + k + '" aria-label="Quitar">−</button><b>' + vals[k] + '</b><button data-act="inc" data-k="' + k + '" aria-label="Añadir"' + (left <= 0 || vals[k] >= cap ? ' disabled' : '') + '>+</button></div></div>').join('');
+    return STATS.map((k) => '<div class="alloc"><div><b>' + SICON[k] + ' ' + STAT_NAMES[k] + '</b><div class="note">' + STAT_HELP[k] + (c.bonus[k] ? ' · Bonus ' + esc(c.n) + ' +' + c.bonus[k] : '') + '</div>' +
+      '<div class="track"><div class="fill" style="width:' + Math.min(100, vals[k]) + '%"></div></div></div>' +
+      '<div class="ctl"><button data-act="dec" data-k="' + k + '" data-n="5" aria-label="Quitar 5">−5</button><button data-act="dec" data-k="' + k + '" data-n="1" aria-label="Quitar 1">−</button><b>' + vals[k] + '</b><button data-act="inc" data-k="' + k + '" data-n="1" aria-label="Añadir 1"' + (left <= 0 || vals[k] >= cap ? ' disabled' : '') + '>+</button><button data-act="inc" data-k="' + k + '" data-n="5" aria-label="Añadir 5"' + (left <= 0 || vals[k] >= cap ? ' disabled' : '') + '>+5</button></div></div>').join('');
   }
   const sum = (o) => STATS.reduce((a, k) => a + o[k], 0);
 
@@ -56,26 +56,35 @@
       '<div style="margin-top:10px" class="note">Reputación <b>' + r0(S.rep) + '</b>/100 · Trofeos: 🏆 ' + (S.career.titles.F3 + S.career.titles.F2 + S.career.titles.F1) + ' · 🥇 ' + S.career.wins + ' · 🏅 ' + S.career.podiums + '</div></div>';
   }
 
-  /* ---------- reparto de experiencia ---------- */
-  function renderAlloc() {
+  /* ---------- reparto de experiencia (dentro de la pantalla de equipo) ---------- */
+  function autoSpend(d, mode) {
+    let n = 0;
+    while (d.left > 0 && n++ < 500) {
+      const ks = STATS.filter((k) => d.vals[k] < 100).sort((x, y) => mode === 'low' ? d.vals[x] - d.vals[y] : d.vals[y] - d.vals[x]);
+      if (!ks.length) break;
+      d.vals[ks[0]]++; d.left--;
+    }
+  }
+  function allocPanel() {
+    if (!S.pending) return '';
     if (!draft) draft = { vals: Object.assign({}, S.p.stats), left: S.pending };
-    $app.innerHTML = header() + '<div class="card"><h2>Experiencia acumulada</h2>' +
-      '<p class="note" style="margin-top:-6px">Ahora tienes <b>' + S.p.age + ' años</b>. Reparte <span class="left">' + draft.left + '</span> puntos nuevos (máx. 100 por categoría).</p>' +
-      (S.hist.length && S.hist[S.hist.length - 1].decline ? '<div class="warnbox" style="margin-bottom:10px">Con la edad has perdido ' + S.hist[S.hist.length - 1].decline + ' puntos de facultades.</div>' : '') +
-      '<div id="alloc">' + allocHTML(draft.vals, draft.left, 100) + '</div></div>' +
-      '<button class="btn block" data-act="confirmalloc"' + (draft.left === 0 || STATS.every((k) => draft.vals[k] >= 100) ? '' : ' disabled') + '>Confirmar y elegir equipo</button>';
+    const lastH = S.hist[S.hist.length - 1];
+    return '<div class="card compact"><div class="row sp"><h2 style="margin:0">⚙️ Experiencia: <span class="left">' + draft.left + '</span> puntos</h2>' +
+      '<div class="row"><button class="btn sec" data-act="auto" data-m="low" style="padding:6px 10px;font-size:.85rem">⚖️ Equilibrar</button><button class="btn sec" data-act="auto" data-m="high" style="padding:6px 10px;font-size:.85rem">🎯 Potenciar fuertes</button></div></div>' +
+      (lastH && lastH.decline ? '<div class="warnbox" style="margin:8px 0">Con la edad has perdido ' + lastH.decline + ' puntos de facultades.</div>' : '') +
+      '<div id="alloc">' + allocHTML(draft.vals, draft.left, 100) + '</div><p class="hint">Si no repartes todo, los puntos que queden se asignan solos al elegir equipo.</p></div>';
   }
 
   /* ---------- equipos ---------- */
   function renderTeam() {
     const offers = F.offers(S);
     const nextTxt = S.cat === 'F1' ? 'Objetivo: títulos mundiales.' : 'Para subir a ' + CAT_NAMES[F.CATS[F.CATS.indexOf(S.cat) + 1]] + ' necesitas ' + Math.max(8, F.NEED[S.cat] - COUNTRIES[S.p.country].sponsor * 2) + ' puntos de trofeo (victoria = 1,5; podio = 1; pole = 0,5; título = 8) o ser campeón.';
-    $app.innerHTML = header() + '<div class="card"><h2>Elige equipo · ' + CAT_NAMES[S.cat] + '</h2><p class="note" style="margin-top:-6px">Años ' + S.p.age + '-' + (S.p.age + 1) + '. ' + nextTxt + '</p>' +
+    $app.innerHTML = header() + allocPanel() + '<div class="card"><h2>🏎️ Elige equipo · ' + CAT_NAMES[S.cat] + '</h2><p class="note" style="margin-top:-6px">Años ' + S.p.age + '-' + (S.p.age + 1) + '. ' + nextTxt + '</p>' +
       offers.map((o, i) => {
         const t = o.team;
         const bs = F.STATS.map((k) => t.bias[k] ? '<span class="pill ' + (t.bias[k] > 0 ? 'p' : 'n') + '">' + STAT_SHORT[k] + ' ' + (t.bias[k] > 0 ? '+' : '') + t.bias[k] + '</span>' : '').join('');
         return '<button class="team' + (o.locked ? ' locked' : '') + '" data-act="team" data-i="' + i + '"' + (o.locked ? ' disabled' : '') + '>' +
-          '<span class="stripe" style="background:' + t.color + '"></span><span class="tn">' + esc(t.nick) + (o.aff ? ' ⭐' : '') + '</span>' +
+          '<span class="stripe" style="background:' + t.color + '"></span><span class="tn">🏎️ ' + esc(t.nick) + (o.aff ? ' ⭐' : '') + '</span>' +
           '<span class="lock">' + (o.locked ? '🔒 Reputación ' + o.need + '<br><span class="note">(tienes ' + r0(S.rep) + ')</span>' : '<span class="badge" style="background:' + t.color + ';color:' + t.text + '">Coche ' + t.car + '</span>') + '</span>' +
           '<span class="meta">' + esc(t.desc) + (o.aff ? ' · Afín a tu nacionalidad' : '') + '</span><span class="bs">' + bs + '</span></button>';
       }).join('') + '<p class="hint">⭐ equipo afín a tu país (exige menos reputación). Los coches varían un poco cada temporada.</p></div>';
@@ -99,7 +108,7 @@
       '<div class="row"><span class="badge">Trofeos: ' + h.score + (h.need ? ' / ' + h.need : '') + '</span><span class="trophies">' + (stars || '—') + '</span></div></div></div>' +
       '<div class="grid2" style="margin-bottom:10px">' + miniSeason(two[0], 'Año ' + h.age) + miniSeason(two[1], 'Año ' + (h.age + 1)) + '</div>' +
       '<div class="' + (h.promoted ? 'okbox' : 'warnbox') + '" style="margin-bottom:10px">' + (h.promoted ? '⬆️ ' : '') + esc(h.note) + (h.gain ? ' Ganas ' + h.gain + ' puntos de experiencia en total (máx. ' + (two[0].xpMax + two[1].xpMax) + ').' : '') + '</div>' +
-      '<button class="btn block" data-act="after">' + (S.nextPhase === 'final' ? 'Colgar el casco' : 'Continuar (' + S.p.age + ' años)') + '</button>';
+      '<button class="btn block" data-act="after">' + (S.nextPhase === 'final' ? '🏁 Colgar el casco' : '▶️ Continuar (' + S.p.age + ' años)') + '</button>';
   }
 
   /* ---------- final ---------- */
@@ -124,7 +133,7 @@
     if (!S) return renderCreate();
     if (menuOpen) { $app.innerHTML = '<div class="card"><h2>Menú</h2><div class="row"><button class="btn" data-act="back">Volver</button><button class="btn sec" data-act="retire">Retirarme ahora</button><button class="btn sec" data-act="newgame">Empezar de nuevo</button></div></div>'; return; }
     switch (S.phase) {
-      case 'alloc': return renderAlloc();
+      case 'alloc': S.phase = 'team'; return renderTeam();
       case 'team': return renderTeam();
       case 'results': S.phase = 'team'; return renderTeam();
       case 'block_end': return renderBlockEnd();
@@ -138,11 +147,22 @@
     if (!b || b.disabled) return;
     const a = b.dataset.act, k = b.dataset.k;
     if (a === 'inc' || a === 'dec') {
-      const cap = S ? 100 : 60, d = S ? draft : null;
-      const vals = d ? d.vals : form.alloc, base = S ? S.p.stats : null;
-      if (a === 'inc') { if ((d ? d.left : 100 - sum(vals)) > 0 && vals[k] < cap) { vals[k]++; if (d) d.left--; } }
-      else if (vals[k] > (base ? base[k] : 0)) { vals[k]--; if (d) d.left++; }
-      S ? renderAlloc() : renderCreate();
+      const n = Number(b.dataset.n || 1);
+      if (S) {
+        const d = draft;
+        for (let q = 0; q < n; q++) {
+          if (a === 'inc') { if (d.left > 0 && d.vals[k] < 100) { d.vals[k]++; d.left--; } }
+          else if (d.vals[k] > S.p.stats[k]) { d.vals[k]--; d.left++; }
+        }
+        renderTeam();
+      } else {
+        for (let q = 0; q < n; q++) {
+          if (a === 'inc') { if (100 - sum(form.alloc) > 0 && form.alloc[k] < 60) form.alloc[k]++; }
+          else if (form.alloc[k] > 0) form.alloc[k]--;
+        }
+        renderCreate();
+      }
+    } else if (a === 'auto') { autoSpend(draft, b.dataset.m); renderTeam();
     } else if (a === 'start') {
       form.name = document.getElementById('name').value;
       S = F.newGame(form); draft = null; save(); render(); top();
@@ -150,6 +170,7 @@
     else if (a === 'confirmalloc') { STATS.forEach((x) => { S.p.stats[x] = draft.vals[x]; }); S.pending = 0; draft = null; S.phase = 'team'; save(); render(); top(); }
     else if (a === 'team') {
       const o = F.offers(S)[Number(b.dataset.i)];
+      if (draft) { autoSpend(draft, 'high'); STATS.forEach((x) => { S.p.stats[x] = draft.vals[x]; }); S.pending = 0; draft = null; }
       S.team = o.team; F.simSeason(S); F.simSeason(S); F.finishBlock(S); S.nextPhase = S.phase; S.phase = 'block_end'; save(); render(); top();
     }
     else if (a === 'after') { S.phase = S.nextPhase; S.nextPhase = null; draft = null; save(); render(); top(); }
