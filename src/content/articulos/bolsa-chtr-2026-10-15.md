@@ -3,6 +3,7 @@ titulo: "Charter (CHTR): el gigante del cable que ha caído un 60% en un año y 
 subtitulo: "Charter cotiza a 106,95 USD, cerca de mínimos, con un PER que no llega a 3 y 106.000 millones de deuda. Analizamos a fondo el negocio, la fusión con Cox, la deuda y los escenarios."
 tituloSeo: "Charter (CHTR): análisis a fondo tras la fusión con Cox"
 descripcion: "Análisis exhaustivo de Charter Communications (CHTR): banda ancha, Cox, deuda, flujo de caja, analistas, escenarios y rango de entrada divulgativo."
+borrador: true
 categoria: bolsa
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-15

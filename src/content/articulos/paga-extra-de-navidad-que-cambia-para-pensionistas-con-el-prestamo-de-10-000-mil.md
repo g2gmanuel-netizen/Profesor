@@ -8,6 +8,7 @@ tituloSeo: Préstamo de 10.000 millones para pensiones y paga extra
 descripcion: "La operación se plantea sin afectar al presupuesto ordinario. Si
   cobras una pensión, no tienes que hacer ningún trámite: te explicamos qué
   significa para ti."
+borrador: true
 categoria: pensiones
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-30

@@ -8,6 +8,7 @@ tituloSeo: "Ayuda al alquiler 2026-2030: dónde pedirla y qué preparar"
 descripcion: El plan es estatal, pero las solicitudes las gestiona tu comunidad
   autónoma. Qué mirar en la convocatoria y qué documentos tener listos antes de
   que se abra el…
+borrador: true
 categoria: vivienda
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-16

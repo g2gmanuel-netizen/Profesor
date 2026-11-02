@@ -8,6 +8,7 @@ tituloSeo: "Alquiler: hasta 133 personas por piso y cómo destacar"
 descripcion: "La cifra es un máximo, no una media: describe un mercado con mucha
   más demanda que oferta y explica qué documentos, mensajes y rapidez ayudan a
   que el…"
+borrador: true
 categoria: vivienda
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-24

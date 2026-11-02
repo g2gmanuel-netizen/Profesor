@@ -16,3 +16,6 @@ Calidad antes que volumen: es preferible aprobar menos.
 **No repitas noticias.** Recibirás la lista **YA PUBLICADO EN LA WEB**: descarta cualquier candidato que cuente la misma noticia o el mismo dato aunque cambie el titular, el enfoque o la fuente, y no aceptes dos candidatos sobre la misma noticia en la misma edición.
 
 Devuelve JSON: `{ "aprobados": [ { ...candidato, "puntuacion", "viralidad", "categoria", "enfoque", "anguloUtilidad", "riesgo" } ] }`.
+
+## Listón de calidad (obligatorio)
+AdSense rechazó la web por «contenido de poco valor». Aprueba solo temas en los que podamos aportar algo que no esté ya en la noticia original: datos oficiales (BOE, Seguridad Social, Hacienda, INE, Banco de España…), cálculos con ejemplos o pasos concretos para el lector. Descarta los temas que solo serían resumir lo que cuenta otro medio, los anuncios sin texto oficial todavía, las promesas de partidos y las noticias sin relación con el bolsillo del lector. Es mejor publicar 1 artículo excelente que 4 flojos; si nada cumple, no apruebes ninguno.

@@ -8,6 +8,7 @@ tituloSeo: "PP y 29-N: impuestos, pensiones y vivienda en tu bolsillo"
 descripcion: Feijóo plantea de cara al 29-N bajar impuestos, revalorizar
   pensiones y construir vivienda. Qué preguntas hacerle a cada promesa para
   saber si tocaría tu bolsillo.
+borrador: true
 categoria: politica
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-20

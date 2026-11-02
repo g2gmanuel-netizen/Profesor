@@ -8,6 +8,7 @@ tituloSeo: "Alquiler en España: 13 puntos más de impuestos que la UE"
 descripcion: Con los mismos ingresos brutos por tu vivienda, tu rendimiento neto
   tiende a ser menor aquí que en la media europea. Te explicamos qué significa
   para tu bolsillo…
+borrador: true
 categoria: alquiler
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-05

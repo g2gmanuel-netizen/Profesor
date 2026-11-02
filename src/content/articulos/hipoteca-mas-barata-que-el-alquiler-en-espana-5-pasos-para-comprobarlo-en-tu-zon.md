@@ -8,6 +8,7 @@ tituloSeo: "Hipoteca o alquiler: cuál sale más barato al mes ahora"
 descripcion: "Según economistas, pagar la cuota de una hipoteca cuesta ya menos
   al mes que un alquiler en el conjunto del país, pero la media no es tu barrio:
   cinco pasos para…"
+borrador: true
 categoria: vivienda
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-30

@@ -48,8 +48,8 @@ export const CONFIG = {
   modeloRapido: str('MODELO_RAPIDO', 'claude-haiku-4-5'),
   presupuestoDiarioUsd: num('PRESUPUESTO_DIARIO_USD', 2),
   revisionHumana: str('REVISION_HUMANA', 'true') !== 'false',
-  articulosMinDia: num('ARTICULOS_MIN_DIA', 2),
-  articulosMaxDia: num('ARTICULOS_MAX_DIA', 4),
+  articulosMinDia: num('ARTICULOS_MIN_DIA', 1),
+  articulosMaxDia: num('ARTICULOS_MAX_DIA', 2),
   autor: str('AUTOR_FIRMA', 'Daniel Arcos'),
 } as const;
 

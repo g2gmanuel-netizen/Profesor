@@ -8,6 +8,7 @@ tituloSeo: "Reforma de pensiones: 3 preguntas para evaluar propuestas"
 descripcion: "Una comparativa internacional sobre cómo sostienen otros países
   sus pensiones públicas sirve para entender las palancas de cualquier reforma:
   edad de jubilación,…"
+borrador: true
 categoria: pensiones
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-26

@@ -6,6 +6,7 @@ subtitulo: Si alquilas, estás en riesgo de desahucio o ibas a comprar con ayuda
 tituloSeo: "Congreso tumba los decretos de vivienda: qué cae"
 descripcion: Si alquilas, estás en riesgo de desahucio o ibas a comprar con
   ayuda, esto es lo que cambia para ti y los pasos que puedes dar ahora.
+borrador: true
 categoria: vivienda
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-05

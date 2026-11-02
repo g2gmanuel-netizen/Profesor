@@ -4,8 +4,7 @@ name: Bolsa semanal
 # emergente (rota el sector cada semana). Datos reales de Yahoo Finance.
 # Los crons van en UTC. 06:07 UTC del lunes ≈ 08:07 hora de Madrid en verano.
 on:
-  schedule:
-    - cron: '7 6 * * 1'
+  # Desactivado (02-11-2026): análisis de acciones = contenido de poco valor para AdSense.
   workflow_dispatch:
 
 permissions:

@@ -7,6 +7,7 @@ tituloSeo: "Convenio especial para cuidadores: cotizar sin pagar cuotas"
 descripcion: Un convenio especial busca que los años de cuidados no dejen huecos
   en tu historial ni afecten a tus futuras prestaciones. Te explicamos qué es y
   dónde consultar…
+borrador: true
 categoria: ahorro
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-20

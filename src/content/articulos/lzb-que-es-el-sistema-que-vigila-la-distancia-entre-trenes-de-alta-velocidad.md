@@ -7,6 +7,7 @@ tituloSeo: "LZB: qué es y cómo protege a los trenes de alta velocidad"
 descripcion: El sistema supervisa la velocidad y la distancia entre trenes.
   Vuelve al debate tras el accidente de Urda, aunque las causas las fijarán las
   investigaciones…
+borrador: true
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-29

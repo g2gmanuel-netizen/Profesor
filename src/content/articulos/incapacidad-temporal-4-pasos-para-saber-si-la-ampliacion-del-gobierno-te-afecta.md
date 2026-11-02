@@ -8,6 +8,7 @@ tituloSeo: "Incapacidad temporal: cómo saber si te afecta la ampliación"
 descripcion: La Moncloa y el Ministerio de Seguridad Social anuncian más
   protección en la baja y refuerzo de prestaciones a familias y víctimas de
   violencia. Aún falta el…
+borrador: true
 categoria: sociedad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-22

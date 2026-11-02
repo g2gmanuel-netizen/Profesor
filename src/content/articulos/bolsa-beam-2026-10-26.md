@@ -8,6 +8,7 @@ tituloSeo: "BEAM (Beam Therapeutics): análisis y precio de entrada"
 descripcion: "Análisis divulgativo de Beam Therapeutics (BEAM): edición
   genética, números clave, riesgos, objetivos de analistas, escenarios y rango
   de entrada."
+borrador: true
 categoria: bolsa
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-26

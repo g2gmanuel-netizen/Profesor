@@ -7,6 +7,7 @@ tituloSeo: "Inquilinos vs propietarios sin hipoteca: quién ahorra más"
 descripcion: Un estudio recogido por El Economista concluye que los inquilinos
   acumulan más ahorros que los propietarios sin deuda. Todo depende de si
   cuentas dinero…
+borrador: true
 categoria: ahorro
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-24

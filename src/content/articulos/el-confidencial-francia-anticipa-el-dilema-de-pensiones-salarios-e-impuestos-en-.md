@@ -7,6 +7,7 @@ tituloSeo: "Pensiones, salarios e impuestos: lo que Francia anticipa"
 descripcion: "El análisis plantea que los tres asuntos forman un triángulo:
   tocar uno mueve los otros. Repasamos las palancas habituales y cómo las
   notaría un asalariado, un…"
+borrador: true
 categoria: politica
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-24

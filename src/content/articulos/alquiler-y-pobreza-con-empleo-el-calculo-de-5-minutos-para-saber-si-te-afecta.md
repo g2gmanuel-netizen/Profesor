@@ -8,6 +8,7 @@ tituloSeo: "Alquiler y umbral de pobreza: cómo saber si te afecta"
 descripcion: Tener un empleo a jornada completa no garantiza quedar por encima
   del umbral de pobreza relativa si la vivienda absorbe gran parte del sueldo.
   Un cálculo en…
+borrador: true
 categoria: sociedad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-26

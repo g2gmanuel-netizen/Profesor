@@ -14,6 +14,18 @@ function sinRepetidos(temas: TemaAprobado[]): TemaAprobado[] {
   return out;
 }
 
+/**
+ * AdSense rechazó la web por «contenido de poco valor»: solo pasan temas con una fuente
+ * identificada y que no sea un agregador (Google News, Menéame…) ni una cotización bursátil.
+ */
+export function fuenteFiable(t: { organismo?: string | null; url?: string; categoria?: string; categoriaSugerida?: string }): boolean {
+  const org = (t.organismo ?? '').trim();
+  if (!org || /desconocid|no identificad|agregador|google news|men[eé]ame|yahoo finance/i.test(org)) return false;
+  if (/meneame\.net|finance\.yahoo\./i.test(t.url ?? '')) return false;
+  if ((t.categoria ?? t.categoriaSugerida) === 'bolsa') return false;
+  return true;
+}
+
 /** Agente 2 — Editor jefe. Puntúa y selecciona los mejores temas hasta el límite. */
 export async function editorJefe(
   candidatos: Candidato[],
@@ -21,6 +33,7 @@ export async function editorJefe(
   ctx: ContextoEjecucion,
 ): Promise<TemaAprobado[]> {
   ctx.logger.paso('editor-jefe', `Puntuando ${candidatos.length} candidatos (límite ${limite})`);
+  candidatos = candidatos.filter(fuenteFiable);
   if (candidatos.length === 0) return [];
 
   // Orden final: mezcla de calidad editorial y potencial viral (50/50).
@@ -65,6 +78,6 @@ export async function editorJefe(
     maxTokens: 8000,
   });
   return sinRepetidos(
-    res.aprobados.filter((t) => t.riesgo !== 'alto').sort((a, b) => orden(b) - orden(a)),
+    res.aprobados.filter((t) => t.riesgo !== 'alto' && fuenteFiable(t)).sort((a, b) => orden(b) - orden(a)),
   ).slice(0, limite);
 }
