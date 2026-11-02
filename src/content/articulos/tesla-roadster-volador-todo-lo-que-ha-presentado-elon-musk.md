@@ -3,7 +3,6 @@ titulo: "Elon Musk presenta el nuevo Tesla Roadster, el coche que «vuela»: as�
 subtitulo: "Despega con propulsores de SpaceX, gira boca abajo y aterriza sobre sus ruedas. Te contamos cada versión, qué puede hacer, cuánto cuesta reservarlo, qué requisitos piden y la letra pequeña que nadie te cuenta."
 tituloSeo: "Nuevo Tesla Roadster que vuela: precio, reserva y requisitos"
 descripcion: "Elon Musk presenta el Tesla Roadster que salta y gira en el aire con propulsores de SpaceX: versiones, cuánto cuesta reservarlo y lo que puede hacer."
-borrador: true
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-17
