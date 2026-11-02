@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de carrera de F1 · De la F3 a campeón del mundo</title>
+<meta name="description" content="Elige país, reparte 100 puntos entre defensa, ataque, neumáticos y clasificación, ficha por equipos y sube de la F3 a la F1 cada dos años.">
+<meta name="theme-color" content="#d62b1f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23d62b1f'/%3E%3Cpath d='M20 70L45 25h12L36 70zM50 70l25-45h10L62 70z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f5f5f3;--card:#fff;--ink:#16181a;--mut:#62686d;--line:#e1e3e0;--red:#d62b1f;--red2:#ef4b3d;--gold:#c99a1b;--good:#1c8a4e;--bad:#c23b32;--warn:#c98a0a;--shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.05)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1112;--card:#181b1d;--ink:#eceeef;--mut:#9aa1a6;--line:#2a2e31;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 56px}
+header.top{background:linear-gradient(135deg,#1b1b1d,#34080a);color:#fff;padding:22px 0 20px;margin-bottom:18px;border-bottom:4px solid var(--red)}
+header.top h1{margin:0;font-size:1.45rem;line-height:1.2}
+header.top p{margin:6px 0 0;opacity:.85;font-size:.95rem}
+h2{font-size:1.2rem;margin:0 0 12px}h3{font-size:1rem;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:660px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px}label.f:first-child{margin-top:0}
+input[type=text],select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:700;background:var(--red);color:#fff;cursor:pointer}
+.btn.sec{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.block{width:100%}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.sp{justify-content:space-between}
+.note,.hint{color:var(--mut);font-size:.86rem}
+.alloc{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-top:1px solid var(--line)}
+.alloc:first-of-type{border-top:0}
+.alloc .ctl{display:flex;gap:8px;align-items:center;grid-row:span 2}
+.alloc .ctl button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.2rem;cursor:pointer}
+.alloc .ctl b{min-width:34px;text-align:center;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.track{height:9px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:4px}
+.fill{height:100%;background:var(--red2);border-radius:6px;transition:width .3s}.fill.g{background:var(--good)}.fill.w{background:var(--warn)}
+.left{display:inline-block;background:var(--ink);color:var(--bg);border-radius:999px;padding:3px 12px;font-weight:800}
+.team{display:grid;grid-template-columns:10px 1fr auto;gap:2px 12px;align-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:10px;background:var(--card);cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;padding:0}
+.team .stripe{grid-row:span 3;align-self:stretch}
+.team .tn{font-weight:800;padding:10px 0 0;font-size:1.05rem}
+.team .meta{color:var(--mut);font-size:.84rem;padding:0 0 2px}
+.team .bs{padding:0 0 10px;display:flex;gap:6px;flex-wrap:wrap}
+.team .lock{grid-row:span 3;padding:0 14px;text-align:right;font-size:.85rem}
+.team.locked{opacity:.5;cursor:not-allowed}
+.pill{font-size:.72rem;border-radius:999px;border:1px solid var(--line);padding:1px 8px;background:var(--bg)}
+.pill.p{border-color:var(--good);color:var(--good)}.pill.n{border-color:var(--bad);color:var(--bad)}
+.badge{display:inline-block;border-radius:6px;padding:2px 9px;font-weight:800;font-size:.85rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+.st{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.st span{display:block;color:var(--mut);font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}.st b{font-size:1.4rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-variant-numeric:tabular-nums}
+th{text-align:left;color:var(--mut);font-weight:600}td,th{padding:5px 6px;border-top:1px solid var(--line)}
+tr.you td{font-weight:800;background:color-mix(in srgb,var(--red) 12%,transparent)}
+.big{font-size:1.8rem;font-weight:800;line-height:1.15}
+.champ{background:linear-gradient(135deg,#a67c0a,#e8c34a);color:#2b1d00;border-radius:14px;padding:18px;text-align:center}
+.warnbox{border-left:4px solid var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--card));padding:10px 12px;border-radius:8px;font-size:.9rem}
+.okbox{border-left:4px solid var(--good);background:color-mix(in srgb,var(--good) 12%,var(--card));padding:10px 12px;border-radius:8px;font-size:.9rem}
+.up{color:var(--good)}.down{color:var(--bad)}
+.dot{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:6px}
+.trophies{font-size:1.5rem;letter-spacing:2px}
+footer{color:var(--mut);font-size:.8rem;text-align:center;padding:10px 16px 30px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1>🏁 Simulador de carrera de F1</h1>
+  <p>De los 14 a los 40 años, de dos en dos: F3 → F2 → F1. Reparte tus 100 puntos y elige bien tus equipos.</p>
+</div></header>
+<main class="wrap" id="app" aria-live="polite"></main>
+<footer>Juego de ficción. Los equipos se representan con su color pero con un apodo propio; no hay vinculación con ninguna escudería ni competición. Los pilotos rivales son inventados.</footer>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
