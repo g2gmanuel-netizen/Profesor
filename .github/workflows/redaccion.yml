@@ -56,12 +56,13 @@ jobs:
             src/content/articulos/**
             public/imagenes/**
             datos/publicados.json
+            datos/fotos-usadas.json
 
       - name: Commit directo a main (si REVISION_HUMANA=false)
         if: ${{ vars.REVISION_HUMANA == 'false' }}
         run: |
           git config user.name "Bolsillo Diario bot"
           git config user.email "bot@users.noreply.github.com"
-          git add src/content/articulos public/imagenes datos/publicados.json
+          git add src/content/articulos public/imagenes datos/publicados.json datos/fotos-usadas.json
           git commit -m "Edición automática del día" || echo "Sin cambios que publicar"
           git push

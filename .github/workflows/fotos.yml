@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "Bolsillo Diario bot"
           git config user.email "bot@users.noreply.github.com"
-          git add src/content/articulos public/imagenes
+          git add src/content/articulos public/imagenes datos/fotos-usadas.json
           git commit -m "Fotos reales en los artículos" || { echo "Sin cambios"; exit 0; }
           # Otros procesos (difusión, métricas) pueden subir cambios a la vez: sincronizamos y reintentamos.
           for i in 1 2 3 4; do
