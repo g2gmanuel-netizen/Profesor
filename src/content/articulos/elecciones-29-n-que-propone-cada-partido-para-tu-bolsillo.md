@@ -1,13 +1,13 @@
 ---
-titulo: "Elecciones 29-N: qué propone cada partido para tu bolsillo y cuánto cambiaría tu IRPF"
-subtitulo: "Impuestos, vivienda, pensiones y trabajo: lo que han presentado PP, PSOE, Vox y Sumar, dónde chocan si pactan y una tabla con lo que pagarías de IRPF con la propuesta de dos tipos de Vox frente al sistema actual."
-tituloSeo: "Elecciones 29-N: qué propone cada partido para tu bolsillo"
-descripcion: "Qué proponen PP, PSOE, Vox y Sumar en impuestos, vivienda, pensiones y trabajo para el 29-N, qué pasaría con cada pacto y cuánto cambiaría tu IRPF."
+titulo: "29-N: cuánto dinero te juegas según gane PP, PSOE, Vox o Sumar (con tu IRPF calculado)"
+subtitulo: "Hemos puesto lado a lado lo que promete cada partido en impuestos, vivienda, pensiones y trabajo, y hemos calculado cuánto pagarías de IRPF con la rebaja de Vox: con 40.000 € brutos, unos 5.200 € menos al año. También, qué saldría de cada pacto posible."
+tituloSeo: "29-N: cuánto te juegas según gane PP, PSOE, Vox o Sumar"
+descripcion: "Qué promete cada partido para tu bolsillo el 29-N en impuestos, vivienda, pensiones y trabajo, qué pasaría con cada pacto y cuánto cambiaría tu IRPF."
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-02
 imagen: /imagenes/elecciones-29-n-que-propone-cada-partido-para-tu-bolsillo.jpg
-imagenAlt: "Portada de Bolsillo Diario sobre las propuestas económicas de los partidos para las elecciones del 29 de noviembre"
+imagenAlt: "Siglas de PSOE, PP, Vox y Sumar en sus colores junto a una urna y la fecha 29-N"
 imagenCredito: "Imagen: Bolsillo Diario"
 etiquetas:
   - elecciones 29-N
