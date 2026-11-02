@@ -15,11 +15,11 @@ fechaPublicacion: 2026-10-29
 imagen: /imagenes/operacion-oretania-12-detenidos-por-vender-aceite-inferior-como-virgen-extra-eco.jpg
 imagenAlt: "Imagen del artículo: Operación Oretania: 12 detenidos por vender
   aceite inferior como virgen extra ecológico"
-imagenCredito: "Foto: 652234 (Pixabay)"
+imagenCredito: "Foto: Couleur (Pixabay)"
 imagenBusqueda:
-  - "olive oil bottle"
-  - "extra virgin olive oil"
-  - "olive oil pouring"
+  - olive oil bottle
+  - extra virgin olive oil
+  - olive oil pouring
 etiquetas:
   - precios
   - operacion

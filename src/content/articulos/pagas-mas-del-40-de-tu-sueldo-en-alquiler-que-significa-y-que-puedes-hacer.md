@@ -14,11 +14,11 @@ fechaPublicacion: 2026-10-05
 imagen: /imagenes/pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer.jpg
 imagenAlt: "Imagen del artículo: Pagas más del 40 % de tu sueldo en alquiler:
   qué significa y qué puedes hacer"
-imagenCredito: "Foto: Schluesseldienst (Pixabay)"
+imagenCredito: "Foto: vdnhieu (Pixabay)"
 imagenBusqueda:
-  - "worried woman bills"
-  - "young couple counting money"
-  - "household budget bills table"
+  - worried woman bills
+  - young couple counting money
+  - household budget bills table
 etiquetas:
   - alquiler
   - pagas

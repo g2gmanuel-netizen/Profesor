@@ -13,11 +13,11 @@ fechaPublicacion: 2026-10-27
 imagen: /imagenes/pisos-de-la-sareb-por-que-solo-638-van-a-alquiler-publico-frente-a-3-000-en-vent.jpg
 imagenAlt: "Imagen del artículo: Pisos de la Sareb: por qué solo 638 van a
   alquiler público frente a 3.000 en venta"
-imagenCredito: "Foto: TierraMallorca (Pixabay)"
+imagenCredito: "Foto: donterase (Pixabay)"
 imagenBusqueda:
-  - "empty apartment building"
-  - "new residential building construction"
-  - "apartment block balconies"
+  - empty apartment building
+  - new residential building construction
+  - apartment block balconies
 etiquetas:
   - vivienda
   - pisos

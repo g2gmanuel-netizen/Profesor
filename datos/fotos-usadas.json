@@ -1,11 +1,90 @@
 {
-  "quien-esta-obligado-a-declarar-irpf": { "id": "existente:calculadora", "tags": "calculator, money, euro, coins, tax, finance" },
-  "cuenta-remunerada-o-deposito-a-plazo": { "id": "existente:hucha", "tags": "piggy bank, savings, money, euro, coins" },
-  "gastos-de-comprar-una-vivienda": { "id": "existente:pareja-llaves", "tags": "couple, new home, keys, moving, boxes" },
-  "euribor-que-es-y-como-afecta-a-tu-hipoteca": { "id": "existente:firma-casa", "tags": "house model, keys, contract, signature, mortgage" },
-  "esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave": { "id": "existente:llave-puerta", "tags": "key, door, lock, house, home" },
-  "como-se-actualiza-la-renta-del-alquiler": { "id": "existente:llaves-mano", "tags": "keys, hand, key ring, apartment" },
-  "alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos": { "id": "existente:montón-llaves", "tags": "keys, key ring, many keys, keychain" },
-  "los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-": { "id": "existente:llaves-mesa", "tags": "keys, wood, table, house keys" },
-  "inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p": { "id": "existente:llave-casita", "tags": "key, door handle, house keychain, home" }
+  "quien-esta-obligado-a-declarar-irpf": {
+    "id": "existente:calculadora",
+    "tags": "calculator, money, euro, coins, tax, finance"
+  },
+  "cuenta-remunerada-o-deposito-a-plazo": {
+    "id": "existente:hucha",
+    "tags": "piggy bank, savings, money, euro, coins"
+  },
+  "gastos-de-comprar-una-vivienda": {
+    "id": "existente:pareja-llaves",
+    "tags": "couple, new home, keys, moving, boxes"
+  },
+  "euribor-que-es-y-como-afecta-a-tu-hipoteca": {
+    "id": "existente:firma-casa",
+    "tags": "house model, keys, contract, signature, mortgage"
+  },
+  "esfuerzo-hipotecario-al-65-que-significa-y-como-saber-si-tu-caso-es-tan-grave": {
+    "id": "existente:llave-puerta",
+    "tags": "key, door, lock, house, home"
+  },
+  "como-se-actualiza-la-renta-del-alquiler": {
+    "id": "existente:llaves-mano",
+    "tags": "keys, hand, key ring, apartment"
+  },
+  "alquiler-como-saber-si-superas-la-referencia-del-30-de-tus-ingresos": {
+    "id": "existente:montón-llaves",
+    "tags": "keys, key ring, many keys, keychain"
+  },
+  "los-3-000-millones-de-fondos-para-vivienda-social-eran-creditos-que-cambia-para-": {
+    "id": "existente:llaves-mesa",
+    "tags": "keys, wood, table, house keys"
+  },
+  "inmobiliarias-internacionales-frenan-el-alquiler-en-espana-que-hacer-si-buscas-p": {
+    "id": "existente:llave-casita",
+    "tags": "key, door handle, house keychain, home"
+  },
+  "baja-medica-e-irpf-que-es-el-segundo-pagador-y-como-afecta-a-tu-declaracion": {
+    "id": "pixabay:496229",
+    "tags": "money, cash, bills, currency, bank notes, euro, wealth, money, money, money, money, money"
+  },
+  "bajada-de-impuestos-las-4-preguntas-que-revelan-quien-paga-la-factura": {
+    "id": "pixabay:856042",
+    "tags": "money, euros, banknote, cash, fifty, money, euros, euros, euros, cash, cash, cash, fifty, fifty, fifty, fifty, fifty"
+  },
+  "banco-de-espana-avisa-contra-topar-el-alquiler-que-se-sabe-de-las-cancelaciones": {
+    "id": "pixabay:7346597",
+    "tags": "spain, andalusia, province of cadiz, cadiz, city, historic center, historic centre, jardines de la plaza de espana, monument to the constitution of 1812, monument to the 1812 constitution, monument, historical, park, nature, clouds, heaven, blue, to travel, tourism, sightseeing, Cádiz, Spain, Andalusia"
+  },
+  "cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo": {
+    "id": "pixabay:257911",
+    "tags": "clocks, time, idea, concept, time difference, time zones, timepieces, wall clocks, watch, hours, minutes, timepiece"
+  },
+  "cuidar-a-un-familiar-que-hacer-si-tu-empresa-limita-a-un-cupo-anual-el-permiso-d": {
+    "id": "pixabay:4344711",
+    "tags": "hands, old, old age, senior citizens, vulnerable, concern, old person, elderly, happy mothers day, retirement, self-reliance, loneliness, woman, grandmother, seniors, lived, help out, support, together, friendship, mom, mum"
+  },
+  "declaracion-de-la-renta-cobrando-cerca-del-smi-5-pasos-para-saber-si-te-toca": {
+    "id": "pixabay:824652",
+    "tags": "taxes, finance, bank, calculator, declaration, taxes, taxes, taxes, taxes, taxes, declaration, declaration"
+  },
+  "el-gobierno-vasco-presenta-un-seguro-gratuito-contra-impagos-7-preguntas-clave": {
+    "id": "pixabay:3675970",
+    "tags": "architecture, facade, urban, city hall, bilbao, bilbao, bilbao, bilbao, bilbao, bilbao, Basque Country, Bilbao, Spain"
+  },
+  "martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir": {
+    "id": "pixabay:2610205",
+    "tags": "family, newborn, baby, child, infant, happy, mother, cute, family portrait, family love, parents, people, girl, love, kid, small, little, childhood, young, father, happiness, care, woman, portrait, together, dad, boy, person, parenthood, sleeping, tired, asleep, family, family, family, family, family, baby, baby"
+  },
+  "operacion-oretania-12-detenidos-por-vender-aceite-inferior-como-virgen-extra-eco": {
+    "id": "pixabay:1596417",
+    "tags": "olive oil, oil, food, carafe, mediterranean, bottle, vegetable oil, healthy, container, glass container, glass bottle, olive oil, olive oil, olive oil, olive oil, olive oil, oil, oil"
+  },
+  "pagas-mas-del-40-de-tu-sueldo-en-alquiler-que-significa-y-que-puedes-hacer": {
+    "id": "pixabay:6059889",
+    "tags": "girl, sad, portrait, sad girl, depression, alone, stress, female, young woman, face, sadness, lonely, worried, unhappy, hairstyle, upset"
+  },
+  "pisos-de-la-sareb-por-que-solo-638-van-a-alquiler-publico-frente-a-3-000-en-vent": {
+    "id": "pixabay:789626",
+    "tags": "street, alley, lane, night, dark, urban, town, city, road, asphalt, cars, parked, lanterns, lights, illumination, exterior, street, street, street, street, street, alley, alley, night, dark, city"
+  },
+  "que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo": {
+    "id": "pixabay:3595404",
+    "tags": "soccer, international, spain, la liga, banner, flag, fc getafe"
+  },
+  "sin-irpf-quien-cubre-85-000-millones-impuestos-recortes-o-deuda-las-tres-salidas": {
+    "id": "pixabay:4272980",
+    "tags": "calculator, tax documents, pity, polish tax documents, calculator, calculator, calculator, tax documents, tax documents, tax documents, tax documents, tax documents, pity"
+  }
 }

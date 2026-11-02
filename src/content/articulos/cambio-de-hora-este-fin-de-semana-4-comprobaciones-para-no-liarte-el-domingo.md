@@ -13,11 +13,11 @@ fechaPublicacion: 2026-10-19
 imagen: /imagenes/cambio-de-hora-este-fin-de-semana-4-comprobaciones-para-no-liarte-el-domingo.jpg
 imagenAlt: "Imagen del artículo: Cambio de hora este fin de semana: 4
   comprobaciones para no liarte el domingo"
-imagenCredito: "Foto: ChristopherPluta (Pixabay)"
+imagenCredito: "Foto: jarmoluk (Pixabay)"
 imagenBusqueda:
-  - "wall clock"
-  - "alarm clock bedside"
-  - "clock time change"
+  - wall clock
+  - alarm clock bedside
+  - clock time change
 etiquetas:
   - actualidad
   - cambio

@@ -1,37 +1,41 @@
 ---
-titulo: "Qué es un decreto ley y por qué el Congreso puede tumbarlo: guía para entender las noticias"
-subtitulo: El Gobierno puede aprobar normas con fuerza de ley que entran en vigor al día
-  siguiente, pero el Congreso tiene 30 días para validarlas. Cómo funciona, qué no puede
-  regular y qué pasa con tus derechos si se cae.
-tituloSeo: "Qué es un decreto ley y por qué el Congreso puede tumbarlo"
-descripcion: "Qué es un real decreto-ley, qué no puede regular, cómo se convalida en 30
-  días y qué pasa con las ayudas o rebajas ya aplicadas si el Congreso lo deroga."
+titulo: "Qué es un decreto ley y por qué el Congreso puede tumbarlo: guía para
+  entender las noticias"
+subtitulo: El Gobierno puede aprobar normas con fuerza de ley que entran en
+  vigor al día siguiente, pero el Congreso tiene 30 días para validarlas. Cómo
+  funciona, qué no puede regular y qué pasa con tus derechos si se cae.
+tituloSeo: Qué es un decreto ley y por qué el Congreso puede tumbarlo
+descripcion: Qué es un real decreto-ley, qué no puede regular, cómo se convalida
+  en 30 días y qué pasa con las ayudas o rebajas ya aplicadas si el Congreso lo
+  deroga.
 categoria: politica
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-02
 fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg
-imagenAlt: "Hemiciclo de un parlamento durante una votación"
-imagenCredito: "Foto: TGG23 (Pixabay)"
+imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
+  puede tumbarlo: guía para entender las noticias"
+imagenCredito: "Foto: jorono (Pixabay)"
 imagenBusqueda:
-  - "congreso de los diputados"
-  - "spanish parliament madrid"
-  - "parliament chamber seats"
+  - congreso de los diputados
+  - spanish parliament madrid
+  - parliament chamber seats
 etiquetas:
   - decreto ley
   - Congreso
   - Gobierno
   - Constitución
 clavesRapidas:
-  - "Un real decreto-ley lo aprueba el Gobierno por «extraordinaria y urgente necesidad» y
-    entra en vigor de inmediato."
-  - "El Congreso tiene 30 días hábiles para convalidarlo o derogarlo, en una sola votación
-    de sí o no."
-  - "No puede regular derechos fundamentales, las instituciones básicas del Estado, el
-    régimen de las comunidades ni el derecho electoral general."
-  - "Si se deroga, deja de aplicarse desde ese momento, pero lo ocurrido mientras estuvo
-    en vigor sigue siendo válido."
-  - "El Gobierno puede volver a aprobar las medidas en otro decreto con otros apoyos."
+  - Un real decreto-ley lo aprueba el Gobierno por «extraordinaria y urgente
+    necesidad» y entra en vigor de inmediato.
+  - El Congreso tiene 30 días hábiles para convalidarlo o derogarlo, en una sola
+    votación de sí o no.
+  - No puede regular derechos fundamentales, las instituciones básicas del
+    Estado, el régimen de las comunidades ni el derecho electoral general.
+  - Si se deroga, deja de aplicarse desde ese momento, pero lo ocurrido mientras
+    estuvo en vigor sigue siendo válido.
+  - El Gobierno puede volver a aprobar las medidas en otro decreto con otros
+    apoyos.
 fuentes:
   - titulo: Constitución Española, artículo 86 (decretos leyes)
     url: https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a86

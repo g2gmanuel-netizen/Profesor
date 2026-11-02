@@ -13,11 +13,11 @@ fechaPublicacion: 2026-10-29
 imagen: /imagenes/bajada-de-impuestos-las-4-preguntas-que-revelan-quien-paga-la-factura.jpg
 imagenAlt: "Imagen del artículo: Bajada de impuestos: las 4 preguntas que
   revelan quién paga la factura"
-imagenCredito: "Foto: Bru-nO (Pixabay)"
+imagenCredito: "Foto: Puurchantal (Pixabay)"
 imagenBusqueda:
-  - "restaurant bill paying"
-  - "paying the bill receipt"
-  - "receipt hand payment"
+  - restaurant bill paying
+  - paying the bill receipt
+  - receipt hand payment
 etiquetas:
   - impuestos
   - bajada

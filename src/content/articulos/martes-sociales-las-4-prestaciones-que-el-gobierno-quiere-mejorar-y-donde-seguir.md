@@ -14,11 +14,11 @@ fechaPublicacion: 2026-10-19
 imagen: /imagenes/martes-sociales-las-4-prestaciones-que-el-gobierno-quiere-mejorar-y-donde-seguir.jpg
 imagenAlt: "Imagen del artículo: Martes sociales: las 4 prestaciones que el
   Gobierno quiere mejorar y dónde seguirlas"
-imagenCredito: "Foto: ddzphoto (Pixabay)"
+imagenCredito: "Foto: smpratt90 (Pixabay)"
 imagenBusqueda:
-  - "mother baby father family"
-  - "family with baby"
-  - "parents child walking"
+  - mother baby father family
+  - family with baby
+  - parents child walking
 etiquetas:
   - politica
   - martes
