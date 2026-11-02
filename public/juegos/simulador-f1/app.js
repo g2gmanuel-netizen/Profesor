@@ -81,36 +81,25 @@
       }).join('') + '<p class="hint">⭐ equipo afín a tu país (exige menos reputación). Los coches varían un poco cada temporada.</p></div>';
   }
 
-  /* ---------- resultados de temporada ---------- */
-  function seasonHTML(s, label) {
+  /* ---------- ciclo de dos temporadas ---------- */
+  function miniSeason(s, label) {
     const t = F.teamById(s.team);
-    return '<div class="card"><div class="row sp"><h2 style="margin:0">' + label + ' · ' + CAT_NAMES[s.cat] + '</h2><span class="badge" style="background:' + t.color + ';color:' + t.text + '">' + esc(t.nick) + '</span></div>' +
-      (s.champion ? '<div class="champ" style="margin:12px 0"><div class="big">🏆 ¡CAMPEÓN DE ' + CAT_NAMES[s.cat].toUpperCase() + '!</div></div>' : '') +
-      '<div class="stats" style="margin:12px 0"><div class="st"><span>Clasificación</span><b>P' + s.pos + '</b></div><div class="st"><span>Puntos</span><b>' + s.pts + '</b></div><div class="st"><span>Victorias</span><b>' + s.wins + '</b></div><div class="st"><span>Podios · Poles</span><b>' + s.podiums + ' · ' + s.poles + '</b></div></div>' +
-      '<p class="note">Compañero: ' + esc(s.mate.name) + ' (' + s.mate.pts + ' pts) · Abandonos: ' + s.dnfs + ' · Reputación ' + (s.repGain >= 0 ? '+' : '') + (Math.round(s.repGain * 10) / 10) + '</p>' +
-      '<h3>Carreras</h3><div style="overflow-x:auto"><table><thead><tr><th>Gran Premio</th><th>Pista</th><th>Parrilla</th><th>Meta</th><th>Pts</th><th>Ganó</th></tr></thead><tbody>' +
-      s.races.map((r) => '<tr><td>' + esc(r.gp) + '</td><td>' + F.CIRC[r.type].n + '</td><td>P' + r.grid + '</td><td><b class="' + (r.pos && r.pos <= 3 ? 'up' : r.dnf ? 'down' : '') + '">' + posTxt(r.pos) + '</b></td><td>' + r.pts + '</td><td>' + esc(r.winner) + '</td></tr>').join('') + '</tbody></table></div>' +
-      '<h3>Campeonato (top 10)</h3><table><tbody>' + s.table.map((x, i) => '<tr class="' + (x.you ? 'you' : '') + '"><td>' + (i + 1) + '</td><td>' + fl(x.country) + ' ' + esc(x.name) + '</td><td><span class="dot" style="background:' + x.color + '"></span>' + esc(x.team) + '</td><td>' + x.pts + '</td></tr>').join('') + '</tbody></table>' +
-      (s.pos > 10 ? '<p class="note">Terminaste en la posición ' + s.pos + ' de ' + s.total + '.</p>' : '') + '</div>';
+    return '<div class="card compact" style="margin:0"><div class="row sp"><b>' + label + '</b><span class="badge" style="background:' + t.color + ';color:' + t.text + '">' + esc(t.nick) + '</span></div>' +
+      (s.champion ? '<div class="champ" style="margin:8px 0;padding:8px"><b>🏆 ¡CAMPEÓN DE ' + CAT_NAMES[s.cat].toUpperCase() + '!</b></div>' : '') +
+      '<div class="stats" style="margin:8px 0"><div class="st"><span>Puesto</span><b>P' + s.pos + '</b></div><div class="st"><span>Puntos</span><b>' + s.pts + '</b></div><div class="st"><span>Victorias</span><b>' + s.wins + '</b></div><div class="st"><span>Podios · Poles</span><b>' + s.podiums + ' · ' + s.poles + '</b></div></div>' +
+      '<div class="strip">' + s.races.map((r) => '<span class="rc ' + (r.dnf ? 'dnf' : r.pos === 1 ? 'w' : r.pos <= 3 ? 'p' : r.pos <= 10 ? 'pt' : '') + '" title="' + esc(r.gp) + ' · parrilla P' + r.grid + '">' + (r.pos ? r.pos : '✕') + '</span>').join('') + '</div>' +
+      '<table style="margin-top:8px"><tbody>' + s.table.slice(0, 3).map((x, i) => '<tr class="' + (x.you ? 'you' : '') + '"><td>' + (i + 1) + '</td><td>' + fl(x.country) + ' ' + esc(x.name) + '</td><td><span class="dot" style="background:' + x.color + '"></span>' + esc(x.team) + '</td><td>' + x.pts + '</td></tr>').join('') + '</tbody></table>' +
+      '<p class="note" style="margin:6px 0 0">Compañero: ' + esc(s.mate.name) + ' (' + s.mate.pts + ' pts) · Abandonos: ' + s.dnfs + (s.pos > 3 ? ' · Tú: P' + s.pos + ' de ' + s.total : '') + '</p></div>';
   }
-  let viewIdx = 0;
-  function renderResults() {
-    const two = S.seasons.slice(-2);
-    const s = two[viewIdx];
-    $app.innerHTML = header() + seasonHTML(s, 'Año ' + (S.p.age + viewIdx)) +
-      (viewIdx === 0 ? '<button class="btn block" data-act="s2">Ver la segunda temporada</button>' : '<button class="btn block" data-act="verdict">Ver el balance del ciclo</button>');
-  }
-
-  /* ---------- veredicto ---------- */
   function renderBlockEnd() {
     const h = S.hist[S.hist.length - 1];
-    const stars = '🏆'.repeat(h.titles) + '🥇'.repeat(Math.min(10, h.wins)) + '🏅'.repeat(Math.min(10, h.podiums - h.wins > 0 ? h.podiums - h.wins : 0));
-    $app.innerHTML = '<div class="card"><h2>Balance del ciclo · ' + CAT_NAMES[h.cat] + ' · ' + h.age + '-' + (h.age + 1) + ' años</h2>' +
-      '<div class="stats"><div class="st"><span>Puestos</span><b>' + h.pos.map((p) => 'P' + p).join(' · ') + '</b></div><div class="st"><span>Victorias</span><b>' + h.wins + '</b></div><div class="st"><span>Podios</span><b>' + h.podiums + '</b></div><div class="st"><span>Puntos de trofeo</span><b>' + h.score + '</b>' + (h.need ? ' <span class="note">/ ' + h.need + '</span>' : '') + '</div></div>' +
-      '<p class="trophies">' + (stars || '—') + '</p>' +
-      '<div class="' + (h.promoted ? 'okbox' : 'warnbox') + '">' + (h.promoted ? '⬆️ ' : '') + esc(h.note) + '</div>' +
-      (h.gain ? '<p class="note">Ganas <b>' + h.gain + '</b> puntos de experiencia.</p>' : '') + '</div>' +
-      '<button class="btn block" data-act="after">' + (S.nextPhase === 'final' ? 'Colgar el casco' : 'Continuar') + '</button>';
+    const two = S.seasons.slice(-2);
+    const stars = '🏆'.repeat(h.titles) + '🥇'.repeat(Math.min(10, h.wins)) + '🏅'.repeat(Math.min(10, Math.max(0, h.podiums - h.wins)));
+    $app.innerHTML = '<div class="card compact"><div class="row sp"><h2 style="margin:0">' + CAT_NAMES[h.cat] + ' · años ' + h.age + '-' + (h.age + 1) + '</h2>' +
+      '<div class="row"><span class="badge">Trofeos: ' + h.score + (h.need ? ' / ' + h.need : '') + '</span><span class="trophies">' + (stars || '—') + '</span></div></div></div>' +
+      '<div class="grid2" style="margin-bottom:10px">' + miniSeason(two[0], 'Año ' + h.age) + miniSeason(two[1], 'Año ' + (h.age + 1)) + '</div>' +
+      '<div class="' + (h.promoted ? 'okbox' : 'warnbox') + '" style="margin-bottom:10px">' + (h.promoted ? '⬆️ ' : '') + esc(h.note) + (h.gain ? ' Ganas ' + h.gain + ' puntos de experiencia.' : '') + '</div>' +
+      '<button class="btn block" data-act="after">' + (S.nextPhase === 'final' ? 'Colgar el casco' : 'Continuar (' + S.p.age + ' años)') + '</button>';
   }
 
   /* ---------- final ---------- */
@@ -137,7 +126,7 @@
     switch (S.phase) {
       case 'alloc': return renderAlloc();
       case 'team': return renderTeam();
-      case 'results': return renderResults();
+      case 'results': S.phase = 'team'; return renderTeam();
       case 'block_end': return renderBlockEnd();
       case 'final': return renderFinal();
       default: return renderTeam();
@@ -157,13 +146,12 @@
     } else if (a === 'start') {
       form.name = document.getElementById('name').value;
       S = F.newGame(form); draft = null; save(); render(); top();
-    } else if (a === 'continue') { S = load(); S.team = S.team || null; viewIdx = 0; render(); top(); }
+    } else if (a === 'continue') { S = load(); S.team = S.team || null; render(); top(); }
     else if (a === 'confirmalloc') { STATS.forEach((x) => { S.p.stats[x] = draft.vals[x]; }); S.pending = 0; draft = null; S.phase = 'team'; save(); render(); top(); }
     else if (a === 'team') {
       const o = F.offers(S)[Number(b.dataset.i)];
-      S.team = o.team; F.simSeason(S); F.simSeason(S); S.phase = 'results'; viewIdx = 0; save(); render(); top();
-    } else if (a === 's2') { viewIdx = 1; render(); top(); }
-    else if (a === 'verdict') { const info = F.finishBlock(S); S.nextPhase = S.phase; S.phase = 'block_end'; save(); render(); top(); }
+      S.team = o.team; F.simSeason(S); F.simSeason(S); F.finishBlock(S); S.nextPhase = S.phase; S.phase = 'block_end'; save(); render(); top();
+    }
     else if (a === 'after') { S.phase = S.nextPhase; S.nextPhase = null; draft = null; save(); render(); top(); }
     else if (a === 'menu') { menuOpen = true; render(); }
     else if (a === 'back') { menuOpen = false; render(); }
