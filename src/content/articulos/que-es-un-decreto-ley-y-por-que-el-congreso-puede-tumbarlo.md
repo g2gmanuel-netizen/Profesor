@@ -15,12 +15,12 @@ fechaActualizacion: 2026-10-24
 imagen: /imagenes/que-es-un-decreto-ley-y-por-que-el-congreso-puede-tumbarlo.jpg
 imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
   puede tumbarlo: guía para entender las noticias"
-imagenCredito: "Foto: renatolaky (Pixabay)"
+imagenCredito: "Foto: Alexas_Fotos (Pixabay)"
 imagenBusqueda:
   - law books
   - legal documents signing
   - law book library
-imagenRequiere: '\blaw\b|legal|justice'
+imagenRequiere: \blaw\b|legal|justice
 etiquetas:
   - decreto ley
   - Congreso
