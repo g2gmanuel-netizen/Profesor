@@ -1,0 +1,77 @@
+/* Sportmanía · tema oscuro: negros y grises, líneas finas, tipografía condensada */
+:root{
+  color-scheme:dark;
+  --bg:#0a0a0b;--card:#141416;--ink:#ececec;--mut:#8b8b92;--line:#2a2a2e;
+  --acc:#c8d82e;--accink:#0a0a0b;--acc2:#a9b823;
+  --court:#c8d82e;--court2:#c8d82e;--red:#e5322d;--red2:#e5322d;--ball:#c8d82e;--ballink:#0a0a0b;
+  --good:#4fbf7f;--bad:#e5524d;--warn:#d9a21b;--shadow:none;
+}
+body.f{--acc:#e5322d;--accink:#fff;--court:#e5322d;--court2:#e5322d}
+body{background:var(--bg);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px}
+h1,h2,h3,.big,.brand,.st b,.badge,.btn,.choice b,.team .tn,.alloc b,.game h2,.hero h1{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif}
+h2{text-transform:uppercase;letter-spacing:.04em;font-weight:700;font-size:1.05rem}
+h3{text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:var(--mut);font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;box-shadow:none}
+.card.compact{padding:12px 14px}
+.btn{background:var(--acc);color:var(--accink);border-radius:3px;box-shadow:none;text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:1rem}
+.btn.sec{background:transparent;color:var(--ink);border:1px solid #3a3a40}
+.btn.dark{background:#26262a;color:var(--ink)}
+.btn:hover{filter:brightness(1.08)}
+.btn[disabled]{background:#26262a;color:var(--mut);opacity:1}
+input[type=text],select{background:#0f0f11;border:1px solid var(--line);border-radius:3px;color:var(--ink)}
+input[type=range]{accent-color:var(--acc)}
+.seg button,.chip{background:#0f0f11;border:1px solid var(--line);border-radius:3px;color:var(--ink)}
+.seg button.on{background:var(--acc);border-color:var(--acc);color:var(--accink);font-weight:700}
+.badge,.pill,.left{background:#0f0f11;border:1px solid var(--line);color:var(--ink);border-radius:3px}
+.left{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+.st{background:#0f0f11;border:1px solid var(--line);border-radius:3px}
+.st span{color:var(--mut)}
+.track{background:#26262a;border-radius:1px;height:6px}
+.fill,.fill.hi{background:var(--acc);border-radius:1px}
+.fill.warn{background:var(--warn)}.fill.bad{background:var(--bad)}
+.choice{background:#0f0f11;border:1px solid var(--line);border-radius:4px;color:var(--ink)}
+.choice:hover{border-color:var(--acc);transform:none;background:#18181b}
+.choice .val{color:var(--acc)}
+.team{background:#0f0f11;border:1px solid var(--line);border-radius:4px}
+.team:hover:not(.locked){border-color:var(--acc)}
+.pill.p{color:var(--good);border-color:#285c40}.pill.n{color:var(--bad);border-color:#6a2a28}
+.chip2{background:#0f0f11;border-radius:3px}.chip2.good{border-color:#6f7a1c}.chip2.win{background:#262a10;border-color:var(--acc)}
+.rc{border-radius:2px}
+.match{background:#0f0f11;border-radius:4px}
+.champ{background:#18181b;border:1px solid var(--acc);color:var(--ink);border-radius:4px}
+.champ .note{color:var(--mut)!important}
+.warnbox,.okbox{background:#18181b;border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:3px;color:var(--ink)}
+.okbox{border-left-color:var(--good)}
+.tag{border-radius:2px}
+.tag.clay{background:#9c4a2b}.tag.hard{background:#2f5f94}.tag.grass{background:#3a7a3c}
+tr.you td{background:#25250f}
+td,th{border-top:1px solid var(--line)}
+.alloc{border-top:1px solid var(--line)}
+.alloc .ctl button{background:#0f0f11;border:1px solid var(--line);border-radius:3px;color:var(--ink)}
+.alloc .ctl button:hover:not([disabled]){border-color:var(--acc)}
+.hint,.note{color:var(--mut)}
+.warnbox *,.up{color:inherit}.up{color:var(--good)}.down{color:var(--bad)}
+.dot{border-radius:1px}
+footer{color:var(--mut)}
+.num,.st b{font-variant-numeric:tabular-nums}
+.st b{font-weight:700;letter-spacing:.01em}
+/* cabecera de marca */
+.site-top{background:#000;border-bottom:1px solid var(--line)}
+.site-top .brand{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:1.25rem}
+.site-top nav a{background:transparent;border:1px solid var(--line);border-radius:3px;text-transform:uppercase;letter-spacing:.05em;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:.95rem}
+.site-top nav a:hover{border-color:#555}
+.site-top nav a[aria-current]{border-color:var(--acc);background:#141416}
+.gamehead h1{text-transform:uppercase;letter-spacing:.05em;font-size:1.6rem;font-weight:800}
+.gamehead p{color:var(--mut)}
+.ad .slot,.ad-bottom .slot{background:#0f0f11;border:1px dashed #333;color:#666;border-radius:3px}
+/* inicio */
+.hero h1{text-transform:uppercase;letter-spacing:.04em;font-weight:800}
+.hero p{color:var(--mut)}
+.game{background:var(--card);border:1px solid var(--line);border-radius:4px;box-shadow:none}
+.game:hover{transform:none;border-color:#4a4a50;background:#18181b}
+.game h2{text-transform:uppercase;letter-spacing:.05em;font-size:1.7rem;font-weight:800}
+.game li{background:#0f0f11;border-radius:3px;border-color:var(--line)}
+.game img{border-radius:6px}
+.play{border-radius:3px;box-shadow:none;text-transform:uppercase;letter-spacing:.08em;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:1.05rem}
+.g-t .play{background:#c8d82e;color:#0a0a0b}.g-f .play{background:#e5322d;color:#fff}
+.g-t:hover{border-color:#c8d82e}.g-f:hover{border-color:#e5322d}
