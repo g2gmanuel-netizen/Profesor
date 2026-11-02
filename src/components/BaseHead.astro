@@ -77,12 +77,3 @@ const organizacion = {
 <meta name="generator" content={Astro.generator} />
 <set:html value={`<script type="application/ld+json">${JSON.stringify(organizacion)}</script>`} />
 
-<script is:inline>
-  // Tema claro/oscuro: respeta preferencia guardada antes de pintar.
-  (function () {
-    try {
-      var t = localStorage.getItem('bd-tema');
-      if (t) document.documentElement.setAttribute('data-tema', t);
-    } catch (e) {}
-  })();
-</script>

@@ -10,7 +10,6 @@ const secciones = await categoriasConArticulos();
       <span id="fecha-hoy" class="fecha-hoy"></span>
       <div class="nav-acciones">
         <a href="/buscar/" class="boton-icono" aria-label="Buscar">🔍 Buscar</a>
-        <button id="btn-tema" class="boton-icono" aria-label="Cambiar tema claro u oscuro">◐ Tema</button>
       </div>
     </div>
   </div>
@@ -54,20 +53,6 @@ const secciones = await categoriasConArticulos();
           year: 'numeric',
         }).format(new Date());
       } catch (e) {}
-    }
-    var btn = document.getElementById('btn-tema');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        var raiz = document.documentElement;
-        var actual =
-          raiz.getAttribute('data-tema') ||
-          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
-        var nuevo = actual === 'oscuro' ? 'claro' : 'oscuro';
-        raiz.setAttribute('data-tema', nuevo);
-        try {
-          localStorage.setItem('bd-tema', nuevo);
-        } catch (e) {}
-      });
     }
   })();
 </script>
