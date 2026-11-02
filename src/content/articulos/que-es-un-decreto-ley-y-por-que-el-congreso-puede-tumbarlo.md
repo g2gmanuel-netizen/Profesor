@@ -17,10 +17,10 @@ imagenAlt: "Imagen del artículo: Qué es un decreto ley y por qué el Congreso
   puede tumbarlo: guía para entender las noticias"
 imagenCredito: "Foto: Alexas_Fotos (Pixabay)"
 imagenBusqueda:
-  - law books
-  - legal documents signing
-  - law book library
-imagenRequiere: \blaw\b|legal|justice
+  - spanish constitution
+  - old books library
+  - stack of books
+imagenRequiere: 'constitution|library|books'
 etiquetas:
   - decreto ley
   - Congreso
