@@ -82,8 +82,8 @@
       '<label class="f">Revés</label>' + segBtns('backhand', [[0, '🙌 A dos manos'], [1, '☝️ A una mano']], form.backhand) +
       '<label class="f">Dificultad del circuito</label>' + segBtns('difficulty', [[-1, '🌱 Fácil'], [0, '🎾 Normal'], [1, '🔥 Difícil'], [2, '👑 Leyenda']], form.difficulty) +
       '</div><div class="card" id="preview">' + previewHTML() + '</div></div>' +
-      '<button class="btn block" data-act="start" style="font-size:1.05rem">🎾 Empezar mi carrera (17 años)</button>' +
-      '<p class="note" style="text-align:center;margin-top:12px">¿Aguantarás 20 años en el circuito? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>';
+      '<p class="note" style="text-align:center;margin-top:12px">¿Aguantarás 20 años en el circuito? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>' +
+      '<button class="btn block" data-act="start" style="font-size:1.05rem">🎾 Empezar mi carrera (17 años)</button>';
     document.getElementById('hval').textContent = form.height + ' cm · ' + T.heightWord(form.height);
   }
 
@@ -227,6 +227,7 @@
 
   /* ---------- enrutado ---------- */
   function render() {
+    document.body.classList.toggle('ingame', !!S);
     if (!S) { renderCreate(); return; }
     if (V && V.menu) { renderMenu(); return; }
     switch (S.phase) {
@@ -285,5 +286,18 @@
   });
 
   /* ---------- inicio ---------- */
+  // El botón principal (Continuar, Seguir, Empezar…) queda fijo abajo para no tener que desplazarse.
+  function stickify() {
+    const last = $app.lastElementChild;
+    if (!last || last.classList.contains('sticky-act')) return;
+    const isBtn = last.matches('button.btn');
+    const isRow = last.matches('.row') && last.querySelector('button.btn');
+    if (!isBtn && !isRow) return;
+    const w = document.createElement('div');
+    w.className = 'sticky-act';
+    $app.replaceChild(w, last);
+    w.appendChild(last);
+  }
+  new MutationObserver(stickify).observe($app, { childList: true });
   render();
 })();

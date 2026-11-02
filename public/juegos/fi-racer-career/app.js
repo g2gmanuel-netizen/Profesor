@@ -41,16 +41,16 @@
       '<h3>Equipos afines (más fáciles de fichar)</h3><div class="row" style="gap:6px">' + aff + '</div>' +
       '<h3>Referentes de tu país</h3>' + c.legends.slice(0, 4).map((l) => '<div class="note"><b>' + esc(l[0]) + '</b> — ' + esc(l[1]) + '</div>').join('') + '</div>' +
       '<div class="card"><h2>Reparte 100 puntos</h2><p class="note" style="margin-top:-6px">Te quedan <span class="left">' + left + '</span> puntos. Máximo 60 por categoría.</p><div id="alloc">' + allocHTML(form.alloc, left, 60) + '</div></div></div>' +
-      '<button class="btn block" data-act="start"' + (left === 0 ? '' : ' disabled') + ' style="font-size:1.05rem">🏁 Empezar en F3 con 14 años</button>' +
-      '<p class="note" style="text-align:center;margin-top:12px">¿Llegarás de la F3 a campeón del mundo? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>';
+      '<p class="note" style="text-align:center;margin-top:12px">¿Llegarás de la F3 a campeón del mundo? <a href="guia.html" style="color:var(--acc)">Guía y trucos</a></p>' +
+      '<button class="btn block" data-act="start"' + (left === 0 ? '' : ' disabled') + ' style="font-size:1.05rem">🏁 Empezar en F3 con 14 años</button>';
   }
 
   /* ---------- cabecera ---------- */
   function header() {
     const p = S.p;
-    return '<div class="card"><div class="row sp"><div><b style="font-size:1.1rem">' + fl(p.country) + ' ' + esc(p.name) + '</b><div class="note">' + p.age + ' años · ' + CAT_NAMES[S.cat] + (S.team ? ' · <span class="dot" style="background:' + S.team.color + '"></span>' + esc(S.team.nick) : '') + '</div></div><button class="btn sec" data-act="menu" style="padding:8px 12px">Menú</button></div>' +
-      '<div class="stats" style="margin-top:12px">' + STATS.map((k) => '<div class="st"><span>' + STAT_SHORT[k] + '</span><b>' + p.stats[k] + '</b></div>').join('') + '</div>' +
-      '<div style="margin-top:10px" class="note">Reputación <b>' + r0(S.rep) + '</b>/100 · Trofeos: 🏆 ' + (S.career.titles.F3 + S.career.titles.F2 + S.career.titles.F1) + ' · 🥇 ' + S.career.wins + ' · 🏅 ' + S.career.podiums + '</div></div>';
+    return '<div class="card compact"><div class="row sp"><div><b>' + fl(p.country) + ' ' + esc(p.name) + '</b> <span class="note">' + p.age + ' años · ' + CAT_NAMES[S.cat] + (S.team ? ' · <span class="dot" style="background:' + S.team.color + '"></span>' + esc(S.team.nick) : '') + '</span></div>' +
+      '<div class="row" style="gap:6px">' + STATS.map((k) => '<span class="badge" title="' + STAT_NAMES[k] + '">' + SICON[k] + ' ' + p.stats[k] + '</span>').join('') +
+      '<span class="badge">Rep. ' + r0(S.rep) + '</span><span class="badge">🏆 ' + (S.career.titles.F3 + S.career.titles.F2 + S.career.titles.F1) + ' · 🏅 ' + S.career.podiums + '</span><button class="btn sec" data-act="menu" style="padding:5px 10px;font-size:.85rem">Menú</button></div></div></div>';
   }
 
   /* ---------- reparto de experiencia (dentro de la pantalla de equipo) ---------- */
@@ -76,7 +76,7 @@
   function renderTeam() {
     const offers = F.offers(S);
     const nextTxt = S.cat === 'F1' ? 'Objetivo: títulos mundiales.' : 'Para subir a ' + CAT_NAMES[F.CATS[F.CATS.indexOf(S.cat) + 1]] + ' necesitas ' + Math.max(8, F.NEED[S.cat] - COUNTRIES[S.p.country].sponsor * 2) + ' puntos de trofeo (victoria = 1,5; podio = 1; pole = 0,5; título = 8) o ser campeón.';
-    $app.innerHTML = header() + allocPanel() + '<div class="card"><h2>🏎️ Elige equipo · ' + CAT_NAMES[S.cat] + '</h2><p class="note" style="margin-top:-6px">Años ' + S.p.age + '-' + (S.p.age + 1) + '. ' + nextTxt + '</p>' +
+    $app.innerHTML = header() + allocPanel() + '<div class="card"><h2>🏎️ Elige equipo · ' + CAT_NAMES[S.cat] + '</h2><p class="note" style="margin-top:-6px">Años ' + S.p.age + '-' + (S.p.age + 1) + '. ' + nextTxt + '</p><div class="teamgrid">' +
       offers.map((o, i) => {
         const t = o.team;
         const bs = F.STATS.map((k) => t.bias[k] ? '<span class="pill ' + (t.bias[k] > 0 ? 'p' : 'n') + '">' + STAT_SHORT[k] + ' ' + (t.bias[k] > 0 ? '+' : '') + t.bias[k] + '</span>' : '').join('');
@@ -84,7 +84,7 @@
           '<span class="stripe" style="background:' + t.color + '"></span><span class="tn">🏎️ ' + esc(t.nick) + (o.aff ? ' ⭐' : '') + '</span>' +
           '<span class="lock">' + (o.locked ? '🔒 Reputación ' + o.need + '<br><span class="note">(tienes ' + r0(S.rep) + ')</span>' : '<span class="badge" style="background:' + t.color + ';color:' + t.text + '">Coche ' + t.car + '</span>') + '</span>' +
           '<span class="meta">' + esc(t.desc) + (o.aff ? ' · Afín a tu nacionalidad' : '') + '</span><span class="bs">' + bs + '</span></button>';
-      }).join('') + '<p class="hint">⭐ equipo afín a tu país (exige menos reputación). Los coches varían un poco cada temporada.</p></div>';
+      }).join('') + '</div><p class="hint">⭐ equipo afín a tu país (exige menos reputación). Los coches varían un poco cada temporada.</p></div>';
   }
 
   /* ---------- ciclo de dos temporadas ---------- */
@@ -128,6 +128,7 @@
 
   let menuOpen = false;
   function render() {
+    document.body.classList.toggle('ingame', !!S);
     if (!S) return renderCreate();
     if (menuOpen) { $app.innerHTML = '<div class="card"><h2>Menú</h2><div class="row"><button class="btn" data-act="back">Volver</button><button class="btn sec" data-act="retire">Retirarme ahora</button><button class="btn sec" data-act="newgame">Empezar de nuevo</button></div></div>'; return; }
     switch (S.phase) {
@@ -183,5 +184,18 @@
   });
   $app.addEventListener('change', (e) => { if (e.target.id === 'country') { form.country = e.target.value; renderCreate(); } });
   $app.addEventListener('input', (e) => { if (e.target.id === 'name') form.name = e.target.value; });
+  // El botón principal (Continuar, Seguir, Empezar…) queda fijo abajo para no tener que desplazarse.
+  function stickify() {
+    const last = $app.lastElementChild;
+    if (!last || last.classList.contains('sticky-act')) return;
+    const isBtn = last.matches('button.btn');
+    const isRow = last.matches('.row') && last.querySelector('button.btn');
+    if (!isBtn && !isRow) return;
+    const w = document.createElement('div');
+    w.className = 'sticky-act';
+    $app.replaceChild(w, last);
+    w.appendChild(last);
+  }
+  new MutationObserver(stickify).observe($app, { childList: true });
   render();
 })();
