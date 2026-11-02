@@ -62,7 +62,7 @@
     $app.innerHTML = header() + '<div class="card"><h2>Experiencia acumulada</h2>' +
       '<p class="note" style="margin-top:-6px">Ahora tienes <b>' + S.p.age + ' años</b>. Reparte <span class="left">' + draft.left + '</span> puntos nuevos (máx. 100 por categoría).</p>' +
       (S.hist.length && S.hist[S.hist.length - 1].decline ? '<div class="warnbox" style="margin-bottom:10px">Con la edad has perdido ' + S.hist[S.hist.length - 1].decline + ' puntos de facultades.</div>' : '') +
-      '<div id="alloc">' + allocHTML(draft.vals, draft.left, 90) + '</div></div>' +
+      '<div id="alloc">' + allocHTML(draft.vals, draft.left, 100) + '</div></div>' +
       '<button class="btn block" data-act="confirmalloc"' + (draft.left === 0 || STATS.every((k) => draft.vals[k] >= 100) ? '' : ' disabled') + '>Confirmar y elegir equipo</button>';
   }
 
