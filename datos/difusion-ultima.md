@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. ¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué hay de cierto y qué pasaría con tu gasolina
-**Enlace:** https://tubolsillodiario.com/articulo/trump-iran-7-noviembre-ataque-rumor-que-hay-de-cierto/
+## 1. El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
+**Enlace:** https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
 
 ### X / Twitter
 ```
-¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué hay de cierto y qué pasaría con tu gasolina
+El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
 
-👉 https://tubolsillodiario.com/articulo/trump-iran-7-noviembre-ataque-rumor-que-hay-de-cierto/
-#Actualidad #Iran #EstadosUnidos #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
+#Actualidad #MiDNI #Elecciones29N #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué hay de cierto y qué pasaría con tu gasolina*
+📰 *El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?*
 
-Tucker Carlson asegura que la decisión podría llegar hacia el 7 de noviembre. La Casa Blanca no lo confirma y los verificadores no encuentran pruebas. Te explicamos qué es real, qué es bulo y cómo te afecta.
+La orden salió el 29 de octubre, en pleno luto por el accidente. Correos llevará más de 61.000 lectores a las mesas, pero la Junta Electoral mantiene suspendido el voto con MiDNI. Qué pasa y qué debes llevar.
 
-• El rumor sale de Tucker Carlson, que en X habló de un posible ataque nuclear contra Irán hacia el 7 de noviembre. No aportó pruebas.
-• Trump dijo el 3 de noviembre que no tiene planes inmediatos de atacar, aunque EE UU está «listo para actuar si hace falta».
-• Los verificadores no han encontrado ningún comunicado ni medio fiable que confirme un ataque nuclear, y varios vídeos que circulan son antiguos o hechos con IA.
+• La Orden PJC/1129/2026 se publicó en el BOE el 29 de octubre, al día siguiente del accidente de Urda: encarga a Correos llevar lectores QR a unas 61.033 mesas electorales.
+• Correos cobrará 28,06 euros por cada envío y recogida: en torno a 1,7 millones de euros si se envía uno por mesa, según nuestro cálculo.
+• La Junta Electoral Central suspendió en marzo el voto con MiDNI por motivos de seguridad y, a 4 de noviembre, no ha levantado esa suspensión.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/trump-iran-7-noviembre-ataque-rumor-que-hay-de-cierto/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
 
 _Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — ¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué hay de cierto y qué pasaría con tu gasolina
-  • Gancho (0-3 s): "¿¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué…?"
+🎬 GUION VÍDEO CORTO (~30 s) — El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
+  • Gancho (0-3 s): "¿El Gobierno publicó en el BOE los lectores QR para votar con el DNI e…?"
   • Desarrollo (3-25 s):
-  1. El rumor sale de Tucker Carlson, que en X habló de un posible ataque nuclear contra Irán hacia el 7 de noviembre. No aportó pruebas.
-  2. Trump dijo el 3 de noviembre que no tiene planes inmediatos de atacar, aunque EE UU está «listo para actuar si hace falta».
-  3. Los verificadores no han encontrado ningún comunicado ni medio fiable que confirme un ataque nuclear, y varios vídeos que circulan son antiguos o hechos con IA.
+  1. La Orden PJC/1129/2026 se publicó en el BOE el 29 de octubre, al día siguiente del accidente de Urda: encarga a Correos llevar lectores QR a unas 61.033 mesas electorales.
+  2. Correos cobrará 28,06 euros por cada envío y recogida: en torno a 1,7 millones de euros si se envía uno por mesa, según nuestro cálculo.
+  3. La Junta Electoral Central suspendió en marzo el voto con MiDNI por motivos de seguridad y, a 4 de noviembre, no ha levantado esa suspensión.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Tucker Carlson asegura que la decisión podría llegar hacia el 7 de noviembre. La Casa Blanca no lo confirma y los verificadores no encuentran pruebas. Te explicamos qué es real, qué es bulo y cómo te…
-  🔗 Enlace en la bio · #Actualidad #Iran #EstadosUnidos #España #BolsilloDiario
+  La orden salió el 29 de octubre, en pleno luto por el accidente. Correos llevará más de 61.000 lectores a las mesas, pero la Junta Electoral mantiene suspendido el voto con MiDNI. Qué pasa y qué debe…
+  🔗 Enlace en la bio · #Actualidad #MiDNI #Elecciones29N #España #BolsilloDiario
 ```
