@@ -12,13 +12,8 @@ categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
 imagen: /imagenes/francia-disturbios-protestas-macron-huelga-general-5-noviembre.jpg
-imagenAlt: "Gendarmes antidisturbios franceses ante el Arco del Triunfo de París, entre humo de gases lacrimógenos"
-imagenCredito: "Foto: HubertdeThé (Pixabay)"
-imagenBusqueda:
-  - paris protest police
-  - france demonstration riot police
-  - paris strike demonstration
-imagenRequiere: protest|demonstration|riot|strike|police|manifest
+imagenAlt: "Un coche arde en mitad de una calle durante los disturbios en Francia, con manifestantes y bomberos al fondo entre el humo"
+imagenCredito: "Imagen difundida en redes sociales"
 etiquetas:
   - Francia
   - protestas
@@ -80,6 +75,9 @@ Saqueos en Marsella, toques de queda en barrios de París, **más de medio mill�
 
 *Cifras del Ministerio del Interior francés recogidas por La Nación, CNN en Español y Moncloa.com. Algunos medios dan cifras distintas para la misma jornada; tomamos las oficiales.*
 
+![Agentes antidisturbios lanzan agua a presión contra manifestantes que se protegen con un tablero de madera](/imagenes/francia-disturbios-2.jpg)
+*Agentes antidisturbios contra manifestantes que se cubren con un tablero. Imagen difundida en redes sociales.*
+
 ## Por qué protestan
 
 No hay una sola causa, y eso es lo que lo hace difícil de apagar. Se han juntado tres grupos con quejas distintas:
@@ -90,9 +88,15 @@ No hay una sola causa, y eso es lo que lo hace difícil de apagar. Se han juntad
 
 De fondo está el **déficit público**: el Gobierno del primer ministro **Sébastien Lecornu** necesita contener el gasto, y sus planes presupuestarios han sido una de las chispas del descontento.
 
+![Jóvenes encapuchados entre el humo de los gases lacrimógenos, frente a policías antidisturbios, mientras uno ondea una bandera francesa](/imagenes/francia-disturbios-3.jpg)
+*Jóvenes entre gases lacrimógenos frente a la policía, con una bandera francesa. Imagen difundida en redes sociales.*
+
 ## La respuesta del Gobierno
 
 Macron ha hecho un llamamiento a la calma y ha defendido que el «derecho a manifestarse» debe ir acompañado de «respeto». En la calle, la respuesta ha sido de orden público: unos **70.000 policías y gendarmes** desplegados en las principales ciudades y **toques de queda nocturnos** en zonas concretas, incluidas algunas de París. Por ahora no se han confirmado muertos relacionados con las protestas.
+
+![Un manifestante con mascarilla devuelve un bote de gas lacrimógeno de noche, en una calle con una pintada en la pared](/imagenes/francia-disturbios-4.jpg)
+*Enfrentamientos nocturnos entre el humo de los gases. Imagen difundida en redes sociales.*
 
 ## Qué puede pasar el 5 de noviembre
 
