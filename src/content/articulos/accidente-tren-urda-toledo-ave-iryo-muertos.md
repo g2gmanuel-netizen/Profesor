@@ -1,15 +1,12 @@
 ---
-titulo: "Tragedia ferroviaria en Toledo: el choque entre un AVE y un Iryo en Urda deja hasta 50 muertos y 179 heridos"
-subtitulo: Protección Civil eleva a 46 los fallecidos y algunos medios hablan ya de 50. Sería el peor
-  accidente ferroviario en España desde Angrois. Qué se sabe, la hipótesis del error humano y los
-  derechos de las víctimas.
+titulo: "Tragedia ferroviaria de Urda (Toledo): el choque entre un AVE y un Iryo deja 69 muertos y le cuesta el cargo a Óscar Puente"
+subtitulo: "El balance llega a 69 fallecidos, el más grave en España desde Angrois (80 muertos en 2013). El ministro de Transportes dimitió el 3 de noviembre. Qué se sabe, las causas y los derechos de las víctimas."
 tituloSeo: "Accidente de tren en Urda (Toledo): muertos, heridos y causas"
-descripcion: Choque entre un AVE y un Iryo en Urda (Toledo). Protección Civil eleva a 46 los muertos
-  y hay medios que hablan de 50 y 179 heridos. Cronología, causas y derechos.
+descripcion: "Choque entre un AVE y un Iryo en Urda (Toledo): 69 muertos, cronología de las cifras, causas, dimisión de Óscar Puente y derechos de las víctimas."
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-10-28
-fechaActualizacion: 2026-10-28
+fechaActualizacion: 2026-11-04
 imagen: /imagenes/accidente-tren-urda-toledo.jpg
 imagenAlt: "Pasajeros caminan junto a la vía tras el accidente, con un vagón destrozado al fondo del terraplén"
 imagenCredito: "Imagen difundida en redes sociales"
@@ -21,6 +18,9 @@ etiquetas:
   - Adif
 destacado: true
 fuentes:
+  - titulo: "Puente anuncia su dimisión como ministro de Transportes y renuncia a estar en lista el 29N (Infobae / Europa Press)"
+    url: https://www.infobae.com/espana/agencias/2026/11/03/puente-anuncia-su-dimision-como-ministro-de-transportes-y-renuncia-a-estar-en-lista-el-29n/
+    organismo: Infobae
   - titulo: "Dos trenes chocan en la localidad toledana de Urda: se eleva a 50 la cifra de fallecidos y 179 heridos (La Gaceta de Salamanca)"
     url: https://www.lagacetadesalamanca.es/nacional/dos-trenes-chocan-localidad-toledana-urda-eleva-20261028101720-di.html
   - titulo: Última hora del accidente ferroviario en Urda (Toledo), en directo (The Objective)
@@ -57,8 +57,8 @@ fuentes:
 clavesRapidas:
   - "Un AVE de Renfe y un tren de Iryo chocaron a las 8:54 de este miércoles entre Mora y Urda
     (Toledo), en la línea de alta velocidad Madrid-Andalucía."
-  - "Protección Civil de Castilla-La Mancha eleva a 46 los fallecidos y algunos medios hablan ya
-    de 50 muertos y 179 heridos. El balance no es definitivo."
+  - "El balance llega a 69 fallecidos (3 de noviembre). El primer día se habló de 46 a 50 muertos y 179 heridos."
+  - "Óscar Puente dimitió como ministro de Transportes el 3 de noviembre tras comparecer en el Congreso por el accidente."
   - "El AVE alcanzó por detrás al Iryo y dos vagones cayeron por un terraplén. El Gobierno apunta a
     un posible error humano; Adif dice que la causa aún no está identificada."
   - "La línea de alta velocidad entre Madrid y Andalucía está cortada. El PP y el Gobierno han
@@ -66,6 +66,8 @@ clavesRapidas:
   - "Supera al accidente de Adamuz de enero (41 muertos) y sería el más grave en España desde el de
     Angrois en 2013."
 ---
+
+> **Actualización (4 de noviembre):** el balance del accidente ha llegado a **69 fallecidos**, según Infobae y Europa Press. El ministro de Transportes, **Óscar Puente, dimitió el 3 de noviembre** tras comparecer más de cuatro horas en el Congreso: «Un ministro no puede continuar en su puesto con un accidente de este tipo». Te lo contamos en [la dimisión de Óscar Puente: las claves](/articulo/oscar-puente-dimite-ministro-transportes-urda-claves/).
 
 España vive su segunda gran tragedia ferroviaria del año. Un **AVE de Renfe** y un **tren de Iryo** chocaron a las **8:54 de la mañana de este miércoles 28 de octubre** entre las localidades de **Mora y Urda (Toledo)**, cerca de Los Yébenes, en la línea de alta velocidad que une Madrid con Andalucía. **Protección Civil de Castilla-La Mancha eleva a 46 el número de fallecidos**, según recoge The Objective, y otros medios, como La Gaceta de Salamanca, hablan ya de **50 muertos y 179 heridos**.
 
@@ -96,7 +98,8 @@ Las cifras han cambiado mucho desde las primeras horas. Este es el recorrido de 
 | Mediodía | 39 | Emergencias de Castilla-La Mancha, según Telecinco y El Plural |
 | Tarde | Alrededor de 40 | Guardia Civil, según The Objective |
 | Tarde | 46 | Protección Civil de Castilla-La Mancha, según The Objective |
-| Última actualización | **Hasta 50, y 179 heridos** | La Gaceta de Salamanca |
+| 28 de octubre, noche | Hasta 50, y 179 heridos | La Gaceta de Salamanca |
+| 3 de noviembre | **69 fallecidos** | Infobae y Europa Press, al informar de la dimisión del ministro |
 
 Sobre los **heridos**, se cuentan por decenas: la cifra más alta publicada es de **179**, de diversa gravedad. **Tres helicópteros medicalizados** se han desplazado a la zona y el alcalde de Urda ha **habilitado un pabellón** para atender a los heridos. La Junta ha activado el **Plan Territorial de Emergencia (PLATECAM) en situación operativa 1**, y los **hospitales de Toledo, Alcázar de San Juan y Ciudad Real han suspendido las operaciones no urgentes** para atender a las víctimas.
 
