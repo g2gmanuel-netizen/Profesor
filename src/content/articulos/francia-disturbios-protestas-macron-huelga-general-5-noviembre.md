@@ -13,7 +13,6 @@ autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
 imagen: /imagenes/francia-disturbios-protestas-macron-huelga-general-5-noviembre.jpg
 imagenAlt: "Gendarmes antidisturbios franceses ante el Arco del Triunfo de París, entre humo de gases lacrimógenos"
-  policías en la calle y huelga general este 5 de noviembre contra Macron"
 imagenCredito: "Foto: HubertdeThé (Pixabay)"
 imagenBusqueda:
   - paris protest police
