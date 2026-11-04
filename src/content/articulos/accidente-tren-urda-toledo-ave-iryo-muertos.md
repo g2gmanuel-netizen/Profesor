@@ -1,5 +1,5 @@
 ---
-titulo: "Tragedia ferroviaria de Urda (Toledo): el choque entre un AVE y un Iryo deja 69 muertos y le cuesta el cargo a Óscar Puente"
+titulo: "Accidente ferroviario de Urda (Toledo): 69 fallecidos en el choque entre un AVE y un tren de Iryo"
 subtitulo: "El balance llega a 69 fallecidos, el más grave en España desde Angrois (80 muertos en 2013). El ministro de Transportes dimitió el 3 de noviembre. Qué se sabe, las causas y los derechos de las víctimas."
 tituloSeo: "Accidente de tren en Urda (Toledo): muertos, heridos y causas"
 descripcion: "Choque entre un AVE y un Iryo en Urda (Toledo): 69 muertos, cronología de las cifras, causas, dimisión de Óscar Puente y derechos de las víctimas."

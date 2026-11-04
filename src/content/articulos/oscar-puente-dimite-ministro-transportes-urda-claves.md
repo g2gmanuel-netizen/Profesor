@@ -1,8 +1,8 @@
 ---
-titulo: "Óscar Puente dimite tras 116 muertos en las vías: Adamuz, Urda, el plan que deja aprobado y qué pasa ahora con los trenes y el 29-N"
-subtitulo: "Explicado para que cualquiera lo entienda: qué falló en cada accidente, el año negro del tren en cifras, las 8 medidas de seguridad que aprobó el mismo día que dimitió y qué cambia para ti si viajas."
-tituloSeo: "Óscar Puente dimite: Adamuz, Urda, su plan y qué pasa ahora"
-descripcion: "Por qué dimite Óscar Puente: los accidentes de Adamuz y Urda, el año negro del tren en cifras, el plan de 8 medidas que deja aprobado y qué cambia de cara al 29-N."
+titulo: "Óscar Puente dimite tras los accidentes de Adamuz y Urda: qué falló, el plan de seguridad que deja aprobado y qué cambia ahora"
+subtitulo: "Explicado con claridad: qué se sabe de cada accidente, el estado del ferrocarril en 2026, las 8 medidas de seguridad aprobadas el día de su dimisión y qué cambia para los viajeros y de cara al 29-N."
+tituloSeo: "Óscar Puente dimite: Adamuz, Urda y el plan de seguridad"
+descripcion: "Por qué dimite Óscar Puente: los accidentes de Adamuz y Urda, el estado del tren en 2026, el plan de 8 medidas que deja aprobado y qué cambia de cara al 29-N."
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
@@ -70,11 +70,11 @@ destacado: true
 
 **«Un ministro no puede continuar en su puesto con un accidente de este tipo».** Con esa frase, al final de más de cuatro horas de comparecencia en el Congreso, **Óscar Puente** dejó de ser ministro de Transportes el 3 de noviembre. Horas antes, el Gobierno había descartado su salida. Ese mismo día, el Consejo de Ministros aprobó un **plan de seguridad para la alta velocidad** que él mismo presentó. Y a 25 días de las elecciones, también renunció a encabezar la lista del PSOE por Valladolid.
 
-En este artículo no solo te contamos la dimisión: te explicamos **qué falló en cada accidente**, **el año negro del tren en cifras**, **qué dice exactamente el plan que deja aprobado**, si **se tiene que seguir aplicando** cuando él ya no esté y **qué cambia para ti** si viajas en tren.
+En este artículo no solo te contamos la dimisión: te explicamos **qué falló en cada accidente**, **el estado del ferrocarril en 2026, en cifras**, **qué dice exactamente el plan que deja aprobado**, si **se tiene que seguir aplicando** cuando él ya no esté y **qué cambia para ti** si viajas en tren.
 
 ## Adamuz y Urda: dos accidentes en nueve meses, explicados
 
-Para entender la dimisión hay que entender por qué 2026 ha sido el peor año del ferrocarril español en más de una década.
+Para entender la dimisión hay que entender por qué 2026 ha sido un año tan doloroso para el ferrocarril español.
 
 | | Adamuz (Córdoba) | Urda (Toledo) |
 |---|---|---|
@@ -92,7 +92,7 @@ A estas dos tragedias se suma un tercer accidente mortal, el de **Gelida** (Barc
 ![Un helicóptero sanitario aterrizado junto a los vagones destrozados del AVE y del tren de Iryo tras el choque](/imagenes/urda-trenes-siniestrados-helicoptero.jpg)
 *Un helicóptero sanitario junto a los vagones siniestrados. Imagen difundida en redes sociales.*
 
-## El año negro del tren, en cifras
+## El ferrocarril en 2026, en cifras
 
 Más allá de los accidentes, 2026 ha sido un año de quejas constantes de los viajeros. Estos son los datos que se han publicado (ojo: los de puntualidad proceden de análisis de medios, no de un informe oficial de Renfe o Adif):
 
@@ -164,4 +164,4 @@ Si quieres ver qué propone cada partido en impuestos, vivienda o pensiones, lo 
 
 ## En resumen
 
-Óscar Puente se va por dos tragedias en la misma línea en nueve meses: Adamuz, por una vía rota, y Urda, por un fallo del sistema de control. Deja aprobado un plan de 8 medidas que **seguirá vigente** salvo que el próximo Gobierno lo cambie, y que para el viajero se notará sobre todo en **menos trenes en la Madrid-Sevilla hasta 2027**. Quién le sustituye y si el plan se acelera o se frena dependerá, en buena parte, de lo que pase el 29 de noviembre. Actualizaremos este artículo con cada novedad.
+Óscar Puente deja el cargo tras dos tragedias en la misma línea en nueve meses, con 115 víctimas mortales entre ambas: Adamuz, por una vía rota, y Urda, por un fallo del sistema de control. Deja aprobado un plan de 8 medidas que **seguirá vigente** salvo que el próximo Gobierno lo cambie, y que para el viajero se notará sobre todo en **menos trenes en la Madrid-Sevilla hasta 2027**. Quién le sustituye y si el plan se acelera o se frena dependerá, en buena parte, de lo que pase el 29 de noviembre. Actualizaremos este artículo con cada novedad.
