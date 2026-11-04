@@ -1,47 +1,63 @@
 ---
-titulo: "Óscar Puente dimite: 4 horas en el Congreso, «116 muertos tarde» y adiós a las listas del 29-N"
-subtitulo: "El ministro de Transportes deja el cargo por el accidente de Urda, que suma 69 fallecidos, horas después de que el Gobierno descartara su salida. Las frases, las reacciones y lo que cambia para el viajero."
+titulo: "Óscar Puente dimite: 4 horas en el Congreso, «116 muertos tarde» y
+  adiós a las listas del 29-N"
+subtitulo: El ministro de Transportes deja el cargo por el accidente de Urda,
+  que suma 69 fallecidos, horas después de que el Gobierno descartara su salida.
+  Las frases, las reacciones y lo que cambia para el viajero.
 tituloSeo: "Óscar Puente dimite por Urda: frases, reacciones y claves"
-descripcion: "Óscar Puente dimite como ministro de Transportes por el accidente de Urda (69 muertos) y renuncia a las listas del 29-N. Frases, reacciones y qué cambia."
+descripcion: Óscar Puente dimite como ministro de Transportes por el accidente
+  de Urda (69 muertos) y renuncia a las listas del 29-N. Frases, reacciones y
+  qué cambia.
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
 imagen: /imagenes/oscar-puente-dimite-ministro-transportes-urda-claves.jpg
-imagenAlt: "Tren de alta velocidad en una estación española"
-imagenCredito: "Imagen: Bolsillo Diario"
+imagenAlt: "Imagen del artículo: Óscar Puente dimite: 4 horas en el Congreso,
+  «116 muertos tarde» y adiós a las listas del 29-N"
+imagenCredito: "Foto: ArminEP (Pixabay)"
 imagenBusqueda:
   - high speed train station
   - railway station platform train
   - spain train station
-imagenRequiere: 'train|railway|station'
+imagenRequiere: train|railway|station
 etiquetas:
   - Óscar Puente
   - accidente de Urda
   - Ministerio de Transportes
   - elecciones 29-N
 clavesRapidas:
-  - "Óscar Puente anunció su dimisión el 3 de noviembre, al final de una comparecencia de más de cuatro horas en la Diputación Permanente del Congreso."
-  - "«Un ministro no puede continuar en su puesto con un accidente de este tipo», dijo. El accidente de Urda suma 69 fallecidos."
-  - "Horas antes, el Gobierno había descartado su salida: Sánchez le había pedido que siguiera."
-  - "También renuncia a encabezar la lista del PSOE por Valladolid el 29-N."
-  - "El PP dice que la dimisión llega «116 muertos tarde», sumando las víctimas de Urda y de Adamuz."
+  - Óscar Puente anunció su dimisión el 3 de noviembre, al final de una
+    comparecencia de más de cuatro horas en la Diputación Permanente del
+    Congreso.
+  - «Un ministro no puede continuar en su puesto con un accidente de este tipo»,
+    dijo. El accidente de Urda suma 69 fallecidos.
+  - "Horas antes, el Gobierno había descartado su salida: Sánchez le había
+    pedido que siguiera."
+  - También renuncia a encabezar la lista del PSOE por Valladolid el 29-N.
+  - El PP dice que la dimisión llega «116 muertos tarde», sumando las víctimas
+    de Urda y de Adamuz.
 fuentes:
-  - titulo: "Puente anuncia su dimisión como ministro de Transportes y renuncia a estar en lista el 29N (Infobae / Europa Press)"
+  - titulo: Puente anuncia su dimisión como ministro de Transportes y renuncia a
+      estar en lista el 29N (Infobae / Europa Press)
     url: https://www.infobae.com/espana/agencias/2026/11/03/puente-anuncia-su-dimision-como-ministro-de-transportes-y-renuncia-a-estar-en-lista-el-29n/
     organismo: Infobae
-  - titulo: "Óscar Puente anuncia su dimisión como ministro y su renuncia a ir en las listas el 29N (elDiario.es)"
+  - titulo: Óscar Puente anuncia su dimisión como ministro y su renuncia a ir en las
+      listas el 29N (elDiario.es)
     url: https://www.eldiario.es/politica/oscar-puente-anuncia-dimision-ministro-comparecencia-congreso_1_13635747.html
     organismo: elDiario.es
-  - titulo: "Dimite Óscar Puente por el accidente de Urda tras su comparecencia en el Congreso (The Objective)"
+  - titulo: Dimite Óscar Puente por el accidente de Urda tras su comparecencia en el
+      Congreso (The Objective)
     url: https://theobjective.com/espana/politica/2026-11-03/oscar-puente-crisis-ferroviaria/
     organismo: The Objective
-  - titulo: "Así te hemos contado la comparecencia de Óscar Puente sobre el accidente de Urda (Público)"
+  - titulo: Así te hemos contado la comparecencia de Óscar Puente sobre el accidente
+      de Urda (Público)
     url: https://www.publico.es/politica/ultima-hora-comparecencia-oscar-puente-accidente-urda-congreso-directo.html
     organismo: Público
-  - titulo: "Óscar Puente anuncia su dimisión como ministro de Transportes (Xataka)"
+  - titulo: Óscar Puente anuncia su dimisión como ministro de Transportes (Xataka)
     url: https://www.xataka.com/movilidad/oscar-puente-anuncia-su-dimision-como-ministro-transportes
     organismo: Xataka
-  - titulo: "Reglamento (UE) 2021/782 sobre los derechos y obligaciones de los viajeros de ferrocarril"
+  - titulo: Reglamento (UE) 2021/782 sobre los derechos y obligaciones de los
+      viajeros de ferrocarril
     url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32021R0782
     organismo: Unión Europea
 elaboradoConIA: false

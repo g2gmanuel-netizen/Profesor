@@ -1,47 +1,66 @@
 ---
-titulo: "Francia arde: miles de detenidos, 70.000 policías en la calle y huelga general este 5 de noviembre contra Macron"
-subtitulo: "Estudiantes, sindicatos y chalecos amarillos llevan tres semanas en la calle contra el coste de la vida. Qué ha pasado, por qué protestan, qué puede pasar con la huelga y qué te afecta si viajas a Francia."
+titulo: "Francia arde: miles de detenidos, 70.000 policías en la calle y huelga
+  general este 5 de noviembre contra Macron"
+subtitulo: Estudiantes, sindicatos y chalecos amarillos llevan tres semanas en
+  la calle contra el coste de la vida. Qué ha pasado, por qué protestan, qué
+  puede pasar con la huelga y qué te afecta si viajas a Francia.
 tituloSeo: "Disturbios en Francia: qué pasa y huelga general del 5-N"
-descripcion: "Disturbios y protestas en Francia contra Macron: cifras de detenidos, por qué protestan, la huelga general del 5 de noviembre y qué hacer si viajas a Francia."
+descripcion: "Disturbios y protestas en Francia contra Macron: cifras de
+  detenidos, por qué protestan, la huelga general del 5 de noviembre y qué hacer
+  si viajas a Francia."
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
 imagen: /imagenes/francia-disturbios-protestas-macron-huelga-general-5-noviembre.jpg
-imagenAlt: "Manifestación con policía en una calle de Francia"
-imagenCredito: "Imagen: Bolsillo Diario"
+imagenAlt: "Imagen del artículo: Francia arde: miles de detenidos, 70.000
+  policías en la calle y huelga general este 5 de noviembre contra Macron"
+imagenCredito: "Foto: HubertdeThé (Pixabay)"
 imagenBusqueda:
   - paris protest police
   - france demonstration riot police
   - paris strike demonstration
-imagenRequiere: 'protest|demonstration|riot|strike|police|manifest'
+imagenRequiere: protest|demonstration|riot|strike|police|manifest
 etiquetas:
   - Francia
   - protestas
   - huelga general
   - Macron
 clavesRapidas:
-  - "Las protestas empezaron a mediados de octubre: el 17 de octubre salieron unas 550.000 personas a la calle y hubo 2.628 detenidos, según el Ministerio del Interior francés."
-  - "Las causas: el coste de la vida, el deterioro de los servicios públicos y el acceso a la universidad. Se han unido estudiantes, sindicatos y chalecos amarillos."
-  - "El Gobierno ha desplegado unos 70.000 policías y ha impuesto toques de queda nocturnos en zonas de París."
-  - "Los sindicatos, encabezados por la CGT, convocan huelga general el jueves 5 de noviembre."
-  - "Si viajas a Francia estos días: revisa trenes y vuelos, evita las zonas de manifestación y consulta las recomendaciones del Ministerio de Asuntos Exteriores."
+  - "Las protestas empezaron a mediados de octubre: el 17 de octubre salieron
+    unas 550.000 personas a la calle y hubo 2.628 detenidos, según el Ministerio
+    del Interior francés."
+  - "Las causas: el coste de la vida, el deterioro de los servicios públicos y
+    el acceso a la universidad. Se han unido estudiantes, sindicatos y chalecos
+    amarillos."
+  - El Gobierno ha desplegado unos 70.000 policías y ha impuesto toques de queda
+    nocturnos en zonas de París.
+  - Los sindicatos, encabezados por la CGT, convocan huelga general el jueves 5
+    de noviembre.
+  - "Si viajas a Francia estos días: revisa trenes y vuelos, evita las zonas de
+    manifestación y consulta las recomendaciones del Ministerio de Asuntos
+    Exteriores."
 fuentes:
-  - titulo: "Esto es lo que hay que saber sobre los graves disturbios que tienen en vilo a Francia (La Nación)"
+  - titulo: Esto es lo que hay que saber sobre los graves disturbios que tienen en
+      vilo a Francia (La Nación)
     url: https://www.lanacion.com.ar/el-mundo/esto-es-lo-que-hay-que-saber-sobre-los-grandes-disturbios-y-protestas-antigubernamentales-en-francia-nid18102026/
     organismo: La Nación
-  - titulo: "Francia promete un despliegue policial «masivo» ante nuevas protestas y toques de queda (CNN en Español)"
+  - titulo: Francia promete un despliegue policial «masivo» ante nuevas protestas y
+      toques de queda (CNN en Español)
     url: https://cnnespanol.cnn.com/2026/10/19/mundo/francia-caos-violencia-europa-trax
     organismo: CNN en Español
-  - titulo: "Francia vive una nueva oleada de disturbios violentos en las principales ciudades (The Objective)"
+  - titulo: Francia vive una nueva oleada de disturbios violentos en las principales
+      ciudades (The Objective)
     url: https://theobjective.com/internacional/2026-10-24/francia-disturbios-principales-ciudades/
     organismo: The Objective
-  - titulo: "Protestas en Francia: 320.000 manifestantes desafían a Macron y convocan huelga nacional el 5-N (Moncloa.com)"
+  - titulo: "Protestas en Francia: 320.000 manifestantes desafían a Macron y
+      convocan huelga nacional el 5-N (Moncloa.com)"
     url: https://www.moncloa.com/2026/11/01/protestas-francia-huelga-nacional-macron-3459646
     organismo: Moncloa.com
-  - titulo: "Estudiantes de Francia retomarán los bloqueos de liceos tras rechazar las medidas anunciadas por Macron (La República)"
+  - titulo: Estudiantes de Francia retomarán los bloqueos de liceos tras rechazar
+      las medidas anunciadas por Macron (La República)
     url: https://larepublica.pe/mundo/2026/11/01/estudiantes-de-francia-retomaran-los-bloqueos-de-liceos-tras-rechazar-las-medidas-anunciadas-por-macron-45001
     organismo: La República
-  - titulo: "Recomendaciones de viaje a Francia (Ministerio de Asuntos Exteriores)"
+  - titulo: Recomendaciones de viaje a Francia (Ministerio de Asuntos Exteriores)
     url: https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=Francia
     organismo: Ministerio de Asuntos Exteriores
 elaboradoConIA: false
