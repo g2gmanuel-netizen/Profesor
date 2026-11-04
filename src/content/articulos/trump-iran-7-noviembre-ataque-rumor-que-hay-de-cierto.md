@@ -1,5 +1,5 @@
 ---
-titulo: "¿Atacará Trump a Irán el 7 de noviembre? De dónde sale el rumor, qué hay de cierto y qué pasaría con tu gasolina"
+titulo: "¿Atacará Trump a Irán el 7 de noviembre? Lo que hay de cierto y cómo afecta a tu gasolina"
 subtitulo: "Tucker Carlson asegura que la decisión podría llegar hacia el 7 de noviembre. La Casa Blanca no lo confirma y los verificadores no encuentran pruebas. Te explicamos qué es real, qué es bulo y cómo te afecta."
 tituloSeo: "Trump e Irán el 7 de noviembre: qué hay de cierto del rumor"
 descripcion: "¿Atacará EE UU a Irán el 7 de noviembre? Origen del rumor, qué dicen Trump y los verificadores, el contexto de la guerra y cómo afecta al petróleo y a la gasolina."
