@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
-**Enlace:** https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
+## 1. Triste fallecimiento de Jesús de Miguel: qué le puede pasar a Owono en los tribunales y en Competición
+**Enlace:** https://tubolsillodiario.com/articulo/muerte-jesus-de-miguel-owono-consecuencias-legales-sancion/
 
 ### X / Twitter
 ```
-El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
+Triste fallecimiento de Jesús de Miguel: qué le puede pasar a Owono en los tribunales y en Competición
 
-👉 https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
-#Actualidad #MiDNI #Elecciones29N #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/muerte-jesus-de-miguel-owono-consecuencias-legales-sancion/
+#Sociedad #CDTenerife #JesusdeMiguel #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?*
+📰 *Triste fallecimiento de Jesús de Miguel: qué le puede pasar a Owono en los tribunales y en Competición*
 
-La orden salió el 29 de octubre, en pleno luto por el accidente. Correos llevará más de 61.000 lectores a las mesas, pero la Junta Electoral mantiene suspendido el voto con MiDNI. Qué pasa y qué debes llevar.
+El delantero del Tenerife murió tras un rodillazo del portero del Andorra. Cómo iría el proceso penal, quién puede denunciar, qué penas prevé la ley y entre cuántos partidos oscila la sanción.
 
-• La Orden PJC/1129/2026 se publicó en el BOE el 29 de octubre, al día siguiente del accidente de Urda: encarga a Correos llevar lectores QR a unas 61.033 mesas electorales.
-• Correos cobrará 28,06 euros por cada envío y recogida: en torno a 1,7 millones de euros si se envía uno por mesa, según nuestro cálculo.
-• La Junta Electoral Central suspendió en marzo el voto con MiDNI por motivos de seguridad y, a 4 de noviembre, no ha levantado esa suspensión.
+• Jesús de Miguel, delantero del CD Tenerife de 30 años, murió el 3 de noviembre tras sufrir una parada cardiorrespiratoria por un rodillazo en el pecho del portero del FC Andorra, Jesús Owono.
+• La Policía Nacional investiga los hechos como un posible homicidio imprudente bajo supervisión judicial. Abrir diligencias no significa que haya delito ni que Owono vaya a ser condenado.
+• Si un juez apreciara imprudencia grave, la pena sería de 1 a 4 años de prisión; si fuera menos grave, solo multa, y además haría falta denuncia de la familia.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/boe-lectores-qr-midni-votar-29-n/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/muerte-jesus-de-miguel-owono-consecuencias-legales-sancion/
 
-_Actualidad · Bolsillo Diario_
+_Sociedad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — El Gobierno publicó en el BOE los lectores QR para votar con el DNI en el móvil al día siguiente de Urda: ¿podrás usar MiDNI el 29-N?
-  • Gancho (0-3 s): "¿El Gobierno publicó en el BOE los lectores QR para votar con el DNI e…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Triste fallecimiento de Jesús de Miguel: qué le puede pasar a Owono en los tribunales y en Competición
+  • Gancho (0-3 s): "¿Triste fallecimiento de Jesús de Miguel: qué le puede pasar a Owono e…?"
   • Desarrollo (3-25 s):
-  1. La Orden PJC/1129/2026 se publicó en el BOE el 29 de octubre, al día siguiente del accidente de Urda: encarga a Correos llevar lectores QR a unas 61.033 mesas electorales.
-  2. Correos cobrará 28,06 euros por cada envío y recogida: en torno a 1,7 millones de euros si se envía uno por mesa, según nuestro cálculo.
-  3. La Junta Electoral Central suspendió en marzo el voto con MiDNI por motivos de seguridad y, a 4 de noviembre, no ha levantado esa suspensión.
+  1. Jesús de Miguel, delantero del CD Tenerife de 30 años, murió el 3 de noviembre tras sufrir una parada cardiorrespiratoria por un rodillazo en el pecho del portero del FC Andorra, Jesús Owono.
+  2. La Policía Nacional investiga los hechos como un posible homicidio imprudente bajo supervisión judicial. Abrir diligencias no significa que haya delito ni que Owono vaya a ser condenado.
+  3. Si un juez apreciara imprudencia grave, la pena sería de 1 a 4 años de prisión; si fuera menos grave, solo multa, y además haría falta denuncia de la familia.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  La orden salió el 29 de octubre, en pleno luto por el accidente. Correos llevará más de 61.000 lectores a las mesas, pero la Junta Electoral mantiene suspendido el voto con MiDNI. Qué pasa y qué debe…
-  🔗 Enlace en la bio · #Actualidad #MiDNI #Elecciones29N #España #BolsilloDiario
+  El delantero del Tenerife murió tras un rodillazo del portero del Andorra. Cómo iría el proceso penal, quién puede denunciar, qué penas prevé la ley y entre cuántos partidos oscila la sanción.
+  🔗 Enlace en la bio · #Sociedad #CDTenerife #JesusdeMiguel #España #BolsilloDiario
 ```
