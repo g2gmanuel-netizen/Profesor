@@ -12,8 +12,7 @@ categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-04
 imagen: /imagenes/oscar-puente-dimite-ministro-transportes-urda-claves.jpg
-imagenAlt: "Imagen del artículo: Óscar Puente dimite: 4 horas en el Congreso,
-  «116 muertos tarde» y adiós a las listas del 29-N"
+imagenAlt: "Trenes AVE y Avant de Renfe en los andenes de una estación española"
 imagenCredito: "Foto: vlada11 (Pixabay)"
 imagenBusqueda:
   - renfe ave train
