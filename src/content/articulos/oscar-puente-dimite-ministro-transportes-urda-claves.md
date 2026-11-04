@@ -14,13 +14,13 @@ fechaPublicacion: 2026-11-04
 imagen: /imagenes/oscar-puente-dimite-ministro-transportes-urda-claves.jpg
 imagenAlt: "Imagen del artículo: Óscar Puente dimite: 4 horas en el Congreso,
   «116 muertos tarde» y adiós a las listas del 29-N"
-imagenCredito: "Foto: ArminEP (Pixabay)"
+imagenCredito: "Foto: vlada11 (Pixabay)"
 imagenBusqueda:
   - renfe ave train
   - madrid atocha station
   - spain high speed train
   - renfe train
-imagenRequiere: 'renfe|\bave\b|atocha|spain|spanish|madrid'
+imagenRequiere: renfe|\bave\b|atocha|spain|spanish|madrid
 etiquetas:
   - Óscar Puente
   - accidente de Urda
