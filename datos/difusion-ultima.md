@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a cada bando y cómo te afectaría una guerra
-**Enlace:** https://tubolsillodiario.com/articulo/china-rodea-taiwan-riesgo-invasion-consecuencias/
+## 1. ¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
+**Enlace:** https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
 
 ### X / Twitter
 ```
-China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a cada bando y cómo te afectaría una guerra
+¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
 
-👉 https://tubolsillodiario.com/articulo/china-rodea-taiwan-riesgo-invasion-consecuencias/
-#Actualidad #China #Taiwan #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
+#Politica #OscarPuente #PedroSanchez #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a cada bando y cómo te afectaría una guerra*
+📰 *¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas*
 
-Pekín ha enviado 49 aviones militares en un solo día, la cifra más alta del año, con dos portaaviones en el mar. Analizamos los escenarios, los bandos y por qué un conflicto se notaría en tu móvil y en tu coche.
+El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar en juego.
 
-• Taiwán detectó 49 aviones militares chinos en 24 horas hasta el 3 de noviembre, la cifra diaria más alta de 2026, y 122 en los tres primeros días del mes.
-• Los portaaviones Liaoning y Fujian están desplegados a la vez en el Pacífico occidental y el mar de China Meridional.
-• La presión llega antes de las elecciones locales taiwanesas del 28 de noviembre. Taiwán advierte de que de octubre a diciembre es la «temporada alta» de las maniobras chinas.
+• El Debate publica que Diego Rubio, director del Gabinete de la Presidencia, trasladó a Sánchez «información sensible» sobre Puente hacia las siete de la tarde del 3 de noviembre, unas dos horas antes de su dimisión.
+• Según el diario, un empresario de Medina del Campo, dueño de Patatas Meléndez, habría pedido a Puente, cuando era alcalde de Valladolid, que mediara para conseguir ayudas públicas, y a cambio le habría invitado a comidas y a encuentros con prostitutas.
+• Las acusaciones no están probadas: no hay ninguna causa judicial abierta. Según El Debate, el empresario reconoce invitaciones, pero niega la presencia de prostitutas. Puente respondió: «¿Me lo estás preguntando en serio?».
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/china-rodea-taiwan-riesgo-invasion-consecuencias/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
 
-_Actualidad · Bolsillo Diario_
+_Política · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a cada bando y cómo te afectaría una guerra
-  • Gancho (0-3 s): "¿China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a ca…?"
+🎬 GUION VÍDEO CORTO (~30 s) — ¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
+  • Gancho (0-3 s): "¿¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que s…?"
   • Desarrollo (3-25 s):
-  1. Taiwán detectó 49 aviones militares chinos en 24 horas hasta el 3 de noviembre, la cifra diaria más alta de 2026, y 122 en los tres primeros días del mes.
-  2. Los portaaviones Liaoning y Fujian están desplegados a la vez en el Pacífico occidental y el mar de China Meridional.
-  3. La presión llega antes de las elecciones locales taiwanesas del 28 de noviembre. Taiwán advierte de que de octubre a diciembre es la «temporada alta» de las maniobras chinas.
+  1. El Debate publica que Diego Rubio, director del Gabinete de la Presidencia, trasladó a Sánchez «información sensible» sobre Puente hacia las siete de la tarde del 3 de noviembre, unas dos horas antes de su dimisión.
+  2. Según el diario, un empresario de Medina del Campo, dueño de Patatas Meléndez, habría pedido a Puente, cuando era alcalde de Valladolid, que mediara para conseguir ayudas públicas, y a cambio le habría invitado a comidas y a encuentros con prostitutas.
+  3. Las acusaciones no están probadas: no hay ninguna causa judicial abierta. Según El Debate, el empresario reconoce invitaciones, pero niega la presencia de prostitutas. Puente respondió: «¿Me lo estás preguntando en serio?».
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Pekín ha enviado 49 aviones militares en un solo día, la cifra más alta del año, con dos portaaviones en el mar. Analizamos los escenarios, los bandos y por qué un conflicto se notaría en tu móvil y…
-  🔗 Enlace en la bio · #Actualidad #China #Taiwan #España #BolsilloDiario
+  El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar…
+  🔗 Enlace en la bio · #Politica #OscarPuente #PedroSanchez #España #BolsilloDiario
 ```
