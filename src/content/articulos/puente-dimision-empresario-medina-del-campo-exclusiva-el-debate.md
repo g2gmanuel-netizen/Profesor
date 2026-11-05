@@ -1,15 +1,14 @@
 ---
-titulo: "¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe y lo que no de la exclusiva de El Debate"
+titulo: "¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas"
 subtitulo: "El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar en juego."
 tituloSeo: "Puente, el empresario de las patatas y la exclusiva de El Debate"
 descripcion: "El Debate vincula la dimisión de Óscar Puente a acusaciones sobre un empresario de Medina del Campo. Qué se sabe, qué ayudas recibió la empresa y qué dice la ley."
 categoria: politica
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-05
-imagen: /imagenes/oscar-puente-dimite-ministro-transportes-urda-claves.jpg
-imagenAlt: "Óscar Puente en el Congreso"
+imagen: /imagenes/pedro-sanchez-gesto-serio-acto.jpg
+imagenAlt: "Pedro Sánchez, con gesto serio, sentado en un acto público"
 imagenCredito: "Imagen difundida en redes sociales"
-borrador: true
 etiquetas:
   - Óscar Puente
   - Pedro Sánchez
@@ -21,6 +20,7 @@ clavesRapidas:
   - "Según el diario, un empresario de Medina del Campo, dueño de Patatas Meléndez, habría pedido a Puente, cuando era alcalde de Valladolid, que mediara para conseguir ayudas públicas, y a cambio le habría invitado a comidas y a encuentros con prostitutas."
   - "Las acusaciones no están probadas: no hay ninguna causa judicial abierta. Según El Debate, el empresario reconoce invitaciones, pero niega la presencia de prostitutas. Puente respondió: «¿Me lo estás preguntando en serio?»."
   - "La empresa recibió un aval de 200.000 euros en junio de 2023 y un préstamo del ICO de 2 millones en mayo de 2025. Avales y préstamos no son subvenciones a fondo perdido."
+  - "La acusación apunta a Puente, no a Sánchez: al presidente se le reprocha haberlo sabido antes de la dimisión. Llega tras el caso Ábalos y la polémica de las saunas del suegro de Sánchez."
   - "Si se demostrara, podría encajar en delitos como el cohecho o el tráfico de influencias, con penas de prisión e inhabilitación para cargo público."
 fuentes:
   - titulo: "Puente dimitió 2 horas después de que Sánchez recibiera acusaciones sobre un empresario que le invitó a banquetes y fiestas con prostitutas a cambio de su ayuda (El Debate)"
@@ -44,6 +44,21 @@ fuentes:
   - titulo: "El PSOE afirma que la decisión de Puente «dignifica la política» mientras el PP sostiene que «le han dimitido las encuestas» (Valladolid Plural)"
     url: https://www.valladolidplural.com/politica/psoe-afirma-que-decision-puente-dignifica-politica-mientras-pp-sostiene-que-han-dimitido-encuestas/20261104143114073972.html
     organismo: Valladolid Plural
+  - titulo: "Caso Koldo: nuevos mensajes de la UCO apuntan a pagos y regalos de Ábalos a varias mujeres (Yahoo Noticias / Euronews)"
+    url: https://es-us.noticias.yahoo.com/caso-koldo-mensajes-uco-apuntan-170114893.html
+    organismo: Yahoo Noticias
+  - titulo: "Koldo manejaba una «caja B» para pagar los encuentros sexuales de Ábalos (The Objective)"
+    url: https://theobjective.com/espana/tribunales/2025-10-08/koldo-caja-b-encuentros-sexuales-abalos/
+    organismo: The Objective
+  - titulo: "Nos preguntáis por las saunas del suegro de Sánchez en Madrid (Newtral)"
+    url: https://www.newtral.es/saunas-suegro-sanchez/20250715/
+    organismo: Newtral
+  - titulo: "Tres saunas y un prostíbulo: el negocio del suegro de Sánchez que atosiga al presidente (El Independiente)"
+    url: https://www.elindependiente.com/espana/2025/07/12/tres-saunas-y-un-prostibulo-el-negocio-del-suegro-de-sanchez-que-atosiga-al-presidente/
+    organismo: El Independiente
+  - titulo: "Feijóo recuerda a Sánchez que su carrera política se pagó «con el dinero de la prostitución» (El Debate)"
+    url: https://www.eldebate.com/espana/20261023/feijoo-recuerda-sanchez-carrera-politica-pago-dinero-prostitucion_473115.html
+    organismo: El Debate
   - titulo: "Código Penal: cohecho (arts. 419-427) y tráfico de influencias (arts. 428-430) (BOE)"
     url: https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444#a428
     organismo: Boletín Oficial del Estado
@@ -52,6 +67,9 @@ destacado: true
 ---
 
 La dimisión de **Óscar Puente** como ministro de Transportes, anunciada el martes 3 de noviembre en la Diputación Permanente del Congreso, se explicó oficialmente por el accidente ferroviario de Urda. Pero este jueves **El Debate** ha publicado una exclusiva que apunta a otra posible causa: unas acusaciones sobre su relación con un empresario de Valladolid que, según el diario, llegaron a Pedro Sánchez **dos horas antes** de la renuncia.
+
+![Óscar Puente, con la mano en la cara, en la mesa del Gobierno del Congreso de los Diputados](/imagenes/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate.jpg)
+*Óscar Puente en una comparecencia en el Congreso. Imagen difundida en redes sociales.*
 
 Son acusaciones graves y **no están probadas**. Te contamos qué publica exactamente El Debate, qué datos se pueden comprobar, qué responden los implicados y qué tendría que pasar para que el caso llegara a un juzgado.
 
@@ -85,6 +103,16 @@ Ese giro de pocas horas, de «no dimitirá» a dimisión, es lo que alimenta la 
 
 **Ningún juzgado ni la Fiscalía han abierto, que se sepa, una investigación.** Todo lo anterior procede de la información de El Debate y de los medios que la han recogido.
 
+## ¿Qué se le reprocha a Sánchez?
+
+Conviene aclararlo, porque en redes se está mezclando: **la acusación de las comidas y las fiestas es contra Puente, no contra Sánchez.** Lo que se plantea sobre el presidente es otra cosa:
+
+- **Si lo sabía.** Según El Debate, Sánchez conoció las acusaciones antes de la dimisión. Si fuera así, la versión oficial, que vincula la salida solo al accidente de Urda, habría sido incompleta.
+- **Si hubo una «dimisión pactada».** The Objective sostiene que Moncloa aplicó la misma «teoría del fusible» que tras Adamuz: dejar caer a un ministro para proteger al Gobierno antes de las elecciones del 29-N.
+- **Qué hará ahora.** Si las acusaciones tuvieran algún fundamento, la oposición exigirá saber por qué el Gobierno no las puso en conocimiento de la Fiscalía.
+
+Ni Moncloa ni el PSOE han respondido públicamente a estas preguntas.
+
 ## Las ayudas públicas: qué recibió la empresa
 
 Este es el dato más fácil de comprobar, y conviene explicarlo bien porque **no todas las «ayudas» son iguales**:
@@ -97,6 +125,26 @@ Este es el dato más fácil de comprobar, y conviene explicarlo bien porque **no
 Además, la empresa ha recibido en otros momentos subvenciones de la **Junta de Castilla y León**, gobernada por el PP, como cualquier industria agroalimentaria de su tamaño.
 
 **Por qué importa la diferencia.** Una subvención es dinero que no se devuelve. Un aval o un préstamo del ICO se conceden con criterios técnicos y se devuelven con intereses; miles de pymes los recibieron tras la pandemia y la guerra de Ucrania. Que una empresa los obtuviera **no prueba nada por sí solo**. Lo relevante sería demostrar que alguien **presionó para que se concedieran** y que recibió algo a cambio.
+
+## No es la primera vez: la prostitución, en el centro del debate político
+
+La exclusiva cae en un terreno muy sensible para el Gobierno, porque llega después de otros dos asuntos que han dominado la conversación política:
+
+| Caso | Qué se sabe | Qué dicen los afectados | Situación |
+|---|---|---|---|
+| **Ábalos y Koldo** | Los informes de la UCO entregados al Tribunal Supremo en 2025 incluyen mensajes que apuntan a pagos, regalos y viajes de Ábalos a varias mujeres, algunas de ellas prostitutas. Según The Objective, se habrían pagado con una «caja B» gestionada por Koldo García y su esposa. | Ábalos sostiene que el informe tiene «muchos errores» y niega la autoría de las conversaciones en clave. | Investigado en el Supremo dentro del caso Koldo. |
+| **Las saunas del suegro de Sánchez** | Sabiniano Gómez, padre de Begoña Gómez, gestionó durante años varias saunas en Madrid. Sentencias de 2006 y 2009 lo identifican como responsable de al menos un local, y extrabajadores y atestados describen prostitución en ellos. | Sánchez afirmó en el Senado que en esos locales «no se realizaban actividades ilegales». Según Newtral, la Audiencia describió en 2024 el negocio como «lícito». | Sin causa penal contra Sánchez ni su esposa. Es una polémica política, no judicial. |
+| **Puente y el empresario** | Lo publicado por El Debate el 5 de noviembre de 2026. | El empresario niega las prostitutas; Puente no ha hecho un desmentido formal. | Sin causa judicial abierta. |
+
+El asunto de las saunas saltó al Congreso en julio de 2025, cuando **Alberto Núñez Feijóo** dijo que Sánchez se había beneficiado del «abominable negocio de la prostitución». El 23 de octubre de 2026 volvió a la carga: le reprochó que su carrera política «se pagó con el dinero de la prostitución». Sánchez le respondió acusándole de querer acabar con el Ministerio de Igualdad.
+
+![Pedro Sánchez y Begoña Gómez caminan de la mano en un acto oficial en la Alhambra de Granada](/imagenes/pedro-sanchez-begona-gomez-alhambra.jpg)
+*Pedro Sánchez y Begoña Gómez en la Alhambra de Granada. Imagen difundida en redes sociales.*
+
+![Montaje con Begoña Gómez delante de la fachada de una sauna con el rótulo «Sauna»](/imagenes/begona-gomez-sauna-montaje-redes.jpg)
+*Montaje que circula en redes sociales sobre las saunas que gestionó el padre de Begoña Gómez. Es una composición, no una fotografía real de ella en ese lugar. Imagen difundida en redes sociales.*
+
+**Por qué importa para el 29-N.** El PSOE ha hecho del feminismo y de la lucha contra la prostitución una de sus banderas; de hecho, ha defendido su abolición. Por eso cada uno de estos casos le hace especialmente daño, y la oposición los usa para acusarle de incoherencia. Pero hay que separar lo probado de lo que no lo está: en el caso Koldo hay una investigación judicial en marcha; en el de las saunas, sentencias antiguas y una polémica política; y en el de Puente, por ahora, solo la información de un medio.
 
 ## Qué delitos podrían estar en juego si se demostrara
 
@@ -120,4 +168,4 @@ Además, la empresa ha recibido en otros momentos subvenciones de la **Junta de 
 
 ## En resumen
 
-El Debate sostiene que Puente dimitió dos horas después de que Sánchez recibiera acusaciones sobre un empresario de Medina del Campo que le habría invitado a comidas y a fiestas a cambio de mediar por ayudas públicas. **Son acusaciones sin probar**: el empresario niega las prostitutas, Puente no las ha desmentido formalmente y no hay ninguna causa judicial abierta. Las ayudas que recibió la empresa existen, pero fueron un aval y un préstamo, no subvenciones. Para que esto fuera delito habría que demostrar influencia y contrapartida. Puedes leer todo el contexto de su salida en nuestro artículo sobre [la dimisión de Óscar Puente tras Adamuz y Urda](/articulo/oscar-puente-dimite-ministro-transportes-urda-claves/). Actualizaremos esta información si hay respuesta oficial o actuaciones judiciales.
+El Debate sostiene que Puente dimitió dos horas después de que Sánchez recibiera acusaciones sobre un empresario de Medina del Campo que le habría invitado a comidas y a fiestas a cambio de mediar por ayudas públicas. **Son acusaciones sin probar**: el empresario niega las prostitutas, Puente no las ha desmentido formalmente y no hay ninguna causa judicial abierta. Las ayudas que recibió la empresa existen, pero fueron un aval y un préstamo, no subvenciones. La acusación llega después del caso Ábalos y de la polémica de las saunas, lo que multiplica su impacto político a tres semanas del 29-N. Para que esto fuera delito habría que demostrar influencia y contrapartida. Puedes leer todo el contexto de su salida en nuestro artículo sobre [la dimisión de Óscar Puente tras Adamuz y Urda](/articulo/oscar-puente-dimite-ministro-transportes-urda-claves/). Actualizaremos esta información si hay respuesta oficial o actuaciones judiciales.
