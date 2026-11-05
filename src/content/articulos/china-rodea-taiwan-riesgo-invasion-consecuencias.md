@@ -1,5 +1,5 @@
 ---
-titulo: "China rodea Taiwán: qué riesgo real hay de invasión, quién apoya a cada bando y cómo te afectaría una guerra"
+titulo: "China rodea Taiwán: qué riesgo real hay de invasión y quién apoya a cada bando"
 subtitulo: "Pekín ha enviado 49 aviones militares en un solo día, la cifra más alta del año, con dos portaaviones en el mar. Analizamos los escenarios, los bandos y por qué un conflicto se notaría en tu móvil y en tu coche."
 tituloSeo: "China rodea Taiwán: riesgo de invasión y cómo te afecta"
 descripcion: "China despliega aviones, buques y portaaviones alrededor de Taiwán. Riesgo real de invasión o bloqueo, quién apoya a cada bando y el impacto en la economía mundial."

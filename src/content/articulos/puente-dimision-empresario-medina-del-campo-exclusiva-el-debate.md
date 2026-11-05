@@ -1,5 +1,5 @@
 ---
-titulo: "¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas"
+titulo: "¿Dimitió Puente porque Sánchez supo de las acusaciones de fiestas con prostitutas pagadas por un empresario?"
 subtitulo: "El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar en juego."
 tituloSeo: "Puente, el empresario de las patatas y la exclusiva de El Debate"
 descripcion: "El Debate vincula la dimisión de Óscar Puente a acusaciones sobre un empresario de Medina del Campo. Qué se sabe, qué ayudas recibió la empresa y qué dice la ley."
@@ -96,6 +96,9 @@ Según el diario, estos son los hechos que habría conocido Moncloa:
 Ese giro de pocas horas, de «no dimitirá» a dimisión, es lo que alimenta la pregunta. Desde el PSOE sostienen que la decisión «dignifica la política». El PP afirma que a Puente «le han dimitido las encuestas».
 
 ## Qué dicen los implicados
+
+![Óscar Puente se lleva la mano a la cabeza durante unas declaraciones ante los medios](/imagenes/oscar-puente-declaraciones-mano-cabeza.jpg)
+*Óscar Puente, durante unas declaraciones a los medios. Imagen difundida en redes sociales.*
 
 - **Óscar Puente.** Preguntado por El Debate, respondió con otra pregunta: **«¿Me lo estás preguntando en serio?»**. No consta, por ahora, un desmentido formal ni una querella contra el diario.
 - **El empresario.** Según la información publicada, reconoce haber invitado al exministro en su casa de Valladolid y en Alicante, pero **niega la presencia de prostitutas**.
