@@ -6,7 +6,9 @@ descripcion: "El Nasdaq se desplomó un 5,5 % por el miedo a frenar la IA tras l
 categoria: ahorro
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-06
-imagenAlt: "Pantalla con índices bursátiles de Wall Street en rojo"
+imagen: /imagenes/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera.jpg
+imagenAlt: "Parqué de la Bolsa de Nueva York con un panel de cotizaciones en primer plano"
+imagenCredito: "Imagen difundida en redes sociales (foto de archivo)"
 etiquetas:
   - Wall Street
   - Nasdaq
@@ -75,7 +77,7 @@ No fue un desplome por una sola noticia, sino por **cuatro factores que coincidi
 |---|---|
 | S&P 500 | −4,36 %, hasta 7.353,73 puntos. Está un 6,3 % por debajo de su récord de octubre (7.844,67) |
 | Nasdaq Composite | −5,52 %, hasta 24.315 puntos. Entra en **corrección** (más de un 10 % por debajo de su máximo) |
-| Nasdaq 100 | −6,4 %. Se evaporaron unos **2,3 billones de dólares**, la mayor pérdida en dinero de su historia |
+| Nasdaq 100 | −6,36 % (−1.807 puntos), hasta 26.629,80. Se evaporaron unos **2,3 billones de dólares**, la mayor pérdida en dinero de su historia |
 | Dow Jones | −3,44 % (más de 1.800 puntos) |
 | Semiconductores (índice de Filadelfia) | Cerca de −12 %, su peor día desde 2020 |
 | «7 Magníficas» (Apple, Microsoft, Nvidia, Alphabet, Amazon, Meta, Tesla) | Más de **1 billón de dólares** perdidos entre todas |
@@ -85,7 +87,32 @@ No fue un desplome por una sola noticia, sino por **cuatro factores que coincidi
 
 *Las cifras difieren ligeramente entre medios según la hora del cierre; usamos las de CNBC, Bloomberg y Yahoo Finance.*
 
+![Gráfico de la sesión del S&P 500 el 5 de noviembre, que cae un 4,36 % hasta 7.353,73 puntos](/imagenes/sp500-intradia-5-noviembre-2026.jpg)
+*El S&P 500 durante la sesión del jueves: abrió ya con fuerte caída, intentó rebotar dos veces y cerró en mínimos del día (7.353,73 puntos, −4,36 %).*
+
+![Gráfico de la sesión del Nasdaq 100 el 5 de noviembre, que cae un 6,36 % hasta 26.629,80 puntos](/imagenes/nasdaq-100-intradia-5-noviembre-2026.jpg)
+*El Nasdaq 100, el índice de las 100 mayores tecnológicas, cayó un 6,36 % y también cerró prácticamente en el mínimo de la jornada.*
+
+**Un detalle que importa: cerraron en mínimos.** Las dos gráficas muestran lo mismo. Hubo intentos de rebote a media sesión, pero los vendedores ganaron y los índices cerraron **en el punto más bajo del día**. Los operadores lo leen como una señal de que **nadie quiso arriesgarse a comprar antes del fin de semana y del dato de empleo**. Por eso no se puede descartar que haya más volatilidad en los próximos días.
+
 **Un billón de dólares** (un millón de millones) equivale a **más de la mitad de todo lo que produce España en un año** (su PIB). Eso perdieron en bolsa siete empresas en unas horas.
+
+## Dónde cayó más y dónde se refugió el dinero
+
+![Mapa de calor del S&P 500 el 5 de noviembre: casi todo en rojo, con los chips cayendo más de un 10 %](/imagenes/mapa-calor-sp500-5-noviembre-2026.jpg)
+*Mapa de calor del S&P 500 al cierre del 5 de noviembre: cada cuadro es una empresa, su tamaño es su valor en bolsa y el color indica cuánto subió (verde) o bajó (rojo).*
+
+Este mapa es la mejor forma de entender qué pasó. **No cayó todo por igual**:
+
+| Grupo | Cuánto cayó | Ejemplos |
+|---|---|---|
+| 🔴 Chips y memoria (el corazón de la IA) | Entre −9 % y −22 % | Micron −17,5 %, AMD −17,3 %, SanDisk −22,3 %, Lam Research −16,4 %, Broadcom −10,4 %, Nvidia −9,3 % |
+| 🔴 Software y empresas ligadas a la IA | Entre −7 % y −10 % | Palantir −9,7 %, CrowdStrike −9,9 %, Oracle −7 %, Tesla −10,8 % |
+| 🟠 Bancos y gestoras de fondos | Entre −3 % y −6 % | JPMorgan −4,2 %, Goldman Sachs −6,4 %, Morgan Stanley −5,9 % |
+| 🟡 Grandes tecnológicas «de consumo» | Entre −1,5 % y −4 % | Apple −1,5 %, Amazon −2,2 %, Alphabet −2,2 %, Microsoft −3,6 %, Meta −4 % |
+| 🟢 Refugios: alimentación, eléctricas y supermercados | Entre −0,2 % y +1,8 % | Costco +1,8 %, Pepsi +0,2 %, Coca-Cola −0,1 %, Procter & Gamble −0,2 %, Duke Energy +0,5 % |
+
+**La lectura:** el castigo fue para las empresas que **venden la infraestructura de la IA**: chips, memoria y equipos para fabricar chips. Las que la usan, como Apple o Amazon, cayeron mucho menos. El dinero huyó hacia lo que la gente compra pase lo que pase: comida, bebida, productos de limpieza y electricidad. Es el patrón clásico de una **huida hacia la seguridad**, no de un pánico por una crisis económica general.
 
 ## Las cuatro causas, explicadas de forma sencilla
 
@@ -171,6 +198,11 @@ Para las caídas generales de la bolsa de entre el 10 % y el 20 %, la recuperaci
 | 🟢 **Rebote rápido** (semanas) | Nvidia presenta buenos resultados el 17 de noviembre, las moratorias de centros de datos se quedan en pocos estados y la Fed suaviza el tono | Recuperación de buena parte de la caída antes de fin de año, como en agosto de 2024 |
 | 🟡 **Corrección prolongada** (2-5 meses) | Lo más habitual según la historia: dudas sobre la IA durante varias semanas, una subida de tipos en diciembre y movimientos bruscos en ambos sentidos | Bajadas adicionales y rebotes parciales; vuelta a máximos en la primavera de 2027 |
 | 🔴 **Mercado bajista** (más de un 20 % de caída) | Moratorias amplias a los centros de datos, recortes del gasto en IA de las grandes tecnológicas, varias subidas de tipos o recesión | Caídas más profundas y una recuperación de un año o más |
+
+![Gráfico difundido en redes que proyecta una caída del 25,83 % del S&P 500 hasta una línea de soporte de largo plazo](/imagenes/sp500-grafico-redes-crash-ia-soporte.jpg)
+*Gráfico muy compartido estos días en redes. Dibuja una posible caída del 25,83 % desde el máximo hasta una línea de «soporte de largo plazo». Ojo: es una **hipótesis de análisis técnico**, no una previsión de ningún organismo. Además, la etiqueta de 2022 es engañosa: aquella caída no la causó el COVID, sino la inflación y las subidas de tipos.*
+
+Ese gráfico representa el **escenario rojo**, y conviene ponerlo en contexto. Para que el S&P 500 cayera un 26 % desde su récord de 7.844 puntos, tendría que bajar hasta unos **5.800 puntos**, un **21 % más** desde el cierre del jueves. Algo así solo ha ocurrido con causas de fondo: una recesión, una inflación desbocada o una burbuja sin beneficios detrás. Ninguno de los analistas citados en esta noticia lo plantea como el escenario más probable.
 
 La mayoría de los analistas consultados por los medios se sitúa entre el escenario verde y el amarillo:
 
