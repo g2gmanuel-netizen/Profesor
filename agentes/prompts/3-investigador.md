@@ -5,3 +5,5 @@ Extrae los **hechos** verificables, cada uno con su cita (si procede, menos de 1
 Regla de oro: **si un dato no está en la fuente, no se incluye**. No inventes cifras ni fechas. Prioriza fuentes primarias oficiales.
 
 Devuelve JSON con la ficha de hechos: `{ "temaId", "titulo", "hechos": [ { "afirmacion", "cita?", "url", "organismo?" } ], "contexto": [], "fuentes": [ { "titulo", "url", "organismo?" } ], "datosNumericos": [] }`.
+
+Busca siempre **varias fuentes distintas** (oficiales y de varios medios) y anota en `contexto` los antecedentes, la cronología y las discrepancias entre fuentes: es lo que permite al redactor aportar valor añadido.

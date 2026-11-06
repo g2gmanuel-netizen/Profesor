@@ -162,6 +162,48 @@ Según su relato, recogido por la SER, Infobae, elDiario.es y El Plural:
 
 El ministro de Justicia, **Félix Bolaños**, exigió a **Feijóo** que aclare *«si ha pagado el PP un millón de euros a Koldo García para acusar falsamente de delitos a Pedro Sánchez y al PSOE»*. El PSOE **estudia presentar una querella**: *«Es muy grave influir en una declaración para derrocar al Gobierno»*.
 
+## Lo que cuenta cada medio: dónde coinciden y dónde no
+
+Hemos contrastado más de quince informaciones publicadas el 5 y 6 de noviembre. Este es el mapa de lo que está claro y de lo que depende de quién lo cuente:
+
+| Dato | Coinciden todos | Discrepancias |
+|---|---|---|
+| Seis detenidos, entre ellos Corvillo y la pareja de Ábalos | ✅ Sí | — |
+| La investigación es sobre contratos de Adif Alta Velocidad | ✅ Sí | — |
+| Todos quedaron en libertad | ✅ Sí | — |
+| Registro de la casa de Ábalos en Valencia | ❌ No | El Español y The Objective lo dan por hecho; Libertad Digital no lo confirma |
+| Delitos atribuidos a Corvillo | ❌ No | Cordópolis cita cuatro; Infobae recuerda que el secreto impide conocerlos |
+| Cuánto habría cobrado Corvillo | ❌ No | Solo El Liberal habla de hasta 100.000 euros |
+| Si Corvillo fue chófer de Sánchez | ❌ No | Moncloa lo niega; El Español y Telecinco recuerdan los agradecimientos públicos de 2017 |
+| Importe pagado a la defensa de Koldo | Casi | 181.500 + 60.500 € (unos 242.000 €), según la SER; otro medio redondea a 241.000 € |
+| Que el PP ofreciera un millón | ❌ No | Solo lo afirma Koldo; el PP lo niega y no hay pruebas públicas |
+
+## Cronología: cómo se ha llegado hasta aquí
+
+| Fecha | Qué pasó |
+|---|---|
+| 2017 | Sánchez recupera la secretaría general del PSOE tras recorrer España en coche. Corvillo conduce; Koldo García y Santos Cerdán forman parte de su equipo. |
+| 2018 | Sánchez llega a la Moncloa y nombra a Ábalos ministro de Transportes; Koldo pasa a ser su asesor. |
+| Febrero de 2024 | La UCO detiene a Koldo García por las comisiones en la compra de mascarillas durante la pandemia. |
+| Junio de 2025 | Un informe de la UCO salpica a Santos Cerdán, que dimite como número tres del PSOE y acaba en prisión provisional. |
+| Septiembre de 2025 | Corvillo declara como testigo en el caso Hidrocarburos. |
+| Noviembre de 2025 | El Supremo envía a prisión provisional a Ábalos y a Koldo. Ese mismo mes, según la SER, se paga la primera factura de la defensa de Koldo (181.500 €). |
+| Junio de 2026 | El Supremo condena a Ábalos (24 años) y a Koldo (algo más de 19) por el caso mascarillas. |
+| 14 de octubre de 2026 | El Supremo rechaza anular sus condenas. |
+| 3 de noviembre de 2026 | El juez Ismael Moreno abre la pieza secreta sobre Adif tras un nuevo informe de la UCO. |
+| 5 de noviembre de 2026 | Seis detenidos, registro en Adif, audios de Koldo contra el PP y respuesta de Sánchez en la Cumbre Iberoamericana. |
+
+## La clave que casi nadie explica: por qué ahora Adif
+
+El caso Koldo empezó con **mascarillas**, un contrato de emergencia de la pandemia. La nueva pieza da un salto: apunta a **obra pública ferroviaria**, el negocio central del Ministerio de Transportes que dirigió Ábalos entre 2018 y 2021. Adif gestiona cada año miles de millones de euros en licitaciones de vías, estaciones y mantenimiento del AVE.
+
+Eso cambia la escala del caso por dos motivos:
+
+1. **El dinero en juego es mucho mayor.** Los contratos de obra ferroviaria superan con frecuencia las decenas de millones de euros, frente a los contratos puntuales de mascarillas.
+2. **Afecta a la gestión ordinaria del ministerio**, no a una compra de urgencia. Si se probaran comisiones en adjudicaciones de Adif, la pregunta sería qué controles fallaron en los procesos de licitación.
+
+Por ahora no hay ningún contrato concreto identificado públicamente: el secreto de la pieza lo impide.
+
 ## Por qué debes leer todo esto con cautela
 
 - **Koldo es un condenado** que busca mejorar su situación, y su versión ha cambiado con el tiempo. Pero **la UCO y el Supremo sí han dado por probados** muchos hechos de la trama que él conocía.

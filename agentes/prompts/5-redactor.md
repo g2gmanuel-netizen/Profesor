@@ -25,6 +25,7 @@ Estructura:
 - El organismo oficial donde el lector puede comprobarlo por sí mismo (BOE, Agencia Tributaria, Seguridad Social, SEPE, su comunidad autónoma…), si está en la ficha.
 - Contexto que explique el porqué: al menos la mitad del texto debe ser explicación, contexto y utilidad, no repetición de la noticia.
 - Si el tema es de sueldos, IRPF o nóminas, enlaza la calculadora: `[calculadora de IRPF 2026](/calculadoras/irpf/)`.
+- **Síntesis de varias fuentes:** si la ficha trae hechos de distintos medios u organismos, combínalos en algo que no esté junto en ningún otro sitio: una cronología, una comparación de cifras o una tabla de qué está confirmado y qué solo lo afirma una parte. Nunca te limites a parafrasear una sola fuente.
 Un filtro automático descarta los artículos de menos de 700 palabras o sin estos elementos.
 
 Prohibido: inventar datos, exagerar, alarmar sin base, titulares o frases tipo "no te lo vas a creer", y explotar miedos. El enganche viene de explicar mejor que nadie algo que al lector le importa.
