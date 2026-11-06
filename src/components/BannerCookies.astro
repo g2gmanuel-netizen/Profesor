@@ -4,23 +4,38 @@
  * y sus estilos se apliquen bien. El Consent Mode por defecto lo fija
  * Consentimiento.astro desde el <head>.
  */
-import { SITIO } from '../lib/sitio';
+import { SITIO, CATEGORIAS } from '../lib/sitio';
+import { destacados } from '../lib/articulos';
 const cmpActivo = SITIO.cmp.activo;
+const portada = cmpActivo ? await destacados(3) : [];
+const nombreCategoria = (slug: string) =>
+  CATEGORIAS.find((c) => c.slug === slug)?.nombre ?? slug;
 ---
 
 {
   cmpActivo && (
-    <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-modal="true" aria-labelledby="bd-cmp-titulo">
+    <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-modal="true" aria-label="Bienvenida y aviso de cookies">
       <div class="cmp-tarjeta">
         <p class="cmp-marca">Bolsillo Diario</p>
-        <p class="cmp-titulo" id="bd-cmp-titulo">Te damos la bienvenida</p>
+        <p class="cmp-lema">Tu dinero y la actualidad, con cabeza</p>
+        <div class="cmp-portada">
+          <p class="cmp-portada-titulo">Hoy en portada</p>
+          <ul>
+            {portada.map((a) => (
+              <li>
+                <span class="cmp-cat">{nombreCategoria(a.data.categoria)}</span>
+                <span class="cmp-titular">{a.data.titulo}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p class="cmp-confianza">Gratis, sin registro y con las fuentes de cada noticia a la vista.</p>
         <p class="cmp-texto">
-          Aquí explicamos la actualidad y el dinero de forma clara y gratuita. Para seguir haciéndolo,
-          usamos cookies con nuestros socios para medir la audiencia y mostrar publicidad. Al
-          aceptar, nos ayudas a mantener la web gratis para todos.
+          Para mantenerlo así, usamos cookies con nuestros socios para medir la audiencia y mostrar
+          publicidad. Al aceptar, nos ayudas a seguir informando gratis.
         </p>
         <div class="cmp-botones">
-          <button type="button" data-consent="granted" class="primario">Aceptar y entrar</button>
+          <button type="button" data-consent="granted" class="primario">Aceptar y leer las noticias</button>
           <button type="button" data-consent="denied">Rechazar</button>
         </div>
         <p class="cmp-pie">
@@ -42,8 +57,11 @@ const cmpActivo = SITIO.cmp.activo;
         guardado = localStorage.getItem('bd-consent');
       } catch (e) {}
       if (!guardado) {
-        banner.hidden = false;
-        document.documentElement.classList.add('cmp-abierto');
+        // Pequeña pausa para que el lector vea primero que es un diario de noticias.
+        setTimeout(function () {
+          banner.hidden = false;
+          document.documentElement.classList.add('cmp-abierto');
+        }, 1200);
       }
       banner.querySelectorAll('button[data-consent]').forEach(function (b) {
         b.addEventListener('click', function () {
@@ -76,10 +94,17 @@ const cmpActivo = SITIO.cmp.activo;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: rgba(10, 20, 15, 0.55);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    background: rgba(10, 20, 15, 0.38);
+    animation: cmp-aparece 0.35s ease-out;
     font-family: var(--fuente-ui);
+  }
+  @keyframes cmp-aparece {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   .cmp-banner[hidden] {
     display: none;
@@ -91,6 +116,7 @@ const cmpActivo = SITIO.cmp.activo;
     width: 100%;
     max-width: 460px;
     max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
     overflow-y: auto;
     background: var(--color-fondo);
     border-top: 5px solid var(--color-marca);
@@ -106,15 +132,64 @@ const cmpActivo = SITIO.cmp.activo;
     margin: 0;
     line-height: 1.1;
   }
-  .cmp-titulo {
-    font-size: 1.05rem;
+  .cmp-lema {
+    margin: 0.3rem 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .cmp-portada {
+    text-align: left;
+    border-top: 2px solid var(--color-texto, #111);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 0.6rem 0 0.2rem;
+    margin-bottom: 0.9rem;
+  }
+  .cmp-portada-titulo {
+    margin: 0 0 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a3281c;
+  }
+  .cmp-portada ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cmp-portada li {
+    padding: 0.45rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .cmp-portada li:first-child {
+    border-top: 0;
+  }
+  .cmp-cat {
+    display: block;
+    font-size: 0.68rem;
     font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-marca);
-    margin: 0.4rem 0 0.9rem;
+  }
+  .cmp-titular {
+    display: block;
+    font-family: var(--fuente-titular);
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+  .cmp-confianza {
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--color-marca);
   }
   .cmp-texto {
-    margin: 0 0 1.3rem;
-    font-size: 0.98rem;
+    margin: 0 0 1.1rem;
+    font-size: 0.92rem;
     line-height: 1.55;
   }
   .cmp-botones {
@@ -139,6 +214,42 @@ const cmpActivo = SITIO.cmp.activo;
   .cmp-botones .primario {
     background: var(--color-marca);
     color: #fff;
+  }
+  @media (max-width: 600px) {
+    .cmp-banner {
+      align-items: flex-end;
+      padding: 0.5rem;
+    }
+    .cmp-tarjeta {
+      padding: 1.1rem 1.1rem 0.9rem;
+    }
+    .cmp-marca {
+      font-size: 1.35rem;
+    }
+    .cmp-lema {
+      margin-bottom: 0.6rem;
+      font-size: 0.62rem;
+    }
+    .cmp-portada li:nth-child(3) {
+      display: none;
+    }
+    .cmp-titular {
+      font-size: 0.9rem;
+    }
+    .cmp-confianza {
+      font-size: 0.85rem;
+    }
+    .cmp-texto {
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+    .cmp-botones button {
+      padding: 12px 20px;
+    }
+    .cmp-pie {
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+    }
   }
   .cmp-pie {
     margin: 1rem 0 0;
