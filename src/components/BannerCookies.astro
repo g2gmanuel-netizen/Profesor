@@ -10,20 +10,23 @@ const cmpActivo = SITIO.cmp.activo;
 
 {
   cmpActivo && (
-    <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-live="polite" aria-labelledby="bd-cmp-titulo">
+    <div id="bd-cmp" class="cmp-banner" hidden role="dialog" aria-modal="true" aria-labelledby="bd-cmp-titulo">
       <div class="cmp-tarjeta">
-        <div class="cmp-texto">
-          <p class="cmp-titulo" id="bd-cmp-titulo">Bolsillo Diario es gratis gracias a ti</p>
-          <p>
-            Para seguir sin muros de pago usamos cookies que nos dicen qué noticias te interesan y
-            nos permiten mostrar publicidad. Si aceptas, nos ayudas a seguir siendo gratis. Puedes
-            cambiar de opinión cuando quieras en la <a href="/politica-cookies/">política de cookies</a>.
-          </p>
-        </div>
+        <p class="cmp-marca">Bolsillo Diario</p>
+        <p class="cmp-titulo" id="bd-cmp-titulo">Te damos la bienvenida</p>
+        <p class="cmp-texto">
+          Aquí explicamos la actualidad y el dinero de forma clara y gratuita. Para seguir haciéndolo,
+          usamos cookies con nuestros socios para medir la audiencia y mostrar publicidad. Al
+          aceptar, nos ayudas a mantener la web gratis para todos.
+        </p>
         <div class="cmp-botones">
-          <button type="button" data-consent="granted" class="primario">Aceptar y continuar</button>
+          <button type="button" data-consent="granted" class="primario">Aceptar y entrar</button>
           <button type="button" data-consent="denied">Rechazar</button>
         </div>
+        <p class="cmp-pie">
+          Puedes cambiar tu elección cuando quieras. Más información en la
+          <a href="/politica-cookies/">política de cookies</a>.
+        </p>
       </div>
     </div>
   )
@@ -38,7 +41,10 @@ const cmpActivo = SITIO.cmp.activo;
       try {
         guardado = localStorage.getItem('bd-consent');
       } catch (e) {}
-      if (!guardado) banner.hidden = false;
+      if (!guardado) {
+        banner.hidden = false;
+        document.documentElement.classList.add('cmp-abierto');
+      }
       banner.querySelectorAll('button[data-consent]').forEach(function (b) {
         b.addEventListener('click', function () {
           var estado = b.getAttribute('data-consent');
@@ -54,6 +60,7 @@ const cmpActivo = SITIO.cmp.activo;
             });
           }
           banner.hidden = true;
+          document.documentElement.classList.remove('cmp-abierto');
         });
       });
     })();
@@ -63,68 +70,68 @@ const cmpActivo = SITIO.cmp.activo;
 <style>
   .cmp-banner {
     position: fixed;
-    inset-inline: 0;
-    bottom: 0;
-    z-index: 100;
-    padding: 0 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
-    font-family: var(--fuente-ui);
+    inset: 0;
+    z-index: 1000;
     display: flex;
+    align-items: center;
     justify-content: center;
-    pointer-events: none;
+    padding: 1rem;
+    background: rgba(10, 20, 15, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    font-family: var(--fuente-ui);
   }
   .cmp-banner[hidden] {
     display: none;
   }
-  .cmp-tarjeta {
-    pointer-events: auto;
-    width: 100%;
-    max-width: 880px;
-    background: var(--color-fondo);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-top: 4px solid var(--color-marca);
-    border-radius: 14px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    align-items: center;
+  :global(html.cmp-abierto) {
+    overflow: hidden;
   }
-  .cmp-texto {
-    flex: 1 1 420px;
-    min-width: 0;
+  .cmp-tarjeta {
+    width: 100%;
+    max-width: 460px;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    background: var(--color-fondo);
+    border-top: 5px solid var(--color-marca);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    padding: 1.75rem 1.75rem 1.4rem;
+    text-align: center;
+  }
+  .cmp-marca {
+    font-family: var(--fuente-display);
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 1.1;
   }
   .cmp-titulo {
-    font-size: 1.15rem;
-    font-weight: 800;
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--color-marca);
-    margin: 0 0 0.35rem;
+    margin: 0.4rem 0 0.9rem;
   }
-  .cmp-texto p {
-    margin: 0;
-    font-size: 0.97rem;
-    line-height: 1.5;
-  }
-  .cmp-texto a {
-    color: var(--color-marca);
-    font-weight: 600;
+  .cmp-texto {
+    margin: 0 0 1.3rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
   }
   .cmp-botones {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    flex: 0 0 auto;
   }
   .cmp-botones button {
-    padding: 13px 28px;
+    width: 100%;
+    padding: 14px 24px;
     border-radius: 999px;
     border: 2px solid var(--color-marca);
     cursor: pointer;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.02rem;
     background: var(--color-fondo);
     color: var(--color-marca);
-    min-width: 220px;
   }
   .cmp-botones button:hover {
     filter: brightness(1.05);
@@ -133,16 +140,13 @@ const cmpActivo = SITIO.cmp.activo;
     background: var(--color-marca);
     color: #fff;
   }
-  @media (max-width: 600px) {
-    .cmp-tarjeta {
-      padding: 1rem 1.1rem;
-    }
-    .cmp-botones {
-      width: 100%;
-    }
-    .cmp-botones button {
-      width: 100%;
-      min-width: 0;
-    }
+  .cmp-pie {
+    margin: 1rem 0 0;
+    font-size: 0.82rem;
+    opacity: 0.8;
+  }
+  .cmp-pie a {
+    color: var(--color-marca);
+    font-weight: 600;
   }
 </style>
