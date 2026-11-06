@@ -6,9 +6,9 @@ descripcion: "La UCO detiene a Cristian Corvillo, exchófer de Sánchez en 2017,
 categoria: politica
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-06
-imagenAlt: "Pedro Sánchez en la rueda de prensa de la Cumbre Iberoamericana"
+imagen: /imagenes/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp.jpg
+imagenAlt: "Pedro Sánchez revisa unos documentos sentado en una mesa"
 imagenCredito: "Imagen difundida en redes sociales"
-borrador: true
 etiquetas:
   - caso Koldo
   - Pedro Sánchez
@@ -91,6 +91,9 @@ Corvillo, cordobés, fue detenido en **Córdoba** tras el registro de una vivien
 - **Su papel según la investigación:** El Debate publica que la Audiencia Nacional lo sitúa como **«nexo»** en las tramas de las mordidas. El Liberal recoge que los investigadores calculan que su participación pudo reportarle **hasta 100.000 euros**. Ninguno de los dos datos está confirmado oficialmente.
 - **Qué delitos:** Cordópolis afirma que se le atribuyen **blanqueo de capitales, tráfico de influencias, pertenencia a organización criminal y fraude fiscal**. Infobae, en cambio, subraya que, por el secreto, **no se conocen los hechos concretos**. Tómalo con cautela hasta que se levante el secreto.
 
+![Koldo García, Pedro Sánchez y Santos Cerdán posan juntos en una imagen de 2017](/imagenes/koldo-sanchez-cerdan-primarias-2017.jpg)
+*Koldo García (izquierda), Pedro Sánchez y Santos Cerdán, en una imagen de la etapa de las primarias del PSOE de 2017 difundida en redes sociales. Koldo y Cerdán acabaron investigados en el caso Koldo; Sánchez no está investigado.*
+
 Tras declarar, Corvillo quedó en libertad. El Debate considera previsible que sea **imputado formalmente en las próximas semanas**.
 
 ### Qué penas tienen esos delitos
@@ -114,6 +117,9 @@ El Español publica que el juez investiga a **Andrea de la Torre**, pareja de Á
 
 Sánchez habló del asunto en la rueda de prensa final de la **XXX Cumbre Iberoamericana**, celebrada en Madrid:
 
+![Pedro Sánchez en el atril de la XXX Cumbre Iberoamericana](/imagenes/sanchez-rueda-prensa-cumbre-iberoamericana-2026.jpg)
+*Pedro Sánchez, en la rueda de prensa de la XXX Cumbre Iberoamericana del 5 de noviembre, donde se desvinculó de los detenidos.*
+
 > «Ninguna de estas personas tiene nada que ver conmigo».
 
 También dijo que el caso **«parece que no es nada nuevo»** y reiteró la **«total colaboración con la Justicia»** del Gobierno. **Moncloa y el PSOE** sostienen que Corvillo **nunca fue chófer del presidente**, ni en las primarias de 2017 ni después.
@@ -123,6 +129,9 @@ Varios medios, como El Español y Estrella Digital, contraponen esa versión con
 ## El otro frente: Koldo acusa al PP de ofrecerle un millón de euros
 
 El mismo jueves, la **Cadena SER** difundió audios grabados por **Koldo García** desde la prisión de Soto del Real, donde cumple condena. El Supremo lo condenó en junio de 2026 a **algo más de 19 años** por el caso mascarillas, y en octubre rechazó su intento de anular la sentencia.
+
+![José Luis Ábalos y, detrás, Koldo García en un pasillo](/imagenes/abalos-koldo-garcia-pasillo.jpg)
+*José Luis Ábalos y, detrás, su entonces asesor Koldo García, en una imagen de archivo. Ambos cumplen condena por el caso mascarillas.*
 
 ### Qué dice Koldo
 
@@ -160,6 +169,9 @@ El ministro de Justicia, **Félix Bolaños**, exigió a **Feijóo** que aclare *
 - **La pieza de Adif sigue en secreto.** Lo que se publica sale de fuentes de la investigación, no de documentos oficiales, y algunos datos difieren entre medios.
 
 ## Qué puede pasar ahora
+
+![Un hombre declara sentado ante un micrófono en una sala de tribunal](/imagenes/declaracion-testigo-sala-tribunal.jpg)
+*Una declaración en sede judicial, en una imagen difundida en redes sociales. En la pieza de Adif, los detenidos todavía no han declarado como investigados ante el juez.*
 
 1. **Levantamiento del secreto:** cuando el juez Moreno lo levante, se sabrá qué delitos se atribuyen a Corvillo, De la Torre y los demás, y si hay imputaciones formales.
 2. **Los audios de Koldo:** si los entrega a un juzgado o los publica, se podrá comprobar si existen y qué dicen.
