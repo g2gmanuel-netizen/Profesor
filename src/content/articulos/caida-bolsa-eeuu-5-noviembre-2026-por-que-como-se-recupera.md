@@ -6,6 +6,7 @@ descripcion: "El Nasdaq se desplomó un 5,5 % por el miedo a frenar la IA tras l
 categoria: ahorro
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-06
+destacado: true
 imagen: /imagenes/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera.jpg
 imagenAlt: "Parqué de la Bolsa de Nueva York con un panel de cotizaciones en primer plano"
 imagenCredito: "Imagen difundida en redes sociales (foto de archivo)"
