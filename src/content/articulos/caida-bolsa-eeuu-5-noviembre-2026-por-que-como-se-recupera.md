@@ -1,7 +1,7 @@
 ---
-titulo: "Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla"
+titulo: "El crash del 5 de noviembre: por qué se hundió Wall Street y cuándo puede recuperarse"
 subtitulo: "El Nasdaq cayó un 5,5 % y entró en corrección; las grandes tecnológicas perdieron más de un billón de dólares en un día. Las cuatro causas, qué dice la historia de estas caídas y qué vigilar."
-tituloSeo: "Caída de Wall Street del 5 de noviembre: causas y qué esperar"
+tituloSeo: "El crash del 5 de noviembre en Wall Street: causas y qué esperar"
 descripcion: "El Nasdaq se desplomó un 5,5 % por el miedo a frenar la IA tras las elecciones. Explicamos las causas, cómo se recuperó la bolsa en caídas parecidas y qué vigilar."
 categoria: ahorro
 autor: Daniel Arcos
