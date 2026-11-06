@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
-**Enlace:** https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
+## 1. Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
+**Enlace:** https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
 
 ### X / Twitter
 ```
-La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
+Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
 
-👉 https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
-#Politica #CasoKoldo #PedroSanchez #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
+#Ahorro #WallStreet #Nasdaq #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros*
+📰 *Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla*
 
-Sánchez se desvincula: «Ninguna de estas personas tiene nada que ver conmigo». Qué se le investiga a Cristian Corvillo y qué hay de cierto en el millón que Koldo dice que le ofreció el PP.
+El Nasdaq cayó un 5,5 % y entró en corrección; las grandes tecnológicas perdieron más de un billón de dólares en un día. Las cuatro causas, qué dice la historia de estas caídas y qué vigilar.
 
-• La UCO detuvo el 5 de noviembre a seis personas en Madrid, Córdoba, Valencia y Sevilla en una pieza secreta del caso Koldo sobre presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellos, Cristian Corvillo, chófer de Sánchez en las primarias del PSOE de 2017, y Andrea de la Torre, pareja de Ábalos.
-• Todos los detenidos han quedado en libertad. La causa está bajo secreto: oficialmente no se sabe qué delitos se le atribuyen a cada uno.
-• Sánchez respondió en la Cumbre Iberoamericana: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa sostiene que Corvillo nunca fue su chófer, pero en 2017 Sánchez le agradeció públicamente su trabajo en varios mítines.
+• El jueves 5 de noviembre el S&P 500 cayó un 4,4 %, el Nasdaq un 5,5 % y el Dow Jones más de 1.800 puntos. Es el peor día desde abril de 2025, y el Nasdaq ya está en «corrección» (más de un 10 % por debajo de su máximo).
+• Las grandes tecnológicas perdieron más de un billón de dólares en una sesión; solo Nvidia, unos 440.000 millones. El índice de semiconductores se hundió alrededor de un 12 %, su peor día desde 2020.
+• Causa principal: la victoria demócrata en las legislativas del 3 de noviembre hizo temer más regulación de la IA y moratorias a nuevos centros de datos. Se sumaron unos malos resultados de Qualcomm, el miedo a una subida de tipos de la Fed en diciembre y unas valoraciones muy altas.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
 
-_Política · Bolsillo Diario_
+_Ahorro · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
-  • Gancho (0-3 s): "¿La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
+  • Gancho (0-3 s): "¿Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la…?"
   • Desarrollo (3-25 s):
-  1. La UCO detuvo el 5 de noviembre a seis personas en Madrid, Córdoba, Valencia y Sevilla en una pieza secreta del caso Koldo sobre presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellos, Cristian Corvillo, chófer de Sánchez en las primarias del PSOE de 2017, y Andrea de la Torre, pareja de Ábalos.
-  2. Todos los detenidos han quedado en libertad. La causa está bajo secreto: oficialmente no se sabe qué delitos se le atribuyen a cada uno.
-  3. Sánchez respondió en la Cumbre Iberoamericana: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa sostiene que Corvillo nunca fue su chófer, pero en 2017 Sánchez le agradeció públicamente su trabajo en varios mítines.
+  1. El jueves 5 de noviembre el S&P 500 cayó un 4,4 %, el Nasdaq un 5,5 % y el Dow Jones más de 1.800 puntos. Es el peor día desde abril de 2025, y el Nasdaq ya está en «corrección» (más de un 10 % por debajo de su máximo).
+  2. Las grandes tecnológicas perdieron más de un billón de dólares en una sesión; solo Nvidia, unos 440.000 millones. El índice de semiconductores se hundió alrededor de un 12 %, su peor día desde 2020.
+  3. Causa principal: la victoria demócrata en las legislativas del 3 de noviembre hizo temer más regulación de la IA y moratorias a nuevos centros de datos. Se sumaron unos malos resultados de Qualcomm, el miedo a una subida de tipos de la Fed en diciembre y unas valoraciones muy altas.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Sánchez se desvincula: «Ninguna de estas personas tiene nada que ver conmigo». Qué se le investiga a Cristian Corvillo y qué hay de cierto en el millón que Koldo dice que le ofreció el PP.
-  🔗 Enlace en la bio · #Politica #CasoKoldo #PedroSanchez #España #BolsilloDiario
+  El Nasdaq cayó un 5,5 % y entró en corrección; las grandes tecnológicas perdieron más de un billón de dólares en un día. Las cuatro causas, qué dice la historia de estas caídas y qué vigilar.
+  🔗 Enlace en la bio · #Ahorro #WallStreet #Nasdaq #España #BolsilloDiario
 ```
