@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-11-05
+# Kit de difusión — 2026-11-06
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. ¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
-**Enlace:** https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
+## 1. La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
+**Enlace:** https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
 
 ### X / Twitter
 ```
-¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
+La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
 
-👉 https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
-#Politica #OscarPuente #PedroSanchez #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
+#Politica #CasoKoldo #PedroSanchez #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas*
+📰 *La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros*
 
-El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar en juego.
+Sánchez se desvincula: «Ninguna de estas personas tiene nada que ver conmigo». Qué se le investiga a Cristian Corvillo y qué hay de cierto en el millón que Koldo dice que le ofreció el PP.
 
-• El Debate publica que Diego Rubio, director del Gabinete de la Presidencia, trasladó a Sánchez «información sensible» sobre Puente hacia las siete de la tarde del 3 de noviembre, unas dos horas antes de su dimisión.
-• Según el diario, un empresario de Medina del Campo, dueño de Patatas Meléndez, habría pedido a Puente, cuando era alcalde de Valladolid, que mediara para conseguir ayudas públicas, y a cambio le habría invitado a comidas y a encuentros con prostitutas.
-• Las acusaciones no están probadas: no hay ninguna causa judicial abierta. Según El Debate, el empresario reconoce invitaciones, pero niega la presencia de prostitutas. Puente respondió: «¿Me lo estás preguntando en serio?».
+• La UCO detuvo el 5 de noviembre a seis personas en Madrid, Córdoba, Valencia y Sevilla en una pieza secreta del caso Koldo sobre presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellos, Cristian Corvillo, chófer de Sánchez en las primarias del PSOE de 2017, y Andrea de la Torre, pareja de Ábalos.
+• Todos los detenidos han quedado en libertad. La causa está bajo secreto: oficialmente no se sabe qué delitos se le atribuyen a cada uno.
+• Sánchez respondió en la Cumbre Iberoamericana: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa sostiene que Corvillo nunca fue su chófer, pero en 2017 Sánchez le agradeció públicamente su trabajo en varios mítines.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/puente-dimision-empresario-medina-del-campo-exclusiva-el-debate/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/detenido-exchofer-sanchez-corvillo-caso-koldo-millon-pp/
 
 _Política · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — ¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que se sabe de la exclusiva y los precedentes de Ábalos y las saunas
-  • Gancho (0-3 s): "¿¿Dimitió Puente por un empresario que le invitaba a fiestas? Lo que s…?"
+🎬 GUION VÍDEO CORTO (~30 s) — La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa al PP de ofrecerle un millón de euros
+  • Gancho (0-3 s): "¿La UCO detiene al exchófer de Sánchez en el caso Koldo y Koldo acusa…?"
   • Desarrollo (3-25 s):
-  1. El Debate publica que Diego Rubio, director del Gabinete de la Presidencia, trasladó a Sánchez «información sensible» sobre Puente hacia las siete de la tarde del 3 de noviembre, unas dos horas antes de su dimisión.
-  2. Según el diario, un empresario de Medina del Campo, dueño de Patatas Meléndez, habría pedido a Puente, cuando era alcalde de Valladolid, que mediara para conseguir ayudas públicas, y a cambio le habría invitado a comidas y a encuentros con prostitutas.
-  3. Las acusaciones no están probadas: no hay ninguna causa judicial abierta. Según El Debate, el empresario reconoce invitaciones, pero niega la presencia de prostitutas. Puente respondió: «¿Me lo estás preguntando en serio?».
+  1. La UCO detuvo el 5 de noviembre a seis personas en Madrid, Córdoba, Valencia y Sevilla en una pieza secreta del caso Koldo sobre presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellos, Cristian Corvillo, chófer de Sánchez en las primarias del PSOE de 2017, y Andrea de la Torre, pareja de Ábalos.
+  2. Todos los detenidos han quedado en libertad. La causa está bajo secreto: oficialmente no se sabe qué delitos se le atribuyen a cada uno.
+  3. Sánchez respondió en la Cumbre Iberoamericana: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa sostiene que Corvillo nunca fue su chófer, pero en 2017 Sánchez le agradeció públicamente su trabajo en varios mítines.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  El diario asegura que Sánchez recibió acusaciones sobre Puente y un empresario de Medina del Campo dos horas antes de su dimisión. Repasamos los datos, las ayudas públicas y qué delitos podrían estar…
-  🔗 Enlace en la bio · #Politica #OscarPuente #PedroSanchez #España #BolsilloDiario
+  Sánchez se desvincula: «Ninguna de estas personas tiene nada que ver conmigo». Qué se le investiga a Cristian Corvillo y qué hay de cierto en el millón que Koldo dice que le ofreció el PP.
+  🔗 Enlace en la bio · #Politica #CasoKoldo #PedroSanchez #España #BolsilloDiario
 ```
