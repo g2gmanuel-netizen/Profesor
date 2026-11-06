@@ -6,6 +6,14 @@ import type { ArticuloFinal } from '../lib/esquemas';
 import { cargarPublicados, guardarPublicados } from '../lib/publicados';
 import { limpiarCarencias, limpiarLista } from '../lib/carencias';
 
+/** Quita emojis e iconos del texto: dan aspecto de texto generado por máquina. */
+function quitarIconos(texto: string): string {
+  return texto
+    .replace(/\u{FE0F}/gu, '')
+    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]\s?/gu, '')
+    .replace(/[ \t]+$/gm, '');
+}
+
 const DIR_ART = resolve(process.cwd(), 'src/content/articulos');
 
 /** Recorta un texto a `max` caracteres (con … final) para no romper el esquema del build. */
@@ -55,7 +63,7 @@ export function publicador(
     // Red de seguridad: nunca publicar frases sobre fuentes internas o datos que faltan.
     const frontmatter = { ...a.frontmatter, clavesRapidas: limpiarLista(a.frontmatter.clavesRapidas) };
     const fm = stringify(sanearFrontmatter(frontmatter)).trimEnd();
-    const contenido = `---\n${fm}\n---\n\n${limpiarCarencias(a.cuerpoMarkdown)}\n`;
+    const contenido = `---\n${fm}\n---\n\n${quitarIconos(limpiarCarencias(a.cuerpoMarkdown))}\n`;
     const ruta = resolve(DIR_ART, `${a.slug}.md`);
     writeFileSync(ruta, contenido, 'utf8');
     rutas.push(`src/content/articulos/${a.slug}.md`);

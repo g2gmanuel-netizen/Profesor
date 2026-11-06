@@ -11,3 +11,5 @@
 - No identificar a personas en fotos si no se sabe quiénes son.
 - Imágenes: `public/imagenes/`, crédito «Imagen difundida en redes sociales»; recortar marcas de agua de otros medios.
 - Verificar con `npx astro build` antes de subir; publicar en `main` y en la rama de trabajo.
+- **Estilo humano:** prosa periodística con transiciones, pocas viñetas y enumeraciones (solo si son imprescindibles), tablas solo para datos. **Nunca emojis ni iconos** en noticias ni en la web.
+- **No citar otros periódicos por su nombre en el texto.** Atribuir a la fuente primaria (juzgado, organismo, empresa, persona) o a «informaciones publicadas». Las URLs pueden ir en el listado de fuentes del final.

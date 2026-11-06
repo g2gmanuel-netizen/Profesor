@@ -17,11 +17,11 @@ etiquetas:
   - PP
   - corrupción
 clavesRapidas:
-  - "La UCO detuvo el 5 de noviembre a seis personas en Madrid, Córdoba, Valencia y Sevilla en una pieza secreta del caso Koldo sobre presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellos, Cristian Corvillo, chófer de Sánchez en las primarias del PSOE de 2017, y Andrea de la Torre, pareja de Ábalos."
-  - "Todos los detenidos han quedado en libertad. La causa está bajo secreto: oficialmente no se sabe qué delitos se le atribuyen a cada uno."
-  - "Sánchez respondió en la Cumbre Iberoamericana: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa sostiene que Corvillo nunca fue su chófer, pero en 2017 Sánchez le agradeció públicamente su trabajo en varios mítines."
-  - "El mismo día, Koldo García aseguró desde prisión, en audios difundidos por la Cadena SER, que el abogado del PP Alberto Durán le ofreció un millón de euros a través de Eduardo Inda (OKDiario) por declarar contra Sánchez."
-  - "El PP lo niega: «Es un preso. Está mintiendo». Lo único documentado son unos 242.000 euros en honorarios de su defensa; no hay constancia de que se pagara el millón."
+  - "La UCO detuvo el 5 de noviembre a seis personas en una pieza secreta del caso Koldo que investiga presuntas comisiones en contratos de Adif Alta Velocidad. Entre ellas, Cristian Corvillo, chófer de Sánchez en las primarias de 2017, y la pareja de Ábalos."
+  - "Todos han quedado en libertad y la causa sigue bajo secreto, así que oficialmente no se conocen los delitos que se atribuyen a cada uno."
+  - "Sánchez: «Ninguna de estas personas tiene nada que ver conmigo». Moncloa niega que Corvillo fuera su chófer, aunque en 2017 el propio Sánchez le dio las gracias en público."
+  - "Koldo García asegura desde prisión, en unos audios, que el abogado del PP Alberto Durán le ofreció un millón de euros por declarar contra Sánchez. El PP lo niega: «Es un preso. Está mintiendo»."
+  - "Lo único que consta en facturas son unos 242.000 euros pagados a la defensa de Koldo. Del millón no hay ninguna prueba pública."
 fuentes:
   - titulo: "La UCO detiene al exchófer de Sánchez y registra la casa de Ábalos en Valencia (El Español)"
     url: https://www.elespanol.com/espana/tribunales/20261105/audiencia-nacional-ordena-uco-registrar-casa-abalos-valencia-nueva-operacion-caso-koldo/1003744446921_0.html
@@ -64,166 +64,117 @@ fuentes:
     organismo: Consejo General del Poder Judicial
 ---
 
-El caso Koldo vivió el jueves 5 de noviembre uno de sus días más intensos. Por la mañana, la **Unidad Central Operativa (UCO) de la Guardia Civil** detuvo a seis personas, entre ellas el hombre que condujo el coche de Pedro Sánchez durante las primarias del PSOE de 2017. Casi a la vez, la Cadena SER difundió unos audios en los que **Koldo García**, desde la cárcel, asegura que el PP le ofreció **un millón de euros** por declarar contra el presidente.
+El jueves 5 de noviembre empezó con agentes de la Guardia Civil entrando en las oficinas de Adif y terminó con el presidente del Gobierno teniendo que explicar, en plena Cumbre Iberoamericana, quién era el hombre que le llevaba en coche en 2017. Entre medias, desde la cárcel de Soto del Real, Koldo García lanzaba una acusación que, de ser cierta, salpicaría al principal partido de la oposición: que el PP le había ofrecido un millón de euros por hundir a Pedro Sánchez.
 
-Por la tarde, en la rueda de prensa de clausura de la Cumbre Iberoamericana, Sánchez zanjó la primera cuestión: *«Ninguna de estas personas tiene nada que ver conmigo»*.
+Dos historias distintas que se cruzaron el mismo día y que conviene separar con cuidado, porque en ambas hay hechos comprobados mezclados con acusaciones que nadie ha demostrado todavía.
 
-Te contamos qué se sabe de cada asunto, qué está comprobado y qué son solo acusaciones.
+## Seis detenidos y un registro en el corazón del AVE
 
-## Qué ha pasado: seis detenidos y un registro en Adif
+Todo arranca el martes 3 de noviembre. Ese día, el juez de la Audiencia Nacional **Ismael Moreno** recibe un nuevo informe de la Unidad Central Operativa (UCO) y abre con él una **pieza separada y secreta** del caso Koldo. Cuarenta y ocho horas después, los agentes actúan a la vez en Madrid, Córdoba, Valencia y Sevilla.
 
-El juez de la Audiencia Nacional **Ismael Moreno** abrió el martes 3 de noviembre una **pieza separada y secreta** del caso Koldo tras recibir un nuevo informe de la UCO, cuyo contenido no se conoce. Dos días después, los agentes actuaron en **Madrid, Córdoba, Valencia y Sevilla**.
+El objetivo ya no son las mascarillas de la pandemia, que llevaron a prisión a Ábalos y a Koldo, sino algo de mucho más calado: **presuntas comisiones a cambio de adjudicar contratos de obra pública de Adif Alta Velocidad**, la empresa estatal que construye y mantiene las vías del AVE. Los agentes registraron sus oficinas y detuvieron a seis personas. Las informaciones publicadas no coinciden en si también entraron en la casa de José Luis Ábalos en Valencia: unas lo dan por hecho y otras no lo confirman.
 
-Según coinciden Infobae, Libertad Digital y El Español, la investigación se centra en **presuntas comisiones (mordidas) por la adjudicación de contratos de obra pública de Adif Alta Velocidad**, la empresa pública que construye y mantiene las vías del AVE y que depende del Ministerio de Transportes.
+Al caer la tarde, **todos los detenidos estaban ya en libertad**. Conviene recordarlo antes de seguir: una detención no es una imputación, y mucho menos una condena. Mientras el juez no levante el secreto, nadie fuera de la investigación sabe oficialmente qué se le atribuye a cada uno.
 
-- **Registros:** la UCO entró en las oficinas de **Adif Alta Velocidad**. El Español y The Objective informan también de un registro en la casa de **José Luis Ábalos** en Valencia; Libertad Digital dice que sus fuentes no lo confirmaban.
-- **Detenidos:** seis personas. Las dos más conocidas son **Cristian Corvillo** y **Andrea de la Torre**, pareja de Ábalos.
-- **Situación actual:** **todos han quedado en libertad** tras las diligencias. De la Torre se acogió a su derecho a no declarar, según varios medios.
+## Cristian Corvillo, el conductor de la «gira del Peugeot»
 
-> **Importante:** una detención no es una imputación ni una condena. La causa sigue bajo secreto y, oficialmente, no se ha comunicado qué delito se atribuye a cada detenido.
+De los seis nombres, el que más ruido ha hecho es el de **Cristian Corvillo**, detenido en Córdoba tras el registro de una vivienda. En 2017, cuando Pedro Sánchez recorrió España en su coche para recuperar la secretaría general del PSOE, Corvillo era quien conducía. Sánchez le agradeció su trabajo en público en varios mítines de aquella campaña.
 
-## Quién es Cristian Corvillo, el exchófer de Sánchez
-
-Corvillo, cordobés, fue detenido en **Córdoba** tras el registro de una vivienda. Su vínculo con Sánchez viene de **2017**: cuando el actual presidente recorrió España en su Peugeot para recuperar la secretaría general del PSOE, Corvillo era quien conducía.
-
-- **Los elogios de 2017:** según recuerdan Telecinco y El Español, Sánchez le **agradeció públicamente su trabajo en varios mítines** de aquella campaña.
-- **Su relación con la trama:** según Vozpópuli, mantenía amistad con Ábalos y con el empresario **Víctor de Aldama**. Ya había sido llamado como **testigo en el caso Hidrocarburos** (septiembre de 2025) y citado por la **comisión del Senado sobre el caso Koldo**, donde evitó responder a las preguntas.
-- **Su papel según la investigación:** El Debate publica que la Audiencia Nacional lo sitúa como **«nexo»** en las tramas de las mordidas. El Liberal recoge que los investigadores calculan que su participación pudo reportarle **hasta 100.000 euros**. Ninguno de los dos datos está confirmado oficialmente.
-- **Qué delitos:** Cordópolis afirma que se le atribuyen **blanqueo de capitales, tráfico de influencias, pertenencia a organización criminal y fraude fiscal**. Infobae, en cambio, subraya que, por el secreto, **no se conocen los hechos concretos**. Tómalo con cautela hasta que se levante el secreto.
+No es un desconocido para los investigadores. En septiembre de 2025 declaró como testigo en el caso Hidrocarburos, y la comisión del Senado sobre el caso Koldo le citó, aunque allí evitó responder a las preguntas. Se le atribuye además amistad con Ábalos y con el empresario Víctor de Aldama.
 
 ![Koldo García, Pedro Sánchez y Santos Cerdán posan juntos en una imagen de 2017](/imagenes/koldo-sanchez-cerdan-primarias-2017.jpg)
 *Koldo García (izquierda), Pedro Sánchez y Santos Cerdán, en una imagen de la etapa de las primarias del PSOE de 2017 difundida en redes sociales. Koldo y Cerdán acabaron investigados en el caso Koldo; Sánchez no está investigado.*
 
-Tras declarar, Corvillo quedó en libertad. El Debate considera previsible que sea **imputado formalmente en las próximas semanas**.
+¿Qué se le reprocha exactamente? Ahí empiezan las dudas. Fuentes de la investigación le sitúan como **«nexo»** dentro de la trama de las comisiones y calculan que su papel pudo reportarle **hasta 100.000 euros**. Algunas informaciones hablan de cuatro delitos (blanqueo de capitales, tráfico de influencias, pertenencia a organización criminal y fraude fiscal), pero el secreto de sumario impide confirmarlo. Tras declarar ante los agentes quedó en libertad, y lo previsible es que el juez le llame como investigado en las próximas semanas.
 
-### Qué penas tienen esos delitos
+Si finalmente se le imputaran esos delitos y un tribunal los diera por probados, el Código Penal fija estas penas. Es una referencia para entender la gravedad de lo que se investiga, no una predicción:
 
-Si el juez llegara a imputarle esos delitos y un tribunal los diera por probados, estas son las penas que fija el Código Penal. Es solo una referencia, no una predicción.
-
-| Delito | Artículo | Pena de prisión orientativa |
+| Delito | Artículo del Código Penal | Pena de prisión |
 |---|---|---|
-| Blanqueo de capitales | 301 | De 6 meses a 6 años, más multa de hasta el triple del dinero blanqueado |
+| Blanqueo de capitales | 301 | De 6 meses a 6 años, más multa de hasta el triple de lo blanqueado |
 | Tráfico de influencias (particular) | 429 | De 6 meses a 2 años, más multa |
 | Pertenencia a organización criminal | 570 bis | De 1 a 3 años (de 2 a 5 si los delitos son graves) |
-| Delito fiscal | 305 | De 1 a 5 años, si lo defraudado supera los 120.000 € al año |
+| Delito fiscal | 305 | De 1 a 5 años, si lo defraudado supera los 120.000 € en un año |
 
-## Andrea de la Torre: la investigación por un piso
+## Un piso para la pareja de Ábalos
 
-El Español publica que el juez investiga a **Andrea de la Torre**, pareja de Ábalos, por **blanqueo**. La sospecha de la UCO es que parte de las comisiones de los contratos de Adif se usaron para **comprarle un piso** (un loft con garaje). Ella no declaró y quedó en libertad en pocas horas.
+La otra detenida conocida es **Andrea de la Torre**, pareja de Ábalos. La sospecha del juez, según se ha conocido, es que parte del dinero de las comisiones de Adif se usó para **comprarle un piso**, un loft con plaza de garaje. Se le investiga por blanqueo. Se acogió a su derecho a no declarar y salió en libertad en pocas horas.
 
-Ábalos sigue en la prisión de Soto del Real. El Tribunal Supremo lo condenó en junio de 2026 a **24 años** por el caso mascarillas.
+Ábalos, mientras tanto, sigue en Soto del Real. En junio de 2026 el Tribunal Supremo le condenó a **24 años de prisión** por el caso mascarillas.
 
-## La respuesta de Sánchez: «No tiene nada que ver conmigo»
-
-Sánchez habló del asunto en la rueda de prensa final de la **XXX Cumbre Iberoamericana**, celebrada en Madrid:
+## «Ninguna de estas personas tiene nada que ver conmigo»
 
 ![Pedro Sánchez en el atril de la XXX Cumbre Iberoamericana](/imagenes/sanchez-rueda-prensa-cumbre-iberoamericana-2026.jpg)
 *Pedro Sánchez, en la rueda de prensa de la XXX Cumbre Iberoamericana del 5 de noviembre, donde se desvinculó de los detenidos.*
 
-> «Ninguna de estas personas tiene nada que ver conmigo».
+Sánchez tuvo que responder a la pregunta en la rueda de prensa de clausura de la XXX Cumbre Iberoamericana, en Madrid. Fue tajante: *«Ninguna de estas personas tiene nada que ver conmigo»*. Añadió que el caso «parece que no es nada nuevo» y repitió la fórmula de la «total colaboración con la Justicia».
 
-También dijo que el caso **«parece que no es nada nuevo»** y reiteró la **«total colaboración con la Justicia»** del Gobierno. **Moncloa y el PSOE** sostienen que Corvillo **nunca fue chófer del presidente**, ni en las primarias de 2017 ni después.
+Moncloa y el PSOE van más allá y sostienen que Corvillo **nunca fue chófer del presidente**, ni en 2017 ni después. Es una afirmación difícil de casar con las imágenes de aquella campaña y con los agradecimientos públicos del propio Sánchez. Y no es la primera vez que el presidente marca distancias con alguien de su entorno cuando le alcanza una investigación: ya lo hizo con Koldo García y con Leire Díez.
 
-Varios medios, como El Español y Estrella Digital, contraponen esa versión con las imágenes y los agradecimientos públicos de 2017. Recuerdan además que Sánchez ya se había desvinculado antes de Koldo García y de Leire Díez cuando surgieron sus casos.
-
-## El otro frente: Koldo acusa al PP de ofrecerle un millón de euros
-
-El mismo jueves, la **Cadena SER** difundió audios grabados por **Koldo García** desde la prisión de Soto del Real, donde cumple condena. El Supremo lo condenó en junio de 2026 a **algo más de 19 años** por el caso mascarillas, y en octubre rechazó su intento de anular la sentencia.
+## El millón de euros que Koldo dice que le ofreció el PP
 
 ![José Luis Ábalos y, detrás, Koldo García en un pasillo](/imagenes/abalos-koldo-garcia-pasillo.jpg)
 *José Luis Ábalos y, detrás, su entonces asesor Koldo García, en una imagen de archivo. Ambos cumplen condena por el caso mascarillas.*
 
-### Qué dice Koldo
+Casi a la misma hora de los registros salieron a la luz unos audios grabados por Koldo García en prisión, donde cumple algo más de 19 años de condena por el caso mascarillas. El Supremo rechazó en octubre su intento de anular la sentencia.
 
-Según su relato, recogido por la SER, Infobae, elDiario.es y El Plural:
+Su relato es este. El abogado **Alberto Durán**, que ha llevado causas del PP contra el PSOE, le habría propuesto un trato: a cambio de declarar contra Sánchez, *«aunque implicase mentir»*, le ofrecían una rebaja de pena, sacar a su familia del proceso, pagarle la defensa y **un millón de euros**. Ese dinero llegaría a través de **Eduardo Inda**, director de OKDiario, repartido en 300.000 euros por una entrevista y 700.000 por los derechos de un libro. Según Koldo, Inda lo recuperaría después con publicidad institucional de gobiernos autonómicos del PP.
 
-1. **El intermediario:** el abogado **Alberto Durán**, que ha llevado causas del PP contra el PSOE.
-2. **La oferta:** a cambio de declaraciones contra Sánchez, *«aunque implicase mentir»*, le habrían prometido una **rebaja de pena**, **sacar a su familia del proceso**, **pagar su defensa** y **un millón de euros**.
-3. **Cómo llegaría el dinero:** a través de **Eduardo Inda**, director de OKDiario, con **300.000 euros por una entrevista y 700.000 por los derechos de un libro**. Según Koldo, Inda recuperaría ese dinero con **publicidad institucional de gobiernos autonómicos del PP**.
-4. **Las pruebas:** afirma tener **audios de conversaciones con Durán y con Miguel Tellado**, hoy secretario general del PP, guardados **en una notaría**. Hasta ahora **no los ha hecho públicos**. *«Yo daré el remate final»*, avisa.
+Koldo asegura que tiene grabaciones de conversaciones con Durán y con **Miguel Tellado**, hoy secretario general del PP, y que las ha depositado en una notaría. No las ha hecho públicas. *«Yo daré el remate final»*, avisa.
 
-### Qué está documentado y qué no
+La respuesta del PP fue inmediata: *«Es un preso. Está mintiendo»*. Durán también lo niega. La portavoz popular en el Congreso, **Ester Muñoz**, cuestionó además que los audios se difundieran justo el día de los registros. Inda no ha respondido. Hay un detalle que alimenta las sospechas de unos y otros: Durán fue apartado hace poco de las principales causas del PP contra el PSOE, algo que Génova atribuye a una simple reorganización de su trabajo.
 
-| Hecho | Estado |
+Desde el Gobierno, el ministro de Justicia, **Félix Bolaños**, exigió a Feijóo que aclare *«si ha pagado el PP un millón de euros a Koldo García para acusar falsamente de delitos a Pedro Sánchez y al PSOE»*. El PSOE estudia llevarlo a los tribunales con una querella.
+
+## Lo que está probado y lo que no
+
+Con tantas versiones cruzadas, lo más útil es separar lo que consta de lo que solo afirma una de las partes. Este es nuestro balance tras contrastar toda la información pública disponible:
+
+| Dato | ¿Está confirmado? |
 |---|---|
-| Pago de su defensa: 181.500 € (27 nov. 2025) y 60.500 € (23 ene. 2026), unos 242.000 € en total | Según la SER, consta en facturas |
-| Quién pagó realmente esos honorarios y por qué | No aclarado |
-| Pago del millón de euros | **No hay constancia** de que se pagara |
-| Audios con Durán y Tellado | Koldo dice que existen; **nadie los ha escuchado** |
+| Seis detenidos en una pieza sobre contratos de Adif, entre ellos Corvillo y la pareja de Ábalos | Sí |
+| Todos han quedado en libertad | Sí |
+| Registro en las oficinas de Adif Alta Velocidad | Sí |
+| Registro en la casa de Ábalos en Valencia | Sin confirmar: las informaciones se contradicen |
+| Delitos concretos atribuidos a Corvillo | Sin confirmar: la causa es secreta |
+| Que Corvillo cobrara hasta 100.000 euros | Sin confirmar: solo lo apuntan fuentes de la investigación |
+| Que Corvillo fuera chófer de Sánchez | En disputa: Moncloa lo niega; las imágenes y los mítines de 2017 apuntan a lo contrario |
+| Pagos a la defensa de Koldo: 181.500 € (noviembre de 2025) y 60.500 € (enero de 2026) | Sí, constan en facturas |
+| Quién pagó realmente esos honorarios y por qué | Sin aclarar |
+| Que el PP ofreciera o pagara un millón de euros | Sin pruebas: solo lo afirma Koldo; el PP lo niega y no hay pruebas públicas |
+| Las grabaciones con Durán y Tellado | Sin pruebas: nadie las ha escuchado |
 
-### Qué responden el PP, Durán e Inda
+Hay una paradoja que conviene tener presente al leer todo esto. Koldo es un condenado que busca mejorar su situación y su versión ha cambiado con el tiempo, lo que obliga a tomar sus palabras con mucha cautela. Pero también es cierto que muchos de los hechos que él conocía de la trama acabaron siendo dados por probados por la UCO y por el Supremo.
 
-- **El PP y Durán** niegan los hechos. Fuentes del partido zanjaron: *«Es un preso. Está mintiendo»*.
-- **Ester Muñoz**, portavoz del PP en el Congreso, lo desmintió y **cuestionó el momento** de la difusión, el mismo día de los registros de la UCO.
-- **Inda** no quiso responder a la SER.
-- Durán fue **apartado hace poco** de las principales causas del PP contra el PSOE. Génova lo atribuye a una **reorganización** de su trabajo jurídico.
-
-### Qué pide el Gobierno
-
-El ministro de Justicia, **Félix Bolaños**, exigió a **Feijóo** que aclare *«si ha pagado el PP un millón de euros a Koldo García para acusar falsamente de delitos a Pedro Sánchez y al PSOE»*. El PSOE **estudia presentar una querella**: *«Es muy grave influir en una declaración para derrocar al Gobierno»*.
-
-## Lo que cuenta cada medio: dónde coinciden y dónde no
-
-Hemos contrastado más de quince informaciones publicadas el 5 y 6 de noviembre. Este es el mapa de lo que está claro y de lo que depende de quién lo cuente:
-
-| Dato | Coinciden todos | Discrepancias |
-|---|---|---|
-| Seis detenidos, entre ellos Corvillo y la pareja de Ábalos | ✅ Sí | — |
-| La investigación es sobre contratos de Adif Alta Velocidad | ✅ Sí | — |
-| Todos quedaron en libertad | ✅ Sí | — |
-| Registro de la casa de Ábalos en Valencia | ❌ No | El Español y The Objective lo dan por hecho; Libertad Digital no lo confirma |
-| Delitos atribuidos a Corvillo | ❌ No | Cordópolis cita cuatro; Infobae recuerda que el secreto impide conocerlos |
-| Cuánto habría cobrado Corvillo | ❌ No | Solo El Liberal habla de hasta 100.000 euros |
-| Si Corvillo fue chófer de Sánchez | ❌ No | Moncloa lo niega; El Español y Telecinco recuerdan los agradecimientos públicos de 2017 |
-| Importe pagado a la defensa de Koldo | Casi | 181.500 + 60.500 € (unos 242.000 €), según la SER; otro medio redondea a 241.000 € |
-| Que el PP ofreciera un millón | ❌ No | Solo lo afirma Koldo; el PP lo niega y no hay pruebas públicas |
-
-## Cronología: cómo se ha llegado hasta aquí
+## De un coche en 2017 a la pieza de Adif: la cronología
 
 | Fecha | Qué pasó |
 |---|---|
-| 2017 | Sánchez recupera la secretaría general del PSOE tras recorrer España en coche. Corvillo conduce; Koldo García y Santos Cerdán forman parte de su equipo. |
-| 2018 | Sánchez llega a la Moncloa y nombra a Ábalos ministro de Transportes; Koldo pasa a ser su asesor. |
-| Febrero de 2024 | La UCO detiene a Koldo García por las comisiones en la compra de mascarillas durante la pandemia. |
-| Junio de 2025 | Un informe de la UCO salpica a Santos Cerdán, que dimite como número tres del PSOE y acaba en prisión provisional. |
+| 2017 | Sánchez recupera el PSOE tras recorrer España en coche. Corvillo conduce; Koldo García y Santos Cerdán forman parte del equipo. |
+| 2018 | Sánchez llega a la Moncloa. Ábalos, ministro de Transportes; Koldo, su asesor. |
+| Febrero de 2024 | La UCO detiene a Koldo por las comisiones de las mascarillas. |
+| Junio de 2025 | Un informe de la UCO alcanza a Santos Cerdán, que dimite como número tres del PSOE y acaba en prisión provisional. |
 | Septiembre de 2025 | Corvillo declara como testigo en el caso Hidrocarburos. |
-| Noviembre de 2025 | El Supremo envía a prisión provisional a Ábalos y a Koldo. Ese mismo mes, según la SER, se paga la primera factura de la defensa de Koldo (181.500 €). |
-| Junio de 2026 | El Supremo condena a Ábalos (24 años) y a Koldo (algo más de 19) por el caso mascarillas. |
-| 14 de octubre de 2026 | El Supremo rechaza anular sus condenas. |
-| 3 de noviembre de 2026 | El juez Ismael Moreno abre la pieza secreta sobre Adif tras un nuevo informe de la UCO. |
-| 5 de noviembre de 2026 | Seis detenidos, registro en Adif, audios de Koldo contra el PP y respuesta de Sánchez en la Cumbre Iberoamericana. |
+| Noviembre de 2025 | El Supremo envía a prisión provisional a Ábalos y a Koldo. Ese mismo mes se paga la primera factura de la defensa de Koldo. |
+| Junio de 2026 | Condenas del Supremo: 24 años para Ábalos y algo más de 19 para Koldo. |
+| 3 de noviembre de 2026 | El juez Moreno abre la pieza secreta sobre Adif. |
+| 5 de noviembre de 2026 | Detenciones, audios de Koldo contra el PP y respuesta de Sánchez. |
 
-## La clave que casi nadie explica: por qué ahora Adif
+## Por qué Adif cambia la escala del caso
 
-El caso Koldo empezó con **mascarillas**, un contrato de emergencia de la pandemia. La nueva pieza da un salto: apunta a **obra pública ferroviaria**, el negocio central del Ministerio de Transportes que dirigió Ábalos entre 2018 y 2021. Adif gestiona cada año miles de millones de euros en licitaciones de vías, estaciones y mantenimiento del AVE.
+Hasta ahora, el caso Koldo era sobre todo la historia de unas compras de emergencia durante la pandemia. La pieza de Adif apunta a otra cosa: al **negocio ordinario del Ministerio de Transportes** que dirigió Ábalos entre 2018 y 2021. Adif licita cada año miles de millones de euros en vías, estaciones y mantenimiento, y un solo contrato de obra ferroviaria puede superar con facilidad las decenas de millones.
 
-Eso cambia la escala del caso por dos motivos:
+Si se demostrara que hubo comisiones en esas adjudicaciones, la pregunta ya no sería qué falló en una compra urgente en pleno caos sanitario, sino **qué controles fallaron en la contratación normal** de una de las mayores empresas públicas del país. Por ahora no se ha identificado públicamente ningún contrato concreto: el secreto lo impide.
 
-1. **El dinero en juego es mucho mayor.** Los contratos de obra ferroviaria superan con frecuencia las decenas de millones de euros, frente a los contratos puntuales de mascarillas.
-2. **Afecta a la gestión ordinaria del ministerio**, no a una compra de urgencia. Si se probaran comisiones en adjudicaciones de Adif, la pregunta sería qué controles fallaron en los procesos de licitación.
-
-Por ahora no hay ningún contrato concreto identificado públicamente: el secreto de la pieza lo impide.
-
-## Por qué debes leer todo esto con cautela
-
-- **Koldo es un condenado** que busca mejorar su situación, y su versión ha cambiado con el tiempo. Pero **la UCO y el Supremo sí han dado por probados** muchos hechos de la trama que él conocía.
-- **El PP lo niega** y, por ahora, **no hay pruebas públicas** del millón.
-- **La pieza de Adif sigue en secreto.** Lo que se publica sale de fuentes de la investigación, no de documentos oficiales, y algunos datos difieren entre medios.
-
-## Qué puede pasar ahora
+## Qué puede pasar a partir de ahora
 
 ![Un hombre declara sentado ante un micrófono en una sala de tribunal](/imagenes/declaracion-testigo-sala-tribunal.jpg)
 *Una declaración en sede judicial, en una imagen difundida en redes sociales. En la pieza de Adif, los detenidos todavía no han declarado como investigados ante el juez.*
 
-1. **Levantamiento del secreto:** cuando el juez Moreno lo levante, se sabrá qué delitos se atribuyen a Corvillo, De la Torre y los demás, y si hay imputaciones formales.
-2. **Los audios de Koldo:** si los entrega a un juzgado o los publica, se podrá comprobar si existen y qué dicen.
-3. **Querella del PSOE:** si la presenta, un juez decidiría si hay indicios de delito en la supuesta oferta del PP.
-4. **Comisiones parlamentarias:** el Senado, con mayoría del PP, y el Congreso pueden volver a citar a los implicados.
+La clave estará en el **levantamiento del secreto**. Cuando el juez Moreno lo decida, se sabrá por fin qué delitos se atribuyen a Corvillo, a De la Torre y al resto, qué contratos de Adif están bajo sospecha y si hay imputaciones formales. Hasta entonces, cada dato que se publique saldrá de fuentes de la investigación y no de documentos oficiales.
 
-## En resumen
+En el frente de Koldo, todo depende de si las grabaciones existen. Si las entrega a un juzgado o las publica, se podrá comprobar qué dicen; si el PSOE presenta su querella, será un juez quien decida si la supuesta oferta del PP tiene indicios de delito. Y en el Senado, donde el PP tiene mayoría, y en el Congreso, es probable que vuelvan las citaciones.
 
-- La UCO detuvo a **seis personas** por presuntas **mordidas en contratos de Adif**, entre ellas el **exchófer de Sánchez en 2017**, Cristian Corvillo, y la **pareja de Ábalos**. Todos están **en libertad** y la causa es **secreta**.
-- Sánchez dice que **no tienen nada que ver con él**. Moncloa niega que Corvillo fuera su chófer, pese a sus elogios públicos de 2017.
-- Koldo acusa al PP de ofrecerle **un millón de euros a través de Inda** por declarar contra Sánchez. El PP lo **niega** y, de momento, **solo está documentado el pago de unos 242.000 euros** en honorarios de su defensa.
+Lo que deja el jueves 5 de noviembre, en definitiva, es un caso que se ensancha (de las mascarillas a la obra pública) y una batalla política en la que ambos bandos se acusan de lo mismo: de intentar manipular la verdad sobre la trama.
 
 *Esta noticia se actualizará a medida que se levante el secreto de sumario o se conozcan nuevos documentos.*

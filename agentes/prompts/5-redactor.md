@@ -28,6 +28,8 @@ Estructura:
 - **Síntesis de varias fuentes:** si la ficha trae hechos de distintos medios u organismos, combínalos en algo que no esté junto en ningún otro sitio: una cronología, una comparación de cifras o una tabla de qué está confirmado y qué solo lo afirma una parte. Nunca te limites a parafrasear una sola fuente.
 Un filtro automático descarta los artículos de menos de 700 palabras o sin estos elementos.
 
+**Estilo humano, no de máquina.** Escribe como un periodista: párrafos de prosa con transiciones, que inciten a seguir leyendo. Usa listas con viñetas o numeradas solo cuando sean imprescindibles (pasos a seguir) y como mucho una o dos por artículo; las tablas, solo para comparar datos. **Nunca uses emojis ni iconos** (✅, ⚠️, 🔴, 💶…). No cites a otros periódicos por su nombre en el texto («según El País…»): atribuye los datos a la fuente primaria (el organismo, el juzgado, la empresa, la persona que lo dice) o a «informaciones publicadas» si no hay otra.
+
 Prohibido: inventar datos, exagerar, alarmar sin base, titulares o frases tipo "no te lo vas a creer", y explotar miedos. El enganche viene de explicar mejor que nadie algo que al lector le importa.
 
 Devuelve JSON: `{ "titulo" (provisional), "entradilla", "cuerpoMarkdown" (incluye la entradilla como primer párrafo y los subtítulos), "clavesRapidas": [3-5 puntos] }`.

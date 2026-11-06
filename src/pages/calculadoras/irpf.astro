@@ -9,16 +9,6 @@ const titulo = `Calculadora de IRPF ${EJERCICIO}: cuánto pagas a Hacienda y cu�
 const descripcion =
   'La calculadora de IRPF más completa: sueldo, alquileres, autónomos, ahorro, hijos, planes de pensiones y deducciones por comunidad. Gratis, con gráficos y consejos para pagar menos.';
 const valorInicial = (id: string) => (DATOS_VACIOS as unknown as Record<string, unknown>)[id];
-const ICONOS: Record<string, string> = {
-  personal: '👪',
-  trabajo: '💼',
-  ahorro: '🏦',
-  inmuebles: '🏠',
-  actividad: '🧾',
-  ganancias: '📈',
-  reducciones: '🐷',
-  deducciones: '✂️',
-};
 // Anuncio intercalado tras estas secciones del formulario (sin cortar la lectura de una sección).
 const ANUNCIO_TRAS = new Set(['trabajo', 'actividad']);
 const esquema = {
@@ -84,7 +74,7 @@ const esquema = {
       <form id="form-irpf" class="formulario" autocomplete="off" onsubmit="return false">
         <ol class="pasos" aria-label="Secciones de la calculadora">
           {SECCIONES.map((s, i) => (
-            <li><a href={`#sec-${s.id}`} data-paso={s.id}><span class="paso-num">{i + 1}</span><span class="paso-ico" aria-hidden="true">{ICONOS[s.id]}</span></a></li>
+            <li><a href={`#sec-${s.id}`} data-paso={s.id}><span class="paso-num">{i + 1}</span></a></li>
           ))}
         </ol>
         {
@@ -92,7 +82,7 @@ const esquema = {
             <>
               <details class="seccion" open={s.abierta} id={`sec-${s.id}`}>
                 <summary>
-                  <span class="seccion-ico" aria-hidden="true">{ICONOS[s.id]}</span>
+                  
                   <span class="seccion-texto">
                     <span class="seccion-titulo">{s.titulo.replace(/^\d+\.\s*/, '')}</span>
                     <span class="seccion-intro">{s.intro}</span>

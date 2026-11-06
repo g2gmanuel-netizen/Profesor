@@ -112,7 +112,7 @@ Antes de que termines de decir «Ro-ad-ster», ya va a velocidad de autovía.
 
 - **Cuándo:** el jueves 15 de octubre de 2026 a las 19:55 hora de Texas (casi las tres de la madrugada del viernes en España). Iba a ser el 1 de octubre, pero se aplazó por el mal tiempo.
 - **Dónde:** en la base de pruebas de **SpaceX en McGregor (Texas)**, donde la empresa espacial de Musk prueba sus motores de cohete. No es casualidad: el truco del coche viene de los cohetes.
-- **Dónde verlo:** ▶️ **[Mira aquí la presentación oficial en YouTube](https://www.youtube.com/watch?v=qt5p-_tE8d0)**, la retransmisión que enlazaba la propia web de Tesla. También la emitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). Cuidado: en YouTube circulan muchas copias y directos de aficionados.
+- **Dónde verlo:** **[Mira aquí la presentación oficial en YouTube](https://www.youtube.com/watch?v=qt5p-_tE8d0)**, la retransmisión que enlazaba la propia web de Tesla. También la emitió en directo en su cuenta oficial de X ([x.com/Tesla](https://x.com/Tesla)). Cuidado: en YouTube circulan muchas copias y directos de aficionados.
 
 ## Las tres versiones y lo que podrás hacer con cada una
 
