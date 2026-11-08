@@ -37,6 +37,20 @@ export const SITIO = {
     activo: env('ADSENSE_ACTIVO', 'true') === 'true',
     clientId: env('ADSENSE_CLIENT_ID', 'ca-pub-8207466106350245'),
   },
+  /**
+   * Adsterra (solo banners). Cada unidad: clave y script que da el panel («GET CODE»).
+   * Una unidad vacía ('') no se usa. Los banners solo se cargan si el lector acepta cookies.
+   */
+  adsterra: {
+    activo: env('ADSTERRA_ACTIVO', 'true') === 'true',
+    unidades: {
+      '300x250': '728e95615f64ac90f2b8e15d433c0969',
+      '160x600': '051561153e4cde724fa59558f141b778',
+      '728x90': 'aef3990db5c5479ec33a50a9750ec0ec',
+      '320x50': 'd7ecf2129ad631d918cf0874181db3e2',
+    } as Record<string, string>,
+    script: (clave: string) => `https://bicea.org/22/${clave}`,
+  },
   cmp: {
     activo: env('CMP_ACTIVO', 'true') === 'true',
     proveedor: env('CMP_PROVEEDOR', 'google'),

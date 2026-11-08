@@ -7,9 +7,10 @@
  *   - lateral     → columna de 300 px junto al artículo (300×600)
  *   - rascacielos → columnas estrechas a los lados de la web (160×600)
  *
- * Los laterales se ocultan en pantallas estrechas. Para no provocar errores de
- * AdSense con huecos ocultos, cada anuncio solo se "activa" (clase adsbygoogle +
- * push) si es visible en la pantalla del lector.
+ * Si hay un banner de Adsterra adecuado para el formato, se usa Adsterra (solo
+ * tras aceptar cookies). Si no, se usa el hueco de AdSense.
+ * Los laterales se ocultan en pantallas estrechas: un anuncio solo se activa si
+ * su hueco es visible en la pantalla del lector.
  */
 import { SITIO } from '../lib/sitio';
 
@@ -19,13 +20,40 @@ interface Props {
   slot?: string; // data-ad-slot de AdSense
 }
 const { formato = 'horizontal', slot = '' } = Astro.props;
-const activo = SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
+
+// Banners de Adsterra candidatos para cada formato, por orden de preferencia.
+// minAncho: ancho mínimo de pantalla para usarlo.
+const CANDIDATOS: Record<Formato, { tam: string; w: number; h: number; minAncho: number }[]> = {
+  horizontal: [
+    { tam: '728x90', w: 728, h: 90, minAncho: 760 },
+    { tam: '320x50', w: 320, h: 50, minAncho: 0 },
+  ],
+  rectangulo: [{ tam: '300x250', w: 300, h: 250, minAncho: 0 }],
+  lateral: [
+    { tam: '300x250', w: 300, h: 250, minAncho: 0 },
+    { tam: '160x600', w: 160, h: 600, minAncho: 0 },
+  ],
+  rascacielos: [{ tam: '160x600', w: 160, h: 600, minAncho: 0 }],
+};
+const unidades = SITIO.adsterra.unidades;
+const adsterra = SITIO.adsterra.activo
+  ? CANDIDATOS[formato]
+      .filter((c) => (unidades[c.tam] ?? '').length > 0)
+      .map((c) => ({ ...c, src: SITIO.adsterra.script(unidades[c.tam]!), clave: unidades[c.tam]! }))
+  : [];
+const usaAdsterra = adsterra.length > 0;
+const activoAdsense = !usaAdsterra && SITIO.adsense.activo && SITIO.adsense.clientId.length > 0;
 const vertical = formato === 'lateral' || formato === 'rascacielos';
 ---
 
-<aside class="hueco-anuncio" data-formato={formato} aria-label="Publicidad">
+<aside
+  class="hueco-anuncio"
+  data-formato={formato}
+  aria-label="Publicidad"
+  data-adsterra={usaAdsterra ? JSON.stringify(adsterra) : undefined}
+>
   {
-    activo ? (
+    activoAdsense ? (
       <ins
         class="anuncio-ins"
         style="display:block;width:100%;"
@@ -35,13 +63,13 @@ const vertical = formato === 'lateral' || formato === 'rascacielos';
         data-full-width-responsive={vertical ? 'false' : 'true'}
       />
     ) : (
-      <span>Espacio publicitario</span>
+      <span>Publicidad</span>
     )
   }
 </aside>
 
 {
-  activo && (
+  activoAdsense && (
     <script is:inline>
       (function (s) {
         var hueco = s && s.previousElementSibling;
@@ -49,6 +77,56 @@ const vertical = formato === 'lateral' || formato === 'rascacielos';
         if (!ins || ins.offsetWidth === 0) return; // oculto (p. ej. lateral en móvil)
         ins.classList.add('adsbygoogle');
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+      })(document.currentScript);
+    </script>
+  )
+}
+
+{
+  usaAdsterra && (
+    <script is:inline>
+      (function (s) {
+        var hueco = s && s.previousElementSibling;
+        if (!hueco || hueco.offsetWidth === 0) return; // oculto (p. ej. lateral en móvil)
+        var candidatos = [];
+        try {
+          candidatos = JSON.parse(hueco.getAttribute('data-adsterra') || '[]');
+        } catch (e) {}
+        var ancho = window.innerWidth;
+        var u = candidatos.find(function (c) {
+          // Se admite un banner hasta 40 px más ancho que el hueco: se ensancha hacia los márgenes.
+          return ancho >= c.minAncho && c.w <= hueco.offsetWidth + 40;
+        });
+        if (!u) return;
+        var exceso = u.w - hueco.offsetWidth;
+        if (exceso > 0) {
+          hueco.style.marginInline = -Math.ceil(exceso / 2) + 'px';
+        }
+        function montar() {
+          if (hueco.getAttribute('data-montado')) return;
+          hueco.setAttribute('data-montado', '1');
+          var f = document.createElement('iframe');
+          f.width = String(u.w);
+          f.height = String(u.h);
+          f.title = 'Publicidad';
+          f.setAttribute('scrolling', 'no');
+          f.setAttribute('loading', 'lazy');
+          f.style.border = '0';
+          f.style.display = 'block';
+          var opciones = JSON.stringify({ key: u.clave, format: 'iframe', height: u.h, width: u.w, params: {} });
+          f.srcdoc =
+            '<!doctype html><html><head><base target="_blank"></head><body style="margin:0">' +
+            '<script>atOptions = ' + opciones + ';<' + '/script>' +
+            '<script src="' + u.src + '"><' + '/script></body></html>';
+          hueco.innerHTML = '';
+          hueco.appendChild(f);
+        }
+        var consentido = false;
+        try {
+          consentido = localStorage.getItem('bd-consent') === 'granted';
+        } catch (e) {}
+        if (consentido) montar();
+        else window.addEventListener('bd-consent-concedido', montar);
       })(document.currentScript);
     </script>
   )
