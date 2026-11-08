@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Anuncio from '../components/Anuncio.astro';
 import Compartir from '../components/Compartir.astro';
 import Newsletter from '../components/Newsletter.astro';
+import Afiliado from '../components/Afiliado.astro';
 import TarjetaArticulo from '../components/TarjetaArticulo.astro';
 import { SITIO, categoriaPorSlug, slugAutor } from '../lib/sitio';
 import { fechaLegible, urlArticulo, relacionados, type Articulo } from '../lib/articulos';
@@ -14,6 +15,16 @@ interface Props {
 const { articulo, palabras } = Astro.props;
 const d = articulo.data;
 const cat = categoriaPorSlug(d.categoria);
+// Producto de afiliación relacionado con la categoría (solo se muestra si está configurado).
+const productoAfiliado: Record<string, string> = {
+  vivienda: 'hipoteca',
+  alquiler: 'hipoteca',
+  ahorro: 'cuentaRemunerada',
+  precios: 'cuentaRemunerada',
+  impuestos: 'nomina',
+  pensiones: 'cuentaRemunerada',
+};
+const afiliado = productoAfiliado[d.categoria];
 const urlAbs = new URL(urlArticulo(articulo), SITIO.url).href;
 const tiempoLectura = Math.max(1, Math.round(palabras / 200));
 const rel = await relacionados(articulo, 4);
@@ -208,6 +219,8 @@ const breadcrumb = {
         }
       </ul>
     </section>
+
+    {afiliado && <Afiliado producto={afiliado} />}
 
     <p class="aviso-ia">
       Este artículo se ha elaborado con asistencia de inteligencia artificial a partir de las

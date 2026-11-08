@@ -9,7 +9,7 @@
   - separar lo comprobado de lo que solo afirma una parte.
 - Nunca inventar datos. Atribuir cada afirmación discutida a su fuente e incluir los desmentidos.
 - No identificar a personas en fotos si no se sabe quiénes son.
-- Imágenes: `public/imagenes/`, crédito «Imagen difundida en redes sociales»; recortar marcas de agua de otros medios.
+- Imágenes: `public/imagenes/`, crédito «Imagen difundida en redes sociales»; recortar marcas de agua de otros medios. **La portada debe medir al menos 1200 px de ancho** (requisito de Google Discover): si es más pequeña, ampliarla con sharp.
 - Verificar con `npx astro build` antes de subir; publicar en `main` y en la rama de trabajo.
 - **Estilo humano:** prosa periodística con transiciones, pocas viñetas y enumeraciones (solo si son imprescindibles), tablas solo para datos. **Nunca emojis ni iconos** en noticias ni en la web.
 - **No citar otros periódicos por su nombre en el texto.** Atribuir a la fuente primaria (juzgado, organismo, empresa, persona) o a «informaciones publicadas». Las URLs pueden ir en el listado de fuentes del final.

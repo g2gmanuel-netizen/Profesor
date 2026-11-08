@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Anuncio from '../../components/Anuncio.astro';
+import Afiliado from '../../components/Afiliado.astro';
 import { SECCIONES } from '../../lib/irpf-campos';
 import { COMUNIDADES, DATOS_VACIOS, EJERCICIO } from '../../lib/irpf';
 import { SITIO } from '../../lib/sitio';
@@ -228,6 +229,8 @@ const esquema = {
       <p class="bloque-intro">Consejos calculados con tus datos. No son una recomendación personalizada: valora tu situación o consulta a un asesor.</p>
       <ol class="consejos" id="r-consejos"></ol>
     </section>
+
+    <Afiliado producto="nomina" />
 
     <section class="bloque" id="jugadas">
       <h2>Jugadas estratégicas para pagar menos</h2>

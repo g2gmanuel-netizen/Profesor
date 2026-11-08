@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Anuncio from '../../components/Anuncio.astro';
+import Afiliado from '../../components/Afiliado.astro';
 import { SITIO } from '../../lib/sitio';
 
 const titulo = 'Calculadora de hipoteca 2026: cuota mensual, intereses y qué pasa si sube el Euríbor';
@@ -59,6 +60,8 @@ const esquema = {
       </dl>
       <p id="r-aviso" class="aviso" hidden></p>
     </section>
+
+    <Afiliado producto="hipoteca" />
 
     <Anuncio formato="horizontal" />
 

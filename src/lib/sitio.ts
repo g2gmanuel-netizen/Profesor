@@ -38,6 +38,33 @@ export const SITIO = {
     clientId: env('ADSENSE_CLIENT_ID', 'ca-pub-8207466106350245'),
   },
   /**
+   * Afiliación: recuadros de productos financieros relacionados (enlaces de tus programas
+   * de afiliados: financeAds, Awin, bancos…). Un recuadro sin `url` no se muestra.
+   */
+  afiliados: {
+    hipoteca: {
+      titulo: 'Antes de firmar, compara hipotecas',
+      texto:
+        'Unas décimas de diferencia en el tipo de interés suponen miles de euros a lo largo del préstamo. Un comparador te enseña en minutos las ofertas de varios bancos para tu caso.',
+      boton: 'Comparar hipotecas',
+      url: '',
+    },
+    cuentaRemunerada: {
+      titulo: 'Que tus ahorros no pierdan valor',
+      texto:
+        'Con la inflación, el dinero parado en una cuenta sin intereses pierde poder de compra cada año. Las cuentas remuneradas pagan intereses por tu saldo, sin comisiones y con el dinero disponible.',
+      boton: 'Ver cuentas remuneradas',
+      url: '',
+    },
+    nomina: {
+      titulo: '¿Tu banco te paga por tener la nómina?',
+      texto:
+        'Varios bancos regalan dinero o pagan intereses por domiciliar la nómina, sin comisiones. Si tu banco no te da nada a cambio, quizá te convenga comparar.',
+      boton: 'Ver cuentas nómina',
+      url: '',
+    },
+  } as Record<string, { titulo: string; texto: string; boton: string; url: string }>,
+  /**
    * Adsterra (solo banners). Cada unidad: clave y script que da el panel («GET CODE»).
    * Una unidad vacía ('') no se usa. Los banners solo se cargan si el lector acepta cookies.
    */

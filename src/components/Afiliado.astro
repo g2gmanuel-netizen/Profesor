@@ -1,0 +1,67 @@
+---
+/**
+ * Recuadro de afiliación (producto financiero relacionado con lo que lee el lector).
+ * Solo se muestra si el producto tiene `url` configurada en SITIO.afiliados.
+ * Se marca como contenido patrocinado y el enlace lleva rel="sponsored".
+ */
+import { SITIO } from '../lib/sitio';
+
+interface Props {
+  producto: string;
+}
+const p = SITIO.afiliados[Astro.props.producto];
+---
+
+{
+  p && p.url && (
+    <aside class="afiliado" aria-label="Contenido patrocinado">
+      <p class="afiliado-etiqueta">Contenido patrocinado</p>
+      <p class="afiliado-titulo">{p.titulo}</p>
+      <p class="afiliado-texto">{p.texto}</p>
+      <a class="afiliado-boton" href={p.url} target="_blank" rel="sponsored noopener">
+        {p.boton}
+      </a>
+    </aside>
+  )
+}
+
+<style>
+  .afiliado {
+    margin-block: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-borde);
+    border-left: 4px solid var(--color-marca);
+    background: var(--color-fondo-alt);
+    font-family: var(--fuente-ui);
+  }
+  .afiliado-etiqueta {
+    margin: 0 0 0.4rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+  }
+  .afiliado-titulo {
+    margin: 0 0 0.4rem;
+    font-family: var(--fuente-titular);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .afiliado-texto {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .afiliado-boton {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: var(--color-marca);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .afiliado-boton:hover {
+    filter: brightness(1.08);
+  }
+</style>
