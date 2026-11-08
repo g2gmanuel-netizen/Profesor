@@ -78,7 +78,10 @@ const nombreCategoria = (slug: string) =>
             });
           }
           banner.hidden = true;
-          if (estado === 'granted') window.dispatchEvent(new Event('bd-consent-concedido'));
+          if (estado === 'granted') {
+            document.documentElement.classList.add('bd-ads-ok');
+            window.dispatchEvent(new Event('bd-consent-concedido'));
+          }
           document.documentElement.classList.remove('cmp-abierto');
         });
       });

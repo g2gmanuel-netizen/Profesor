@@ -31,6 +31,7 @@ const cmpActivo = SITIO.cmp.activo;
       // Si ya aceptó en una visita anterior, restaurar.
       try {
         if (localStorage.getItem('bd-consent') === 'granted') {
+          document.documentElement.classList.add('bd-ads-ok');
           gtag('consent', 'update', {
             ad_storage: 'granted',
             ad_user_data: 'granted',

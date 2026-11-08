@@ -23,14 +23,15 @@ const { formato = 'horizontal', slot = '' } = Astro.props;
 
 // Banners de Adsterra candidatos para cada formato, por orden de preferencia.
 // minAncho: ancho mínimo de pantalla para usarlo.
-const CANDIDATOS: Record<Formato, { tam: string; w: number; h: number; minAncho: number }[]> = {
+const CANDIDATOS: Record<Formato, { tam: string; w: number; h: number; minAncho: number; max?: number }[]> = {
   horizontal: [
     { tam: '728x90', w: 728, h: 90, minAncho: 760 },
     { tam: '320x50', w: 320, h: 50, minAncho: 0 },
   ],
-  rectangulo: [{ tam: '300x250', w: 300, h: 250, minAncho: 0 }],
+  // max: cuántos banners iguales caben como máximo en el hueco (se ponen si hay sitio).
+  rectangulo: [{ tam: '300x250', w: 300, h: 250, minAncho: 0, max: 2 }],
   lateral: [
-    { tam: '300x250', w: 300, h: 250, minAncho: 0 },
+    { tam: '300x250', w: 300, h: 250, minAncho: 0, max: 2 },
     { tam: '160x600', w: 160, h: 600, minAncho: 0 },
   ],
   rascacielos: [{ tam: '160x600', w: 160, h: 600, minAncho: 0 }],
@@ -102,9 +103,7 @@ const vertical = formato === 'lateral' || formato === 'rascacielos';
         if (exceso > 0) {
           hueco.style.marginInline = -Math.ceil(exceso / 2) + 'px';
         }
-        function montar() {
-          if (hueco.getAttribute('data-montado')) return;
-          hueco.setAttribute('data-montado', '1');
+        function crearIframe() {
           var f = document.createElement('iframe');
           f.width = String(u.w);
           f.height = String(u.h);
@@ -118,8 +117,29 @@ const vertical = formato === 'lateral' || formato === 'rascacielos';
             '<!doctype html><html><head><base target="_blank"></head><body style="margin:0">' +
             '<script>atOptions = ' + opciones + ';<' + '/script>' +
             '<script src="' + u.src + '"><' + '/script></body></html>';
+          return f;
+        }
+        function montar() {
+          if (hueco.getAttribute('data-montado')) return;
+          hueco.setAttribute('data-montado', '1');
+          // Cuántos banners caben (por ancho y por alto reservado), con un máximo por formato.
+          var n = 1;
+          if (u.max && u.max > 1) {
+            var hueco16 = 16;
+            var alto = parseFloat(getComputedStyle(hueco).minHeight) || u.h;
+            var cols = Math.floor((hueco.offsetWidth + hueco16) / (u.w + hueco16));
+            var filas = Math.floor((alto - 20 + hueco16) / (u.h + hueco16));
+            n = Math.max(1, Math.min(u.max, cols * filas));
+          }
+          var etiqueta = document.createElement('span');
+          etiqueta.className = 'anuncio-etiqueta';
+          etiqueta.textContent = 'Publicidad';
+          var grupo = document.createElement('div');
+          grupo.className = 'anuncio-grupo';
+          for (var i = 0; i < n; i++) grupo.appendChild(crearIframe());
           hueco.innerHTML = '';
-          hueco.appendChild(f);
+          hueco.appendChild(etiqueta);
+          hueco.appendChild(grupo);
         }
         var consentido = false;
         try {
