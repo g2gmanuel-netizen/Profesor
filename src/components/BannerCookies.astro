@@ -52,22 +52,34 @@ const nombreCategoria = (slug: string) =>
     (function () {
       var banner = document.getElementById('bd-cmp');
       if (!banner) return;
+      var REPREGUNTAR_DIAS = 180; // a quien rechazó se le vuelve a preguntar pasados unos meses
       var guardado = null;
+      var fecha = 0;
       try {
         guardado = localStorage.getItem('bd-consent');
+        fecha = parseInt(localStorage.getItem('bd-consent-fecha') || '0', 10) || 0;
       } catch (e) {}
-      if (!guardado) {
+      function abrir() {
+        banner.hidden = false;
+        document.documentElement.classList.add('cmp-abierto');
+        var principal = banner.querySelector('button.primario');
+        if (principal) principal.focus({ preventScroll: true });
+      }
+      // Permite reabrir el aviso desde el pie («Configurar cookies») o desde un hueco de anuncio.
+      window.bdAbrirCookies = abrir;
+      var caducado = guardado === 'denied' && Date.now() - fecha > REPREGUNTAR_DIAS * 864e5;
+      if (!guardado || caducado) {
         // Pequeña pausa para que el lector vea primero que es un diario de noticias.
-        setTimeout(function () {
-          banner.hidden = false;
-          document.documentElement.classList.add('cmp-abierto');
-        }, 1200);
+        setTimeout(abrir, 1200);
       }
       banner.querySelectorAll('button[data-consent]').forEach(function (b) {
         b.addEventListener('click', function () {
           var estado = b.getAttribute('data-consent');
+          var anterior = guardado;
+          guardado = estado;
           try {
             localStorage.setItem('bd-consent', estado);
+            localStorage.setItem('bd-consent-fecha', String(Date.now()));
           } catch (e) {}
           if (window.gtag) {
             window.gtag('consent', 'update', {
@@ -78,11 +90,14 @@ const nombreCategoria = (slug: string) =>
             });
           }
           banner.hidden = true;
+          document.documentElement.classList.remove('cmp-abierto');
           if (estado === 'granted') {
             document.documentElement.classList.add('bd-ads-ok');
             window.dispatchEvent(new Event('bd-consent-concedido'));
+          } else if (anterior === 'granted') {
+            // Retira el consentimiento: se recarga para quitar anuncios y analítica ya cargados.
+            location.reload();
           }
-          document.documentElement.classList.remove('cmp-abierto');
         });
       });
     })();

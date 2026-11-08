@@ -147,6 +147,37 @@ const vertical = formato === 'lateral' || formato === 'rascacielos';
         } catch (e) {}
         if (consentido) montar();
         else window.addEventListener('bd-consent-concedido', montar);
+
+        // A quien rechazó las cookies se le explica, una sola vez por página y sin bloquear nada,
+        // que la web se financia con publicidad, con la opción de cambiar de opinión.
+        var rechazado = false;
+        try {
+          rechazado = localStorage.getItem('bd-consent') === 'denied';
+        } catch (e) {}
+        // Va en la segunda banda horizontal (la del final del artículo), nunca arriba del todo.
+        if (hueco.getAttribute('data-formato') === 'horizontal') {
+          window.bdBandas = (window.bdBandas || 0) + 1;
+        }
+        if (rechazado && !window.bdNotaApoyo && window.bdBandas === 2 && hueco.getAttribute('data-formato') === 'horizontal') {
+          window.bdNotaApoyo = true;
+          var nota = document.createElement('div');
+          nota.className = 'anuncio-apoyo';
+          nota.innerHTML =
+            '<p>Bolsillo Diario es gratuito y se mantiene con publicidad. Si te resulta útil, puedes apoyarnos aceptando las cookies.</p>';
+          var boton = document.createElement('button');
+          boton.type = 'button';
+          boton.textContent = 'Aceptar las cookies';
+          boton.addEventListener('click', function () {
+            nota.remove();
+            if (window.bdAbrirCookies) window.bdAbrirCookies();
+          });
+          nota.appendChild(boton);
+          hueco.innerHTML = '';
+          hueco.appendChild(nota);
+          window.addEventListener('bd-consent-concedido', function () {
+            nota.remove();
+          });
+        }
       })(document.currentScript);
     </script>
   )

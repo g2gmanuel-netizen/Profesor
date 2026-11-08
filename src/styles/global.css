@@ -668,10 +668,47 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   letter-spacing: 0.1em;
   font-weight: 700;
 }
-.pie a {
+.pie a,
+.pie .pie-cookies {
   color: var(--color-texto-suave);
   display: block;
   padding-block: 2px;
+}
+.pie .pie-cookies {
+  background: none;
+  border: 0;
+  padding-inline: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.pie .pie-cookies:hover {
+  text-decoration: underline;
+}
+/* Nota para quien rechazó las cookies, en el hueco del anuncio (una por página). */
+.anuncio-apoyo {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  border-top: 2px solid var(--color-marca);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-texto);
+}
+.anuncio-apoyo p {
+  margin: 0 0 0.6rem;
+}
+.anuncio-apoyo button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--color-marca);
+  background: var(--color-fondo);
+  color: var(--color-marca);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 /* ----- Utilidades ----- */
