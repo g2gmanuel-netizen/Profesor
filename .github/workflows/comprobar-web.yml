@@ -17,3 +17,11 @@ jobs:
           echo "--- portada enlaza a tesla:"; curl -sS -m 20 https://tubolsillodiario.com/ | grep -o "tesla-roadster[a-z-]*" | head -2 || true
           echo "--- ads.txt:"; curl -sS -m 20 https://tubolsillodiario.com/ads.txt || true
           echo "--- DNS:"; dig +short tubolsillodiario.com || true
+          echo "--- Vista previa en redes (robots de X, Facebook y WhatsApp):"
+          ART=https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
+          for ua in "Twitterbot/1.0" "facebookexternalhit/1.1" "WhatsApp/2.23"; do
+            curl -sS -o /tmp/pagina.html -m 20 -A "$ua" -w "$ua pagina: %{http_code}\n" "$ART" || echo "$ua pagina: FALLO"
+            grep -o '<meta name="twitter:image"[^>]*>' /tmp/pagina.html | head -1 || true
+            IMG=$(grep -o 'property="og:image" content="[^"]*"' /tmp/pagina.html | head -1 | sed 's/.*content="//;s/"$//')
+            [ -n "$IMG" ] && curl -sS -o /dev/null -m 20 -A "$ua" -w "$ua imagen: %{http_code} %{content_type} %{size_download} bytes\n" "$IMG" || true
+          done
