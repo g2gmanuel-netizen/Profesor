@@ -7,9 +7,9 @@ categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-09
 destacado: true
-imagen: /imagenes/jensen-huang-nvidia-infidelidad-presunta-espia-china.jpg
-imagenAlt: "Jensen Huang sostiene una tarjeta gráfica de Nvidia y un ordenador portátil sobre un escenario"
-imagenCredito: "Imagen difundida en redes sociales (foto de archivo)"
+imagen: /imagenes/jensen-huang-portada-mujer-difuminada.jpg
+imagenAlt: "Jensen Huang sentado junto a una mujer cuyo rostro aparece difuminado"
+imagenCredito: "Imagen difundida en redes sociales. Hemos difuminado el rostro de la mujer porque no hemos podido verificar su identidad ni el contexto de la foto"
 etiquetas:
   - Nvidia
   - Jensen Huang
@@ -71,8 +71,8 @@ La mujer es, según las informaciones publicadas, **Alice Huang**, sin parentesc
 
 Hay dos respuestas que conviene tener muy presentes. El Ministerio de Exteriores chino calificó la «supuesta narrativa de la espía china» de **infundada**. Y el propio consejo de Nvidia afirmó que **no tiene motivos para creer que se hayan visto comprometidos ni la seguridad nacional ni los secretos de la empresa**. Huang, además, seguirá al frente: la compañía asegura que está comprometido a dirigirla «sin interrupción».
 
-![Jensen Huang sentado junto a una mujer cuyo rostro se ha difuminado](/imagenes/jensen-huang-imagen-redes-sociales.jpg)
-*Jensen Huang, en una imagen difundida en redes sociales que varios medios han relacionado con el caso. No hemos podido verificar la identidad de la mujer ni el contexto de la foto, por lo que hemos difuminado su rostro.*
+![Jensen Huang sostiene una tarjeta gráfica de Nvidia y un ordenador portátil sobre un escenario](/imagenes/jensen-huang-nvidia-infidelidad-presunta-espia-china.jpg)
+*Jensen Huang, en una presentación de Nvidia. Imagen de archivo difundida en redes sociales.*
 
 ## La única en rojo de un lunes en verde
 
