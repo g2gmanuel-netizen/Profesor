@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-11-06
+# Kit de difusión — 2026-11-09
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
-**Enlace:** https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
+## 1. La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
+**Enlace:** https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
 
 ### X / Twitter
 ```
-Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
+La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
 
-👉 https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
-#Ahorro #WallStreet #Nasdaq #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
+#Actualidad #FiscaliaEuropea #Adif #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla*
+📰 *La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda*
 
-El Nasdaq cayó un 5,5 % y entró en corrección; las grandes tecnológicas perdieron más de un billón de dólares en un día. Las cuatro causas, qué dice la historia de estas caídas y qué vigilar.
+Agentes de la UCO acudieron a Adif, la Agencia de Seguridad Ferroviaria y el Tribunal de Cuentas. Qué se investiga, de qué dinero hablamos y por qué no significa que el fraude causara el accidente.
 
-• El jueves 5 de noviembre el S&P 500 cayó un 4,4 %, el Nasdaq un 5,5 % y el Dow Jones más de 1.800 puntos. Es el peor día desde abril de 2025, y el Nasdaq ya está en «corrección» (más de un 10 % por debajo de su máximo).
-• Las grandes tecnológicas perdieron más de un billón de dólares en una sesión; solo Nvidia, unos 440.000 millones. El índice de semiconductores se hundió alrededor de un 12 %, su peor día desde 2020.
-• Causa principal: la victoria demócrata en las legislativas del 3 de noviembre hizo temer más regulación de la IA y moratorias a nuevos centros de datos. Se sumaron unos malos resultados de Qualcomm, el miedo a una subida de tipos de la Fed en diciembre y unas valoraciones muy altas.
+• La Fiscalía Europea abrió el viernes 6 de noviembre, por iniciativa propia, una segunda investigación por posible fraude con fondos de la UE en la línea de alta velocidad Madrid-Sevilla.
+• Esta vez el foco está en la renovación de la seguridad, la señalización y las comunicaciones de la línea. La primera, abierta en marzo tras el accidente de Adamuz, se centraba en el mantenimiento de la vía.
+• Con apoyo de la UCO, se practicaron diligencias en Adif, la Agencia Estatal de Seguridad Ferroviaria y el Tribunal de Cuentas. No hay, por ahora, personas, empresas ni contratos señalados públicamente.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
 
-_Ahorro · Bolsillo Diario_
+_Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la caída explicada de forma sencilla
-  • Gancho (0-3 s): "¿Por qué se hundió ayer la bolsa de EE UU y qué puede pasar ahora: la…?"
+🎬 GUION VÍDEO CORTO (~30 s) — La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
+  • Gancho (0-3 s): "¿La Fiscalía Europea abre una segunda investigación por posible fraude…?"
   • Desarrollo (3-25 s):
-  1. El jueves 5 de noviembre el S&P 500 cayó un 4,4 %, el Nasdaq un 5,5 % y el Dow Jones más de 1.800 puntos. Es el peor día desde abril de 2025, y el Nasdaq ya está en «corrección» (más de un 10 % por debajo de su máximo).
-  2. Las grandes tecnológicas perdieron más de un billón de dólares en una sesión; solo Nvidia, unos 440.000 millones. El índice de semiconductores se hundió alrededor de un 12 %, su peor día desde 2020.
-  3. Causa principal: la victoria demócrata en las legislativas del 3 de noviembre hizo temer más regulación de la IA y moratorias a nuevos centros de datos. Se sumaron unos malos resultados de Qualcomm, el miedo a una subida de tipos de la Fed en diciembre y unas valoraciones muy altas.
+  1. La Fiscalía Europea abrió el viernes 6 de noviembre, por iniciativa propia, una segunda investigación por posible fraude con fondos de la UE en la línea de alta velocidad Madrid-Sevilla.
+  2. Esta vez el foco está en la renovación de la seguridad, la señalización y las comunicaciones de la línea. La primera, abierta en marzo tras el accidente de Adamuz, se centraba en el mantenimiento de la vía.
+  3. Con apoyo de la UCO, se practicaron diligencias en Adif, la Agencia Estatal de Seguridad Ferroviaria y el Tribunal de Cuentas. No hay, por ahora, personas, empresas ni contratos señalados públicamente.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  El Nasdaq cayó un 5,5 % y entró en corrección; las grandes tecnológicas perdieron más de un billón de dólares en un día. Las cuatro causas, qué dice la historia de estas caídas y qué vigilar.
-  🔗 Enlace en la bio · #Ahorro #WallStreet #Nasdaq #España #BolsilloDiario
+  Agentes de la UCO acudieron a Adif, la Agencia de Seguridad Ferroviaria y el Tribunal de Cuentas. Qué se investiga, de qué dinero hablamos y por qué no significa que el fraude causara el accidente.
+  🔗 Enlace en la bio · #Actualidad #FiscaliaEuropea #Adif #España #BolsilloDiario
 ```
