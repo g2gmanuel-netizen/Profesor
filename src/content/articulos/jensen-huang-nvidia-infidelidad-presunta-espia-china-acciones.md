@@ -6,6 +6,7 @@ descripcion: "Jensen Huang admite una infidelidad y Nvidia investiga si la mujer
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-09
+destacado: true
 imagen: /imagenes/jensen-huang-nvidia-infidelidad-presunta-espia-china.jpg
 imagenAlt: "Jensen Huang sostiene una tarjeta gráfica de Nvidia y un ordenador portátil sobre un escenario"
 imagenCredito: "Imagen difundida en redes sociales (foto de archivo)"
