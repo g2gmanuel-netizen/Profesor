@@ -54,6 +54,7 @@ const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
                   </li>
                 ))}
               </ol>
+              <Anuncio formato="rectangulo" />
             </aside>
           )
         }
@@ -79,11 +80,19 @@ const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
           <span class="linea" />
         </div>
         <div class="rejilla cols-3">
-          {resto.map((a) => <TarjetaArticulo articulo={a} />)}
+          {resto.slice(0, 6).map((a) => <TarjetaArticulo articulo={a} />)}
         </div>
+        {resto.length > 6 && <Anuncio formato="horizontal" />}
+        {resto.length > 6 && (
+          <div class="rejilla cols-3">
+            {resto.slice(6).map((a) => <TarjetaArticulo articulo={a} />)}
+          </div>
+        )}
       </section>
     )
   }
+
+  <Anuncio formato="horizontal" />
 
   <section aria-label="Secciones">
     <div class="seccion-cabecera">

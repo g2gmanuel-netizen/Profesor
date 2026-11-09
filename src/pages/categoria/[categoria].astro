@@ -14,6 +14,9 @@ const { categoria } = Astro.params;
 const cat = categoriaPorSlug(categoria);
 if (!cat) return Astro.redirect('/404');
 const arts = await articulosPorCategoria(categoria);
+// Bloques de 6 noticias con un anuncio entre bloque y bloque.
+const bloques: (typeof arts)[] = [];
+for (let i = 0; i < arts.length; i += 6) bloques.push(arts.slice(i, i + 6));
 ---
 
 <BaseLayout titulo={cat.nombre} descripcion={cat.descripcion}>
@@ -27,11 +30,18 @@ const arts = await articulosPorCategoria(categoria);
     arts.length === 0 ? (
       <p>Todavía no hay artículos en esta sección.</p>
     ) : (
-      <div class="rejilla cols-3">
-        {arts.map((a) => (
-          <TarjetaArticulo articulo={a} />
-        ))}
-      </div>
+      bloques.map((bloque, i) => (
+        <>
+          {i > 0 && <Anuncio formato="horizontal" />}
+          <div class="rejilla cols-3">
+            {bloque.map((a) => (
+              <TarjetaArticulo articulo={a} />
+            ))}
+          </div>
+        </>
+      ))
     )
   }
+
+  {arts.length > 0 && <Anuncio formato="horizontal" />}
 </BaseLayout>

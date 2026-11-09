@@ -609,6 +609,9 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   position: sticky;
   top: 16px;
 }
+.rail-segundo {
+  margin-top: 2.5rem;
+}
 /* Artículo: columna derecha de 300 px que acompaña la lectura. */
 @media (min-width: 1100px) {
   .articulo-rejilla {
@@ -627,8 +630,10 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
     padding-top: 0.5rem;
   }
 }
-/* Pantallas grandes: columnas "rascacielos" a ambos lados de toda la web. */
-@media (min-width: 1600px) {
+/* Pantallas medianas y grandes: columnas "rascacielos" a ambos lados de toda la web
+   (desde 1360 px, el ancho de la mayoría de portátiles). Dos anuncios por columna:
+   uno arriba y otro que acompaña al lector al bajar. */
+@media (min-width: 1360px) {
   .lienzo {
     display: grid;
     grid-template-columns: 160px minmax(0, var(--ancho-max)) 160px;
