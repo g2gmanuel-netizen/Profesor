@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
-**Enlace:** https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
+## 1. Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
+**Enlace:** https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
 
 ### X / Twitter
 ```
-La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
+Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
 
-👉 https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
-#Actualidad #FiscaliaEuropea #Adif #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
+#Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda*
+📰 *Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde*
 
-Agentes de la UCO acudieron a Adif, la Agencia de Seguridad Ferroviaria y el Tribunal de Cuentas. Qué se investiga, de qué dinero hablamos y por qué no significa que el fraude causara el accidente.
+El consejero delegado reconoce la relación y pide perdón. Washington sospecha que ella trabajaba para Pekín, algo que China niega. Qué está probado, qué no y por qué un asunto personal mueve 240.000 millones.
 
-• La Fiscalía Europea abrió el viernes 6 de noviembre, por iniciativa propia, una segunda investigación por posible fraude con fondos de la UE en la línea de alta velocidad Madrid-Sevilla.
-• Esta vez el foco está en la renovación de la seguridad, la señalización y las comunicaciones de la línea. La primera, abierta en marzo tras el accidente de Adamuz, se centraba en el mantenimiento de la vía.
-• Con apoyo de la UCO, se practicaron diligencias en Adif, la Agencia Estatal de Seguridad Ferroviaria y el Tribunal de Cuentas. No hay, por ahora, personas, empresas ni contratos señalados públicamente.
+• Jensen Huang, consejero delegado de Nvidia, reconoció en un correo a sus empleados una relación extramatrimonial y pidió perdón a su familia, a la plantilla y a los accionistas.
+• El consejo de administración ha abierto una investigación independiente porque, según la inteligencia estadounidense citada por la prensa, la mujer recababa información para Pekín. China lo niega y el consejo dice no tener motivos para creer que se hayan comprometido secretos.
+• Nvidia fue la gran excepción de un lunes alcista: cayó alrededor de un 4,4 % mientras casi todo Wall Street subía, y perdió más de 240.000 millones de dólares de valor.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/fiscalia-europea-segunda-investigacion-fraude-ave-madrid-sevilla-urda/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
 
 _Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — La Fiscalía Europea abre una segunda investigación por posible fraude en el AVE Madrid-Sevilla tras la tragedia de Urda
-  • Gancho (0-3 s): "¿La Fiscalía Europea abre una segunda investigación por posible fraude…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
+  • Gancho (0-3 s): "¿Jensen Huang admite una infidelidad y Nvidia investiga su relación co…?"
   • Desarrollo (3-25 s):
-  1. La Fiscalía Europea abrió el viernes 6 de noviembre, por iniciativa propia, una segunda investigación por posible fraude con fondos de la UE en la línea de alta velocidad Madrid-Sevilla.
-  2. Esta vez el foco está en la renovación de la seguridad, la señalización y las comunicaciones de la línea. La primera, abierta en marzo tras el accidente de Adamuz, se centraba en el mantenimiento de la vía.
-  3. Con apoyo de la UCO, se practicaron diligencias en Adif, la Agencia Estatal de Seguridad Ferroviaria y el Tribunal de Cuentas. No hay, por ahora, personas, empresas ni contratos señalados públicamente.
+  1. Jensen Huang, consejero delegado de Nvidia, reconoció en un correo a sus empleados una relación extramatrimonial y pidió perdón a su familia, a la plantilla y a los accionistas.
+  2. El consejo de administración ha abierto una investigación independiente porque, según la inteligencia estadounidense citada por la prensa, la mujer recababa información para Pekín. China lo niega y el consejo dice no tener motivos para creer que se hayan comprometido secretos.
+  3. Nvidia fue la gran excepción de un lunes alcista: cayó alrededor de un 4,4 % mientras casi todo Wall Street subía, y perdió más de 240.000 millones de dólares de valor.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Agentes de la UCO acudieron a Adif, la Agencia de Seguridad Ferroviaria y el Tribunal de Cuentas. Qué se investiga, de qué dinero hablamos y por qué no significa que el fraude causara el accidente.
-  🔗 Enlace en la bio · #Actualidad #FiscaliaEuropea #Adif #España #BolsilloDiario
+  El consejero delegado reconoce la relación y pide perdón. Washington sospecha que ella trabajaba para Pekín, algo que China niega. Qué está probado, qué no y por qué un asunto personal mueve 240.000…
+  🔗 Enlace en la bio · #Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
 ```
