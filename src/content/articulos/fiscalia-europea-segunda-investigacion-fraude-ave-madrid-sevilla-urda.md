@@ -5,10 +5,10 @@ tituloSeo: "La Fiscalía Europea investiga el AVE Madrid-Sevilla tras Urda"
 descripcion: "La Fiscalía Europea abre una segunda investigación por posible fraude con fondos de la UE en la señalización del AVE Madrid-Sevilla tras Urda. Claves y contexto."
 categoria: actualidad
 autor: Daniel Arcos
-fechaPublicacion: 2026-11-07
-imagenAlt: "Tren de alta velocidad en la línea Madrid-Sevilla"
-imagenCredito: "Imagen difundida en redes sociales"
-borrador: true
+fechaPublicacion: 2026-11-09
+imagen: /imagenes/accidente-tren-urda-toledo.jpg
+imagenAlt: "Pasajeros caminan junto a la vía tras el accidente de Urda, con un vagón destrozado al fondo del terraplén"
+imagenCredito: "Imagen difundida en redes sociales (accidente de Urda, 28 de octubre)"
 etiquetas:
   - Fiscalía Europea
   - Adif
