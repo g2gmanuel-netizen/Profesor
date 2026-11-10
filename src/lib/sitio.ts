@@ -26,8 +26,6 @@ export const SITIO = {
   // Datos legales (titular responsable del medio). Públicos en el aviso legal (LSSI).
   legal: {
     titular: env('AUTOR_RESPONSABLE', 'Manuel González'),
-    nif: '02307212J',
-    domicilio: 'Calle General Rodrigo, 2',
   },
   redes: {
     x: '',
