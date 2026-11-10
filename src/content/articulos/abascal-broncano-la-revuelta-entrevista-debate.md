@@ -148,10 +148,9 @@ Más allá de quién ganara el debate, la audiencia dejó un vencedor claro.
 | Dato | Abascal (9 de noviembre) | Pedro Sánchez (22 de octubre) |
 |---|---|---|
 | Espectadores de media | **4.815.000** | 4.387.000 |
-| Cuota de pantalla | 33,6 % | 33,9 % |
 | Espectadores que vieron al menos un minuto | 8.670.000 | — |
 
-Abascal superó al presidente del Gobierno en espectadores, aunque se quedó a tres décimas de su cuota. Fue, además, lo más visto de toda la televisión ese lunes. Y hay un dato que debería preocupar a los demás partidos: según los datos de audiencia publicados, la entrevista superó el 50 % de cuota entre los jóvenes, justo el público al que *La Revuelta* habla cada noche.
+Abascal superó al presidente del Gobierno en más de 400.000 espectadores, con un 33,6 % de cuota de pantalla, a solo tres décimas de la que logró Sánchez. Fue, además, lo más visto de toda la televisión ese lunes. Y hay un dato que debería preocupar a los demás partidos: según los datos de audiencia publicados, la entrevista superó el 50 % de cuota entre los jóvenes, justo el público al que *La Revuelta* habla cada noche.
 
 ## Qué significa para el 29-N
 
