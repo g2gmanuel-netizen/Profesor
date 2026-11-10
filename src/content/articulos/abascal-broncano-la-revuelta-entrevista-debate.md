@@ -4,6 +4,8 @@ subtitulo: "Análisis y opinión. Iba a ser una entrevista de humor y terminó e
 tituloSeo: "Abascal en La Revuelta: lo que pasó con Broncano"
 descripcion: "Abascal en La Revuelta: lo que se dijo, los momentos más tensos con Broncano, quién tuvo argumentos y por qué fue la entrevista más vista del programa."
 categoria: politica
+fijarEn:
+  actualidad: 3
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-10
 imagen: /imagenes/abascal-broncano-la-revuelta-entrevista.jpg

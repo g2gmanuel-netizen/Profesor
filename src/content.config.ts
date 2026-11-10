@@ -41,6 +41,8 @@ const articulos = defineCollection({
     enlacesInternos: z.array(z.string()).default([]),
     elaboradoConIA: z.boolean().default(true),
     destacado: z.boolean().default(false),
+    // Fija la noticia en una posición de otra sección, p. ej. { actualidad: 3 } (además de la suya).
+    fijarEn: z.record(z.string(), z.number().int().min(1)).optional(),
     borrador: z.boolean().default(false),
     // Campos opcionales para los análisis de Bolsa (categoría "bolsa").
     ticker: z.string().max(12).optional(),

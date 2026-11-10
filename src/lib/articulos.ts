@@ -19,7 +19,17 @@ export async function todosLosArticulos(): Promise<Articulo[]> {
 
 export async function articulosPorCategoria(slug: string): Promise<Articulo[]> {
   const arts = await todosLosArticulos();
-  return arts.filter((a) => a.data.categoria === slug);
+  const lista = arts.filter((a) => a.data.categoria === slug || a.data.fijarEn?.[slug] !== undefined);
+  // Las noticias fijadas en esta sección se colocan en la posición indicada (1 = la primera).
+  const fijadas = lista
+    .filter((a) => a.data.fijarEn?.[slug] !== undefined)
+    .sort((x, y) => (x.data.fijarEn![slug]! - y.data.fijarEn![slug]!));
+  const resto = lista.filter((a) => a.data.fijarEn?.[slug] === undefined);
+  for (const a of fijadas) {
+    const pos = Math.min(a.data.fijarEn![slug]! - 1, resto.length);
+    resto.splice(pos, 0, a);
+  }
+  return resto;
 }
 
 export async function articulosPorAutor(slugAutor: string): Promise<Articulo[]> {
