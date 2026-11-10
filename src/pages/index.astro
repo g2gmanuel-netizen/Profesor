@@ -17,18 +17,16 @@ const arts = await todosLosArticulos();
 const dest = await destacados(5);
 const lead = dest[0] ?? arts[0];
 
-// Lista principal: primero las destacadas (en su orden) y luego el resto por fecha.
+// Orden: primero las destacadas (en su orden) y luego el resto por fecha, sin repetir.
 const vistos = new Set<string>(lead ? [lead.id] : []);
-const lista: Articulo[] = [];
+const orden: Articulo[] = [];
 for (const a of [...dest.slice(1), ...arts]) {
   if (vistos.has(a.id)) continue;
   vistos.add(a.id);
-  lista.push(a);
-  if (lista.length >= 12) break;
+  orden.push(a);
 }
-const bloques = [lista.slice(0, 4), lista.slice(4, 8), lista.slice(8, 12)].filter((b) => b.length > 0);
-
-// «Hoy en 1 minuto»: los cuatro titulares clave del día.
+const mosaico = orden.slice(0, 5); // 1 grande + 4 pequeñas, con foto
+const mas = orden.slice(5, 14); // rejilla de tarjetas
 const hoy = [lead, ...dest.slice(1)].filter(Boolean).slice(0, 4) as Articulo[];
 const masLeidos = arts.slice(0, 5); // Se reordenará con datos reales de GA4 (ver panel).
 
@@ -38,14 +36,8 @@ const horaActualizacion = new Intl.DateTimeFormat('es-ES', {
   minute: '2-digit',
   timeZone: 'Europe/Madrid',
 }).format(ahora);
-const diaHoy = new Intl.DateTimeFormat('es-ES', {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-  timeZone: 'Europe/Madrid',
-}).format(ahora);
 
-const cat = (a: Articulo) => categoriaPorSlug(a.data.categoria);
+const cat = (a: Articulo) => categoriaPorSlug(a.data.categoria)?.nombre ?? '';
 const color = (a: Articulo) => colorCategoria(a.data.categoria)[0];
 ---
 
@@ -61,22 +53,18 @@ const color = (a: Articulo) => colorCategoria(a.data.categoria)[0];
 
   {
     hoy.length > 0 && (
-      <section class="hoy" aria-label="Hoy en 1 minuto">
-        <div class="hoy-cabeza">
-          <h2>
-            Hoy en <span>1 minuto</span>
-          </h2>
-          <p class="hoy-meta">
-            <span class="pulso" aria-hidden="true" />
-            {diaHoy} · actualizado a las {horaActualizacion}
-          </p>
-        </div>
-        <ol class="hoy-lista">
+      <section class="hoy-tira" aria-label="Hoy en 1 minuto">
+        <p class="hoy-tira-eti">
+          <span class="pulso" aria-hidden="true" />
+          Hoy en 1 minuto
+          <span class="hoy-tira-hora">{horaActualizacion}</span>
+        </p>
+        <ol>
           {hoy.map((a, i) => (
             <li>
               <a href={urlArticulo(a)}>
-                <span class="hoy-num">0{i + 1}</span>
-                <span class="hoy-texto">{a.data.tituloSeo}</span>
+                <span>0{i + 1}</span>
+                {a.data.tituloSeo}
               </a>
             </li>
           ))}
@@ -85,107 +73,142 @@ const color = (a: Articulo) => colorCategoria(a.data.categoria)[0];
     )
   }
 
-  <div class="portada">
-    <div class="portada-principal">
-      {
-        lead && (
-          <article class="destacada">
-            <a href={urlArticulo(lead)} class="destacada-foto" aria-label={lead.data.titulo}>
-              <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1200" height="800" />
-            </a>
-            <div class="destacada-texto">
-              <p class="dato-cat" style={`--cat:${color(lead)}`}>
-                {cat(lead)?.nombre}
-                <span>· {minutosLectura(lead)} min de lectura</span>
+  {
+    lead && (
+      <article class="portada-hero">
+        <a href={urlArticulo(lead)} class="portada-hero-enlace">
+          <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1600" height="900" />
+          <div class="portada-hero-texto">
+            <p class="sobre-foto-cat">
+              <span style={`--cat:${color(lead)}`}>{cat(lead)}</span>
+              {minutosLectura(lead)} min de lectura
+            </p>
+            <h1>{lead.data.titulo}</h1>
+            {lead.data.porQueImporta && (
+              <p class="portada-hero-importa">
+                <strong>Por qué te importa.</strong> {lead.data.porQueImporta}
               </p>
-              <h1>
-                <a href={urlArticulo(lead)}>{lead.data.titulo}</a>
-              </h1>
-              <p class="destacada-entradilla">{lead.data.subtitulo}</p>
-              {lead.data.porQueImporta && (
-                <p class="importa">
-                  <strong>Por qué te importa.</strong> {lead.data.porQueImporta}
+            )}
+            <span class="portada-hero-boton">
+              Leer la noticia
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </article>
+    )
+  }
+
+  {
+    mosaico.length > 0 && (
+      <section class="mosaico" aria-label="Destacadas">
+        {mosaico.map((a, i) => (
+          <article class={i === 0 ? 'losa losa-grande' : 'losa'}>
+            <a href={urlArticulo(a)}>
+              <img src={a.data.imagen} alt={a.data.imagenAlt} width="800" height="800" loading={i < 3 ? 'eager' : 'lazy'} />
+              <div class="losa-texto">
+                <p class="sobre-foto-cat">
+                  <span style={`--cat:${color(a)}`}>{cat(a)}</span>
+                  {minutosLectura(a)} min
                 </p>
-              )}
-              <a href={urlArticulo(lead)} class="boton-leer">
-                Leer la noticia
-                <svg viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </a>
-            </div>
+                <h2>{a.data.titulo}</h2>
+              </div>
+            </a>
           </article>
-        )
-      }
+        ))}
+      </section>
+    )
+  }
 
-      {
-        bloques.map((bloque, b) => (
-          <>
-            {b > 0 && <Anuncio formato="horizontal" />}
-            <div class="noticias">
-              {bloque.map((a) => (
-                <article class="noticia">
-                  <div class="noticia-texto">
-                    <p class="dato-cat" style={`--cat:${color(a)}`}>
-                      {cat(a)?.nombre}
-                      <span>· {minutosLectura(a)} min</span>
-                    </p>
-                    <h2>
-                      <a href={urlArticulo(a)}>{a.data.titulo}</a>
-                    </h2>
-                    <p class="noticia-resumen">
-                      <strong>En 30 segundos:</strong> {a.data.descripcion}
-                    </p>
-                  </div>
-                  <a href={urlArticulo(a)} class="noticia-foto" tabindex="-1" aria-hidden="true">
-                    <img src={a.data.imagen} alt="" width="300" height="300" loading="lazy" />
-                  </a>
-                </article>
-              ))}
-            </div>
-          </>
-        ))
-      }
+  <section class="franja" aria-label="Lo más leído y calculadoras">
+    {
+      masLeidos.length > 0 && (
+        <div class="franja-leido">
+          <h2 class="franja-titulo">Lo más leído</h2>
+          <ol>
+            {masLeidos.map((a, i) => (
+              <li>
+                <a href={urlArticulo(a)}>
+                  <span class="franja-num">{i + 1}</span>
+                  <img src={a.data.imagen} alt="" width="120" height="120" loading="lazy" />
+                  <span class="franja-tit">{a.data.titulo}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )
+    }
+    <div class="franja-calc">
+      <a href="/calculadoras/irpf/" class="calc-tarjeta">
+        <span class="calc-tarjeta-eti">Gratis · 1 minuto</span>
+        <span class="calc-tarjeta-tit">¿Cuánto te quita Hacienda?</span>
+        <span class="calc-tarjeta-boton">Calcular mi IRPF</span>
+      </a>
+      <a href="/calculadoras/hipoteca/" class="calc-tarjeta calc-tarjeta-oscura">
+        <span class="calc-tarjeta-eti">Euríbor al día</span>
+        <span class="calc-tarjeta-tit">¿Y si sube tu hipoteca?</span>
+        <span class="calc-tarjeta-boton">Calcular mi cuota</span>
+      </a>
+      <Anuncio formato="rectangulo" />
     </div>
+  </section>
 
-    <aside class="portada-lateral">
-      {
-        masLeidos.length > 0 && (
-          <section class="caja mas-leido" aria-label="Lo más leído">
-            <h2 class="caja-titulo">Lo más leído</h2>
-            <ol>
-              {masLeidos.map((a, i) => (
-                <li>
-                  <span class="mas-num">{i + 1}</span>
+  {
+    mas.length > 0 && (
+      <section class="mas-noticias" aria-label="Más noticias">
+        <div class="bloque-cabeza">
+          <h2>Más noticias</h2>
+          <span />
+        </div>
+        <div class="rejilla-fotos">
+          {mas.slice(0, 6).map((a) => (
+            <article class="foto-tarjeta">
+              <a href={urlArticulo(a)} class="foto-tarjeta-img" tabindex="-1" aria-hidden="true">
+                <img src={a.data.imagen} alt="" width="600" height="400" loading="lazy" />
+              </a>
+              <p class="dato-cat" style={`--cat:${color(a)}`}>
+                {cat(a)}
+                <span>· {minutosLectura(a)} min</span>
+              </p>
+              <h3>
+                <a href={urlArticulo(a)}>{a.data.titulo}</a>
+              </h3>
+              <p class="foto-tarjeta-resumen">{a.data.descripcion}</p>
+            </article>
+          ))}
+        </div>
+        {mas.length > 6 && <Anuncio formato="horizontal" />}
+        {mas.length > 6 && (
+          <div class="rejilla-fotos">
+            {mas.slice(6).map((a) => (
+              <article class="foto-tarjeta">
+                <a href={urlArticulo(a)} class="foto-tarjeta-img" tabindex="-1" aria-hidden="true">
+                  <img src={a.data.imagen} alt="" width="600" height="400" loading="lazy" />
+                </a>
+                <p class="dato-cat" style={`--cat:${color(a)}`}>
+                  {cat(a)}
+                  <span>· {minutosLectura(a)} min</span>
+                </p>
+                <h3>
                   <a href={urlArticulo(a)}>{a.data.titulo}</a>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )
-      }
-
-      <a href="/calculadoras/irpf/" class="caja caja-cta">
-        <span class="caja-cta-eti">Herramienta gratuita</span>
-        <span class="caja-cta-tit">¿Cuánto te quita Hacienda de tu sueldo?</span>
-        <span class="caja-cta-txt">Tu sueldo neto, tu IRPF y cómo pagar menos, en un minuto y sin registrarte.</span>
-        <span class="caja-cta-boton">Calcular ahora</span>
-      </a>
-
-      <a href="/calculadoras/hipoteca/" class="caja caja-cta caja-cta-clara">
-        <span class="caja-cta-tit">¿Y si sube el Euríbor?</span>
-        <span class="caja-cta-txt">Calcula tu cuota y cuánto cambiaría en cada escenario.</span>
-        <span class="caja-cta-boton">Calcular mi hipoteca</span>
-      </a>
-
-      <div class="lateral-pegajoso">
-        <Anuncio formato="rectangulo" />
-      </div>
-    </aside>
-  </div>
+                </h3>
+                <p class="foto-tarjeta-resumen">{a.data.descripcion}</p>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+    )
+  }
 
   <section class="explora" aria-label="Secciones">
-    <h2>Explora por secciones</h2>
+    <div class="bloque-cabeza">
+      <h2>Explora por secciones</h2>
+      <span />
+    </div>
     <div class="explora-lista">
       {
         secciones.map((c) => (
