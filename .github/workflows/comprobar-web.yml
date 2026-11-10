@@ -4,6 +4,11 @@ name: Comprobar que la web responde
 # distinguir una caída de la web de un bloqueo en la conexión de quien la visita.
 on:
   workflow_dispatch:
+    inputs:
+      enlace:
+        description: 'Enlace de una noticia para comprobar su carátula en redes'
+        required: false
+        default: 'https://tubolsillodiario.com/'
 
 jobs:
   comprobar:
@@ -18,7 +23,7 @@ jobs:
           echo "--- ads.txt:"; curl -sS -m 20 https://tubolsillodiario.com/ads.txt || true
           echo "--- DNS:"; dig +short tubolsillodiario.com || true
           echo "--- Vista previa en redes (robots de X, Facebook y WhatsApp):"
-          ART=https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
+          ART="${{ inputs.enlace }}"
           for ua in "Twitterbot/1.0" "facebookexternalhit/1.1" "WhatsApp/2.23"; do
             curl -sS -o /tmp/pagina.html -m 20 -A "$ua" -w "$ua pagina: %{http_code}\n" "$ART" || echo "$ua pagina: FALLO"
             grep -o '<meta name="twitter:image"[^>]*>' /tmp/pagina.html | head -1 || true
