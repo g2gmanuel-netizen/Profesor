@@ -34,10 +34,10 @@ const secciones = await categoriasConArticulos();
 
   <nav class="nav-principal" aria-label="Secciones">
     <div class="contenedor nav-principal-fila">
-      <a href="/" class="nav-portada">Portada</a>
       {secciones.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
       <a href="/calculadoras/irpf/" class="nav-calculadoras">Calculadora IRPF</a>
       <a href="/calculadoras/hipoteca/" class="nav-calculadoras">Calculadora hipoteca</a>
+      <a href="https://sportmaniac.app/" class="nav-calculadoras" target="_blank" rel="noopener">Juegos</a>
     </div>
   </nav>
 </header>
