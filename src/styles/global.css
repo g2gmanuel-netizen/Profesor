@@ -911,3 +911,34 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   font-size: 1.5rem;
   color: var(--color-marca);
 }
+
+/* ----- Botón «Juegos» del menú (colores de Sportmanía: verde lima y rojo) ----- */
+.nav-principal a.nav-juegos {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem 0.35rem 0.75rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(#0f0f11, #0f0f11) padding-box,
+    linear-gradient(120deg, #c8d82e, #e5322d) border-box;
+  border: 2px solid transparent;
+  color: #c8d82e;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(229, 50, 45, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.nav-principal a.nav-juegos:hover,
+.nav-principal a.nav-juegos:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(200, 216, 46, 0.35);
+  color: #d9e84a;
+}
+.nav-juegos-mando {
+  width: 1.35rem;
+  height: auto;
+  flex: none;
+}

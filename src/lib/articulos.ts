@@ -48,7 +48,15 @@ export async function destacados(n = 4): Promise<Articulo[]> {
   const arts = await todosLosArticulos();
   const marcados = arts.filter((a) => a.data.destacado);
   const resto = arts.filter((a) => !a.data.destacado);
-  return [...marcados, ...resto].slice(0, n);
+  const lista = [...marcados, ...resto];
+  // Noticias fijadas en un puesto concreto de la portada con «fijarEn: { portada: N }»
+  // (1 = la noticia grande; 2, 3, 4… = las de la fila de debajo).
+  const fijadas = lista
+    .filter((a) => a.data.fijarEn?.portada !== undefined)
+    .sort((x, y) => x.data.fijarEn!.portada! - y.data.fijarEn!.portada!);
+  const sinFijar = lista.filter((a) => a.data.fijarEn?.portada === undefined);
+  for (const a of fijadas) sinFijar.splice(Math.min(a.data.fijarEn!.portada! - 1, sinFijar.length), 0, a);
+  return sinFijar.slice(0, n);
 }
 
 /** Artículos relacionados: misma categoría o etiquetas compartidas. */
