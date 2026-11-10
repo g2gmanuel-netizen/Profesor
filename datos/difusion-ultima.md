@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-11-09
+# Kit de difusión — 2026-11-10
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
-**Enlace:** https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
+## 1. El día que el entrevistador acabó entrevistado: lo que de verdad pasó cuando Abascal se sentó en el sofá de Broncano
+**Enlace:** https://tubolsillodiario.com/articulo/abascal-broncano-la-revuelta-entrevista-debate/
 
 ### X / Twitter
 ```
-Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
+El día que el entrevistador acabó entrevistado: lo que de verdad pasó cuando Abascal se sentó en el sofá de Broncano
 
-👉 https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
-#Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
+👉 https://tubolsillodiario.com/articulo/abascal-broncano-la-revuelta-entrevista-debate/
+#Politica #SantiagoAbascal #DavidBroncano #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde*
+📰 *El día que el entrevistador acabó entrevistado: lo que de verdad pasó cuando Abascal se sentó en el sofá de Broncano*
 
-El consejero delegado reconoce la relación y pide perdón. Washington sospecha que ella trabajaba para Pekín, algo que China niega. Qué está probado, qué no y por qué un asunto personal mueve 240.000 millones.
+Análisis y opinión. Iba a ser una entrevista de humor y terminó en un debate electoral con 4,8 millones de testigos. Lo que se dijo, quién tenía argumentos y por qué al presentador se le hizo larga la noche.
 
-• Jensen Huang, consejero delegado de Nvidia, reconoció en un correo a sus empleados una relación extramatrimonial y pidió perdón a su familia, a la plantilla y a los accionistas.
-• El consejo de administración ha abierto una investigación independiente porque, según la inteligencia estadounidense citada por la prensa, la mujer recababa información para Pekín. China lo niega y el consejo dice no tener motivos para creer que se hayan comprometido secretos.
-• Nvidia fue la gran excepción de un lunes alcista: cayó alrededor de un 4,4 % mientras casi todo Wall Street subía, y perdió más de 240.000 millones de dólares de valor.
+• Santiago Abascal visitó La Revuelta el lunes 9 de noviembre, a tres semanas de las elecciones del 29-N. Lo que se anunciaba como una entrevista de humor acabó convertida en un debate político mucho más largo de lo habitual.
+• Fue la emisión más vista de la historia del programa: 4,8 millones de espectadores de media y un 33,6 % de cuota, por delante en espectadores de la visita de Pedro Sánchez en octubre.
+• Se habló de violencia contra la mujer, vivienda, inmigración, Israel y Franco. Abascal mantuvo el tono y el guion; Broncano dejó los chistes desde el principio y acabó a la defensiva.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/jensen-huang-nvidia-infidelidad-presunta-espia-china-acciones/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/abascal-broncano-la-revuelta-entrevista-debate/
 
-_Actualidad · Bolsillo Diario_
+_Política · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Jensen Huang admite una infidelidad y Nvidia investiga su relación con una presunta espía china: la única gran tecnológica que se hunde
-  • Gancho (0-3 s): "¿Jensen Huang admite una infidelidad y Nvidia investiga su relación co…?"
+🎬 GUION VÍDEO CORTO (~30 s) — El día que el entrevistador acabó entrevistado: lo que de verdad pasó cuando Abascal se sentó en el sofá de Broncano
+  • Gancho (0-3 s): "¿El día que el entrevistador acabó entrevistado: lo que de verdad pasó…?"
   • Desarrollo (3-25 s):
-  1. Jensen Huang, consejero delegado de Nvidia, reconoció en un correo a sus empleados una relación extramatrimonial y pidió perdón a su familia, a la plantilla y a los accionistas.
-  2. El consejo de administración ha abierto una investigación independiente porque, según la inteligencia estadounidense citada por la prensa, la mujer recababa información para Pekín. China lo niega y el consejo dice no tener motivos para creer que se hayan comprometido secretos.
-  3. Nvidia fue la gran excepción de un lunes alcista: cayó alrededor de un 4,4 % mientras casi todo Wall Street subía, y perdió más de 240.000 millones de dólares de valor.
+  1. Santiago Abascal visitó La Revuelta el lunes 9 de noviembre, a tres semanas de las elecciones del 29-N. Lo que se anunciaba como una entrevista de humor acabó convertida en un debate político mucho más largo de lo habitual.
+  2. Fue la emisión más vista de la historia del programa: 4,8 millones de espectadores de media y un 33,6 % de cuota, por delante en espectadores de la visita de Pedro Sánchez en octubre.
+  3. Se habló de violencia contra la mujer, vivienda, inmigración, Israel y Franco. Abascal mantuvo el tono y el guion; Broncano dejó los chistes desde el principio y acabó a la defensiva.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  El consejero delegado reconoce la relación y pide perdón. Washington sospecha que ella trabajaba para Pekín, algo que China niega. Qué está probado, qué no y por qué un asunto personal mueve 240.000…
-  🔗 Enlace en la bio · #Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
+  Análisis y opinión. Iba a ser una entrevista de humor y terminó en un debate electoral con 4,8 millones de testigos. Lo que se dijo, quién tenía argumentos y por qué al presentador se le hizo larga l…
+  🔗 Enlace en la bio · #Politica #SantiagoAbascal #DavidBroncano #España #BolsilloDiario
 ```
