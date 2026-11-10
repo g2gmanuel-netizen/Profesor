@@ -996,3 +996,53 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
     padding: 0.35rem 0.8rem 0.35rem 0.65rem;
   }
 }
+
+/* ----- Secciones del menú: pestañas sobrias ----- */
+.nav-principal-fila {
+  padding-block: 0.55rem;
+}
+.nav-principal a.nav-seccion {
+  position: relative;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border-bottom: 0;
+  font-weight: 600;
+  color: var(--color-texto);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-principal a.nav-seccion::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-marca);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.nav-principal a.nav-seccion:hover,
+.nav-principal a.nav-seccion:focus-visible {
+  background: var(--color-fondo-alt);
+  color: var(--color-marca);
+  text-decoration: none;
+}
+.nav-principal a.nav-seccion:hover::after,
+.nav-principal a.nav-seccion:focus-visible::after,
+.nav-principal a.nav-seccion[aria-current='page']::after {
+  transform: scaleX(1);
+}
+.nav-principal a.nav-seccion[aria-current='page'] {
+  color: var(--color-marca);
+  font-weight: 800;
+}
+@media (max-width: 760px) {
+  .nav-principal-fila {
+    gap: 0 0.2rem;
+  }
+  .nav-principal a.nav-seccion {
+    padding: 0.4rem 0.6rem;
+  }
+}

@@ -2,6 +2,7 @@
 import { SITIO } from '../lib/sitio';
 import { categoriasConArticulos } from '../lib/articulos';
 const secciones = await categoriasConArticulos();
+const rutaActual = Astro.url.pathname;
 ---
 
 <header class="cabecera">
@@ -34,7 +35,15 @@ const secciones = await categoriasConArticulos();
 
   <nav class="nav-principal" aria-label="Secciones">
     <div class="contenedor nav-principal-fila">
-      {secciones.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+      {secciones.map((c) => (
+        <a
+          href={`/categoria/${c.slug}/`}
+          class="nav-seccion"
+          aria-current={rutaActual.startsWith(`/categoria/${c.slug}/`) ? 'page' : undefined}
+        >
+          {c.nombre}
+        </a>
+      ))}
     </div>
     <div class="contenedor nav-botones">
       <a href="/calculadoras/irpf/" class="nav-boton-calc">
