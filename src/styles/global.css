@@ -2438,7 +2438,7 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   border-radius: 10px;
 }
 .portada-articulo figcaption,
-.cuerpo-articulo p:has(> img) + p > em:only-child {
+.cuerpo-articulo p:has(> img) + p.nota > em {
   display: block;
   margin-top: 0.55rem;
   padding-left: 0.7rem;
@@ -2573,7 +2573,7 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   border-radius: 10px;
   background: #ece8de;
 }
-.cuerpo-articulo p:has(> img) + p:has(> em:only-child) {
+.cuerpo-articulo p:has(> img) + p.nota {
   margin-bottom: 2rem;
 }
 
@@ -2747,7 +2747,7 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   color: #6a6458;
 }
 /* Nota inicial en cursiva (p. ej. «Análisis y opinión»): sin letra capital y con aspecto de nota */
-.cuerpo-articulo > p:first-of-type:has(> em:only-child) {
+.cuerpo-articulo > p.nota:first-of-type {
   padding: 0.7rem 0.9rem;
   border-radius: 8px;
   background: #f3f1ea;
@@ -2756,13 +2756,13 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   line-height: 1.5;
   color: #5a554b;
 }
-.cuerpo-articulo > p:first-of-type:has(> em:only-child)::first-letter {
+.cuerpo-articulo > p.nota:first-of-type::first-letter {
   float: none;
   margin: 0;
   font: inherit;
   color: inherit;
 }
-.cuerpo-articulo > p:first-of-type:has(> em:only-child) + p::first-letter {
+.cuerpo-articulo > p.nota:first-of-type + p::first-letter {
   float: left;
   margin: 0.08em 0.12em 0 0;
   font-family: var(--fuente-display);
@@ -2772,7 +2772,7 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
   color: var(--color-marca);
 }
 /* Párrafo suelto en cursiva justo después de una tabla: nota de la tabla */
-.cuerpo-articulo table + p:has(> em:only-child) {
+.cuerpo-articulo table + p.nota {
   margin-top: -1.2rem;
   font-family: var(--fuente-ui);
   font-size: 0.8rem;
