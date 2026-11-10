@@ -2781,3 +2781,104 @@ html:not(.bd-ads-ok) .hueco-anuncio[data-adsterra] {
 .lectura > .compartir {
   margin: 0.4rem 0 1.4rem;
 }
+
+/* =====================================================================
+   TIPOGRAFÍA Y FONDOS (v3): letra de periódico y verdes claros
+   Newsreader (serif de prensa, con tamaños ópticos) para titulares y
+   texto; Libre Franklin (sans clásica de periódico) para etiquetas.
+   ===================================================================== */
+:root {
+  --fuente-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --fuente-titular: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --fuente-texto: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --fuente-lectura: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --fuente-ui: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --papel: #f3f8f4;
+  --verde-claro: #e3f1e8;
+  --verde-claro-2: #d2e9da;
+  --verde-texto: #0a3d27;
+}
+body {
+  background: var(--papel);
+}
+h1,
+h2,
+h3 {
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+/* Cabecera: cinta de última hora en verde de la marca, no casi negro */
+.cab-directo {
+  background: var(--color-marca);
+  color: #e4f2e9;
+}
+.cab-nav a[aria-current='page'],
+.boton-leer,
+.caja-cta-clara .caja-cta-boton {
+  background: var(--color-marca);
+  color: #fff;
+}
+.bloque-cabeza span {
+  background: var(--color-marca);
+}
+
+/* «Hoy en 1 minuto» */
+.hoy-tira-eti {
+  background: var(--verde-claro);
+  color: var(--verde-texto);
+  border-right: 1px solid var(--verde-claro-2);
+}
+.hoy-tira-hora {
+  color: var(--color-marca-claro);
+}
+
+/* «Lo esencial» */
+.claves {
+  background: var(--verde-claro);
+  border: 1px solid var(--verde-claro-2);
+  color: #17271f;
+}
+.claves strong,
+.claves li::before {
+  color: var(--color-marca);
+}
+.claves strong::before {
+  background: var(--color-marca);
+}
+.claves li {
+  border-top-color: rgba(10, 82, 52, 0.12);
+}
+
+/* Tarjeta de calculadora «oscura» pasa a verde claro */
+.calc-tarjeta-oscura {
+  background:
+    radial-gradient(360px 140px at 100% 0%, rgba(200, 216, 46, 0.25), transparent 60%),
+    var(--verde-claro);
+  color: var(--verde-texto);
+  border: 1px solid var(--verde-claro-2);
+}
+.calc-tarjeta-oscura .calc-tarjeta-eti {
+  color: var(--color-marca-claro);
+}
+.calc-tarjeta-oscura .calc-tarjeta-boton {
+  background: var(--color-marca);
+  color: #fff;
+}
+
+/* Firma y tablas */
+.firma-avatar {
+  background: var(--verde-claro);
+  color: var(--color-marca);
+}
+.cuerpo-articulo thead th {
+  background: var(--verde-claro-2);
+  color: var(--verde-texto);
+}
+
+/* Fondo de las fotos (mientras cargan) en verde suave */
+.losa,
+.portada-hero-enlace {
+  background: var(--verde-claro-2);
+}
