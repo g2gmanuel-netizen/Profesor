@@ -1,19 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TarjetaArticulo from '../components/TarjetaArticulo.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Anuncio from '../components/Anuncio.astro';
-import { SITIO, categoriaPorSlug } from '../lib/sitio';
-import { todosLosArticulos, destacados, fechaLegible, urlArticulo, categoriasConArticulos } from '../lib/articulos';
-const secciones = await categoriasConArticulos();
+import { SITIO, categoriaPorSlug, colorCategoria } from '../lib/sitio';
+import {
+  todosLosArticulos,
+  destacados,
+  urlArticulo,
+  categoriasConArticulos,
+  minutosLectura,
+  type Articulo,
+} from '../lib/articulos';
 
+const secciones = await categoriasConArticulos();
 const arts = await todosLosArticulos();
 const dest = await destacados(5);
 const lead = dest[0] ?? arts[0];
-const secundarias = (dest.slice(1, 5).length ? dest.slice(1, 5) : arts.slice(1, 5));
-const resto = arts.filter((a) => a.id !== lead?.id).slice(0, 9);
+
+// Lista principal: primero las destacadas (en su orden) y luego el resto por fecha.
+const vistos = new Set<string>(lead ? [lead.id] : []);
+const lista: Articulo[] = [];
+for (const a of [...dest.slice(1), ...arts]) {
+  if (vistos.has(a.id)) continue;
+  vistos.add(a.id);
+  lista.push(a);
+  if (lista.length >= 12) break;
+}
+const bloques = [lista.slice(0, 4), lista.slice(4, 8), lista.slice(8, 12)].filter((b) => b.length > 0);
+
+// «Hoy en 1 minuto»: los cuatro titulares clave del día.
+const hoy = [lead, ...dest.slice(1)].filter(Boolean).slice(0, 4) as Articulo[];
 const masLeidos = arts.slice(0, 5); // Se reordenará con datos reales de GA4 (ver panel).
-const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
+
+const ahora = new Date();
+const horaActualizacion = new Intl.DateTimeFormat('es-ES', {
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Madrid',
+}).format(ahora);
+const diaHoy = new Intl.DateTimeFormat('es-ES', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  timeZone: 'Europe/Madrid',
+}).format(ahora);
+
+const cat = (a: Articulo) => categoriaPorSlug(a.data.categoria);
+const color = (a: Articulo) => colorCategoria(a.data.categoria)[0];
 ---
 
 <BaseLayout titulo={SITIO.nombre} descripcion={SITIO.descripcion}>
@@ -27,89 +60,145 @@ const catLead = lead ? categoriaPorSlug(lead.data.categoria) : undefined;
   }
 
   {
-    lead && (
-      <section class="portada-lead" aria-label="Destacado">
-        <article class="lead">
-          <a href={urlArticulo(lead)} aria-label={lead.data.titulo}>
-            <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1200" height="675" />
-          </a>
-          <div class="lead-texto">
-            {catLead && <span class="etiqueta-cat">{catLead.nombre}</span>}
-            <h2><a href={urlArticulo(lead)}>{lead.data.titulo}</a></h2>
-            <p>{lead.data.subtitulo}</p>
-            <p class="meta" style="margin-top:.6rem;">
-              {lead.data.autor} · {fechaLegible(lead.data.fechaPublicacion)}
-            </p>
-          </div>
-        </article>
-
-        {
-          masLeidos.length > 0 && (
-            <aside class="lomas" aria-label="Lo más leído">
-              <h3>Lo más leído</h3>
-              <ol>
-                {masLeidos.map((a) => (
-                  <li>
-                    <a href={urlArticulo(a)}>{a.data.titulo}</a>
-                  </li>
-                ))}
-              </ol>
-              <Anuncio formato="rectangulo" />
-            </aside>
-          )
-        }
+    hoy.length > 0 && (
+      <section class="hoy" aria-label="Hoy en 1 minuto">
+        <div class="hoy-cabeza">
+          <h2>
+            Hoy en <span>1 minuto</span>
+          </h2>
+          <p class="hoy-meta">
+            <span class="pulso" aria-hidden="true" />
+            {diaHoy} · actualizado a las {horaActualizacion}
+          </p>
+        </div>
+        <ol class="hoy-lista">
+          {hoy.map((a, i) => (
+            <li>
+              <a href={urlArticulo(a)}>
+                <span class="hoy-num">0{i + 1}</span>
+                <span class="hoy-texto">{a.data.tituloSeo}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
       </section>
     )
   }
 
-  {
-    secundarias.length > 0 && (
-      <div class="rejilla cols-3">
-        {secundarias.map((a) => <TarjetaArticulo articulo={a} />)}
-      </div>
-    )
-  }
+  <div class="portada">
+    <div class="portada-principal">
+      {
+        lead && (
+          <article class="destacada">
+            <a href={urlArticulo(lead)} class="destacada-foto" aria-label={lead.data.titulo}>
+              <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1200" height="800" />
+            </a>
+            <div class="destacada-texto">
+              <p class="dato-cat" style={`--cat:${color(lead)}`}>
+                {cat(lead)?.nombre}
+                <span>· {minutosLectura(lead)} min de lectura</span>
+              </p>
+              <h1>
+                <a href={urlArticulo(lead)}>{lead.data.titulo}</a>
+              </h1>
+              <p class="destacada-entradilla">{lead.data.subtitulo}</p>
+              {lead.data.porQueImporta && (
+                <p class="importa">
+                  <strong>Por qué te importa.</strong> {lead.data.porQueImporta}
+                </p>
+              )}
+              <a href={urlArticulo(lead)} class="boton-leer">
+                Leer la noticia
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        )
+      }
 
-  <Anuncio formato="horizontal" />
-
-  {
-    resto.length > 0 && (
-      <section aria-label="Últimas noticias">
-        <div class="seccion-cabecera">
-          <h2>Últimas noticias</h2>
-          <span class="linea" />
-        </div>
-        <div class="rejilla cols-3">
-          {resto.slice(0, 6).map((a) => <TarjetaArticulo articulo={a} />)}
-        </div>
-        {resto.length > 6 && <Anuncio formato="horizontal" />}
-        {resto.length > 6 && (
-          <div class="rejilla cols-3">
-            {resto.slice(6).map((a) => <TarjetaArticulo articulo={a} />)}
-          </div>
-        )}
-      </section>
-    )
-  }
-
-  <Anuncio formato="horizontal" />
-
-  <section aria-label="Secciones">
-    <div class="seccion-cabecera">
-      <h2>Explora por secciones</h2>
-      <span class="linea"></span>
+      {
+        bloques.map((bloque, b) => (
+          <>
+            {b > 0 && <Anuncio formato="horizontal" />}
+            <div class="noticias">
+              {bloque.map((a) => (
+                <article class="noticia">
+                  <div class="noticia-texto">
+                    <p class="dato-cat" style={`--cat:${color(a)}`}>
+                      {cat(a)?.nombre}
+                      <span>· {minutosLectura(a)} min</span>
+                    </p>
+                    <h2>
+                      <a href={urlArticulo(a)}>{a.data.titulo}</a>
+                    </h2>
+                    <p class="noticia-resumen">
+                      <strong>En 30 segundos:</strong> {a.data.descripcion}
+                    </p>
+                  </div>
+                  <a href={urlArticulo(a)} class="noticia-foto" tabindex="-1" aria-hidden="true">
+                    <img src={a.data.imagen} alt="" width="300" height="300" loading="lazy" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </>
+        ))
+      }
     </div>
-    <div class="rejilla cols-3">
+
+    <aside class="portada-lateral">
+      {
+        masLeidos.length > 0 && (
+          <section class="caja mas-leido" aria-label="Lo más leído">
+            <h2 class="caja-titulo">Lo más leído</h2>
+            <ol>
+              {masLeidos.map((a, i) => (
+                <li>
+                  <span class="mas-num">{i + 1}</span>
+                  <a href={urlArticulo(a)}>{a.data.titulo}</a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )
+      }
+
+      <a href="/calculadoras/irpf/" class="caja caja-cta">
+        <span class="caja-cta-eti">Herramienta gratuita</span>
+        <span class="caja-cta-tit">¿Cuánto te quita Hacienda de tu sueldo?</span>
+        <span class="caja-cta-txt">Tu sueldo neto, tu IRPF y cómo pagar menos, en un minuto y sin registrarte.</span>
+        <span class="caja-cta-boton">Calcular ahora</span>
+      </a>
+
+      <a href="/calculadoras/hipoteca/" class="caja caja-cta caja-cta-clara">
+        <span class="caja-cta-tit">¿Y si sube el Euríbor?</span>
+        <span class="caja-cta-txt">Calcula tu cuota y cuánto cambiaría en cada escenario.</span>
+        <span class="caja-cta-boton">Calcular mi hipoteca</span>
+      </a>
+
+      <div class="lateral-pegajoso">
+        <Anuncio formato="rectangulo" />
+      </div>
+    </aside>
+  </div>
+
+  <section class="explora" aria-label="Secciones">
+    <h2>Explora por secciones</h2>
+    <div class="explora-lista">
       {
         secciones.map((c) => (
-          <a href={`/categoria/${c.slug}/`} class="tarjeta" style="padding:1rem;text-decoration:none;">
-            <span class="etiqueta-cat">{c.nombre}</span>
-            <p style="margin:.4rem 0 0;color:var(--color-texto-suave);">{c.descripcion}</p>
+          <a href={`/categoria/${c.slug}/`} style={`--cat:${colorCategoria(c.slug)[0]}`}>
+            <strong>{c.nombre}</strong>
+            <span>{c.descripcion}</span>
           </a>
         ))
       }
     </div>
   </section>
+
+  <Anuncio formato="horizontal" />
 
   <div style="margin-top:2.5rem;">
     <Newsletter />

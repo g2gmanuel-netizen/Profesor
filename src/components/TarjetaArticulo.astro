@@ -1,16 +1,17 @@
 ---
-import { categoriaPorSlug } from '../lib/sitio';
-import { fechaLegible, urlArticulo, type Articulo } from '../lib/articulos';
+import { categoriaPorSlug, colorCategoria } from '../lib/sitio';
+import { fechaLegible, urlArticulo, minutosLectura, type Articulo } from '../lib/articulos';
 
 interface Props {
   articulo: Articulo;
 }
 const { articulo } = Astro.props;
 const cat = categoriaPorSlug(articulo.data.categoria);
+const color = colorCategoria(articulo.data.categoria)[0];
 ---
 
 <article class="tarjeta">
-  <a href={urlArticulo(articulo)} aria-label={articulo.data.titulo}>
+  <a href={urlArticulo(articulo)} aria-label={articulo.data.titulo} class="tarjeta-foto">
     <img
       src={articulo.data.imagen}
       alt={articulo.data.imagenAlt}
@@ -20,7 +21,14 @@ const cat = categoriaPorSlug(articulo.data.categoria);
     />
   </a>
   <div class="tarjeta-cuerpo">
-    {cat && <span class="etiqueta-cat">{cat.nombre}</span>}
+    {
+      cat && (
+        <p class="dato-cat" style={`--cat:${color}`}>
+          {cat.nombre}
+          <span>· {minutosLectura(articulo)} min</span>
+        </p>
+      )
+    }
     <h3>
       <a href={urlArticulo(articulo)}>{articulo.data.titulo}</a>
     </h3>

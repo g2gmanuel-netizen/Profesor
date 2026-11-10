@@ -100,3 +100,9 @@ export async function categoriasConArticulos(): Promise<Categoria[]> {
   const usadas = new Set((await todosLosArticulos()).map((a) => a.data.categoria));
   return CATEGORIAS.filter((c) => usadas.has(c.slug));
 }
+
+/** Minutos de lectura aproximados (unas 220 palabras por minuto). */
+export function minutosLectura(a: Articulo): number {
+  const palabras = (a.body ?? '').split(/\s+/).filter(Boolean).length;
+  return Math.max(2, Math.round(palabras / 220));
+}

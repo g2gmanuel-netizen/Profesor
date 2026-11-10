@@ -25,7 +25,7 @@ export const SITIO = {
     'Daniel Arcos es el seudónimo con el que firma el editor de Bolsillo Diario. Coordina la redacción y revisa cada pieza antes de publicarla. Escribe sobre impuestos, vivienda, ahorro y pensiones con un objetivo: que entiendas, con datos oficiales y sin jerga, qué significa cada noticia para tu bolsillo y qué puedes hacer.',
   // Datos legales (titular responsable del medio). Públicos en el aviso legal (LSSI).
   legal: {
-    titular: env('AUTOR_RESPONSABLE', 'Manuel González'),
+    titular: 'Sr. González',
   },
   redes: {
     x: '',

@@ -7,6 +7,7 @@ categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-09
 destacado: true
+porQueImporta: "Si tienes un fondo indexado o un plan de pensiones, probablemente tienes un poco de Nvidia: lo que le pase a su consejero delegado también toca tu dinero."
 imagen: /imagenes/jensen-huang-portada-mujer-difuminada.jpg
 imagenAlt: "Jensen Huang sentado junto a una mujer cuyo rostro aparece difuminado"
 imagenCredito: "Imagen difundida en redes sociales. Hemos difuminado el rostro de la mujer porque no hemos podido verificar su identidad ni el contexto de la foto"
