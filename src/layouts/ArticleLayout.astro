@@ -5,7 +5,7 @@ import Compartir from '../components/Compartir.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Afiliado from '../components/Afiliado.astro';
 import TarjetaArticulo from '../components/TarjetaArticulo.astro';
-import { SITIO, categoriaPorSlug, slugAutor } from '../lib/sitio';
+import { SITIO, categoriaPorSlug, slugAutor, colorCategoria } from '../lib/sitio';
 import { fechaLegible, urlArticulo, relacionados, type Articulo } from '../lib/articulos';
 
 interface Props {
@@ -15,6 +15,8 @@ interface Props {
 const { articulo, palabras } = Astro.props;
 const d = articulo.data;
 const cat = categoriaPorSlug(d.categoria);
+const colorCat = colorCategoria(d.categoria)[0];
+const iniciales = d.autor.split(/\s+/).map((x: string) => x[0]).join('').slice(0, 2).toUpperCase();
 // Producto de afiliación relacionado con la categoría (solo se muestra si está configurado).
 const productoAfiliado: Record<string, string> = {
   vivienda: 'hipoteca',
@@ -80,6 +82,7 @@ const breadcrumb = {
     <set:html value={`<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`} />
   </Fragment>
 
+  <div class="progreso-lectura" aria-hidden="true"><span id="progreso-lectura"></span></div>
   <div class="articulo-rejilla">
   <article class="lectura" style="margin-inline:auto;">
     <nav class="migas" aria-label="Ruta">
@@ -87,10 +90,12 @@ const breadcrumb = {
     </nav>
 
     <header class="articulo-cabecera">
-      {cat && <span class="etiqueta-cat">{cat.nombre}</span>}
+      {cat && <p class="dato-cat articulo-cat" style={`--cat:${colorCat}`}>{cat.nombre}</p>}
       <h1>{d.titulo}</h1>
       <p class="entradilla">{d.subtitulo}</p>
-      <p class="meta">
+      <p class="meta firma">
+        <span class="firma-avatar" aria-hidden="true">{iniciales}</span>
+        <span class="firma-texto">
         Por <a href={`/autor/${slugAutor(d.autor)}/`}>{d.autor}</a> ·
         <time datetime={d.fechaPublicacion.toISOString()}>{fechaLegible(d.fechaPublicacion)}</time>
         {
@@ -104,23 +109,27 @@ const breadcrumb = {
           )
         }
         · <span class="tiempo-lectura">{tiempoLectura} min de lectura</span>
+        </span>
       </p>
     </header>
 
-    <figure style="margin:1rem 0;">
-      <img
-        src={d.imagen}
-        alt={d.imagenAlt}
-        width="1200"
-        height="675"
-        style="border-radius:var(--radio);width:100%;"
-      />
-      {
-        d.imagenCredito && (
-          <figcaption class="meta" style="margin-top:.35rem;">{d.imagenCredito}</figcaption>
-        )
-      }
+    <figure class="portada-articulo">
+      <img src={d.imagen} alt={d.imagenAlt} width="1200" height="675" />
+      {d.imagenCredito && <figcaption>{d.imagenCredito}</figcaption>}
     </figure>
+
+    {
+      d.clavesRapidas.length > 0 && (
+        <section class="claves" aria-label="Lo esencial">
+          <strong>Lo esencial</strong>
+          <ul>
+            {d.clavesRapidas.map((c: string) => (
+              <li>{c}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     {
       d.categoria === 'bolsa' && (
@@ -178,19 +187,6 @@ const breadcrumb = {
     </div>
 
     {largo && <Anuncio formato="rectangulo" />}
-
-    {
-      d.clavesRapidas.length > 0 && (
-        <section class="claves" aria-label="Claves rápidas">
-          <strong>Claves rápidas</strong>
-          <ul>
-            {d.clavesRapidas.map((c: string) => (
-              <li>{c}</li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
 
     {
       sobreIrpf && (
@@ -292,3 +288,26 @@ const breadcrumb = {
     opacity: 0.9;
   }
 </style>
+
+<script is:inline>
+  (function () {
+    var barra = document.getElementById('progreso-lectura');
+    var art = document.querySelector('article.lectura');
+    if (!barra || !art) return;
+    var pendiente = false;
+    function actualizar() {
+      pendiente = false;
+      var r = art.getBoundingClientRect();
+      var total = r.height - window.innerHeight;
+      var hecho = Math.min(1, Math.max(0, -r.top / (total > 0 ? total : 1)));
+      barra.style.transform = 'scaleX(' + hecho + ')';
+    }
+    window.addEventListener('scroll', function () {
+      if (!pendiente) {
+        pendiente = true;
+        requestAnimationFrame(actualizar);
+      }
+    }, { passive: true });
+    actualizar();
+  })();
+</script>
