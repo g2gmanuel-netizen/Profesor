@@ -98,6 +98,18 @@ fuentes:
   - titulo: "What Comes Next for NVIDIA (Time)"
     url: https://time.com/article/2026/11/11/what-comes-next-for-nvidia/
     organismo: Time
+  - titulo: "Nvidia CEO's affair with alleged spy aided US$7.5 billion in China chip shipments, Information reports (The Standard)"
+    url: https://www.thestandard.com.hk/innovation/article/348083/Nvidia-CEOs-affair-with-alleged-spy-aided-US75-billion-in-China-chip-shipments-Information-reports
+    organismo: The Standard
+  - titulo: "FBI looks into Nvidia CEO's alleged spy affair as report claims $7.5 billion in smuggled AI chips to China (Digital Trends)"
+    url: https://www.digitaltrends.com/computing/fbi-looks-into-nvidia-ceos-alleged-spy-affair-as-report-claims-7-5-billion-in-smuggled-chips-to-china/
+    organismo: Digital Trends
+  - titulo: "Who is Alice Huang? The woman at the center of Nvidia's scandal (Axios)"
+    url: https://www.axios.com/2026/11/09/alice-huang-nvidia-jensen-megaspeed
+    organismo: Axios
+  - titulo: "Jensen Huang exit odds (Kalshi)"
+    url: https://news.kalshi.com/p/jensen-huang-exit-odds-nvidia-ceo
+    organismo: Kalshi
   - titulo: "El directorio de Nvidia se dispone a echar a su CEO, Jensen Huang (La Nación)"
     url: https://www.lanacion.com.ar/el-mundo/la-junta-directiva-de-nvidia-busca-destituir-a-su-director-tras-dos-infidelidades-una-de-ellas-fue-nid11112026/
     organismo: La Nación
@@ -132,7 +144,7 @@ Poco después, otro gran diario económico estadounidense informó de que **el c
 | **7 de octubre** | Nvidia toca su máximo, en torno a 237 dólares por acción |
 | **Domingo 8 de noviembre** | El consejo anuncia una investigación independiente tras las informaciones de que Huang fue objetivo de la inteligencia extranjera. Huang admite en un correo a la plantilla una relación con Alice Huang y pide perdón. El consejo dice mantener su confianza en él |
 | **Lunes 9** | La acción cae alrededor de un 4,4 % en un día de subidas generales. Se presenta en California una demanda colectiva de accionistas, que acusa a Nvidia y a Huang de haber engañado a los inversores al presentar como rutinaria su relación con Megaspeed. Es una demanda en fase inicial: nada está probado |
-| **Martes 10** | Segunda caída: -5,47 %. Según la prensa estadounidense, Trump confirma que el FBI investiga. Congresistas republicanos piden a Huang una reunión a puerta cerrada |
+| **Martes 10** | Segunda caída: -5,47 %. Se publica que Alice Huang habría ayudado a llevar a China chips de Nvidia por al menos 7.500 millones de dólares. Según la prensa estadounidense, Trump confirma que el FBI investiga. Congresistas republicanos piden a Huang una reunión a puerta cerrada |
 | **Miércoles 11, sesión** | Rebote: la acción sube un 2,94 % y cierra en torno a 173,8 dólares. Un senador republicano, Kevin Cramer, dice que Huang «debería dimitir por su propia conciencia» |
 | **Miércoles 11, tras el cierre** | Se publica la presunta segunda relación y que el consejo prepara su salida. La acción cae un 8,3 %, hasta unos 159,4 dólares |
 | **Martes 17** | Nvidia presenta resultados trimestrales |
@@ -167,9 +179,26 @@ El otro problema es que **no hay un sucesor claro**. Según análisis publicados
 
 En Polymarket, una plataforma estadounidense de apuestas sobre acontecimientos, se abrió el 9 de noviembre un mercado sobre quién será el próximo consejero delegado de Nvidia. Uno de los nombres que más se repite es el de **Madison Huang**, la hija de Jensen. En los primeros días llegó a encabezar las apuestas, con un 15 %. En la última lectura disponible del miércoles aparecía segunda, con un 9 %, por detrás de **Jay Puri**, vicepresidente ejecutivo de operaciones mundiales de Nvidia y uno de los directivos más veteranos, con un 13 %. En paralelo, la probabilidad de que Huang deje el cargo antes de fin de año se disparó en esas apuestas tras la información de la segunda relación: de menos del 20 % a cifras de entre el 69 % y el 80 %, según el momento.
 
+En Kalshi, otra plataforma de apuestas, el mercado sobre cuándo dejará Huang el cargo daba el miércoles por la tarde, antes de conocerse la segunda relación, alrededor de un **43 % de probabilidades de que salga antes de 2028**, después de haber llegado a un 44 % y bajado al 36 % en los días anteriores.
+
 Madison Huang entró en Nvidia en 2020 como becaria de marketing y desde marzo de 2026 es directora sénior de marketing de producto y técnico de las plataformas de inteligencia artificial física, como robots y gemelos digitales. Antes se formó en cocina y enología en Estados Unidos y en Le Cordon Bleu, en París. Su hermano Spencer también trabaja en la empresa. Nvidia ha asegurado que ninguno de los dos depende directamente de su padre y que él no interviene en sus sueldos.
 
 Conviene poner el dato en su sitio. Esas apuestas mueven muy poco dinero y no reflejan información interna, sino lo que creen quienes apuestan. Madison Huang no dirige ninguna de las áreas clave del negocio, los chips y los centros de datos, y no figura en ninguna información seria como candidata del consejo. Además, en plena crisis de gobierno corporativo, elegir a la hija del fundador sería muy difícil de defender ante los accionistas: es precisamente la crítica que algunos analistas ya hacen al peso de la familia dentro de Nvidia. Lo más probable, si Huang sale, es un relevo interino desde la cúpula actual, con Colette Kress o Jay Puri como nombres naturales, y una búsqueda posterior.
+
+## La acusación de los 7.500 millones: el caso de la primera amante
+
+Antes de la segunda relación, el golpe más serio había llegado el martes y tenía que ver con la primera. Según una información publicada en EE UU, basada en dos conocidos de Alice Huang que hablaron de forma anónima, la exdirectiva de Megaspeed habría usado sus contactos con Nvidia y sus distribuidores para conseguir unos **240.000 chips** de inteligencia artificial, de los modelos H100, H200 y algunos A100, y hacerlos llegar a empresas chinas. Su valor rondaría los **7.500 millones de dólares**. Siempre según esa información, parte de ello habría ocurrido mientras mantenía la relación con Jensen Huang.
+
+Es la acusación más grave del caso, porque esos chips están sujetos a las **restricciones de exportación** de EE UU a China. Pero hay que leerla con cautela:
+
+| Lo que se afirma | En qué punto está |
+|---|---|
+| Alice Huang facilitó envíos de chips por 7.500 millones a China | Información de prensa con fuentes anónimas. Las agencias no han podido verificarla |
+| Trabajaba para la inteligencia china | Lo creen funcionarios de EE UU según la prensa. China lo niega |
+| Megaspeed eludió las restricciones de exportación | Investigación del Departamento de Justicia en curso. No hay ninguna conclusión pública. Megaspeed habla de «información engañosa» |
+| Jensen Huang sabía algo de esos envíos | **Nadie lo ha afirmado.** Nvidia sostiene que sus propios controles han ayudado a detectar intentos de desvío que acabaron en procesos judiciales |
+
+Para hacerse una idea de la escala, Megaspeed se convirtió en socio oficial de Nvidia en la nube en 2023 y, según la prensa estadounidense, compró chips de la empresa por más de 4.800 millones de dólares en unos dos años. Si se demostrara que parte de ese material acabó en China, el problema dejaría de ser la vida privada de Huang y pasaría a ser la relación de Nvidia con el Gobierno que le concede las licencias para vender en todo el mundo.
 
 ## El frente de Washington
 
