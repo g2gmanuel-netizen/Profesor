@@ -1,6 +1,6 @@
 ---
-titulo: "Nvidia se prepara para destituir a Jensen Huang tras una segunda presunta relación: la acción se hunde otro 8 % y los cuatro escenarios"
-subtitulo: "Tras admitir una infidelidad con una presunta espía china, la prensa de EE UU le atribuye una relación con una directiva que dependía de él. El consejo podría apartarlo. Cronología, cifras y qué puede pasar."
+titulo: "Nvidia se prepara para echar a Jensen Huang por una segunda presunta infidelidad, esta vez con una directiva de su propia empresa"
+subtitulo: "Tras admitir una relación con una presunta espía china, la prensa de EE UU le atribuye otra con una subordinada. La acción se hunde otro 8 %. Quién podría sustituirle y qué pasa si se va."
 tituloSeo: "Nvidia prepara la salida de Jensen Huang: claves y escenarios"
 descripcion: "Nvidia podría destituir a Jensen Huang tras una segunda presunta relación. La acción cae un 8 % tras el cierre. Cronología, posibles sucesores y escenarios."
 categoria: actualidad
@@ -23,6 +23,7 @@ clavesRapidas:
   - "La chispa: una información que atribuye a Huang una relación con Kimberly Powell, vicepresidenta de salud de Nvidia y subordinada suya. Ninguno de los dos lo ha confirmado y la empresa no comenta."
   - "La acción, que había rebotado casi un 3 % durante la sesión, se hundió un 8,3 % tras el cierre, hasta unos 159 dólares. Desde el máximo del 7 de octubre, cae alrededor de un 33 %."
   - "Huang ya había admitido el domingo una infidelidad con Alice Huang, a quien la inteligencia de EE UU vincula con Pekín, algo que China niega. Hay una demanda colectiva de accionistas y el Congreso pide explicaciones."
+  - "En las apuestas de Polymarket, su hija Madison Huang, directiva de Nvidia, figura entre los favoritos para sucederle, junto al veterano Jay Puri. Son apuestas con poco dinero, no información."
   - "La cita clave: los resultados del 17 de noviembre. Hasta entonces, cuatro escenarios: destitución, continuidad con menos poder, salida pactada o que el consejo lo respalde."
 fuentes:
   - titulo: "Nvidia prepares to oust Jensen Huang, WSJ reports — stock sinks (CNBC)"
@@ -79,6 +80,24 @@ fuentes:
   - titulo: "Nvidia estaría considerando la destitución de su CEO, Jensen Huang, tras segunda supuesta infidelidad (Infobae)"
     url: https://www.infobae.com/tecno/2026/11/11/nvidia-estaria-considerando-la-destitucion-de-su-ceo-jensen-huang-tras-segunda-supuesta-infidelidad/
     organismo: Infobae
+  - titulo: "Next CEO of NVIDIA? Predictions & Odds (Polymarket)"
+    url: https://polymarket.com/event/next-ceo-of-nvidia
+    organismo: Polymarket
+  - titulo: "Chances That Jensen Huang Will Be Removed As NVIDIA CEO Jump On Prediction Markets After Second Affair Revealed (OfficeChai)"
+    url: https://officechai.com/ai/chances-that-jensen-huang-will-be-removed-as-nvidia-ceo-jump-to-80-on-prediction-markets-after-second-affair-revealed/
+    organismo: OfficeChai
+  - titulo: "Odds Huang Will Leave Nvidia Rise To 18% (24/7 Wall St.)"
+    url: https://247wallst.com/investing/2026/11/10/odds-huang-will-leave-nvidia-rise-to-18/
+    organismo: 24/7 Wall St.
+  - titulo: "Jensen Huang's Affair Puts A Spotlight On The Family Firm Hiding Inside Nvidia (Forbes)"
+    url: https://www.forbes.com/sites/shaheenajanjuhajivrajeurope/2026/11/10/nvidias-real-risk-isnt-jensen-huangs-scandal-its-the-family/
+    organismo: Forbes
+  - titulo: "Who are Jensen Huang's children, the potential successors to Nvidia's billionaire CEO? (VnExpress)"
+    url: https://e.vnexpress.net/news/tech/personalities/who-are-jensen-huang-s-children-the-potential-successors-to-nvidia-s-billionaire-ceo-5143409.html
+    organismo: VnExpress
+  - titulo: "What Comes Next for NVIDIA (Time)"
+    url: https://time.com/article/2026/11/11/what-comes-next-for-nvidia/
+    organismo: Time
   - titulo: "El directorio de Nvidia se dispone a echar a su CEO, Jensen Huang (La Nación)"
     url: https://www.lanacion.com.ar/el-mundo/la-junta-directiva-de-nvidia-busca-destituir-a-su-director-tras-dos-infidelidades-una-de-ellas-fue-nid11112026/
     organismo: La Nación
@@ -95,10 +114,12 @@ Si te perdiste el inicio del caso, lo contamos en [Jensen Huang admite una infid
 
 Según la información publicada en Nueva York, que cita a cinco personas que trabajaron en la empresa, Huang, de 63 años, mantuvo una relación con **Kimberly Powell**, de 48, **vicepresidenta de salud de Nvidia**. Powell lleva en la compañía desde 2008 y le rendía cuentas directamente. Ambos están casados con otras personas. Siempre según esa información, los dos fueron grabados en actitud cariñosa en un hotel de San José (California) durante una conferencia de Nvidia celebrada en marzo.
 
+Huang está casado desde hace décadas con **Lori Huang**, a la que conoció cuando ambos estudiaban ingeniería en la Universidad Estatal de Oregón y con quien tiene dos hijos, Madison y Spencer, que trabajan los dos en Nvidia. En el correo en el que admitió la primera relación, el domingo, pidió perdón a su familia y privacidad para ellos.
+
 Cuando el periódico llamó a Huang para preguntarle, este respondió: *«No creo que deba hablar con usted directamente»*, y colgó. Nvidia declinó hacer comentarios y Powell no respondió a las peticiones de la prensa. **No hay, por tanto, confirmación de ninguna de las partes.**
 
-![Montaje con Jensen Huang a la izquierda y una mujer con el rostro difuminado a la derecha](/imagenes/jensen-huang-montaje-segunda-relacion-difuminado.jpg)
-*Montaje difundido en redes sociales junto a la información sobre la segunda relación. Hemos difuminado el rostro de la mujer porque no hemos podido verificar su identidad.*
+![Montaje con Jensen Huang, con cazadora de cuero, a la izquierda y Kimberly Powell, con blusa azul, a la derecha](/imagenes/jensen-huang-kimberly-powell-montaje.jpg)
+*Jensen Huang y Kimberly Powell, vicepresidenta de salud de Nvidia, en un montaje difundido en redes sociales a partir de imágenes públicas. La relación que se les atribuye no ha sido confirmada por ninguno de los dos.*
 
 Poco después, otro gran diario económico estadounidense informó de que **el consejo se prepara para destituir a Huang** y de que podría decidir su futuro en cuestión de horas. Las agencias que recogieron la noticia advirtieron de que no habían podido verificarla. Al cierre de esta edición, no constaba ninguna decisión oficial.
 
@@ -123,6 +144,8 @@ Poco después, otro gran diario económico estadounidense informó de que **el c
 
 Los números ayudan a medir la dimensión de la crisis. Si la caída posterior al cierre se confirma el jueves, la acción acumularía un descenso de alrededor del **33 % desde el máximo de octubre**. Con unos 24.300 millones de acciones en circulación, eso equivale, según nuestro cálculo, a **cerca de 1,9 billones de dólares de valor de mercado**.
 
+**Nuestra lectura de la caída.** Lo más revelador no es el tamaño del desplome, sino su forma. El lunes y el martes, con la presunta espía china, la acción cayó de forma escalonada. El miércoles, en cambio, rebotó casi un 3 %: el mercado empezaba a asumir que Huang sobreviviría con un tirón de orejas. Bastó una información sobre su posible salida para borrar ese rebote y casi el triple en minutos. Es la prueba de que los inversores no castigan la infidelidad, sino la posibilidad de quedarse sin Huang. Mientras no haya decisión del consejo, la acción va a cotizar a golpe de titular, y lo previsible son días de mucha volatilidad.
+
 Ojo a dos matices. Parte de esa caída es anterior al escándalo: la acción ya se dejó un 9 % el 5 de noviembre en el [desplome de las tecnológicas tras las elecciones de EE UU](/articulo/caida-bolsa-eeuu-5-noviembre-2026-por-que-como-se-recupera/). Y los precios posteriores al cierre se negocian con poco volumen, así que el dato definitivo se conocerá con la apertura del jueves.
 
 ![Primer plano de Jensen Huang con gesto serio](/imagenes/jensen-huang-primer-plano-noviembre-2026.jpg)
@@ -140,6 +163,14 @@ El otro problema es que **no hay un sucesor claro**. Según análisis publicados
 | **Lisa Su** | Consejera delegada de AMD, la gran rival | Según una información, cazatalentos habrían tanteado su interés. Ni ella ni AMD lo han confirmado |
 | **Rene Haas** | Consejero delegado de Arm | Mencionado en la misma información. Sin confirmación |
 
+### Qué dicen las apuestas: el nombre de su hija
+
+En Polymarket, una plataforma estadounidense de apuestas sobre acontecimientos, se abrió el 9 de noviembre un mercado sobre quién será el próximo consejero delegado de Nvidia. Uno de los nombres que más se repite es el de **Madison Huang**, la hija de Jensen. En los primeros días llegó a encabezar las apuestas, con un 15 %. En la última lectura disponible del miércoles aparecía segunda, con un 9 %, por detrás de **Jay Puri**, vicepresidente ejecutivo de operaciones mundiales de Nvidia y uno de los directivos más veteranos, con un 13 %. En paralelo, la probabilidad de que Huang deje el cargo antes de fin de año se disparó en esas apuestas tras la información de la segunda relación: de menos del 20 % a cifras de entre el 69 % y el 80 %, según el momento.
+
+Madison Huang entró en Nvidia en 2020 como becaria de marketing y desde marzo de 2026 es directora sénior de marketing de producto y técnico de las plataformas de inteligencia artificial física, como robots y gemelos digitales. Antes se formó en cocina y enología en Estados Unidos y en Le Cordon Bleu, en París. Su hermano Spencer también trabaja en la empresa. Nvidia ha asegurado que ninguno de los dos depende directamente de su padre y que él no interviene en sus sueldos.
+
+Conviene poner el dato en su sitio. Esas apuestas mueven muy poco dinero y no reflejan información interna, sino lo que creen quienes apuestan. Madison Huang no dirige ninguna de las áreas clave del negocio, los chips y los centros de datos, y no figura en ninguna información seria como candidata del consejo. Además, en plena crisis de gobierno corporativo, elegir a la hija del fundador sería muy difícil de defender ante los accionistas: es precisamente la crítica que algunos analistas ya hacen al peso de la familia dentro de Nvidia. Lo más probable, si Huang sale, es un relevo interino desde la cúpula actual, con Colette Kress o Jay Puri como nombres naturales, y una búsqueda posterior.
+
 ## El frente de Washington
 
 La crisis ya no es solo empresarial. Según la prensa estadounidense, varios miembros del Congreso piden la dimisión de Huang y crece la presión para obligarle a comparecer. Los presidentes republicanos de tres comisiones de la Cámara de Representantes le han pedido una sesión informativa a puerta cerrada sobre su relación con Alice Huang y los protocolos de seguridad de Nvidia.
@@ -155,7 +186,7 @@ Conviene recordar, otra vez, las respuestas. China califica de infundada la acus
 
 Nadie fuera del consejo sabe qué va a pasar. Con lo publicado hasta ahora, estos son los caminos posibles. No asignamos probabilidades porque no hay datos para hacerlo con rigor.
 
-**1. Destitución inmediata.** Es lo que apunta la información del miércoles. El consejo nombraría a un consejero delegado interino, previsiblemente un directivo interno como la directora financiera, y abriría una búsqueda. Para la acción sería el escenario más duro a corto plazo, por el riesgo de persona clave. Algunos inversores, sin embargo, podrían verlo como una limpieza que reduce la incertidumbre.
+**1. Destitución inmediata.** Es lo que apunta la información del miércoles. El consejo nombraría a un consejero delegado interino, previsiblemente un directivo interno como la directora financiera o Jay Puri, y abriría una búsqueda. Para la acción sería el escenario más duro a corto plazo: si se cumple la estimación de Ives, el recorte añadido podría ser de entre un 25 % y un 30 %. Habría además riesgo de fuga de talento, porque buena parte de los ingenieros y directivos clave están allí por Huang, y de que clientes como los grandes de la nube aprovechen para negociar precios o acelerar sus propios chips. A medio plazo, algunos inversores podrían verlo como una limpieza que reduce la incertidumbre: el negocio, los contratos y la ventaja tecnológica no desaparecen de un día para otro. Huang, además, seguiría siendo uno de los mayores accionistas.
 
 **2. Continuidad con menos poder.** Es la vía que analizan algunos expertos en gobierno corporativo: que Huang siga, pero con un presidente independiente en el consejo, más consejeros externos y controles sobre sus decisiones. Mantendría al fundador y su visión, aunque con la sombra de la investigación y de la demanda.
 
