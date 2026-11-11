@@ -1,15 +1,15 @@
 ---
-titulo: "Nvidia se prepara para echar a Jensen Huang por una segunda presunta infidelidad, esta vez con una directiva de su propia empresa"
+titulo: "Nvidia prepara el despido de su CEO, Jensen Huang, en las próximas horas"
 subtitulo: "Tras admitir una relación con una presunta espía china, la prensa de EE UU le atribuye otra con una subordinada. La acción se hunde otro 8 %. Quién podría sustituirle y qué pasa si se va."
-tituloSeo: "Nvidia prepara la salida de Jensen Huang: claves y escenarios"
+tituloSeo: "Nvidia prepara el despido de su CEO, Jensen Huang"
 descripcion: "Nvidia podría destituir a Jensen Huang tras una segunda presunta relación. La acción cae un 8 % tras el cierre. Cronología, posibles sucesores y escenarios."
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-11
 destacado: true
 porQueImporta: "Nvidia es una de las mayores empresas de los fondos indexados y planes de pensiones: si cae su fundador, lo nota casi cualquier ahorrador."
-imagen: /imagenes/nvidia-jensen-huang-destitucion-segunda-relacion-escenarios.jpg
-imagenAlt: "Cotización de Nvidia a 159,40 dólares con una caída del 8,31 % en el mercado posterior al cierre"
+imagen: /imagenes/nvidia-jensen-huang-despido-portada.jpg
+imagenAlt: "Jensen Huang, con cazadora de cuero, junto a la cotización de Nvidia a 159,40 dólares tras caer un 8,31 %"
 imagenCredito: "Imagen difundida en redes sociales"
 etiquetas:
   - Nvidia
