@@ -1,0 +1,453 @@
+---
+/** Comparador «¿Ganas más o menos que el resto de España?» (español e inglés). */
+import { ANIO_DATOS, MEDIA_MENSUAL, MEDIANA_MENSUAL, CORTES } from '../lib/sueldo';
+interface Props {
+  en?: boolean;
+}
+const { en = false } = Astro.props;
+const n = (v: number) => new Intl.NumberFormat(en ? 'en-GB' : 'es-ES', { maximumFractionDigits: 0, useGrouping: 'always' } as Intl.NumberFormatOptions).format(v);
+const T = en
+  ? {
+      etiqueta: 'Your gross salary per year (before tax)',
+      ayuda: 'Not sure? Multiply your gross monthly pay by 12 or 14, depending on how many payments you get.',
+      boton: 'Compare my salary',
+      vacio: 'Enter your salary to see where you stand.',
+      compartir: 'Share your result',
+      copiar: 'Copy text',
+      copiado: 'Copied',
+      imagen: 'Download image',
+      privacidad: 'Your salary never leaves your device: the calculation is done in your browser and nothing is stored.',
+      menos: 'Earn less',
+      mas: 'Earn more',
+      filaMedia: 'Average salary in Spain',
+      filaMediana: 'Median salary (half earn less)',
+      filaPromesa: 'Average salary promised in the election debate',
+      mes: '/month',
+      anio: '/year',
+      tablaTitulo: 'Where the cut-off points are',
+      tablaCol1: 'Share of employees who earn less',
+      tablaCol2: 'Gross per month',
+      tablaCol3: 'Gross per year',
+    }
+  : {
+      etiqueta: 'Tu sueldo bruto al año (antes de impuestos)',
+      ayuda: '¿No lo sabes? Multiplica tu bruto mensual por 12 o por 14, según las pagas que cobres.',
+      boton: 'Comparar mi sueldo',
+      vacio: 'Escribe tu sueldo para ver en qué puesto estás.',
+      compartir: 'Comparte tu resultado',
+      copiar: 'Copiar texto',
+      copiado: 'Copiado',
+      imagen: 'Descargar imagen',
+      privacidad: 'Tu sueldo no sale de tu dispositivo: el cálculo se hace en tu navegador y no guardamos nada.',
+      menos: 'Ganan menos',
+      mas: 'Ganan más',
+      filaMedia: 'Salario medio en España',
+      filaMediana: 'Salario mediano (la mitad gana menos)',
+      filaPromesa: 'Salario medio prometido en el debate electoral',
+      mes: '/mes',
+      anio: '/año',
+      tablaTitulo: 'Dónde están los cortes',
+      tablaCol1: 'Asalariados que ganan menos',
+      tablaCol2: 'Bruto al mes',
+      tablaCol3: 'Bruto al año',
+    };
+---
+
+<section class="cs" data-en={en ? '1' : '0'}>
+  <form class="cs-form" id="cs-form" novalidate>
+    <label for="cs-sueldo">{T.etiqueta}</label>
+    <div class="cs-entrada">
+      <input id="cs-sueldo" name="sueldo" type="text" inputmode="numeric" autocomplete="off" placeholder={en ? '28,000' : '28.000'} aria-describedby="cs-ayuda" />
+      <span aria-hidden="true">€</span>
+    </div>
+    <input id="cs-rango" type="range" min="10000" max="80000" step="500" value="28000" aria-label={T.etiqueta} />
+    <p id="cs-ayuda" class="cs-ayuda">{T.ayuda}</p>
+    <button type="submit" class="cs-boton">{T.boton}</button>
+  </form>
+
+  <div class="cs-resultado" id="cs-resultado" aria-live="polite" hidden>
+    <p class="cs-frase" id="cs-frase"></p>
+    <div class="cs-barra" aria-hidden="true">
+      <div class="cs-barra-pista">
+        {Array.from({ length: 10 }, (_, i) => <span data-i={i} />)}
+        <i id="cs-marca"></i>
+      </div>
+      <div class="cs-barra-pie"><span>{T.menos}</span><span>{T.mas}</span></div>
+    </div>
+    <ul class="cs-filas">
+      <li><span>{T.filaMedia}</span><strong id="cs-media"></strong></li>
+      <li><span>{T.filaMediana}</span><strong id="cs-mediana"></strong></li>
+      <li><span>{T.filaPromesa}</span><strong id="cs-promesa"></strong></li>
+    </ul>
+    <div class="cs-compartir">
+      <p>{T.compartir}</p>
+      <div>
+        <a id="cs-wa" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="cs-x" target="_blank" rel="noopener">X</a>
+        <a id="cs-tg" target="_blank" rel="noopener">Telegram</a>
+        <button type="button" id="cs-copiar" data-ok={T.copiado}>{T.copiar}</button>
+        <button type="button" id="cs-img">{T.imagen}</button>
+      </div>
+    </div>
+  </div>
+  <p class="cs-vacio" id="cs-vacio">{T.vacio}</p>
+  <p class="cs-privacidad">{T.privacidad}</p>
+
+  <details class="cs-tabla">
+    <summary>{T.tablaTitulo}</summary>
+    <table>
+      <thead><tr><th>{T.tablaCol1}</th><th>{T.tablaCol2}</th><th>{T.tablaCol3}</th></tr></thead>
+      <tbody>
+        {CORTES.map(([p, e]) => (
+          <tr><td>{p} %</td><td>{n(e)} €</td><td>{n(e * 12)} €</td></tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="cs-ayuda">
+      {en
+        ? `Source: INE, wage deciles of the main job (Labour Force Survey), ${ANIO_DATOS}. Average: €${n(MEDIA_MENSUAL)} a month. Median: €${n(MEDIANA_MENSUAL)}.`
+        : `Fuente: INE, decil de salarios del empleo principal (EPA), ${ANIO_DATOS}. Media: ${n(MEDIA_MENSUAL)} € al mes. Mediana: ${n(MEDIANA_MENSUAL)} €.`}
+    </p>
+  </details>
+</section>
+
+<script>
+  import { compararSueldo, MEDIA_MENSUAL, MEDIANA_MENSUAL, PROMESA_ANUAL } from '../lib/sueldo';
+
+  const raiz = document.querySelector<HTMLElement>('.cs');
+  if (raiz) {
+    const en = raiz.dataset.en === '1';
+    const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+    const campo = $<HTMLInputElement>('cs-sueldo');
+    const rango = $<HTMLInputElement>('cs-rango');
+    const fmt = (v: number) => new Intl.NumberFormat(en ? 'en-GB' : 'es-ES', { maximumFractionDigits: 0, useGrouping: 'always' } as Intl.NumberFormatOptions).format(Math.round(v));
+    const leer = () => Number(campo.value.replace(/[^\d]/g, '')) || 0;
+    let textoCompartir = '';
+    let fraseCorta = '';
+    let numero = '';
+
+    const dif = (v: number, unidad: string) => {
+      const abs = fmt(Math.abs(v));
+      if (Math.abs(v) < 1) return en ? 'the same as you' : 'igual que tú';
+      if (en) return v > 0 ? `you are €${abs}${unidad} above` : `you are €${abs}${unidad} below`;
+      return v > 0 ? `estás ${abs} €${unidad} por encima` : `estás ${abs} €${unidad} por debajo`;
+    };
+
+    function pintar() {
+      const anual = leer();
+      const res = $('cs-resultado');
+      const vacio = $('cs-vacio');
+      if (anual < 1000) {
+        res.hidden = true;
+        vacio.hidden = false;
+        return;
+      }
+      const r = compararSueldo(anual);
+      let pos: number;
+      if (r.extremo === 'bajo') {
+        pos = 5;
+        numero = en ? 'Bottom 10%' : '10 % que menos gana';
+        fraseCorta = en ? 'I am among the 10% of employees in Spain who earn the least' : 'Estoy en el 10 % de asalariados de España que menos gana';
+        $('cs-frase').innerHTML = en
+          ? 'You are among the <strong>10% of employees who earn the least</strong> in Spain.'
+          : 'Estás en el <strong>10 % de asalariados que menos gana</strong> en España.';
+      } else if (r.extremo === 'alto') {
+        pos = 95;
+        numero = en ? 'Top 10%' : '10 % que más gana';
+        fraseCorta = en ? 'I am among the 10% of employees in Spain who earn the most' : 'Estoy en el 10 % de asalariados de España que más gana';
+        $('cs-frase').innerHTML = en
+          ? 'You are among the <strong>10% of employees who earn the most</strong> in Spain.'
+          : 'Estás en el <strong>10 % de asalariados que más gana</strong> en España.';
+      } else {
+        pos = r.percentil!;
+        numero = en ? `${pos}%` : `${pos} %`;
+        fraseCorta = en ? `I earn more than about ${pos}% of employees in Spain` : `Gano más que el ${pos} % de los asalariados de España, aproximadamente`;
+        $('cs-frase').innerHTML = en
+          ? `You earn more than about <strong>${pos}% of employees</strong> in Spain.`
+          : `Ganas más que aproximadamente el <strong>${pos} % de los asalariados</strong> de España.`;
+      }
+      $('cs-marca').style.left = pos + '%';
+      raiz!.querySelectorAll<HTMLElement>('.cs-barra-pista span').forEach((s) => {
+        s.classList.toggle('on', Number(s.dataset.i) * 10 < pos);
+      });
+      const mes = en ? '/month' : '/mes';
+      const anio = en ? '/year' : '/año';
+      $('cs-media').textContent = `${fmt(MEDIA_MENSUAL)} €${mes} · ${dif(r.difMedia, mes)}`;
+      $('cs-mediana').textContent = `${fmt(MEDIANA_MENSUAL)} €${mes} · ${dif(r.difMediana, mes)}`;
+      $('cs-promesa').textContent = `${fmt(PROMESA_ANUAL)} €${anio} · ${dif(-r.faltaPromesa, anio)}`;
+
+      const url = location.origin + location.pathname;
+      textoCompartir = en
+        ? `${fraseCorta}. Where do you stand? Check it in 10 seconds:`
+        : `${fraseCorta}. ¿Y tú, en qué puesto estás? Compruébalo en 10 segundos:`;
+      const t = encodeURIComponent(textoCompartir);
+      const u = encodeURIComponent(url);
+      $<HTMLAnchorElement>('cs-wa').href = `https://wa.me/?text=${t}%20${u}`;
+      $<HTMLAnchorElement>('cs-x').href = `https://twitter.com/intent/tweet?text=${t}&url=${u}`;
+      $<HTMLAnchorElement>('cs-tg').href = `https://t.me/share/url?url=${u}&text=${t}`;
+      res.hidden = false;
+      vacio.hidden = true;
+    }
+
+    campo.addEventListener('input', () => {
+      const v = leer();
+      campo.value = v ? fmt(v) : '';
+      if (v >= 10000 && v <= 80000) rango.value = String(v);
+      pintar();
+    });
+    rango.addEventListener('input', () => {
+      campo.value = fmt(Number(rango.value));
+      pintar();
+    });
+    $('cs-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      pintar();
+      $('cs-resultado').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    $('cs-copiar').addEventListener('click', async (e) => {
+      const b = e.currentTarget as HTMLButtonElement;
+      try {
+        await navigator.clipboard.writeText(`${textoCompartir} ${location.origin}${location.pathname}`);
+        const antes = b.textContent;
+        b.textContent = b.dataset.ok || '';
+        setTimeout(() => (b.textContent = antes), 1600);
+      } catch {
+        /* sin permiso de portapapeles */
+      }
+    });
+
+    // Tarjeta de 1080×1350 para historias y WhatsApp. No incluye el sueldo, solo el puesto.
+    $('cs-img').addEventListener('click', async () => {
+      const c = document.createElement('canvas');
+      c.width = 1080;
+      c.height = 1350;
+      const x = c.getContext('2d')!;
+      x.fillStyle = '#0a5234';
+      x.fillRect(0, 0, 1080, 1350);
+      x.fillStyle = '#f3f8f4';
+      x.fillRect(60, 60, 960, 1230);
+      x.fillStyle = '#0a5234';
+      x.textAlign = 'center';
+      x.font = '800 44px "Libre Franklin", system-ui, sans-serif';
+      x.fillText('BOLSILLO DIARIO', 540, 170);
+      x.fillStyle = '#16130d';
+      x.font = '600 50px "Newsreader", Georgia, serif';
+      const lineas = (texto: string, ancho: number) => {
+        const out: string[] = [];
+        let l = '';
+        for (const p of texto.split(' ')) {
+          if (x.measureText(l + ' ' + p).width > ancho && l) {
+            out.push(l);
+            l = p;
+          } else l = l ? l + ' ' + p : p;
+        }
+        if (l) out.push(l);
+        return out;
+      };
+      x.fillText(en ? 'My salary in Spain' : 'Mi sueldo en España', 540, 300);
+      x.fillStyle = '#0a5234';
+      const grande = numero.length > 5;
+      x.font = `800 ${grande ? 96 : 280}px "Libre Franklin", system-ui, sans-serif`;
+      x.fillText(numero, 540, grande ? 560 : 620);
+      x.fillStyle = '#16130d';
+      x.font = '500 54px "Newsreader", Georgia, serif';
+      lineas(fraseCorta + '.', 820).forEach((l, i) => x.fillText(l, 540, 780 + i * 70));
+      x.fillStyle = '#0a5234';
+      x.font = '700 46px "Libre Franklin", system-ui, sans-serif';
+      x.fillText(en ? 'Where do you stand?' : '¿Y tú, en qué puesto estás?', 540, 1110);
+      x.font = '600 38px "Libre Franklin", system-ui, sans-serif';
+      x.fillText(location.host + location.pathname.replace(/\/$/, ''), 540, 1180);
+      x.fillStyle = '#6a6256';
+      x.font = '400 28px "Libre Franklin", system-ui, sans-serif';
+      x.fillText(en ? 'Estimate based on INE data (2024)' : 'Estimación con datos del INE (2024)', 540, 1240);
+      const blob: Blob | null = await new Promise((ok) => c.toBlob(ok, 'image/png'));
+      if (!blob) return;
+      const archivo = new File([blob], 'mi-sueldo-bolsillo-diario.png', { type: 'image/png' });
+      const nav = navigator as Navigator & { canShare?: (d: unknown) => boolean };
+      if (nav.canShare && nav.canShare({ files: [archivo] })) {
+        try {
+          await navigator.share({ files: [archivo], text: `${textoCompartir} ${location.origin}${location.pathname}` });
+          return;
+        } catch {
+          /* el usuario canceló: se descarga */
+        }
+      }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = archivo.name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    });
+  }
+</script>
+
+<style>
+  .cs {
+    background: #fff;
+    border: 1px solid var(--linea, #e8e4da);
+    border-radius: 16px;
+    padding: clamp(1rem, 3vw, 1.75rem);
+    margin-block: 1.5rem;
+    font-family: var(--fuente-ui);
+  }
+  .cs-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .cs-entrada {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid var(--color-marca);
+    border-radius: 12px;
+    padding: 0.35rem 0.9rem;
+    max-width: 22rem;
+  }
+  .cs-entrada input {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font: 800 2rem var(--fuente-ui);
+    background: transparent;
+    color: var(--color-texto);
+  }
+  .cs-entrada span {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-marca);
+  }
+  .cs-entrada:focus-within {
+    box-shadow: 0 0 0 3px var(--verde-claro-2, #d2e9da);
+  }
+  #cs-rango {
+    width: 100%;
+    max-width: 22rem;
+    margin-top: 0.9rem;
+    accent-color: var(--color-marca);
+  }
+  .cs-ayuda {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    margin: 0.5rem 0 1rem;
+  }
+  .cs-boton {
+    background: var(--color-marca);
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.8rem 1.4rem;
+    font: 800 1rem var(--fuente-ui);
+    cursor: pointer;
+  }
+  .cs-boton:hover {
+    background: var(--color-marca-claro);
+  }
+  .cs-resultado {
+    margin-top: 1.5rem;
+    background: var(--verde-claro, #e3f1e8);
+    border-radius: 14px;
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  .cs-frase {
+    font-family: var(--fuente-display);
+    font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+    color: var(--verde-texto, #0a3d27);
+  }
+  .cs-barra-pista {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+    height: 26px;
+  }
+  .cs-barra-pista span {
+    background: #fff;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  .cs-barra-pista span.on {
+    background: var(--color-marca);
+  }
+  .cs-barra-pista i {
+    position: absolute;
+    top: -6px;
+    width: 4px;
+    height: 38px;
+    margin-left: -2px;
+    background: #16130d;
+    border-radius: 2px;
+    transition: left 0.4s ease;
+  }
+  .cs-barra-pie {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--verde-texto, #0a3d27);
+    margin-top: 0.4rem;
+  }
+  .cs-filas {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+  }
+  .cs-filas li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--verde-claro-2, #d2e9da);
+    font-size: 0.95rem;
+  }
+  .cs-compartir {
+    margin-top: 1.25rem;
+  }
+  .cs-compartir p {
+    font-weight: 800;
+    margin: 0 0 0.6rem;
+  }
+  .cs-compartir div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .cs-compartir a,
+  .cs-compartir button {
+    background: #fff;
+    border: 1.5px solid var(--color-marca);
+    color: var(--color-marca);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font: 700 0.9rem var(--fuente-ui);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .cs-compartir a:hover,
+  .cs-compartir button:hover {
+    background: var(--color-marca);
+    color: #fff;
+  }
+  .cs-vacio {
+    margin-top: 1.25rem;
+    color: var(--color-texto-suave);
+  }
+  .cs-privacidad {
+    font-size: 0.82rem;
+    color: var(--color-texto-suave);
+    margin: 1rem 0 0;
+  }
+  .cs-tabla {
+    margin-top: 1rem;
+  }
+  .cs-tabla summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--color-marca);
+  }
+</style>

@@ -12,6 +12,8 @@ export const GET: APIRoute = async () => {
   const urls: UrlSitemap[] = [
     { loc: `${base}/` },
     { loc: `${base}/buscar/` },
+    { loc: `${base}/comparador-sueldo/` },
+    { loc: `${base}/en/salary-comparison/` },
     { loc: `${base}/calculadoras/` },
     { loc: `${base}/calculadoras/irpf/` },
     ...COMUNIDADES.filter((c) => !c.foral).map((c) => ({ loc: `${base}/calculadoras/irpf/${c.slug}/` })),

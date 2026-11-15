@@ -2913,3 +2913,34 @@ h3 {
   padding: 0.6rem 0.85rem;
   margin: 1rem 0;
 }
+
+/* Tarjeta del comparador de sueldos en portada */
+.calc-tarjeta-nueva {
+  background: var(--color-marca, #0a5234);
+  color: #fff;
+  border-color: var(--color-marca, #0a5234);
+}
+.calc-tarjeta-nueva .calc-tarjeta-eti {
+  color: #ffd98a;
+}
+.calc-tarjeta-nueva .calc-tarjeta-tit {
+  color: #fff;
+}
+.calc-tarjeta-nueva .calc-tarjeta-boton {
+  background: #fff;
+  color: var(--color-marca, #0a5234);
+}
+.cab-nav a.cab-nav-nuevo {
+  color: var(--color-marca, #0a5234);
+  font-weight: 800;
+}
+.cab-nav a.cab-nav-nuevo::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--vivo, #e0322b);
+  vertical-align: middle;
+}

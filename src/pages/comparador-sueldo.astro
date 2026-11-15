@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ComparadorSueldo from '../components/ComparadorSueldo.astro';
+import { SITIO } from '../lib/sitio';
+import { ANIO_DATOS } from '../lib/sueldo';
+const url = new URL('/comparador-sueldo/', SITIO.url).href;
+const preguntas = [
+  ['¿De dónde salen los datos?', `De la estadística «Decil de salarios del empleo principal» del Instituto Nacional de Estadística (INE), que se elabora con la Encuesta de Población Activa. Los últimos datos publicados son de ${ANIO_DATOS}. Solo incluye a asalariados: no cuenta a los autónomos ni a los pensionistas.`],
+  ['¿Por qué pide el sueldo bruto y no el neto?', 'Porque el INE mide el salario bruto, antes de impuestos y cotizaciones, con las pagas extra repartidas entre los doce meses. Si solo conoces tu neto, mira el bruto anual en tu nómina o en tu certificado de retenciones.'],
+  ['¿El resultado es exacto?', 'Es una estimación. El INE publica los cortes de la distribución (por ejemplo, que el 30 % gana menos de 1.582 euros al mes) y entre dos cortes calculamos tu posición de forma proporcional. Sirve para saber en qué zona estás, no para afinar al decimal.'],
+  ['¿Qué diferencia hay entre salario medio y mediano?', 'El medio es la suma de todos los sueldos dividida entre el número de trabajadores, y los sueldos muy altos lo empujan hacia arriba. El mediano es el que deja a la mitad de los trabajadores por debajo y a la otra mitad por encima, y refleja mejor lo que cobra una persona corriente.'],
+  ['¿Guardáis mi sueldo?', 'No. El cálculo se hace en tu propio navegador. No se envía ni se guarda. La imagen y el texto para compartir tampoco incluyen tu sueldo, solo el puesto que ocupas.'],
+];
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: preguntas.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+
+<BaseLayout
+  titulo="¿Ganas más o menos que el resto de España? Compara tu sueldo"
+  descripcion="Escribe tu sueldo bruto y descubre en 10 segundos qué porcentaje de trabajadores de España gana menos que tú. Con datos oficiales del INE. Gratis y sin registro."
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={url} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/salary-comparison/', SITIO.url).href} />
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(faq)}</script>`} />
+  </Fragment>
+  <section class="lectura" style="margin-inline:auto;">
+    <p class="dato-cat" style="--cat:#0a5234">Herramienta gratuita</p>
+    <h1>¿Ganas más o menos que el resto de España?</h1>
+    <p class="entradilla">
+      Escribe tu sueldo y en diez segundos sabrás qué parte de los trabajadores del país cobra menos que tú, cuánto te separa del salario medio y lo lejos que estás de los 50.000 euros de los que se habla en campaña.
+    </p>
+
+    <ComparadorSueldo />
+
+    <h2>Cómo leer el resultado</h2>
+    <p>
+      Si la herramienta te dice que ganas más que el 60 % de los asalariados, significa que de cada diez personas con nómina en España, seis cobran menos que tú y cuatro cobran más. La referencia más útil para compararte no es el salario medio, sino el mediano: {`2.001`} euros brutos al mes en {ANIO_DATOS}. Quien cobra eso está justo en la mitad.
+    </p>
+    <p>
+      En el debate electoral del 13 de noviembre, el PP se comprometió a que el salario medio pase de unos 30.000 a 50.000 euros brutos al año en dos legislaturas, y el PSOE lo calificó de «lista de deseos». Hoy, cobrar 50.000 euros te coloca por encima de nueve de cada diez asalariados. Por eso la última fila del resultado te dice cuánto te falta, o cuánto te sobra, para llegar a esa cifra.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {preguntas.map(([q, a]) => (
+      <>
+        <h3>{q}</h3>
+        <p>{a}</p>
+      </>
+    ))}
+    <p class="nota"><em>Herramienta divulgativa. Datos: INE, decil de salarios del empleo principal, EPA {ANIO_DATOS}.</em></p>
+  </section>
+</BaseLayout>

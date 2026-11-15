@@ -78,6 +78,9 @@ const T = en
 
   <nav class="cab-nav" aria-label={T.secciones}>
     <div class="contenedor cab-nav-fila">
+      <a href={en ? '/en/salary-comparison/' : '/comparador-sueldo/'} class="cab-nav-nuevo" aria-current={rutaActual.includes('salary-comparison') || rutaActual.includes('comparador-sueldo') ? 'page' : undefined}>
+        {en ? 'Compare your salary' : 'Compara tu sueldo'}
+      </a>
       {secciones.map((c) => (
         <a href={`${baseCat}${c.slug}/`} aria-current={rutaActual.startsWith(`${baseCat}${c.slug}/`) ? 'page' : undefined}>
           {c.nombre}

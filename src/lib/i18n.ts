@@ -70,6 +70,8 @@ export async function rutaOtroIdioma(ruta: string): Promise<string> {
     const hay = (await articulosEn()).some((a) => a.id === es[1]);
     return hay ? urlArticuloEn(es[1]!) : '/en/';
   }
+  if (limpia === '/en/salary-comparison/') return '/comparador-sueldo/';
+  if (limpia === '/comparador-sueldo/') return '/en/salary-comparison/';
   const catEn = limpia.match(/^\/en\/category\/(.+)\/$/);
   if (catEn) return `/categoria/${catEn[1]}/`;
   if (esIngles(limpia)) return '/';

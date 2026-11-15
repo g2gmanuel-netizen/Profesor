@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComparadorSueldo from '../../components/ComparadorSueldo.astro';
+import { SITIO } from '../../lib/sitio';
+import { ANIO_DATOS } from '../../lib/sueldo';
+---
+
+<BaseLayout
+  titulo="Do you earn more or less than the rest of Spain? Compare your salary"
+  descripcion="Enter your gross salary and find out in 10 seconds what share of employees in Spain earn less than you. Based on official INE data. Free, no sign-up."
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={new URL('/en/salary-comparison/', SITIO.url).href} />
+    <link rel="alternate" hreflang="es" href={new URL('/comparador-sueldo/', SITIO.url).href} />
+  </Fragment>
+  <section class="lectura" style="margin-inline:auto;">
+    <p class="dato-cat" style="--cat:#0a5234">Free tool</p>
+    <h1>Do you earn more or less than the rest of Spain?</h1>
+    <p class="entradilla">
+      Enter your salary and in ten seconds you will know what share of the country's employees earn less than you, how far you are from the average wage and how far from the €50,000 being discussed in the election campaign.
+    </p>
+
+    <ComparadorSueldo en />
+
+    <h2>How to read the result</h2>
+    <p>
+      If the tool says you earn more than 60% of employees, it means that out of every ten people on a payroll in Spain, six earn less than you and four earn more. The most useful benchmark is not the average wage but the median: €2,001 gross a month in {ANIO_DATOS}. Someone on that salary sits exactly in the middle.
+    </p>
+    <p>
+      In the election debate of 13 November, the conservative PP pledged to lift the average wage from about €30,000 to €50,000 gross a year within two terms; the governing Socialists called it "a wish list". Today, earning €50,000 puts you above nine in ten employees.
+    </p>
+    <h2>Where the data comes from</h2>
+    <p>
+      From the "wage deciles of the main job" statistic published by Spain's National Statistics Institute (INE), based on the Labour Force Survey. The latest figures are for {ANIO_DATOS}. It covers employees only, not the self-employed or pensioners, and measures gross pay with extra payments spread over twelve months. Between two published cut-off points we estimate your position proportionally, so treat the result as an approximation. Your salary is never sent or stored.
+    </p>
+  </section>
+</BaseLayout>
