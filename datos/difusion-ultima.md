@@ -1,4 +1,4 @@
-# Kit de difusión — 2026-11-11
+# Kit de difusión — 2026-11-15
 
 
 
@@ -6,43 +6,43 @@ Copia y pega estos textos en tus redes. Publica cada artículo el mismo día par
 
 
 
-## 1. Nvidia se prepara para destituir a Jensen Huang tras una segunda presunta relación: la acción se hunde otro 8 % y los cuatro escenarios
-**Enlace:** https://tubolsillodiario.com/articulo/nvidia-jensen-huang-destitucion-segunda-relacion-escenarios/
+## 1. Jensen Huang dimite como CEO de Nvidia tras 33 años: quién manda ahora y qué pasa con la acción
+**Enlace:** https://tubolsillodiario.com/articulo/jensen-huang-dimite-nvidia-colette-kress-que-pasa-ahora/
 
 ### X / Twitter
 ```
-Nvidia se prepara para destituir a Jensen Huang tras una segunda presunta relación: la acción se hunde otro 8 % y los cuatro escenarios
+Jensen Huang dimite como CEO de Nvidia tras 33 años: quién manda ahora y qué pasa con la acción
 
-👉 https://tubolsillodiario.com/articulo/nvidia-jensen-huang-destitucion-segunda-relacion-escenarios/
+👉 https://tubolsillodiario.com/articulo/jensen-huang-dimite-nvidia-colette-kress-que-pasa-ahora/
 #Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
 ```
 
 ### Telegram / Canal de WhatsApp
 ```
-📰 *Nvidia se prepara para destituir a Jensen Huang tras una segunda presunta relación: la acción se hunde otro 8 % y los cuatro escenarios*
+📰 *Jensen Huang dimite como CEO de Nvidia tras 33 años: quién manda ahora y qué pasa con la acción*
 
-Tras admitir una infidelidad con una presunta espía china, la prensa de EE UU le atribuye una relación con una directiva que dependía de él. El consejo podría apartarlo. Cronología, cifras y qué puede pasar.
+El fundador deja el cargo y el consejo con efecto inmediato. La directora financiera, Colette Kress, asume de forma interina. La acción encadena seis semanas de caídas y el martes hay resultados.
 
-• Según la prensa estadounidense, el consejo de Nvidia se prepara para apartar a Jensen Huang como consejero delegado. La empresa no lo ha confirmado ni desmentido.
-• La chispa: una información que atribuye a Huang una relación con Kimberly Powell, vicepresidenta de salud de Nvidia y subordinada suya. Ninguno de los dos lo ha confirmado y la empresa no comenta.
-• La acción, que había rebotado casi un 3 % durante la sesión, se hundió un 8,3 % tras el cierre, hasta unos 159 dólares. Desde el máximo del 7 de octubre, cae alrededor de un 33 %.
+• Nvidia anunció el jueves 12 de noviembre que Jensen Huang deja de ser presidente ejecutivo, consejero delegado y miembro del consejo, con efecto inmediato. El comunicado no explica el motivo.
+• La directora financiera, Colette Kress, es la consejera delegada interina y mantiene su cargo. Harvey Jones pasa a presidir el consejo, un puesto que hasta ahora no existía separado.
+• La acción cerró el viernes en 162,85 dólares: un 12,75 % menos en la semana, sexta semana seguida de caídas y por debajo de los 4 billones de valor por primera vez desde julio de 2025.
 
-🔗 Léelo aquí: https://tubolsillodiario.com/articulo/nvidia-jensen-huang-destitucion-segunda-relacion-escenarios/
+🔗 Léelo aquí: https://tubolsillodiario.com/articulo/jensen-huang-dimite-nvidia-colette-kress-que-pasa-ahora/
 
 _Actualidad · Bolsillo Diario_
 ```
 
 ### Instagram / TikTok / YouTube Shorts
 ```
-🎬 GUION VÍDEO CORTO (~30 s) — Nvidia se prepara para destituir a Jensen Huang tras una segunda presunta relación: la acción se hunde otro 8 % y los cuatro escenarios
-  • Gancho (0-3 s): "¿Nvidia se prepara para destituir a Jensen Huang tras una segunda pres…?"
+🎬 GUION VÍDEO CORTO (~30 s) — Jensen Huang dimite como CEO de Nvidia tras 33 años: quién manda ahora y qué pasa con la acción
+  • Gancho (0-3 s): "¿Jensen Huang dimite como CEO de Nvidia tras 33 años: quién manda ahor…?"
   • Desarrollo (3-25 s):
-  1. Según la prensa estadounidense, el consejo de Nvidia se prepara para apartar a Jensen Huang como consejero delegado. La empresa no lo ha confirmado ni desmentido.
-  2. La chispa: una información que atribuye a Huang una relación con Kimberly Powell, vicepresidenta de salud de Nvidia y subordinada suya. Ninguno de los dos lo ha confirmado y la empresa no comenta.
-  3. La acción, que había rebotado casi un 3 % durante la sesión, se hundió un 8,3 % tras el cierre, hasta unos 159 dólares. Desde el máximo del 7 de octubre, cae alrededor de un 33 %.
+  1. Nvidia anunció el jueves 12 de noviembre que Jensen Huang deja de ser presidente ejecutivo, consejero delegado y miembro del consejo, con efecto inmediato. El comunicado no explica el motivo.
+  2. La directora financiera, Colette Kress, es la consejera delegada interina y mantiene su cargo. Harvey Jones pasa a presidir el consejo, un puesto que hasta ahora no existía separado.
+  3. La acción cerró el viernes en 162,85 dólares: un 12,75 % menos en la semana, sexta semana seguida de caídas y por debajo de los 4 billones de valor por primera vez desde julio de 2025.
   • Cierre (25-30 s): "Te lo explicamos entero en Bolsillo Diario. Enlace en la bio."
 
 📸 PIE PARA INSTAGRAM / TIKTOK:
-  Tras admitir una infidelidad con una presunta espía china, la prensa de EE UU le atribuye una relación con una directiva que dependía de él. El consejo podría apartarlo. Cronología, cifras y qué pued…
+  El fundador deja el cargo y el consejo con efecto inmediato. La directora financiera, Colette Kress, asume de forma interina. La acción encadena seis semanas de caídas y el martes hay resultados.
   🔗 Enlace en la bio · #Actualidad #Nvidia #JensenHuang #España #BolsilloDiario
 ```
