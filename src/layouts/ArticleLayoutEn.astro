@@ -1,0 +1,158 @@
+---
+/** Maqueta de artículo en inglés: misma estructura y clases que la española. */
+import BaseLayout from './BaseLayout.astro';
+import Anuncio from '../components/Anuncio.astro';
+import Compartir from '../components/Compartir.astro';
+import { SITIO, colorCategoria } from '../lib/sitio';
+import { articulosEn, categoriaEn, urlArticuloEn, fechaEn, minutosEn, type ArticuloEn } from '../lib/i18n';
+
+interface Props {
+  articulo: ArticuloEn;
+}
+const { articulo } = Astro.props;
+const d = articulo.data;
+const cat = categoriaEn(d.categoria);
+const colorCat = colorCategoria(d.categoria)[0];
+const iniciales = d.autor.split(/\s+/).map((x: string) => x[0]).join('').slice(0, 2).toUpperCase();
+const urlAbs = new URL(urlArticuloEn(articulo.id), SITIO.url).href;
+const urlEs = new URL(`/articulo/${articulo.id}/`, SITIO.url).href;
+const palabras = (articulo.body ?? '').split(/\s+/).filter(Boolean).length;
+const rel = (await articulosEn())
+  .filter((a) => a.id !== articulo.id)
+  .map((a) => ({
+    a,
+    p: (a.data.categoria === d.categoria ? 3 : 0) + a.data.etiquetas.filter((t: string) => d.etiquetas.includes(t)).length,
+  }))
+  .sort((x, y) => y.p - x.p)
+  .slice(0, 3)
+  .map((x) => x.a);
+
+const newsArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: d.titulo,
+  description: d.descripcion,
+  image: [new URL(d.imagen, SITIO.url).href],
+  datePublished: d.fechaPublicacion.toISOString(),
+  dateModified: (d.fechaActualizacion ?? d.fechaPublicacion).toISOString(),
+  author: { '@type': 'Person', name: d.autor },
+  publisher: {
+    '@type': 'Organization',
+    name: SITIO.nombre,
+    logo: { '@type': 'ImageObject', url: new URL('/imagenes/logo.svg', SITIO.url).href },
+  },
+  mainEntityOfPage: urlAbs,
+  articleSection: cat.nombre,
+  inLanguage: 'en',
+};
+---
+
+<BaseLayout titulo={d.tituloSeo || d.titulo} descripcion={d.descripcion} imagen={d.imagen} tipo="article">
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={urlAbs} />
+    <link rel="alternate" hreflang="es" href={urlEs} />
+    <link rel="alternate" hreflang="x-default" href={urlEs} />
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(newsArticle)}</script>`} />
+  </Fragment>
+
+  <div class="articulo-rejilla">
+    <article class="lectura" style="margin-inline:auto;">
+      <nav class="migas" aria-label="Breadcrumb">
+        <a href="/en/">Home</a> › <a href={`/en/category/${d.categoria}/`}>{cat.nombre}</a>
+      </nav>
+
+      <header class="articulo-cabecera">
+        <p class="dato-cat articulo-cat" style={`--cat:${colorCat}`}>{cat.nombre}</p>
+        <h1>{d.titulo}</h1>
+        <p class="entradilla">{d.subtitulo}</p>
+        <p class="meta firma">
+          <span class="firma-avatar" aria-hidden="true">{iniciales}</span>
+          <span class="firma-texto">
+            By {d.autor} ·
+            <time datetime={d.fechaPublicacion.toISOString()}>{fechaEn(d.fechaPublicacion)}</time>
+            {d.fechaActualizacion && <> · Updated {fechaEn(d.fechaActualizacion)}</>}
+            · <span class="tiempo-lectura">{minutosEn(articulo)} min read</span>
+          </span>
+        </p>
+      </header>
+
+      <figure class="portada-articulo">
+        <img src={d.imagen} alt={d.imagenAlt} width="1200" height="675" />
+        {d.imagenCredito && <figcaption>{d.imagenCredito}</figcaption>}
+      </figure>
+
+      {
+        d.clavesRapidas.length > 0 && (
+          <section class="claves" aria-label="Key points">
+            <strong>Key points</strong>
+            <ul>
+              {d.clavesRapidas.map((c: string) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <Compartir url={urlAbs} titulo={d.titulo} />
+      <Anuncio formato="horizontal" />
+
+      <div class="cuerpo-articulo">
+        <slot />
+      </div>
+
+      {palabras > 600 && <Anuncio formato="rectangulo" />}
+
+      <section class="fuentes-lista" aria-label="Sources">
+        <h2>Sources</h2>
+        <ul>
+          {
+            d.fuentes.map((f: { titulo: string; url: string; organismo?: string }) => (
+              <li>
+                <a href={f.url} target="_blank" rel="noopener nofollow">
+                  {f.titulo}
+                </a>
+                {f.organismo && <span> — {f.organismo}</span>}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <p class="aviso-traduccion">
+        This article is a translation of our Spanish original, produced with the help of artificial intelligence.
+        <a href={`/articulo/${articulo.id}/`} hreflang="es">Read the original in Spanish</a>.
+      </p>
+
+      <Compartir url={urlAbs} titulo={d.titulo} />
+    </article>
+    <aside class="articulo-lateral" aria-label="Advertising">
+      <div class="rail-pegajoso">
+        <Anuncio formato="lateral" />
+      </div>
+    </aside>
+  </div>
+
+  {
+    rel.length > 0 && (
+      <section style="margin-top:3rem;">
+        <h2>You may also like</h2>
+        <div class="rejilla-fotos">
+          {rel.map((a) => (
+            <article class="foto-tarjeta">
+              <a href={urlArticuloEn(a.id)} class="foto-tarjeta-img" tabindex="-1" aria-hidden="true">
+                <img src={a.data.imagen} alt="" width="600" height="400" loading="lazy" />
+              </a>
+              <p class="dato-cat" style={`--cat:${colorCategoria(a.data.categoria)[0]}`}>
+                {categoriaEn(a.data.categoria).nombre}
+              </p>
+              <h3>
+                <a href={urlArticuloEn(a.id)}>{a.data.titulo}</a>
+              </h3>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

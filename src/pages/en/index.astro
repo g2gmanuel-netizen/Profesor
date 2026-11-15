@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Anuncio from '../../components/Anuncio.astro';
+import ListaEn from '../../components/ListaEn.astro';
+import { SITIO, colorCategoria } from '../../lib/sitio';
+import { articulosEn, categoriaEn, urlArticuloEn, minutosEn } from '../../lib/i18n';
+
+const arts = await articulosEn();
+const lead = arts.find((a) => a.data.destacado) ?? arts[0];
+const resto = arts.filter((a) => a.id !== lead?.id);
+const mosaico = resto.slice(0, 5);
+const mas = resto.slice(5);
+const descripcion = 'Clear, sourced news about the Spanish economy, markets and politics, and what they mean for your money.';
+---
+
+<BaseLayout titulo={`${SITIO.nombre} in English`} descripcion={descripcion}>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={new URL('/en/', SITIO.url).href} />
+    <link rel="alternate" hreflang="es" href={SITIO.url} />
+  </Fragment>
+
+  {
+    arts.length === 0 && (
+      <section class="lectura" style="margin-inline:auto;">
+        <h1>Bolsillo Diario in English</h1>
+        <p>Our English edition is being prepared. The first translated stories will appear here very soon.</p>
+        <p><a href="/">Read the Spanish edition</a></p>
+      </section>
+    )
+  }
+
+  {
+    lead && (
+      <article class="portada-hero">
+        <a href={urlArticuloEn(lead.id)} class="portada-hero-enlace">
+          <img src={lead.data.imagen} alt={lead.data.imagenAlt} width="1600" height="900" />
+          <div class="portada-hero-texto">
+            <p class="sobre-foto-cat">
+              <span style={`--cat:${colorCategoria(lead.data.categoria)[0]}`}>{categoriaEn(lead.data.categoria).nombre}</span>
+              {minutosEn(lead)} min read
+            </p>
+            <h1>{lead.data.titulo}</h1>
+            {lead.data.porQueImporta && (
+              <p class="portada-hero-importa">
+                <strong>Why it matters.</strong> {lead.data.porQueImporta}
+              </p>
+            )}
+            <span class="portada-hero-boton">Read the story</span>
+          </div>
+        </a>
+      </article>
+    )
+  }
+
+  {
+    mosaico.length > 0 && (
+      <section class="mosaico" aria-label="Top stories">
+        {mosaico.map((a, i) => (
+          <article class={i === 0 ? 'losa losa-grande' : 'losa'}>
+            <a href={urlArticuloEn(a.id)}>
+              <img src={a.data.imagen} alt={a.data.imagenAlt} width="800" height="800" loading={i < 3 ? 'eager' : 'lazy'} />
+              <div class="losa-texto">
+                <p class="sobre-foto-cat">
+                  <span style={`--cat:${colorCategoria(a.data.categoria)[0]}`}>{categoriaEn(a.data.categoria).nombre}</span>
+                  {minutosEn(a)} min
+                </p>
+                <h2>{a.data.titulo}</h2>
+              </div>
+            </a>
+          </article>
+        ))}
+      </section>
+    )
+  }
+
+  {
+    mas.length > 0 && (
+      <section class="mas-noticias" aria-label="More stories">
+        <div class="bloque-cabeza">
+          <h2>More stories</h2>
+          <span />
+        </div>
+        <ListaEn articulos={mas.slice(0, 6)} />
+        <Anuncio formato="horizontal" />
+        {mas.length > 6 && <ListaEn articulos={mas.slice(6)} />}
+      </section>
+    )
+  }
+</BaseLayout>

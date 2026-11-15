@@ -56,4 +56,53 @@ const articulos = defineCollection({
   }),
 });
 
-export const collections = { articulos };
+/** Traducciones al inglés (mismo slug que el original). Las genera scripts/traducir.ts. */
+const articulosEn = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articulos-en' }),
+  schema: z.object({
+    titulo: z.string().min(5).max(220),
+    subtitulo: z.string().min(5).max(320),
+    tituloSeo: z.string().max(120),
+    descripcion: z.string().min(20).max(260),
+    categoria: z.enum(slugsCategoria),
+    autor: z.string().min(2),
+    fechaPublicacion: z.coerce.date(),
+    fechaActualizacion: z.coerce.date().optional(),
+    imagen: z.string().default('/imagenes/portada-generica.svg'),
+    imagenAlt: z.string().min(5),
+    imagenCredito: z.string().optional(),
+    // Búsquedas (en inglés) para la foto de portada, literales al contenido.
+    imagenBusqueda: z.array(z.string()).optional(),
+    imagenRequiere: z.string().optional(),
+    etiquetas: z.array(z.string()).default([]),
+    fuentes: z
+      .array(
+        z.object({
+          titulo: z.string(),
+          url: z.string().url(),
+          organismo: z.string().optional(),
+        }),
+      )
+      .min(1, 'Cada artículo debe citar al menos una fuente'),
+    clavesRapidas: z.array(z.string()).default([]),
+    titularesAlternativos: z.array(z.string()).default([]),
+    enlacesInternos: z.array(z.string()).default([]),
+    elaboradoConIA: z.boolean().default(true),
+    destacado: z.boolean().default(false),
+    // Frase corta para el recuadro «Por qué te importa» de la portada (opcional).
+    porQueImporta: z.string().max(320).optional(),
+    // Fija la noticia en una posición de otra sección, p. ej. { actualidad: 3 } (además de la suya).
+    fijarEn: z.record(z.string(), z.number().int().min(1)).optional(),
+    borrador: z.boolean().default(false),
+    // Campos opcionales para los análisis de Bolsa (categoría "bolsa").
+    ticker: z.string().max(12).optional(),
+    bolsaMercado: z.string().max(60).optional(), // p.ej. "NASDAQ"
+    sectorBolsa: z.string().max(80).optional(),
+    precioActual: z.string().max(40).optional(),
+    precioEntrada: z.string().max(40).optional(),
+    fechaDatos: z.string().max(40).optional(), // fecha de los datos de mercado
+  }),
+});
+
+
+export const collections = { articulos, articulosEn };

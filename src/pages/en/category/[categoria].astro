@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ListaEn from '../../../components/ListaEn.astro';
+import { CATEGORIAS, SITIO } from '../../../lib/sitio';
+import { articulosEn, categoriaEn } from '../../../lib/i18n';
+
+export async function getStaticPaths() {
+  const arts = await articulosEn();
+  return CATEGORIAS.filter((c) => arts.some((a) => a.data.categoria === c.slug)).map((c) => ({
+    params: { categoria: c.slug },
+  }));
+}
+const { categoria } = Astro.params;
+const cat = categoriaEn(categoria!);
+const arts = (await articulosEn()).filter((a) => a.data.categoria === categoria);
+---
+
+<BaseLayout titulo={cat.nombre} descripcion={cat.descripcion}>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={new URL(`/categoria/${categoria}/`, SITIO.url).href} />
+  </Fragment>
+  <div class="bloque-cabeza">
+    <h1>{cat.nombre}</h1>
+    <span></span>
+  </div>
+  <p>{cat.descripcion}</p>
+  <ListaEn articulos={arts} />
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+/** Rejilla de noticias en inglés (portada y secciones de /en/). */
+import { colorCategoria } from '../lib/sitio';
+import { categoriaEn, urlArticuloEn, minutosEn, type ArticuloEn } from '../lib/i18n';
+interface Props {
+  articulos: ArticuloEn[];
+}
+const { articulos } = Astro.props;
+---
+
+<div class="rejilla-fotos">
+  {
+    articulos.map((a) => (
+      <article class="foto-tarjeta">
+        <a href={urlArticuloEn(a.id)} class="foto-tarjeta-img" tabindex="-1" aria-hidden="true">
+          <img src={a.data.imagen} alt="" width="600" height="400" loading="lazy" />
+        </a>
+        <p class="dato-cat" style={`--cat:${colorCategoria(a.data.categoria)[0]}`}>
+          {categoriaEn(a.data.categoria).nombre}
+          <span>· {minutosEn(a)} min</span>
+        </p>
+        <h3>
+          <a href={urlArticuloEn(a.id)}>{a.data.titulo}</a>
+        </h3>
+        <p class="foto-tarjeta-resumen">{a.data.descripcion}</p>
+      </article>
+    ))
+  }
+</div>

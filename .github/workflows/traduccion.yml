@@ -1,0 +1,58 @@
+name: Traducción al inglés
+
+# Traduce al inglés las noticias nuevas o modificadas y las publica en /en/.
+# Se lanza sola cuando cambia una noticia y también a mano desde la pestaña Actions.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/articulos/**'
+  workflow_dispatch:
+    inputs:
+      maximo:
+        description: 'Cuántas noticias traducir como máximo en esta pasada'
+        type: string
+        default: '200'
+      slugs:
+        description: 'Solo estas noticias (slugs separados por comas). Vacío = todas las pendientes'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: traduccion
+  cancel-in-progress: false
+
+jobs:
+  traducir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Traducir las noticias pendientes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRADUCIR_MAX: ${{ inputs.maximo || '200' }}
+          TRADUCIR_SLUGS: ${{ inputs.slugs }}
+        run: npx tsx scripts/traducir.ts
+
+      - name: Validar que la web sigue compilando
+        run: npm run build
+
+      - name: Guardar las traducciones
+        run: |
+          git config user.name "Bolsillo Diario bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add src/content/articulos-en datos/traducciones.json
+          git commit -m "Traducciones al inglés" || { echo "Sin cambios"; exit 0; }
+          for i in 1 2 3 4; do
+            git pull --rebase origin main && git push && break || { echo "reintento $i"; sleep $((2**i)); }
+          done

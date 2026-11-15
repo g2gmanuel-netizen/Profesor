@@ -7,6 +7,7 @@ import BannerCookies from '../components/BannerCookies.astro';
 import Analitica from '../components/Analitica.astro';
 import Anuncio from '../components/Anuncio.astro';
 import { SITIO } from '../lib/sitio';
+import { esIngles } from '../lib/i18n';
 
 interface Props {
   titulo: string;
@@ -24,10 +25,11 @@ const {
   canonical,
   noindex = false,
 } = Astro.props;
+const en = esIngles(Astro.url.pathname);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={en ? 'en' : 'es'}>
   <head>
     <BaseHead
       titulo={titulo}
@@ -42,7 +44,7 @@ const {
     <slot name="head" />
   </head>
   <body>
-    <a href="#principal" class="sr-only">Saltar al contenido</a>
+    <a href="#principal" class="sr-only">{en ? 'Skip to content' : 'Saltar al contenido'}</a>
     <Cabecera />
     <div class="lienzo">
       <aside class="rail rail-izq" aria-label="Publicidad">

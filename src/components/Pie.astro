@@ -1,7 +1,10 @@
 ---
 import { SITIO } from '../lib/sitio';
 import { categoriasConArticulos } from '../lib/articulos';
-const secciones = await categoriasConArticulos();
+import { esIngles, categoriasEnConArticulos } from '../lib/i18n';
+const en = esIngles(Astro.url.pathname);
+const secciones = en ? await categoriasEnConArticulos() : await categoriasConArticulos();
+const baseCat = en ? '/en/category/' : '/categoria/';
 const anio = new Date().getFullYear();
 ---
 
@@ -9,29 +12,31 @@ const anio = new Date().getFullYear();
   <div class="contenedor pie-rejilla">
     <div>
       <h4>{SITIO.nombre}</h4>
-      <p>{SITIO.descripcion}</p>
+      <p>{en ? 'Clear, sourced news about the Spanish economy and how it affects your money.' : SITIO.descripcion}</p>
       <p>
-        Contenido elaborado con asistencia de inteligencia artificial y revisión editorial humana.
-        <a href="/politica-editorial/">Cómo trabajamos</a>.
+        {en
+          ? 'Content produced with the help of artificial intelligence and human editorial review. English articles are translations of our Spanish originals.'
+          : 'Contenido elaborado con asistencia de inteligencia artificial y revisión editorial humana.'}
+        <a href="/politica-editorial/">{en ? 'How we work (in Spanish)' : 'Cómo trabajamos'}</a>.
       </p>
     </div>
     <div>
-      <h4>Secciones</h4>
-      {secciones.map((c) => <a href={`/categoria/${c.slug}/`}>{c.nombre}</a>)}
+      <h4>{en ? 'Sections' : 'Secciones'}</h4>
+      {secciones.map((c) => <a href={`${baseCat}${c.slug}/`}>{c.nombre}</a>)}
     </div>
     <div>
-      <h4>El medio</h4>
-      <a href="/sobre-nosotros/">Sobre nosotros</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="/politica-editorial/">Política editorial y uso de IA</a>
-      <a href="/aviso-legal/">Aviso legal</a>
-      <a href="/politica-privacidad/">Política de privacidad</a>
-      <a href="/politica-cookies/">Política de cookies</a>
-      <button type="button" class="pie-cookies" onclick="window.bdAbrirCookies && window.bdAbrirCookies()">Configurar cookies</button>
+      <h4>{en ? 'About' : 'El medio'}</h4>
+      <a href="/sobre-nosotros/">{en ? 'About us' : 'Sobre nosotros'}</a>
+      <a href="/contacto/">{en ? 'Contact' : 'Contacto'}</a>
+      <a href="/politica-editorial/">{en ? 'Editorial policy and use of AI' : 'Política editorial y uso de IA'}</a>
+      <a href="/aviso-legal/">{en ? 'Legal notice' : 'Aviso legal'}</a>
+      <a href="/politica-privacidad/">{en ? 'Privacy policy' : 'Política de privacidad'}</a>
+      <a href="/politica-cookies/">{en ? 'Cookie policy' : 'Política de cookies'}</a>
+      <button type="button" class="pie-cookies" onclick="window.bdAbrirCookies && window.bdAbrirCookies()">{en ? 'Cookie settings' : 'Configurar cookies'}</button>
       <a href="/rss.xml">RSS</a>
     </div>
   </div>
   <div class="contenedor" style="padding-block:1rem;border-top:1px solid var(--color-borde);">
-    <small>© {anio} {SITIO.nombre}. Todos los derechos reservados.</small>
+    <small>© {anio} {SITIO.nombre}. {en ? 'All rights reserved.' : 'Todos los derechos reservados.'}</small>
   </div>
 </footer>

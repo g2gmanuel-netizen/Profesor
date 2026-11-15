@@ -2882,3 +2882,34 @@ h3 {
 .portada-hero-enlace {
   background: var(--verde-claro-2);
 }
+
+/* === Selector de idioma (ES / EN) === */
+.cab-idioma {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.55rem;
+  border: 1.5px solid var(--color-marca, #0a5234);
+  border-radius: 999px;
+  font-family: var(--fuente-ui);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-marca, #0a5234);
+  text-decoration: none;
+}
+.cab-idioma:hover {
+  background: var(--color-marca, #0a5234);
+  color: #fff;
+}
+.aviso-traduccion {
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  background: var(--verde-claro, #e3f1e8);
+  color: var(--verde-texto, #0a3d27);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  margin: 1rem 0;
+}

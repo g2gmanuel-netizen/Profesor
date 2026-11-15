@@ -1,0 +1,15 @@
+---
+import { render } from 'astro:content';
+import ArticleLayoutEn from '../../../layouts/ArticleLayoutEn.astro';
+import { articulosEn } from '../../../lib/i18n';
+
+export async function getStaticPaths() {
+  return (await articulosEn()).map((articulo) => ({ params: { slug: articulo.id }, props: { articulo } }));
+}
+const { articulo } = Astro.props;
+const { Content } = await render(articulo);
+---
+
+<ArticleLayoutEn articulo={articulo}>
+  <Content />
+</ArticleLayoutEn>

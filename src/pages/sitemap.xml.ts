@@ -3,6 +3,7 @@ import { SITIO, slugAutor } from '../lib/sitio';
 import { todosLosArticulos, urlArticulo, categoriasConArticulos } from '../lib/articulos';
 import { construirSitemap, type UrlSitemap } from '../lib/sitemap';
 import { COMUNIDADES } from '../lib/irpf';
+import { articulosEn, urlArticuloEn } from '../lib/i18n';
 
 export const GET: APIRoute = async () => {
   const arts = await todosLosArticulos();
@@ -31,6 +32,17 @@ export const GET: APIRoute = async () => {
   for (const a of arts) {
     urls.push({
       loc: new URL(urlArticulo(a), base).href,
+      lastmod: (a.data.fechaActualizacion ?? a.data.fechaPublicacion).toISOString(),
+    });
+  }
+
+  // Edición en inglés.
+  const en = await articulosEn();
+  if (en.length > 0) urls.push({ loc: `${base}/en/` });
+  for (const c of new Set(en.map((a) => a.data.categoria))) urls.push({ loc: `${base}/en/category/${c}/` });
+  for (const a of en) {
+    urls.push({
+      loc: new URL(urlArticuloEn(a.id), base).href,
       lastmod: (a.data.fechaActualizacion ?? a.data.fechaPublicacion).toISOString(),
     });
   }

@@ -7,6 +7,7 @@ import Afiliado from '../components/Afiliado.astro';
 import TarjetaArticulo from '../components/TarjetaArticulo.astro';
 import { SITIO, categoriaPorSlug, slugAutor, colorCategoria } from '../lib/sitio';
 import { fechaLegible, urlArticulo, relacionados, type Articulo } from '../lib/articulos';
+import { articulosEn, urlArticuloEn } from '../lib/i18n';
 
 interface Props {
   articulo: Articulo;
@@ -30,6 +31,9 @@ const afiliado = productoAfiliado[d.categoria];
 const urlAbs = new URL(urlArticulo(articulo), SITIO.url).href;
 const tiempoLectura = Math.max(1, Math.round(palabras / 200));
 const rel = await relacionados(articulo, 4);
+// Si la noticia está traducida, se anuncia a los buscadores la versión en inglés.
+const hayIngles = (await articulosEn()).some((e) => e.id === articulo.id);
+const urlEn = new URL(urlArticuloEn(articulo.id), SITIO.url).href;
 const largo = palabras > 600;
 // Las noticias de impuestos o sueldos enlazan a la calculadora de IRPF.
 const sobreIrpf =
@@ -78,6 +82,8 @@ const breadcrumb = {
   tipo="article"
 >
   <Fragment slot="head">
+    {hayIngles && <link rel="alternate" hreflang="es" href={urlAbs} />}
+    {hayIngles && <link rel="alternate" hreflang="en" href={urlEn} />}
     <set:html value={`<script type="application/ld+json">${JSON.stringify(newsArticle)}</script>`} />
     <set:html value={`<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`} />
   </Fragment>
