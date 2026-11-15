@@ -6,6 +6,7 @@ descripcion: "Nvidia podría destituir a Jensen Huang tras una segunda presunta 
 categoria: actualidad
 autor: Daniel Arcos
 fechaPublicacion: 2026-11-11
+fechaActualizacion: 2026-11-15
 destacado: true
 porQueImporta: "Nvidia es una de las mayores empresas de los fondos indexados y planes de pensiones: si cae su fundador, lo nota casi cualquier ahorrador."
 imagen: /imagenes/nvidia-jensen-huang-despido-portada.jpg
@@ -115,6 +116,8 @@ fuentes:
     organismo: La Nación
 elaboradoConIA: false
 ---
+
+*Actualización del 15 de noviembre: Jensen Huang dimitió el jueves 12. Lo contamos en [Jensen Huang dimite como CEO de Nvidia: quién manda ahora y qué pasa con la acción](/articulo/jensen-huang-dimite-nvidia-colette-kress-que-pasa-ahora/).*
 
 En tres días, Jensen Huang ha pasado de pedir perdón por una infidelidad a ver cómo su propio consejo de administración, según la prensa estadounidense, se prepara para apartarlo de la empresa que fundó en 1993. El miércoles por la tarde, ya con Wall Street cerrado, llegaron dos golpes seguidos. Primero, una información que le atribuye una segunda relación extramatrimonial, esta vez con una directiva de Nvidia que dependía de él. Después, otra que asegura que el consejo prepara su salida como consejero delegado. La acción, que había recuperado casi un 3 % durante la sesión, se desplomó un 8,3 % en cuestión de minutos.
 
