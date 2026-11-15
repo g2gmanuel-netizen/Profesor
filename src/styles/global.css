@@ -2944,3 +2944,86 @@ h3 {
   background: var(--vivo, #e0322b);
   vertical-align: middle;
 }
+
+/* =====================================================================
+   PULIDO v4: legibilidad del mosaico y tarjetas de móvil
+   ===================================================================== */
+/* Degradado más alto y oscuro: el titular se lee aunque la foto tenga texto o caras debajo. */
+.losa a::after {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 26, 20, 0) 18%,
+    rgba(12, 26, 20, 0.72) 55%,
+    rgba(12, 26, 20, 0.96) 100%
+  );
+}
+.losa h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+}
+.losa img,
+.portada-hero-enlace img {
+  object-position: center 25%;
+}
+
+@media (max-width: 720px) {
+  /* En el móvil las noticias pequeñas pasan a foto + titular al lado: la foto se ve entera
+     y el titular no la tapa. La grande conserva el titular sobre la foto. */
+  .mosaico {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 0;
+  }
+  .losa-grande {
+    grid-column: auto;
+    height: 230px;
+    margin-bottom: 0.4rem;
+  }
+  .losa:not(.losa-grande) {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    border-bottom: 1px solid var(--linea, #e8e4da);
+  }
+  .losa:not(.losa-grande) a {
+    position: static;
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 0.9rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    color: var(--color-texto);
+  }
+  .losa:not(.losa-grande) a::after {
+    display: none;
+  }
+  .losa:not(.losa-grande) img {
+    position: static;
+    width: 112px;
+    height: 84px;
+    border-radius: 10px;
+  }
+  .losa:not(.losa-grande):hover img {
+    transform: none;
+  }
+  .losa:not(.losa-grande) .losa-texto {
+    position: static;
+    padding: 0;
+  }
+  .losa:not(.losa-grande) h2 {
+    color: var(--color-texto);
+    font-size: 1.02rem;
+    line-height: 1.22;
+    margin-top: 0.3rem;
+    text-shadow: none;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  .losa:not(.losa-grande) .sobre-foto-cat {
+    color: var(--color-texto-suave);
+  }
+}

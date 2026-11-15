@@ -1,15 +1,40 @@
 ---
 import { render } from 'astro:content';
 import ArticleLayoutEn from '../../../layouts/ArticleLayoutEn.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { articulosEn } from '../../../lib/i18n';
+import { todosLosArticulos } from '../../../lib/articulos';
 
 export async function getStaticPaths() {
-  return (await articulosEn()).map((articulo) => ({ params: { slug: articulo.id }, props: { articulo } }));
+  const en = await articulosEn();
+  const traducidos = new Set(en.map((a) => a.id));
+  // Las noticias que aún no están traducidas tienen una página de aviso (sin indexar)
+  // que lleva al original, para que ningún enlace interno en inglés acabe en un error 404.
+  const pendientes = (await todosLosArticulos()).filter((a) => !traducidos.has(a.id));
+  return [
+    ...en.map((articulo) => ({ params: { slug: articulo.id }, props: { articulo, original: null } })),
+    ...pendientes.map((original) => ({ params: { slug: original.id }, props: { articulo: null, original } })),
+  ];
 }
-const { articulo } = Astro.props;
-const { Content } = await render(articulo);
+const { articulo, original } = Astro.props;
+const Contenido = articulo ? (await render(articulo)).Content : null;
 ---
 
-<ArticleLayoutEn articulo={articulo}>
-  <Content />
-</ArticleLayoutEn>
+{
+  articulo && Contenido ? (
+    <ArticleLayoutEn articulo={articulo}>
+      <Contenido />
+    </ArticleLayoutEn>
+  ) : (
+    <BaseLayout titulo="Not yet available in English" descripcion="This story has not been translated yet." noindex>
+      <section class="lectura" style="margin-inline:auto;">
+        <h1>This story is not available in English yet</h1>
+        <p class="entradilla">We are translating our archive. In the meantime you can read the original in Spanish.</p>
+        <p>
+          <a href={`/articulo/${original!.id}/`} hreflang="es"><strong>{original!.data.titulo}</strong></a>
+        </p>
+        <p><a href="/en/">Back to the English edition</a></p>
+      </section>
+    </BaseLayout>
+  )
+}
